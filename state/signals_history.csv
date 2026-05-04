@@ -1,0 +1,6 @@
+timestamp,symbol,date,close,rsi,ma_200,atr,score,signal,trend,market_up,vol_confirmed,shares,stop_loss,take_profit,risk_reward,sl_method
+2026-05-04 15:24:38,ADANIPOWER.NS,2026-05-04,227.3,84.37,145.87,8.39,1,SELL,UP,True,False,,,,,
+2026-05-04 15:24:38,RELIANCE.NS,2026-05-04,1463.1,66.03,1434.17,33.85,2,HOLD,UP,True,True,,,,,
+2026-05-04 15:24:38,TCS.NS,2026-05-04,2431.3,42.23,2920.31,65.03,1,HOLD,DOWN,True,False,,,,,
+2026-05-04 15:24:38,INFY.NS,2026-05-04,1168.4,34.27,1465.9,36.35,1,HOLD,DOWN,True,False,,,,,
+2026-05-04 15:24:38,HDFCBANK.NS,2026-05-04,779.4,44.05,938.61,19.33,1,HOLD,DOWN,True,False,,,,,

@@ -4,6 +4,10 @@ on:
   schedule:
     # 9:00 AM IST = 3:30 AM UTC, Monday–Friday
     - cron: '30 3 * * 1-5'
+  # Trigger on every push to main (useful for testing)
+  push:
+    branches:
+      - main
   # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
 

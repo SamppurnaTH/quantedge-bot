@@ -28,7 +28,7 @@ jobs:
 
       # ── 3. Install dependencies ─────────────────────────────────────────────
       - name: Install dependencies
-        run: pip install -r trading_bot/requirements.txt
+        run: pip install -r requirements.txt
 
       # ── 4. Restore persistent state ─────────────────────────────────────────
       # logs/ and data/ are in .gitignore but we store state in a
@@ -58,23 +58,22 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python run_daily.py
-        working-directory: trading_bot
 
       # ── 6. Save persistent state back to repo ───────────────────────────────
       - name: Save portfolio state
         run: |
           mkdir -p state
-          if [ -f trading_bot/logs/paper_portfolio.json ]; then
-            cp trading_bot/logs/paper_portfolio.json state/paper_portfolio.json
+          if [ -f logs/paper_portfolio.json ]; then
+            cp logs/paper_portfolio.json state/paper_portfolio.json
           fi
-          if [ -f trading_bot/logs/signals_history.csv ]; then
-            cp trading_bot/logs/signals_history.csv state/signals_history.csv
+          if [ -f logs/signals_history.csv ]; then
+            cp logs/signals_history.csv state/signals_history.csv
           fi
-          if [ -f trading_bot/logs/backtest_results.csv ]; then
-            cp trading_bot/logs/backtest_results.csv state/backtest_results.csv
+          if [ -f logs/backtest_results.csv ]; then
+            cp logs/backtest_results.csv state/backtest_results.csv
           fi
-          if [ -f trading_bot/logs/ab_test_results.json ]; then
-            cp trading_bot/logs/ab_test_results.json state/ab_test_results.json
+          if [ -f logs/ab_test_results.json ]; then
+            cp logs/ab_test_results.json state/ab_test_results.json
           fi
 
       # ── 7. Commit state back to repo ────────────────────────────────────────

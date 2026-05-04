@@ -25,11 +25,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       # ── 3. Install dependencies ─────────────────────────────────────────────
       - name: Install dependencies
-        run: pip install pandas numpy yfinance backtrader requests
+        run: pip install -r trading_bot/requirements.txt
 
       # ── 4. Restore persistent state ─────────────────────────────────────────
       # logs/ and data/ are in .gitignore but we store state in a

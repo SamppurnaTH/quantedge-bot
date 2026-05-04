@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/hero.png" alt="QuantEdge Bot" width="100%" />
+</div>
+
 # QuantEdge Bot
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue.svg)

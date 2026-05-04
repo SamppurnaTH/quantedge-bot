@@ -4,8 +4,11 @@
 # Data cache — regenerated on first run
 data/raw/
 
-# Logs — generated at runtime
+# Logs — generated at runtime, persisted via state/ folder instead
 logs/
+
+# State folder IS tracked (paper portfolio, signal history)
+# state/ — intentionally not ignored
 
 # Python
 __pycache__/

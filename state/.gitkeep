@@ -1,0 +1,2 @@
+# This folder stores persistent paper trading state between GitHub Actions runs.
+# paper_portfolio.json, signals_history.csv, backtest_results.csv

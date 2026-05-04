@@ -1,0 +1,93 @@
+name: Daily Trading Scan
+
+on:
+  schedule:
+    # 9:00 AM IST = 3:30 AM UTC, Monday–Friday
+    - cron: '30 3 * * 1-5'
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit portfolio state back
+
+    steps:
+      # ── 1. Checkout repo ────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 2. Python setup ─────────────────────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ── 3. Install dependencies ─────────────────────────────────────────────
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance backtrader requests
+
+      # ── 4. Restore persistent state ─────────────────────────────────────────
+      # logs/ and data/ are in .gitignore but we store state in a
+      # dedicated state/ folder that IS tracked by git.
+      - name: Restore portfolio state
+        run: |
+          mkdir -p logs data/raw
+          if [ -f state/paper_portfolio.json ]; then
+            cp state/paper_portfolio.json logs/paper_portfolio.json
+            echo "Portfolio state restored."
+          else
+            echo "No existing portfolio state — fresh start."
+          fi
+          if [ -f state/signals_history.csv ]; then
+            cp state/signals_history.csv logs/signals_history.csv
+          fi
+          if [ -f state/backtest_results.csv ]; then
+            cp state/backtest_results.csv logs/backtest_results.csv
+          fi
+          if [ -f state/ab_test_results.json ]; then
+            cp state/ab_test_results.json logs/ab_test_results.json
+          fi
+
+      # ── 5. Run daily scan ────────────────────────────────────────────────────
+      - name: Run daily trading scan
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python run_daily.py
+        working-directory: trading_bot
+
+      # ── 6. Save persistent state back to repo ───────────────────────────────
+      - name: Save portfolio state
+        run: |
+          mkdir -p state
+          if [ -f trading_bot/logs/paper_portfolio.json ]; then
+            cp trading_bot/logs/paper_portfolio.json state/paper_portfolio.json
+          fi
+          if [ -f trading_bot/logs/signals_history.csv ]; then
+            cp trading_bot/logs/signals_history.csv state/signals_history.csv
+          fi
+          if [ -f trading_bot/logs/backtest_results.csv ]; then
+            cp trading_bot/logs/backtest_results.csv state/backtest_results.csv
+          fi
+          if [ -f trading_bot/logs/ab_test_results.json ]; then
+            cp trading_bot/logs/ab_test_results.json state/ab_test_results.json
+          fi
+
+      # ── 7. Commit state back to repo ────────────────────────────────────────
+      - name: Commit updated state
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/
+          # Only commit if something actually changed
+          if git diff --staged --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "chore: update portfolio state $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

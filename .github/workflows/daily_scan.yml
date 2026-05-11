@@ -35,8 +35,7 @@ jobs:
         run: pip install -r requirements.txt
 
       # ── 4. Restore persistent state ─────────────────────────────────────────
-      # logs/ and data/ are in .gitignore but we store state in a
-      # dedicated state/ folder that IS tracked by git.
+      # state/ is tracked by git — copy into logs/ so the bot can read it.
       - name: Restore portfolio state
         run: |
           mkdir -p logs data/raw

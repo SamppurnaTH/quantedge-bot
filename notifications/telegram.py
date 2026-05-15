@@ -28,9 +28,11 @@ from config.settings import TELEGRAM_CONFIG
 logger = logging.getLogger(__name__)
 
 # Load from environment — never hardcode credentials
-_TOKEN   = os.getenv("TELEGRAM_BOT_TOKEN", "")
-_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
-_API_URL = f"https://api.telegram.org/bot{_TOKEN}/sendMessage"
+def _get_token():
+    return os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+
+def _get_chat_id():
+    return os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
 
 class TelegramNotifier:
@@ -40,13 +42,18 @@ class TelegramNotifier:
     """
 
     def __init__(self):
-        self.enabled  = TELEGRAM_CONFIG["enabled"] and bool(_TOKEN) and bool(_CHAT_ID)
+        token = _get_token()
+        chat_id = _get_chat_id()
+        
+        self.enabled = TELEGRAM_CONFIG["enabled"] and bool(token) and bool(chat_id)
         self.parse_mode = TELEGRAM_CONFIG["parse_mode"]
 
         if TELEGRAM_CONFIG["enabled"] and not self.enabled:
+            missing = []
+            if not token: missing.append("TELEGRAM_BOT_TOKEN")
+            if not chat_id: missing.append("TELEGRAM_CHAT_ID")
             logger.warning(
-                "Telegram enabled in config but TELEGRAM_BOT_TOKEN or "
-                "TELEGRAM_CHAT_ID not set in environment. Alerts disabled."
+                f"Telegram enabled in config but {', '.join(missing)} not set in environment. Alerts disabled."
             )
 
     # ── Public API ────────────────────────────────────────────────────────────
@@ -207,11 +214,16 @@ class TelegramNotifier:
         """Send a message via Telegram Bot API. Returns True on success."""
         if not self.enabled:
             return False
+            
+        token = _get_token()
+        chat_id = _get_chat_id()
+        api_url = f"https://api.telegram.org/bot{token}/sendMessage"
+
         try:
             resp = requests.post(
-                _API_URL,
+                api_url,
                 json={
-                    "chat_id":    _CHAT_ID,
+                    "chat_id":    chat_id,
                     "text":       text,
                     "parse_mode": self.parse_mode,
                 },

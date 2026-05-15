@@ -1,5 +1,5 @@
 # 📚 QuantEdge Bot — Learning Report
-_Generated: 15 May 2026  15:53_
+_Generated: 15 May 2026  10:25_
 
 ---
 
@@ -45,25 +45,25 @@ _Generated: 15 May 2026  15:53_
 > More data is needed before the bot adjusts its behaviour.
 
   • STRONG_TREND_UP regime, RSI<60, Score 2/4, Rising channel
-    → 55% win rate | 78/5 trades | need -73 more to confirm
+    → 55% win rate | 78 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<50, Score 2/4, Falling channel
-    → 51% win rate | 49/5 trades | need -44 more to confirm
+    → 51% win rate | 49 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<50, Score 2/4
-    → 56% win rate | 39/5 trades | need -34 more to confirm
+    → 56% win rate | 39 trades | pending re-classification
   • SIDEWAYS regime, RSI<50, Score 3/4, Falling channel
-    → 45% win rate | 35/5 trades | need -30 more to confirm
+    → 45% win rate | 35 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<70, Score 2/4, Rising channel, Bearish Divergence
-    → 48% win rate | 31/5 trades | need -26 more to confirm
+    → 48% win rate | 31 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<70, Score 2/4, Bearish Divergence
-    → 55% win rate | 27/5 trades | need -22 more to confirm
+    → 55% win rate | 27 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<60, Score 2/4, Rising channel, Bearish Divergence
-    → 48% win rate | 25/5 trades | need -20 more to confirm
+    → 48% win rate | 25 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<50, Score 2/4, Falling channel, Bearish Engulfing
-    → 47% win rate | 19/5 trades | need -14 more to confirm
+    → 47% win rate | 19 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<60, Score 2/4, Doji
-    → 46% win rate | 13/5 trades | need -8 more to confirm
+    → 46% win rate | 13 trades | pending re-classification
   • STRONG_TREND_UP regime, RSI<50, Score 2/4, Falling channel, Inside Bar
-    → 38% win rate | 13/5 trades | need -8 more to confirm
+    → 38% win rate | 13 trades | pending re-classification
 
 
 ---

@@ -32,6 +32,8 @@ Every morning the system:
 6. Sends a summary to your Telegram bot
 7. Commits updated portfolio state back to the repo
 
+**See also:** [Data Pipeline & Feeding Mechanism](docs/data_pipeline.md)
+
 ---
 
 ## Features

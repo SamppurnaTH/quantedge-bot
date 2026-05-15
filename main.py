@@ -22,6 +22,12 @@ import os
 import argparse
 import logging
 
+# Force UTF-8 encoding for stdout/stderr to handle emojis on all platforms
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8')
+if sys.stderr.encoding != 'utf-8':
+    sys.stderr.reconfigure(encoding='utf-8')
+
 sys.path.insert(0, os.path.dirname(__file__))
 
 # Load .env before any module reads environment variables

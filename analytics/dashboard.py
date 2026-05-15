@@ -268,19 +268,20 @@ def build_dynamic_filter(df: pd.DataFrame, min_trades: int = 3) -> dict:
     if "regime" in df.columns:
         for regime, group in df.groupby("regime"):
             if len(group) >= min_trades and _expectancy(group) < 0:
-                filter_rules["skip_regimes"].append(regime)
+                filter_rules["skip_regimes"].append(str(regime))
                 logger.info("Dynamic filter: skip regime %s (expectancy=%.2f)", regime, _expectancy(group))
 
     # Symbols with negative total P&L (enough data)
     if "symbol" in df.columns:
         for symbol, group in df.groupby("symbol"):
             if len(group) >= min_trades and group["pnl"].sum() < 0:
-                filter_rules["skip_symbols"].append(symbol)
+                filter_rules["skip_symbols"].append(str(symbol))
                 logger.info("Dynamic filter: skip symbol %s (total_pnl=%.2f)", symbol, group["pnl"].sum())
 
     # Minimum score: find lowest score with positive expectancy
     if "score" in df.columns:
         best_min_score = 0
+        # Check cumulative: if using score X and above gives positive expectancy
         for score in sorted(df["score"].unique()):
             group = df[df["score"] >= score]
             if len(group) >= min_trades and _expectancy(group) > 0:
@@ -289,6 +290,20 @@ def build_dynamic_filter(df: pd.DataFrame, min_trades: int = 3) -> dict:
         filter_rules["skip_score_below"] = best_min_score
 
     return filter_rules
+
+
+def run_auto_optimization() -> dict:
+    """
+    Load latest trades, rebuild filter, and save it.
+    Returns the new filter rules.
+    """
+    df = _load_trades()
+    if df.empty:
+        return load_dynamic_filter()
+        
+    new_filter = build_dynamic_filter(df)
+    save_dynamic_filter(new_filter)
+    return new_filter
 
 
 def save_dynamic_filter(filter_rules: dict) -> None:

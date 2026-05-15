@@ -142,6 +142,44 @@ class TelegramNotifier:
         """Send a test message to verify the bot is working."""
         return self._send("🤖 <b>Trading Bot Connected</b>\nAlerts are active.")
 
+    def send_optimization_alert(self, rules: dict) -> bool:
+        """
+        Send a daily auto-optimization summary.
+        Tells the user what the bot has "learned" from paper trading history.
+        """
+        if not self.enabled:
+            return False
+
+        skip_regimes = rules.get("skip_regimes", [])
+        skip_symbols = rules.get("skip_symbols", [])
+        skip_score   = rules.get("skip_score_below", 0)
+        generated_at = rules.get("generated_at", "?")
+
+        lines = ["🤖 <b>AUTO-OPTIMIZATION COMPLETE</b>"]
+        lines.append(f"Based on paper trading history as of {generated_at}:\n")
+
+        if skip_regimes:
+            lines.append(f"⛔ <b>Blocked regimes:</b> {', '.join(skip_regimes)}")
+        else:
+            lines.append("✅ All market regimes still active")
+
+        if skip_symbols:
+            lines.append(f"⛔ <b>Blocked symbols:</b> {', '.join(skip_symbols)}")
+        else:
+            lines.append("✅ All symbols still active")
+
+        if skip_score > 0:
+            lines.append(f"⛔ <b>Min score raised to:</b> {skip_score}/4")
+        else:
+            lines.append("✅ No score filter needed yet")
+
+        if not skip_regimes and not skip_symbols and skip_score == 0:
+            lines.append("\n📊 Not enough closed trades to learn from yet. Keep paper trading!")
+        else:
+            lines.append("\n📈 These rules will apply to today's scan automatically.")
+
+        return self._send("\n".join(lines))
+
     # ── Formatters ────────────────────────────────────────────────────────────
 
     def _format_signal(self, r: dict) -> str:

@@ -38,6 +38,7 @@ from indicators.regime import Regime, regime_summary
 from execution.paper_trader import PaperTrader, PAPER_STATE_FILE
 from logger.trade_tracker import log_signals
 from notifications.telegram import TelegramNotifier
+from analytics.dashboard import run_auto_optimization
 from config.settings import DATA_CONFIG, RISK_CONFIG, PORTFOLIO_CONFIG
 
 
@@ -48,6 +49,15 @@ def run_daily():
     print(f"\n{'='*60}")
     print(f"  DAILY RUN — {now.strftime('%A, %d %b %Y  %H:%M')}")
     print(f"{'='*60}\n")
+
+    # ── 0. Auto-Optimize: learn from paper trading history ────────────────────
+    print("  ⚙️  Running auto-optimization from paper trade history...")
+    opt_rules = run_auto_optimization()
+    if opt_rules.get("skip_regimes") or opt_rules.get("skip_symbols") or opt_rules.get("skip_score_below", 0) > 0:
+        print(f"  🧠 Learned: block regimes={opt_rules['skip_regimes']}  "
+              f"symbols={opt_rules['skip_symbols']}  min_score={opt_rules['skip_score_below']}")
+    else:
+        print("  ℹ️  Not enough closed trades to learn from yet — no filter applied.")
 
     # ── 1. Market regime ──────────────────────────────────────────────────────
     market_up, regime, result = fetch_index_regime()
@@ -87,6 +97,9 @@ def run_daily():
     if notifier.enabled:
         # Regime alert
         notifier.send_regime_alert(str(regime), regime.description)
+
+        # Optimization summary
+        notifier.send_optimization_alert(opt_rules)
 
         # Daily summary
         notifier.send_daily_summary(results, regime_str=str(regime))

@@ -10,7 +10,7 @@ The primary data source for the bot is **Yahoo Finance**, accessed via the [`yfi
 ### Automatic Fetching
 When the bot runs (either locally or via GitHub Actions), it automatically fetches historical data for all symbols listed in `DATA_CONFIG["symbols"]` (defined in `config/settings.py`).
 
-- **Period**: 3 years of historical data (`DATA_CONFIG["period"]`).
+- **Period**: 10 years of historical data (`DATA_CONFIG["period"]`). This covers multiple bull runs, bear markets, and sideways periods for robust strategy validation.
 - **Interval**: Daily bars (`DATA_CONFIG["interval"]`).
 - **Adjustments**: All prices are auto-adjusted for dividends and splits.
 

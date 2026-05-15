@@ -6,7 +6,7 @@ Central configuration — all parameters in one place, no magic numbers in code.
 DATA_CONFIG = {
     "symbols": ["RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ADANIPOWER.NS"],
     "market_index": "^NSEI",
-    "period": "3y",
+    "period": "10y",      # extended from 3y — more data = better strategy calibration
     "interval": "1d",
     "data_dir": "data/raw",
 }

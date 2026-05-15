@@ -45,7 +45,7 @@ def fetch_index_regime() -> tuple:
     index = DATA_CONFIG["market_index"]
     try:
         ticker = yf.Ticker(index)
-        df     = ticker.history(period="1y", interval="1d", auto_adjust=True)
+        df     = ticker.history(period=DATA_CONFIG["period"], interval="1d", auto_adjust=True)
         if df.empty or len(df) < 210:
             logger.warning("Insufficient index data — defaulting to STRONG_TREND_UP")
             dummy = RegimeResult(Regime.STRONG_TREND_UP, 0.0, 1.0, 0.0, 0.0, 0.0)

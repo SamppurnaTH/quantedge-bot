@@ -180,6 +180,12 @@ class TelegramNotifier:
 
         return self._send("\n".join(lines))
 
+    def send_learning_report(self, summary_text: str) -> bool:
+        """Send a compact learning report alert."""
+        if not self.enabled:
+            return False
+        return self._send(summary_text)
+
     # ── Formatters ────────────────────────────────────────────────────────────
 
     def _format_signal(self, r: dict) -> str:

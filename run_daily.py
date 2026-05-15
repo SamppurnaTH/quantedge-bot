@@ -39,6 +39,8 @@ from execution.paper_trader import PaperTrader, PAPER_STATE_FILE
 from logger.trade_tracker import log_signals
 from notifications.telegram import TelegramNotifier
 from analytics.dashboard import run_auto_optimization
+from analytics.learning_engine import load_journal, seed_from_history
+from analytics.learning_report import run_learning_report
 from config.settings import DATA_CONFIG, RISK_CONFIG, PORTFOLIO_CONFIG
 
 
@@ -53,6 +55,16 @@ def run_daily():
     # ── 0. Auto-Optimize: learn from paper trading history ────────────────────
     print("  ⚙️  Running auto-optimization from paper trade history...")
     opt_rules = run_auto_optimization()
+    
+    # ── 0.1 Learning Engine: seed if needed, then build report ────────────────
+    journal = load_journal()
+    if journal.get("metadata", {}).get("total_observations", 0) == 0:
+        print("  🌱 Seeding learning journal from 10-year history (first run)...")
+        journal = seed_from_history()
+    
+    print("  📚 Generating daily learning report...")
+    full_report, tg_summary = run_learning_report(journal)
+
     if opt_rules.get("skip_regimes") or opt_rules.get("skip_symbols") or opt_rules.get("skip_score_below", 0) > 0:
         print(f"  🧠 Learned: block regimes={opt_rules['skip_regimes']}  "
               f"symbols={opt_rules['skip_symbols']}  min_score={opt_rules['skip_score_below']}")
@@ -100,6 +112,9 @@ def run_daily():
 
         # Optimization summary
         notifier.send_optimization_alert(opt_rules)
+
+        # Learning report
+        notifier.send_learning_report(tg_summary)
 
         # Daily summary
         notifier.send_daily_summary(results, regime_str=str(regime))

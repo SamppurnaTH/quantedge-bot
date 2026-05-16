@@ -63,6 +63,9 @@ def build_condition_key(
     rsi_bucket: str,
     score: int,
     channel: str,
+    strength: str,
+    momentum: str,
+    bb_signal: str,
     candles: List[str],
     near_support: bool,
     divergence: Optional[str],
@@ -70,13 +73,16 @@ def build_condition_key(
 ) -> str:
     """
     Build a canonical string key for a pattern condition.
-    Example: 'SIDEWAYS|RSI<30|S3|RISING|HAMMER|SUPP|BULL_DIV|VOLSPK'
+    Example: 'SIDEWAYS|RSI<30|S3|RISING|STRONG|BULLISH|NONE|HAMMER|SUPP|BULL_DIV|VOLSPK'
     """
     parts = [
         regime,
         rsi_bucket,
         f"S{score}",
         channel,
+        strength,
+        momentum,
+        bb_signal,
         "+".join(candles) if candles else "NOCNDLE",
         "SUPP" if near_support else "NOSUPP",
         divergence if divergence else "NODIV",
@@ -193,11 +199,18 @@ def seed_from_history(symbols: Optional[List[str]] = None) -> dict:
                 atr       = float(latest.get("atr") or slice_df["ATR_14"].iloc[-1])
                 entry     = float(latest.get("close", 0))
 
+                bb_sig = "NONE"
+                if snap["bb_overbought"]: bb_sig = "OVERBOUGHT"
+                elif snap["bb_oversold"]: bb_sig = "OVERSOLD"
+
                 key = build_condition_key(
                     regime       = regime,
                     rsi_bucket   = rsi_bkt,
                     score        = score,
                     channel      = snap["trend_channel"],
+                    strength     = snap["trend_strength"],
+                    momentum     = snap["momentum"],
+                    bb_signal    = bb_sig,
                     candles      = snap["candlestick"],
                     near_support = snap["near_support"] is not None,
                     divergence   = snap["rsi_divergence"],
@@ -261,11 +274,18 @@ def record_live_trade(symbol: str, signal_result: dict, won: bool, df: pd.DataFr
     score    = int(signal_result.get("score", 0))
     rsi_bkt  = rsi_to_bucket(rsi)
 
+    bb_sig = "NONE"
+    if snap.get("bb_overbought"): bb_sig = "OVERBOUGHT"
+    elif snap.get("bb_oversold"): bb_sig = "OVERSOLD"
+
     key = build_condition_key(
         regime       = regime,
         rsi_bucket   = rsi_bkt,
         score        = score,
         channel      = snap.get("trend_channel", "SIDEWAYS"),
+        strength     = snap.get("trend_strength", "MODERATE"),
+        momentum     = snap.get("momentum", "NEUTRAL"),
+        bb_signal    = bb_sig,
         candles      = snap.get("candlestick", []),
         near_support = snap.get("near_support") is not None,
         divergence   = snap.get("rsi_divergence"),

@@ -265,9 +265,29 @@ def get_pattern_snapshot(df: pd.DataFrame) -> dict:
     vol_spk = detect_volume_spike(df)
     pivots  = detect_key_pivots(df)
 
-    price       = float(df["Close"].iloc[-1])
+    last_bar = df.iloc[-1]
+    price       = float(last_bar["Close"])
     near_supp   = price_near_level(price, sr["support"])
     near_resist = price_near_level(price, sr["resistance"])
+
+    # Trend Strength (ADX)
+    adx = float(last_bar.get("ADX_14", 0))
+    if adx > 25:
+        trend_strength = "STRONG"
+    elif adx < 20:
+        trend_strength = "WEAK"
+    else:
+        trend_strength = "MODERATE"
+
+    # Momentum (MACD)
+    macd_hist = float(last_bar.get("MACD_Hist", 0))
+    momentum  = "BULLISH" if macd_hist > 0 else "BEARISH"
+
+    # Volatility (Bollinger Bands)
+    bb_upper = float(last_bar.get("BB_Upper", 0))
+    bb_lower = float(last_bar.get("BB_Lower", 0))
+    is_overbought = price >= bb_upper
+    is_oversold   = price <= bb_lower
 
     return {
         "support_levels":     sr["support"],
@@ -275,6 +295,12 @@ def get_pattern_snapshot(df: pd.DataFrame) -> dict:
         "near_support":       near_supp,
         "near_resistance":    near_resist,
         "trend_channel":      channel["direction"],
+        "trend_strength":     trend_strength,
+        "adx_value":          adx,
+        "momentum":           momentum,
+        "macd_hist":          macd_hist,
+        "bb_overbought":      is_overbought,
+        "bb_oversold":        is_oversold,
         "channel_slope":      channel["slope"],
         "channel_r2":         channel["r_squared"],
         "candlestick":        candles,

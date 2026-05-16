@@ -25,30 +25,54 @@ REPORT_FILE = os.path.join("state", "learning_report.md")
 # ── Human-Readable Key Parser ──────────────────────────────────────────────────
 
 def _parse_key(key: str) -> str:
-    """Convert a pattern key like 'SIDEWAYS|RSI<30|S3|RISING|HAMMER|SUPP|NODIV|NOSPK'
-    into a readable description."""
+    """Convert a technical pattern key into a plain-English story for beginners."""
     parts = key.split("|")
-    if len(parts) < 8:
+    if len(parts) < 11:
         return key
 
-    regime, rsi, score, channel, candle, supp, div, vol = parts[:8]
+    regime_raw, rsi_raw, score, channel_raw, strength, momentum, bb_raw, candle_raw, supp, div, vol = parts[:11]
 
-    desc = []
-    desc.append(f"{regime} regime")
-    desc.append(f"{rsi}")
-    desc.append(f"Score {score[-1]}/4")
-    if channel != "SIDEWAYS":
-        desc.append(f"{channel.capitalize()} channel")
-    if candle not in ("NOCNDLE", ""):
-        desc.append(f"{candle.replace('+', ' + ').replace('_', ' ').title()}")
-    if supp == "SUPP":
-        desc.append("at support")
-    if div not in ("NODIV", "None", ""):
-        desc.append(f"{div.replace('_', ' ').title()}")
-    if vol == "VOLSPK":
-        desc.append("+ volume spike")
+    # 1. Market Context (The Environment)
+    context = ""
+    if regime_raw == "STRONG_TREND_UP": context = "When the overall market is in a powerful surge,"
+    elif regime_raw == "WEAK_TREND_UP": context = "When the market is slowly but steadily climbing,"
+    elif regime_raw == "SIDEWAYS": context = "When the market is stuck moving sideways,"
+    elif regime_raw == "VOLATILE": context = "When the market is jumping up and down wildly,"
+    else: context = "When the market is generally weak,"
 
-    return ", ".join(desc)
+    # 2. Condition (The Setup)
+    condition = ""
+    if rsi_raw == "RSI<30": condition = "the stock becomes extremely cheap (oversold)"
+    elif rsi_raw == "RSI<40": condition = "the stock is starting to look like a bargain"
+    elif rsi_raw == "RSI<50": condition = "the stock is trading at a fair price"
+    elif rsi_raw == "RSI>70": condition = "the stock is getting too expensive (overbought)"
+    else: condition = "the stock is at normal levels"
+
+    if channel_raw == "RISING": condition += " while climbing a steady 'staircase' up"
+    elif channel_raw == "FALLING": condition += " while sliding down a 'slope'"
+
+    # 3. Trigger (The Signal)
+    trigger = "I spotted "
+    if candle_raw == "HAMMER": trigger += "a 'Hammer' (a sign that buyers are fighting back from a low)"
+    elif candle_raw == "DOJI": trigger += "a 'Doji' (a moment where buyers and sellers are totally confused)"
+    elif candle_raw == "BULL_ENGLF": trigger += "a 'Bullish Engulfing' (buyers suddenly overwhelmed the sellers)"
+    elif candle_raw == "BEAR_ENGLF": trigger += "a 'Bearish Engulfing' (a sudden wave of selling swallowed the recent gains)"
+    elif candle_raw == "INSIDE_BAR": trigger += "an 'Inside Bar' (the market is pausing to catch its breath)"
+    else: trigger += "a price signal"
+
+    if supp == "SUPP": trigger += " right at a historical 'floor' (Support)"
+    
+    # 4. Confirmation
+    confirmation = ""
+    if div == "BULL_DIV": confirmation = "and noticed a hidden 'divergence' (the underlying strength was better than the price showed)"
+    if vol == "VOLSPK": confirmation = "on a sudden burst of high volume"
+
+    # Assemble
+    story = f"{context} and {condition}, {trigger}"
+    if confirmation:
+        story += f" {confirmation}"
+    
+    return story.strip() + "."
 
 
 # ── Report Sections ─────────────────────────────────────────────────────────────

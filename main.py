@@ -64,6 +64,7 @@ def parse_args():
     parser.add_argument("--regime",    action="store_true", help="Show market regime only")
     parser.add_argument("--telegram", action="store_true", help="Send Telegram alerts")
     parser.add_argument("--test-telegram", action="store_true", help="Send a test Telegram message")
+    parser.add_argument("--web-dashboard", action="store_true", help="Launch the premium Streamlit dashboard")
     parser.add_argument("--top",      type=int, default=PORTFOLIO_CONFIG["top_n_signals"],
                         help="Max BUY signals to act on (portfolio filter)")
     parser.add_argument("--capital",  type=float, default=RISK_CONFIG["default_capital"],
@@ -183,6 +184,15 @@ def main():
 
     if args.journal:
         print_journal_report()
+    elif args.web_dashboard:
+        import subprocess
+        print("\n  🚀 Launching Premium Web Dashboard...")
+        print("  (Press Ctrl+C to stop the dashboard)\n")
+        try:
+            subprocess.run([sys.executable, "-m", "streamlit", "run", "dashboard_app.py"])
+        except KeyboardInterrupt:
+            print("\n  🛑 Dashboard stopped gracefully.")
+            sys.exit(0)
     elif args.dashboard:
         print_dashboard()
     elif getattr(args, "ab_test", False):

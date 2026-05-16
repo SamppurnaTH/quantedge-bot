@@ -2,10 +2,13 @@ import streamlit as st
 import pandas as pd
 import json
 import os
+import io
 import sys
 from datetime import datetime
 import plotly.graph_objects as go
 import plotly.express as px
+from plotly.subplots import make_subplots
+import yfinance as yf
 from config.settings import DATA_CONFIG, RISK_CONFIG
 from config.tickers import NIFTY50_NAMES
 
@@ -31,9 +34,13 @@ PAPER_PORTFOLIO_FILE = os.path.join("logs", "paper_portfolio.json")
 LEARNING_JOURNAL_FILE = os.path.join("state", "learning_journal.json")
 
 def load_json(filepath):
-    if not os.path.exists(filepath): return None
-    with open(filepath, "r", encoding="utf-8") as f:
-        return json.load(f)
+    if not os.path.exists(filepath): return {}
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data if data is not None else {}
+    except (json.JSONDecodeError, EOFError):
+        return {}
 
 from analytics.learning_report import _parse_key
 
@@ -59,10 +66,19 @@ with st.sidebar:
     st.markdown(f"<p style='color:{status_color}; font-weight:bold; font-size:1.1em;'>{status_text}</p>", unsafe_allow_html=True)
     st.caption(f"Current Time: {datetime.now().strftime('%H:%M:%S IST')}")
     st.divider()
-    page = st.radio("Navigation", ["📊 Live Dashboard", "📘 Intelligence Report", "🏫 Education Center"])
+    page = st.radio("Navigation", ["📊 Live Dashboard", "🔍 Stock Explorer", "📘 Intelligence Report", "🏫 Education Center"])
     st.divider()
     portfolio = load_json(PAPER_PORTFOLIO_FILE)
     journal = load_json(LEARNING_JOURNAL_FILE)
+
+    # ── GLOBAL DATA PROCESSING ──────────────────────────────────────────────────
+    closed_trades = []
+    positions = {}
+    if journal is None: journal = {}
+    if portfolio:
+        closed_trades = portfolio.get("closed_trades", [])
+        positions = portfolio.get("positions", {})
+
     if portfolio: st.success("✅ Portfolio Connected")
     else: st.error("❌ Portfolio Data Not Found")
     if journal: st.success("✅ Knowledge Base Connected")
@@ -70,6 +86,26 @@ with st.sidebar:
     st.divider()
     st.info("Current Mode: **Paper Trading**")
     if st.button("🔄 Refresh Data"): st.rerun()
+    
+    # Excel Export Helper
+    if closed_trades or positions:
+        st.divider()
+        st.subheader("📥 Data Export")
+        output = io.BytesIO()
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            if closed_trades:
+                pd.DataFrame(closed_trades).to_excel(writer, index=False, sheet_name='Trade_Journal')
+            if positions:
+                pd.DataFrame(positions).transpose().to_excel(writer, index=True, sheet_name='Open_Positions')
+            if journal and "patterns" in journal:
+                pd.DataFrame(journal["patterns"]).transpose().to_excel(writer, index=True, sheet_name='Bot_Knowledge')
+        
+        st.download_button(
+            label="📊 Download Excel Report",
+            data=output.getvalue(),
+            file_name=f"QuantEdge_Report_{datetime.now().strftime('%Y%m%d')}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
 
 # ── PAGE LOGIC ───────────────────────────────────────────────────────────────
 
@@ -102,7 +138,7 @@ if page == "📊 Live Dashboard":
         st.write(f"**Last Scan:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
         
         # Human-friendly Maturity
-        p_count = len(journal.get('patterns', {}))
+        p_count = len(journal.get('patterns', {})) if journal else 0
         if p_count < 50:
             stage, desc = "Infant 👶", "I'm still learning the basics. Use extreme caution."
         elif p_count < 200:
@@ -115,9 +151,7 @@ if page == "📊 Live Dashboard":
 
     initial_cap = portfolio.get("initial_capital", RISK_CONFIG["default_capital"])
     cash = portfolio.get("cash", RISK_CONFIG["default_capital"])
-    positions = portfolio.get("positions", {})
-    closed_trades = portfolio.get("closed_trades", [])
-
+    
     open_value = sum(p["shares"] * p["current_price"] for p in positions.values())
     total_value = cash + open_value
     total_pnl = total_value - initial_cap
@@ -179,6 +213,99 @@ if page == "📊 Live Dashboard":
         else:
             st.info("Regime diagnostics will appear after trades are closed.")
 
+    # ── STRATEGY FORECASTER ────────────────────────────────────────────────────
+    st.divider()
+    st.subheader("🔮 Probabilistic Strategy Forecaster")
+    st.caption("Using historical outcomes to predict future probability of success.")
+    
+    if journal and journal.get("patterns"):
+        # Pre-fetch symbols for price lookup
+        unique_syms = list(set([data.get("context", {}).get("symbol") for data in journal["patterns"].values() if data.get("context")]))
+        with st.spinner("Fetching live prices..."):
+            prices = {}
+            if unique_syms:
+                latest_data = yf.download(unique_syms, period="1d", interval="1m", progress=False)
+                if not latest_data.empty:
+                    # Flatten if multi-index
+                    if isinstance(latest_data.columns, pd.MultiIndex):
+                        price_df = latest_data['Close']
+                        # Handle multi-stock or single-stock returns
+                        if isinstance(price_df, pd.Series):
+                            prices = {unique_syms[0]: price_df.iloc[-1]}
+                        else:
+                            prices = {s: price_df[s].iloc[-1] for s in price_df.columns}
+                    else:
+                        prices = {unique_syms[0]: latest_data['Close'].iloc[-1]}
+
+        p_data = []
+        for key, data in journal["patterns"].items():
+            if data["trades"] >= 2:
+                win_rate = data["win_rate"]
+                loss_rate = 1 - win_rate
+                ev = (win_rate * 2.0) - (loss_rate * 1.0)
+                
+                # Dynamic Risk Narrative
+                risk_why = "Unknown"
+                if "RSI>70" in key: risk_why = "Extreme Overbought (High reversal risk)"
+                elif "RSI<30" in key and "DOWN" in key: risk_why = "Catching a falling knife in a bear market"
+                elif "VOLATILE" in key: risk_why = "Wild swings making stops easy to hit"
+                elif "SIDEWAYS" in key: risk_why = "Stuck in a range with no clear breakout"
+                else: risk_why = "General market noise and false signals"
+
+                primary_sym = data.get("context", {}).get("symbol", "All Nifty 50")
+                curr_price = prices.get(primary_sym, 0)
+                company_name = NIFTY50_NAMES.get(primary_sym, primary_sym)
+
+                p_data.append({
+                    "Target Company": company_name,
+                    "Price": curr_price,
+                    "Pattern Story": _parse_key(key),
+                    "Win Prob.": f"{win_rate*100:.0f}%",
+                    "Loss Prob.": f"{loss_rate*100:.0f}%",
+                    "Expectancy Score": round(ev, 2),
+                    "Risk Analysis": risk_why,
+                    "Obs.": data["trades"]
+                })
+        
+        if p_data:
+            df_ev = pd.DataFrame(p_data).sort_values("Expectancy Score", ascending=False)
+            st.dataframe(df_ev, hide_index=True, width='stretch', column_config={
+                "Price": st.column_config.NumberColumn("Current Price", format="₹%.2f"),
+                "Win Prob.": st.column_config.TextColumn(help="Probability of Profit"),
+                "Loss Prob.": st.column_config.TextColumn(help="Probability of Loss"),
+                "Risk Analysis": st.column_config.TextColumn(help="Why this pattern might fail")
+            })
+            st.info("💡 **Risk Insight:** Patterns with a high **Loss Prob.** and a negative **Expectancy Score** are your 'Danger Zones'. The bot uses this data to skip these trades automatically!")
+        else:
+            st.info("Analyzing market history to build probability maps...")
+    else:
+        st.info("Forecasting will begin after the bot processes more data.")
+
+    # ── PERFORMANCE LEADERBOARD ────────────────────────────────────────────────
+    st.divider()
+    st.subheader("🏆 Performance Leaderboard (Top Winners & Losers)")
+    if closed_trades:
+        df_lead = pd.DataFrame(closed_trades)
+        leaderboard = df_lead.groupby("symbol").agg({
+            "pnl": ["sum", "count", "mean"],
+            "regime": "first"
+        }).reset_index()
+        leaderboard.columns = ["Ticker", "Total PnL", "Trades", "Avg PnL", "Primary Regime"]
+        leaderboard["Company"] = leaderboard["Ticker"].map(NIFTY50_NAMES).fillna(leaderboard["Ticker"])
+        
+        # Sort by PnL
+        leaderboard = leaderboard.sort_values("Total PnL", ascending=False)
+        
+        l_col1, l_col2 = st.columns(2)
+        with l_col1:
+            st.markdown("### 🟢 Top Profitable Stocks")
+            st.dataframe(leaderboard.head(5), hide_index=True, width='stretch', column_config={"Total PnL": st.column_config.NumberColumn(format="₹%.2f"), "Avg PnL": st.column_config.NumberColumn(format="₹%.2f")})
+        with l_col2:
+            st.markdown("### 🔴 Top Loss-Making Stocks")
+            st.dataframe(leaderboard.tail(5).sort_values("Total PnL"), hide_index=True, width='stretch', column_config={"Total PnL": st.column_config.NumberColumn(format="₹%.2f"), "Avg PnL": st.column_config.NumberColumn(format="₹%.2f")})
+    else:
+        st.info("Leaderboard will populate as stocks complete their trade cycles.")
+
     st.divider()
     st.subheader("📓 Trade Journal")
     if closed_trades:
@@ -231,6 +358,60 @@ if page == "📊 Live Dashboard":
             })
     else:
         st.info("No open positions at the moment.")
+
+# ── STOCK EXPLORER ───────────────────────────────────────────────────────────
+
+elif page == "🔍 Stock Explorer":
+    st.title("🔍 Technical Stock Explorer")
+    st.caption("Deep-dive into Nifty 50 price action with professional indicators.")
+    
+    selected_sym = st.selectbox("Select a Stock to Analyze", DATA_CONFIG["symbols"], format_func=lambda x: f"{x} ({NIFTY50_NAMES.get(x, 'Nifty 50')})")
+    
+    with st.spinner(f"Fetching live data for {selected_sym}..."):
+        df = yf.download(selected_sym, period="6mo", interval="1d", progress=False)
+        if not df.empty:
+            # Flatten columns if MultiIndex (yf fix)
+            if isinstance(df.columns, pd.MultiIndex):
+                df.columns = df.columns.get_level_values(0)
+            
+            # Simple Indicator Calculations (for visual only)
+            df['MA20'] = df['Close'].rolling(window=20).mean()
+            df['STD'] = df['Close'].rolling(window=20).std()
+            df['Upper'] = df['MA20'] + (df['STD'] * 2)
+            df['Lower'] = df['MA20'] - (df['STD'] * 2)
+            
+            # Create Chart
+            fig = make_subplots(rows=3, cols=1, shared_xaxes=True, vertical_spacing=0.05, row_heights=[0.6, 0.2, 0.2], subplot_titles=("Price Action & Bollinger Bands", "Volume", "RSI (Relative Strength)"))
+            
+            # 1. Candlestick
+            fig.add_trace(go.Candlestick(x=df.index, open=df['Open'], high=df['High'], low=df['Low'], close=df['Close'], name="Price"), row=1, col=1)
+            
+            # 2. Bollinger Bands
+            fig.add_trace(go.Scatter(x=df.index, y=df['Upper'], name='Upper Band', line=dict(color='rgba(173, 216, 230, 0.4)', width=1)), row=1, col=1)
+            fig.add_trace(go.Scatter(x=df.index, y=df['Lower'], name='Lower Band', line=dict(color='rgba(173, 216, 230, 0.4)', width=1), fill='tonexty'), row=1, col=1)
+            
+            # 3. Volume
+            colors = ['red' if df['Open'].iloc[i] > df['Close'].iloc[i] else 'green' for i in range(len(df))]
+            fig.add_trace(go.Bar(x=df.index, y=df['Volume'], name="Volume", marker_color=colors, opacity=0.5), row=2, col=1)
+            
+            # 4. RSI (Placeholder logic for display)
+            delta = df['Close'].diff()
+            gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+            rs = gain / loss
+            df['RSI'] = 100 - (100 / (1 + rs))
+            
+            fig.add_trace(go.Scatter(x=df.index, y=df['RSI'], name="RSI", line=dict(color='#ff9900')), row=3, col=1)
+            fig.add_hline(y=70, line_dash="dash", line_color="red", row=3, col=1)
+            fig.add_hline(y=30, line_dash="dash", line_color="green", row=3, col=1)
+            
+            fig.update_layout(template="plotly_dark", height=800, xaxis_rangeslider_visible=False, showlegend=False, margin=dict(l=10, r=10, t=50, b=10))
+            st.plotly_chart(fig, width='stretch')
+            
+            # Beginner Tip
+            st.info("💡 **Beginner Tip:** When the price touches the **Lower Band** (shaded area) and the **RSI** is below the green line, the stock might be 'On Sale'. When it hits the **Upper Band** and the red line, it might be 'Overpriced'.")
+        else:
+            st.error("Could not fetch data. Check your internet connection or the symbol name.")
 
 # ── INTELLIGENCE REPORT ───────────────────────────────────────────────────────
 

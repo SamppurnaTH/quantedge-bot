@@ -7,6 +7,7 @@ from datetime import datetime
 import plotly.graph_objects as go
 import plotly.express as px
 from config.settings import DATA_CONFIG, RISK_CONFIG
+from config.tickers import NIFTY50_NAMES
 
 # ── PAGE CONFIG ──────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -182,8 +183,15 @@ if page == "📊 Live Dashboard":
     st.subheader("📓 Trade Journal")
     if closed_trades:
         df_all = pd.DataFrame(closed_trades)
-        display_cols = ['symbol', 'exit_date', 'pnl', 'exit_reason', 'regime', 'slippage_cost']
-        st.dataframe(df_all[display_cols].sort_values('exit_date', ascending=False), width='stretch', hide_index=True, column_config={"pnl": st.column_config.NumberColumn("PnL (₹)", format="₹%.2f"), "slippage_cost": st.column_config.NumberColumn("Slippage (₹)", format="₹%.2f"), "exit_date": "Date", "symbol": "Symbol", "exit_reason": "Reason", "regime": "Regime"})
+        df_all['Company'] = df_all['symbol'].map(NIFTY50_NAMES).fillna(df_all['symbol'])
+        display_cols = ['Company', 'symbol', 'exit_date', 'pnl', 'exit_reason', 'regime']
+        st.dataframe(df_all[display_cols].sort_values('exit_date', ascending=False), width='stretch', hide_index=True, column_config={
+            "pnl": st.column_config.NumberColumn("PnL (₹)", format="₹%.2f"),
+            "exit_date": "Date",
+            "symbol": "Ticker",
+            "exit_reason": "Reason",
+            "regime": "Regime"
+        })
     else:
         st.info("No closed trades in history yet.")
 
@@ -196,12 +204,13 @@ if page == "📊 Live Dashboard":
         for sym, p in positions.items():
             unreal = (p["current_price"] - p["entry_price"]) * p["shares"]
             current_val = p["current_price"] * p["shares"]
+            company_name = NIFTY50_NAMES.get(sym, sym)
             p_list.append({
+                "Company": company_name,
                 "Symbol": sym,
                 "Value": current_val,
                 "Entry": p["entry_price"],
                 "Current": p["current_price"],
-                "Shares": p["shares"],
                 "Unreal P&L": unreal,
                 "Regime": p["regime"]
             })

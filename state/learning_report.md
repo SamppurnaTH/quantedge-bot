@@ -1,13 +1,13 @@
 # 📚 QuantEdge Bot — Learning Report
-_Generated: 16 May 2026  10:49_
+_Generated: 16 May 2026  12:10_
 
 ---
 
 ## Summary
-- **Total pattern conditions tracked**: 356
-- **Total trade observations**: 594
-- **Proven patterns (LEARNED)**: 14
-- **Patterns in training (LEARNING)**: 83
+- **Total pattern conditions tracked**: 4144
+- **Total trade observations**: 24040
+- **Proven patterns (LEARNED)**: 626
+- **Patterns in training (LEARNING)**: 1361
 - **Patterns being watched**: 10
 
 ---
@@ -16,26 +16,26 @@ _Generated: 16 May 2026  10:49_
 > These patterns have been confirmed through sufficient trade history.
 > The bot will prioritise signals matching these conditions.
 
-  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
+  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
+    → 100% win rate over 9 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
+    → 100% win rate over 6 trades
+  • When the market is slowly but steadily climbing, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal on a sudden burst of high volume.
+    → 100% win rate over 6 trades
+  • When the market is jumping up and down wildly, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 100% win rate over 6 trades
+  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
+    → 100% win rate over 6 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 100% win rate over 6 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
     → 100% win rate over 5 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
-    → 90% win rate over 10 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 88% win rate over 9 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
-    → 85% win rate over 14 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
-    → 83% win rate over 6 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 80% win rate over 5 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 75% win rate over 16 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 66% win rate over 9 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 66% win rate over 12 trades
-  • When the market is stuck moving sideways, and the stock is trading at a fair price, I spotted a price signal.
-    → 66% win rate over 6 trades
+  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted an 'Inside Bar' (the market is pausing to catch its breath) right at a historical 'floor' (Support).
+    → 100% win rate over 6 trades
+  • When the market is stuck moving sideways, and the stock is trading at a fair price while climbing a steady 'staircase' up, I spotted a price signal right at a historical 'floor' (Support).
+    → 100% win rate over 6 trades
+  • When the overall market is in a powerful surge, and the stock is trading at a fair price, I spotted a price signal.
+    → 100% win rate over 5 trades
 
 
 ---
@@ -44,26 +44,26 @@ _Generated: 16 May 2026  10:49_
 > These patterns have been seen in 2–4 trades. Win rates are preliminary.
 > More data is needed before the bot adjusts its behaviour.
 
-  • When the overall market is in a powerful surge, and the stock is trading at a fair price, I spotted a price signal.
-    → 25% win rate | 8 trades | pending re-classification
-  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
-    → 33% win rate | 6 trades | pending re-classification
+  • When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
+    → 58% win rate | 158 trades | pending re-classification
+  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
+    → 54% win rate | 111 trades | pending re-classification
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted an 'Inside Bar' (the market is pausing to catch its breath).
+    → 58% win rate | 79 trades | pending re-classification
+  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted a price signal.
+    → 58% win rate | 68 trades | pending re-classification
+  • When the overall market is in a powerful surge, and the stock is trading at a fair price while climbing a steady 'staircase' up, I spotted a price signal.
+    → 58% win rate | 67 trades | pending re-classification
   • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 75% win rate | 4 trades | need 1 more to confirm
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 50% win rate | 4 trades | need 1 more to confirm
-  • When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
-    → 50% win rate | 4 trades | need 1 more to confirm
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 75% win rate | 4 trades | need 1 more to confirm
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 50% win rate | 4 trades | need 1 more to confirm
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 50% win rate | 4 trades | need 1 more to confirm
+    → 50% win rate | 53 trades | pending re-classification
   • When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
-    → 25% win rate | 4 trades | need 1 more to confirm
-  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
-    → 100% win rate | 3 trades | need 2 more to confirm
+    → 57% win rate | 47 trades | pending re-classification
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 57% win rate | 35 trades | pending re-classification
+  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
+    → 48% win rate | 35 trades | pending re-classification
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
+    → 58% win rate | 34 trades | pending re-classification
 
 
 ---
@@ -72,25 +72,25 @@ _Generated: 16 May 2026  10:49_
 > These patterns have been detected in recent market data but no trades
 > have been taken yet. The bot is monitoring them actively.
 
-  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted a price signal.
+  • When the overall market is in a powerful surge, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
     → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted an 'Inside Bar' (the market is pausing to catch its breath).
+  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a 'Doji' (a moment where buyers and sellers are totally confused).
     → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
+  • When the market is slowly but steadily climbing, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
     → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a 'Doji' (a moment where buyers and sellers are totally confused).
+  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal on a sudden burst of high volume.
     → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
+  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
+    → Detected, waiting for a trade signal to track outcome
+  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
+    → Detected, waiting for a trade signal to track outcome
+  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
+    → Detected, waiting for a trade signal to track outcome
+  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a 'Doji' (a moment where buyers and sellers are totally confused) on a sudden burst of high volume.
+    → Detected, waiting for a trade signal to track outcome
+  • When the market is stuck moving sideways, and the stock is at normal levels, I spotted a price signal right at a historical 'floor' (Support).
     → Detected, waiting for a trade signal to track outcome
   • When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
-    → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
-    → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a 'Doji' (a moment where buyers and sellers are totally confused).
-    → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted an 'Inside Bar' (the market is pausing to catch its breath).
-    → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal on a sudden burst of high volume.
     → Detected, waiting for a trade signal to track outcome
 
 

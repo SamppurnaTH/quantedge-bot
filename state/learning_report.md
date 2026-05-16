@@ -1,13 +1,13 @@
 # 📚 QuantEdge Bot — Learning Report
-_Generated: 15 May 2026  10:25_
+_Generated: 16 May 2026  10:47_
 
 ---
 
 ## Summary
-- **Total pattern conditions tracked**: 634
-- **Total trade observations**: 2706
-- **Proven patterns (LEARNED)**: 96
-- **Patterns in training (LEARNING)**: 206
+- **Total pattern conditions tracked**: 356
+- **Total trade observations**: 594
+- **Proven patterns (LEARNED)**: 14
+- **Patterns in training (LEARNING)**: 83
 - **Patterns being watched**: 10
 
 ---
@@ -16,26 +16,26 @@ _Generated: 15 May 2026  10:25_
 > These patterns have been confirmed through sufficient trade history.
 > The bot will prioritise signals matching these conditions.
 
-  • STRONG_TREND_UP regime, RSI<50, Score 2/4, Rising channel, Bearish Engulfing
+  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
     → 100% win rate over 5 trades
-  • SIDEWAYS regime, RSI<40, Score 3/4, at support, Bullish Divergence
-    → 100% win rate over 5 trades
-  • STRONG_TREND_UP regime, RSI>=70, Score 2/4, Rising channel, Bearish Engulfing
-    → 100% win rate over 6 trades
-  • WEAK_TREND_UP regime, RSI<40, Score 3/4, Bearish Engulfing, at support
-    → 100% win rate over 6 trades
-  • STRONG_TREND_UP regime, RSI<60, Score 2/4, Rising channel, at support
-    → 100% win rate over 5 trades
-  • STRONG_TREND_UP regime, RSI<50, Score 2/4, Doji
-    → 100% win rate over 7 trades
-  • SIDEWAYS regime, RSI<50, Score 3/4, at support, Bullish Divergence
-    → 100% win rate over 10 trades
-  • STRONG_TREND_UP regime, RSI<60, Score 2/4, + volume spike
-    → 100% win rate over 5 trades
-  • STRONG_TREND_UP regime, RSI<60, Score 2/4, Rising channel, Doji
-    → 100% win rate over 7 trades
-  • WEAK_TREND_UP regime, RSI<50, Score 3/4, Bearish Engulfing
-    → 100% win rate over 7 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
+    → 90% win rate over 10 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 88% win rate over 9 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
+    → 85% win rate over 14 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
+    → 83% win rate over 6 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 80% win rate over 5 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 75% win rate over 16 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 66% win rate over 9 trades
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 66% win rate over 12 trades
+  • When the market is stuck moving sideways, and the stock is trading at a fair price, I spotted a price signal.
+    → 66% win rate over 6 trades
 
 
 ---
@@ -44,26 +44,26 @@ _Generated: 15 May 2026  10:25_
 > These patterns have been seen in 2–4 trades. Win rates are preliminary.
 > More data is needed before the bot adjusts its behaviour.
 
-  • STRONG_TREND_UP regime, RSI<60, Score 2/4, Rising channel
-    → 55% win rate | 78 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<50, Score 2/4, Falling channel
-    → 51% win rate | 49 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<50, Score 2/4
-    → 56% win rate | 39 trades | pending re-classification
-  • SIDEWAYS regime, RSI<50, Score 3/4, Falling channel
-    → 45% win rate | 35 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<70, Score 2/4, Rising channel, Bearish Divergence
-    → 48% win rate | 31 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<70, Score 2/4, Bearish Divergence
-    → 55% win rate | 27 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<60, Score 2/4, Rising channel, Bearish Divergence
-    → 48% win rate | 25 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<50, Score 2/4, Falling channel, Bearish Engulfing
-    → 47% win rate | 19 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<60, Score 2/4, Doji
-    → 46% win rate | 13 trades | pending re-classification
-  • STRONG_TREND_UP regime, RSI<50, Score 2/4, Falling channel, Inside Bar
-    → 38% win rate | 13 trades | pending re-classification
+  • When the overall market is in a powerful surge, and the stock is trading at a fair price, I spotted a price signal.
+    → 25% win rate | 8 trades | pending re-classification
+  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
+    → 33% win rate | 6 trades | pending re-classification
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 75% win rate | 4 trades | need 1 more to confirm
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 50% win rate | 4 trades | need 1 more to confirm
+  • When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
+    → 50% win rate | 4 trades | need 1 more to confirm
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 75% win rate | 4 trades | need 1 more to confirm
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 50% win rate | 4 trades | need 1 more to confirm
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
+    → 50% win rate | 4 trades | need 1 more to confirm
+  • When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
+    → 25% win rate | 4 trades | need 1 more to confirm
+  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
+    → 100% win rate | 3 trades | need 2 more to confirm
 
 
 ---
@@ -72,25 +72,25 @@ _Generated: 15 May 2026  10:25_
 > These patterns have been detected in recent market data but no trades
 > have been taken yet. The bot is monitoring them actively.
 
-  • STRONG_TREND_UP regime, RSI<50, Score 2/4, Falling channel, Bearish Engulfing, Bearish Divergence
+  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted a price signal.
     → Detected, waiting for a trade signal to track outcome
-  • STRONG_TREND_UP regime, RSI<70, Score 2/4, Bullish Engulfing, + volume spike
+  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted an 'Inside Bar' (the market is pausing to catch its breath).
     → Detected, waiting for a trade signal to track outcome
-  • STRONG_TREND_UP regime, RSI<50, Score 3/4, Falling channel, Inside Bar + Doji, Bearish Divergence
+  • When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
     → Detected, waiting for a trade signal to track outcome
-  • SIDEWAYS regime, RSI<50, Score 3/4, at support, Bullish Divergence, + volume spike
+  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a 'Doji' (a moment where buyers and sellers are totally confused).
     → Detected, waiting for a trade signal to track outcome
-  • SIDEWAYS regime, RSI<50, Score 3/4, Falling channel, Bullish Engulfing, at support
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
     → Detected, waiting for a trade signal to track outcome
-  • SIDEWAYS regime, RSI<40, Score 3/4, Falling channel, at support, Bullish Divergence
+  • When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
     → Detected, waiting for a trade signal to track outcome
-  • SIDEWAYS regime, RSI<50, Score 3/4, Falling channel, Inside Bar + Doji, at support, + volume spike
+  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
     → Detected, waiting for a trade signal to track outcome
-  • WEAK_TREND_UP regime, RSI<50, Score 3/4, Rising channel, Bearish Engulfing
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a 'Doji' (a moment where buyers and sellers are totally confused).
     → Detected, waiting for a trade signal to track outcome
-  • SIDEWAYS regime, RSI<60, Score 3/4, Inside Bar, Bearish Divergence
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted an 'Inside Bar' (the market is pausing to catch its breath).
     → Detected, waiting for a trade signal to track outcome
-  • STRONG_TREND_UP regime, RSI<50, Score 3/4, Falling channel, Bearish Engulfing + Doji, + volume spike
+  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal on a sudden burst of high volume.
     → Detected, waiting for a trade signal to track outcome
 
 

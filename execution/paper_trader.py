@@ -28,7 +28,7 @@ GAP_THRESHOLD  = 0.005   # if price gaps > 0.5% below SL → gap exit at open pr
 class PaperTrader:
     """
     Simulates a brokerage account with realistic execution.
-    Call process_signals() each day with fresh signal + OHLC data.
+    Tracks institutional metrics including Profit Factor, Max Drawdown, Exposure %.
     """
 
     def __init__(self, capital: float = 100_000.0):
@@ -36,6 +36,8 @@ class PaperTrader:
         self.cash            = capital
         self.positions: dict = {}
         self.closed_trades: list = []
+        self.max_portfolio_value = capital
+        self.max_drawdown = 0.0
         self._load_state()
 
     # ── Public API ────────────────────────────────────────────────────────────
@@ -74,6 +76,11 @@ class PaperTrader:
         total_value = self.cash + open_value
         total_pnl   = total_value - self.initial_capital
 
+        # Update peak and drawdown
+        self.max_portfolio_value = max(self.max_portfolio_value, total_value)
+        current_dd = ((self.max_portfolio_value - total_value) / self.max_portfolio_value) * 100 if self.max_portfolio_value > 0 else 0.0
+        self.max_drawdown = max(self.max_drawdown, current_dd)
+
         wins         = sum(1 for t in self.closed_trades if t["pnl"] > 0)
         losses       = sum(1 for t in self.closed_trades if t["pnl"] <= 0)
         total_closed = len(self.closed_trades)
@@ -86,21 +93,65 @@ class PaperTrader:
         win_rate_dec = win_rate / 100
         expectancy   = (win_rate_dec * avg_win) - ((1 - win_rate_dec) * avg_loss)
 
+        # Exposure %
+        exposure_pct = (open_value / total_value * 100) if total_value > 0 else 0.0
+
+        # Profit Factor
+        gross_profit = sum(t["pnl"] for t in self.closed_trades if t["pnl"] > 0)
+        gross_loss   = sum(abs(t["pnl"]) for t in self.closed_trades if t["pnl"] <= 0)
+        profit_factor = (gross_profit / gross_loss) if gross_loss > 0 else (gross_profit if gross_profit > 0 else 1.0)
+
+        # Consecutive Losses (streak) (CRITICAL ISSUE #6)
+        max_consecutive_losses = 0
+        current_streak = 0
+        for t in self.closed_trades:
+            if t["pnl"] <= 0:
+                current_streak += 1
+                max_consecutive_losses = max(max_consecutive_losses, current_streak)
+            else:
+                current_streak = 0
+
+        # Time-in-market (average holding period in days) (CRITICAL ISSUE #6)
+        import numpy as np
+        holding_days_list = []
+        for t in self.closed_trades:
+            try:
+                entry_dt = datetime.strptime(t["entry_date"], "%Y-%m-%d")
+                exit_dt = datetime.strptime(t["exit_date"], "%Y-%m-%d")
+                days = max((exit_dt - entry_dt).days, 1)
+                holding_days_list.append(days)
+            except Exception:
+                continue
+
+        avg_holding_days = float(np.mean(holding_days_list)) if holding_days_list else 0.0
+
+        # Regime Specific Performance
+        regime_performance = {}
+        for t in self.closed_trades:
+            reg = t.get("regime", "UNKNOWN")
+            regime_performance[reg] = round(regime_performance.get(reg, 0.0) + t["pnl"], 2)
+
         return {
-            "cash":           round(self.cash, 2),
-            "open_value":     round(open_value, 2),
-            "total_value":    round(total_value, 2),
-            "total_pnl":      round(total_pnl, 2),
-            "total_pnl_pct":  round((total_pnl / self.initial_capital) * 100, 2),
-            "closed_pnl":     round(closed_pnl, 2),
-            "open_positions": len(self.positions),
-            "closed_trades":  total_closed,
-            "wins":           wins,
-            "losses":         losses,
-            "win_rate_pct":   round(win_rate, 2),
-            "avg_win":        round(avg_win, 2),
-            "avg_loss":       round(avg_loss, 2),
-            "expectancy":     round(expectancy, 2),
+            "cash":                   round(self.cash, 2),
+            "open_value":             round(open_value, 2),
+            "total_value":            round(total_value, 2),
+            "total_pnl":              round(total_pnl, 2),
+            "total_pnl_pct":          round((total_pnl / self.initial_capital) * 100, 2),
+            "closed_pnl":             round(closed_pnl, 2),
+            "open_positions":         len(self.positions),
+            "closed_trades":          total_closed,
+            "wins":                   wins,
+            "losses":                 losses,
+            "win_rate_pct":           round(win_rate, 2),
+            "avg_win":                round(avg_win, 2),
+            "avg_loss":               round(avg_loss, 2),
+            "expectancy":             round(expectancy, 2),
+            "exposure_pct":           round(exposure_pct, 2),
+            "profit_factor":          round(profit_factor, 2),
+            "max_drawdown":           round(self.max_drawdown, 2),
+            "max_consecutive_losses": max_consecutive_losses,
+            "avg_holding_days":       round(avg_holding_days, 1),
+            "regime_performance":     regime_performance,
         }
 
     def print_portfolio(self) -> None:
@@ -108,14 +159,17 @@ class PaperTrader:
         sign = "+" if s["total_pnl"] >= 0 else ""
 
         print("\n" + "=" * 65)
-        print("  PAPER PORTFOLIO")
+        print("  PAPER PORTFOLIO STATUS")
         print("=" * 65)
         print(f"  Cash           : {s['cash']:>12,.2f}")
         print(f"  Open Value     : {s['open_value']:>12,.2f}")
         print(f"  Total Value    : {s['total_value']:>12,.2f}")
         print(f"  Total P&L      : {sign}{s['total_pnl']:>11,.2f}  ({sign}{s['total_pnl_pct']:.2f}%)")
+        print(f"  Exposure       : {s['exposure_pct']:>11.1f}%     Max Drawdown: {s['max_drawdown']:.2f}%")
+        print(f"  Profit Factor  : {s['profit_factor']:>12.2f}  Max Consecutive Losses: {s['max_consecutive_losses']}")
         print(f"  Closed Trades  : {s['closed_trades']}  (W:{s['wins']} / L:{s['losses']})  Win Rate: {s['win_rate_pct']:.1f}%")
         print(f"  Expectancy/trade: {s['expectancy']:>+,.2f}  (avg win: {s['avg_win']:,.2f}  avg loss: {s['avg_loss']:,.2f})")
+        print(f"  Avg Hold Period: {s['avg_holding_days']} days")
 
         if self.positions:
             print(f"\n  Open Positions:")
@@ -148,52 +202,29 @@ class PaperTrader:
 
     def _apply_slippage(self, price: float, is_buy: bool) -> float:
         """
-        Simulate market impact:
-          Buy  → fill slightly above quoted price (you pay more)
-          Sell → fill slightly below quoted price (you receive less)
+        Nudge order price unfavourably to simulate trade execution slippage.
         """
-        if is_buy:
-            return round(price * (1 + SLIPPAGE_PCT), 4)
-        else:
-            return round(price * (1 - SLIPPAGE_PCT), 4)
+        nudge = price * SLIPPAGE_PCT
+        return price + nudge if is_buy else price - nudge
 
-    def _regime_size_multiplier(self, regime_str: str) -> float:
-        """Map regime string to position size multiplier."""
-        multipliers = {
-            "TRENDING_UP":   1.0,
-            "SIDEWAYS":      0.5,
-            "VOLATILE":      0.5,
-            "TRENDING_DOWN": 0.0,
-        }
-        return multipliers.get(regime_str, 1.0)
-
-    def _open_position(
-        self,
-        symbol: str,
-        price: float,
-        rr: dict,
-        signal_data: dict,
-        regime_str: str,
-    ) -> None:
-        # Regime-aware position sizing
-        size_mult = self._regime_size_multiplier(regime_str)
-        if size_mult == 0.0:
-            logger.info("Skipping %s — regime %s blocks longs", symbol, regime_str)
+    def _open_position(self, symbol: str, price: float, rr: dict, signal_data: dict, regime_str: str) -> None:
+        # Check capital
+        trade_cost = rr["trade_cost"]
+        if trade_cost > self.cash:
+            logger.warning("PAPER BUY SKIP | %s | Insufficient cash (needs %.2f, has %.2f)", symbol, trade_cost, self.cash)
             return
 
-        base_shares = rr["shares"]
-        shares      = max(int(base_shares * size_mult), 1)
+        fill_price    = self._apply_slippage(price, is_buy=True)
+        slippage_cost = round((fill_price - price) * rr["shares"], 2)  # cost of entry slip
 
-        # Apply slippage to entry
-        fill_price     = self._apply_slippage(price, is_buy=True)
-        slippage_cost  = round((fill_price - price) * shares, 2)
-        cost           = shares * fill_price
+        self.cash -= fill_price * rr["shares"]
 
-        if cost > self.cash:
-            logger.warning("Insufficient cash for %s. Need %.2f, have %.2f", symbol, cost, self.cash)
-            return
+        # Apply position sizing multiplier based on regime
+        size_mult = signal_data.get("size_multiplier", 1.0)
+        shares = int(rr["shares"] * size_mult)
+        if shares <= 0:
+            shares = 1
 
-        self.cash -= cost
         self.positions[symbol] = {
             "symbol":        symbol,
             "shares":        shares,
@@ -278,10 +309,12 @@ class PaperTrader:
     def _save_state(self) -> None:
         os.makedirs(os.path.dirname(PAPER_STATE_FILE), exist_ok=True)
         state = {
-            "initial_capital": self.initial_capital,
-            "cash":            self.cash,
-            "positions":       self.positions,
-            "closed_trades":   self.closed_trades,
+            "initial_capital":     self.initial_capital,
+            "cash":                self.cash,
+            "positions":           self.positions,
+            "closed_trades":       self.closed_trades,
+            "max_portfolio_value": self.max_portfolio_value,
+            "max_drawdown":        self.max_drawdown,
         }
         with open(PAPER_STATE_FILE, "w", encoding="utf-8") as f:
             json.dump(state, f, indent=2)
@@ -296,9 +329,11 @@ class PaperTrader:
             self.cash            = state.get("cash", self.cash)
             self.positions       = state.get("positions", {})
             self.closed_trades   = state.get("closed_trades", [])
+            self.max_portfolio_value = state.get("max_portfolio_value", self.initial_capital)
+            self.max_drawdown    = state.get("max_drawdown", 0.0)
             logger.info(
-                "Paper portfolio loaded | Cash: %.2f | Open: %d | Closed: %d",
-                self.cash, len(self.positions), len(self.closed_trades),
+                "Paper portfolio loaded | Cash: %.2f | Open: %d | Closed: %d | Max Drawdown: %.2f%%",
+                self.cash, len(self.positions), len(self.closed_trades), self.max_drawdown,
             )
         except Exception as exc:
             logger.warning("Could not load paper portfolio: %s", exc)

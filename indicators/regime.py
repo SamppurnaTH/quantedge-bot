@@ -252,8 +252,8 @@ def regime_summary(regime: Regime) -> str:
 def regime_allows_trade(regime: Regime, score: int) -> tuple:
     min_score = regime.min_score_to_buy
     if score >= min_score:
-        return True, f"Score {score}/3 meets {regime} threshold ({min_score})"
-    return False, f"Score {score}/3 below {regime} threshold ({min_score})"
+        return True, f"Score {score}/4 meets {regime} threshold ({min_score})"
+    return False, f"Score {score}/4 below {regime} threshold ({min_score})"
 
 
 def _more_conservative(r1: Regime, r2: Regime) -> Regime:
@@ -261,3 +261,76 @@ def _more_conservative(r1: Regime, r2: Regime) -> Regime:
     if r1.position_size_multiplier <= r2.position_size_multiplier:
         return r1
     return r2
+
+
+def apply_regime_hysteresis(new_regime: Regime) -> Regime:
+    """
+    Prevents rapid regime flipping by requiring 2 consecutive days of confirmation.
+    Saves and reads history from state/regime_history.json.
+    """
+    import os
+    import json
+    
+    history_file = os.path.join("state", "regime_history.json")
+    os.makedirs(os.path.dirname(history_file), exist_ok=True)
+    
+    history = {}
+    if os.path.exists(history_file):
+        try:
+            with open(history_file, "r") as f:
+                history = json.load(f)
+        except Exception:
+            history = {}
+
+    prev_regime_str = history.get("active_regime")
+    pending_regime_str = history.get("pending_regime")
+    pending_days = history.get("pending_days", 0)
+
+    if not prev_regime_str:
+        # First run: initialize
+        history = {
+            "active_regime": str(new_regime),
+            "pending_regime": str(new_regime),
+            "pending_days": 0
+        }
+        with open(history_file, "w") as f:
+            json.dump(history, f, indent=2)
+        return new_regime
+
+    prev_regime = Regime(prev_regime_str)
+
+    if str(new_regime) == prev_regime_str:
+        # Regime matches active, reset pending
+        history["pending_regime"] = str(new_regime)
+        history["pending_days"] = 0
+        with open(history_file, "w") as f:
+            json.dump(history, f, indent=2)
+        return new_regime
+
+    # Different regime detected
+    if pending_regime_str == str(new_regime):
+        # We've seen this before, increment days
+        pending_days += 1
+    else:
+        # New candidate regime
+        pending_regime_str = str(new_regime)
+        pending_days = 1
+
+    if pending_days >= 2:
+        # Confirmed transition!
+        active_regime = new_regime
+        pending_days = 0
+        logger.info("Regime Transition Confirmed: %s -> %s", prev_regime, active_regime)
+    else:
+        # Stick to previous active regime for stability
+        active_regime = prev_regime
+        logger.info("Regime Transition Pending: candidate=%s, active stays=%s (pending %d/2 days)", new_regime, prev_regime, pending_days)
+
+    history["active_regime"] = str(active_regime)
+    history["pending_regime"] = pending_regime_str
+    history["pending_days"] = pending_days
+    
+    with open(history_file, "w") as f:
+        json.dump(history, f, indent=2)
+
+    return active_regime

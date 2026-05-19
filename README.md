@@ -109,8 +109,8 @@ python main.py --ab-test              # compare 5 strategy versions
 python main.py --filter-analysis      # which trades did the filter remove?
 python main.py --journal              # trade journal analytics
 python main.py --compare              # regime filter: with vs without
+python -m streamlit run dashboard_app.py
 ```
-
 ---
 
 ## Project structure

@@ -1,21 +1,7 @@
 """
 Telegram Alert System
-
-Sends formatted trading signals to your Telegram bot.
-Credentials are loaded from environment variables (never hardcoded).
-
-Setup:
-  1. Create bot via @BotFather → get TELEGRAM_BOT_TOKEN
-  2. Message your bot → get TELEGRAM_CHAT_ID from getUpdates
-  3. Add to trading_bot/.env:
-       TELEGRAM_BOT_TOKEN=your_token_here
-       TELEGRAM_CHAT_ID=your_chat_id_here
-
-Usage:
-  from notifications.telegram import TelegramNotifier
-  notifier = TelegramNotifier()
-  notifier.send_signal_alert(signal_result)
-  notifier.send_daily_summary(results)
+Sends beautifully formatted, institutional-grade alerts to your Telegram bot.
+Supports the 8:30 AM Pre-Market Snapshot, 3:15 PM EOD Analysis, and 0-100 Confidence pros/cons.
 """
 
 import os
@@ -59,15 +45,7 @@ class TelegramNotifier:
     # ── Public API ────────────────────────────────────────────────────────────
 
     def send_signal_alert(self, result: dict) -> bool:
-        """
-        Send a formatted signal alert for a single symbol.
-
-        Args:
-            result: Signal dict from scan_watchlist / generate_signal_for_symbol
-
-        Returns:
-            True if sent successfully, False otherwise
-        """
+        """Send a formatted signal alert for a single symbol."""
         if not self.enabled or "error" in result:
             return False
 
@@ -79,16 +57,7 @@ class TelegramNotifier:
         return self._send(msg)
 
     def send_daily_summary(self, results: List[dict], regime_str: str = "") -> bool:
-        """
-        Send a compact daily summary of all signals.
-
-        Args:
-            results:    List of signal dicts
-            regime_str: Market regime string for context
-
-        Returns:
-            True if sent successfully
-        """
+        """Send a compact daily summary of all signals."""
         if not self.enabled:
             return False
 
@@ -103,17 +72,17 @@ class TelegramNotifier:
 
         if action == "BUY":
             msg = (
-                f"📥 <b>PAPER BUY</b>\n"
+                f"📥 <b>PAPER BUY ENTRY</b>\n"
                 f"Stock: <b>{symbol}</b>\n"
-                f"Price: {price:.2f}  |  Shares: {shares}\n"
-                f"SL: {sl:.2f}  |  TP: {tp:.2f}"
+                f"Price: ₹{price:,.2f} | Shares: {shares}\n"
+                f"SL: ₹{sl:,.2f} | TP: ₹{tp:,.2f}"
             )
         else:
             sign = "+" if (pnl or 0) >= 0 else ""
             msg = (
-                f"📤 <b>PAPER SELL</b>\n"
+                f"📤 <b>PAPER SELL EXIT</b>\n"
                 f"Stock: <b>{symbol}</b>\n"
-                f"Price: {price:.2f}  |  P&L: {sign}{pnl:.2f}"
+                f"Price: ₹{price:,.2f} | P&L: {sign}₹{pnl:,.2f}"
             )
         return self._send(msg)
 
@@ -132,21 +101,107 @@ class TelegramNotifier:
         }
         emoji = emoji_map.get(regime_str, "📊")
         msg = (
-            f"{emoji} <b>MARKET REGIME</b>\n"
+            f"{emoji} <b>MARKET REGIME CHANGE</b>\n"
             f"<b>{regime_str}</b>\n"
             f"{description}"
         )
         return self._send(msg)
+
+    def send_pre_market_report(self, report: dict) -> bool:
+        """Send a comprehensive 8:30 AM pre-market intelligence report."""
+        if not self.enabled:
+            return False
+
+        lines = [
+            f"🔮 <b>PRE-MARKET REPORT FOR TODAY</b>",
+            f"Mode: <b>PREPARATION & PROBABILITY</b>",
+            f"Regime: <b>{report['market_regime']}</b>\n",
+            f"🌍 <b>GLOBAL MARKET SNAPSHOT</b>",
+        ]
+
+        for s in report["global_snapshot"]:
+            sign = "+" if s["change"] >= 0 else ""
+            impact_emoji = "🟢" if s["impact"] == "BULLISH" else ("🔴" if s["impact"] == "BEARISH" else "⚪")
+            lines.append(f"  {impact_emoji} {s['name']}: {s['value']} ({sign}{s['change']}%) | <i>{s['impact_text']}</i>")
+
+        lines += [
+            f"\n📊 <b>BIAS & RISK EXPECTATION</b>",
+            f"Opening Bias: <b>{report['opening_bias']}</b>",
+            f"Confidence: <b>{report['confidence_pct']}%</b>",
+            f"Gap Probability: <b>{report['gap_probability']}</b>",
+            f"Risk Level: <b>{report['risk_level']}</b>\n",
+            f"⚡ <b>SECTOR STRENGTH RANKINGS</b>",
+        ]
+
+        for sec in report["sector_rankings"][:3]:  # Top 3
+            sign = "+" if sec["strength"] >= 0 else ""
+            lines.append(f"  • {sec['sector']}: {sign}{sec['strength']}% ({sec['status']})")
+
+        lines.append(f"\n🏆 <b>WATCHLIST QUALITY RANKINGS</b>")
+        for sym in report["watchlist"][:5]:  # Top 5
+            signal_sig = sym.get("signal", "HOLD")
+            lines.append(
+                f"  • {sym['symbol']} | Q-Score: <b>{sym.get('confidence_score',0)}/100</b> | {signal_sig}"
+            )
+
+        if report["warnings"]:
+            lines.append(f"\n⚠️ <b>DO NOT TRADE WARNINGS</b>")
+            for w in report["warnings"]:
+                lines.append(f"  {w}")
+
+        lines.append(f"\n📁 Detailed report: <code>state/pre_market_report.md</code>")
+        return self._send("\n".join(lines))
+
+    def send_eod_report(self, report: dict) -> bool:
+        """Send a comprehensive 3:15 PM EOD intelligence report."""
+        if not self.enabled:
+            return False
+
+        acc = report["accuracy_tracking"]
+        pred = report["prediction"]
+        nifty_sign = "+" if report["nifty_change"] >= 0 else ""
+
+        lines = [
+            f"🌇 <b>END-OF-DAY MARKET ANALYSIS</b>",
+            f"Nifty 50: <b>{nifty_sign}{report['nifty_change']}%</b>\n",
+            f"🕯️ <b>CLOSING STRUCTURE</b>",
+            f"Candle: <b>{report['close_structure']}</b>",
+            f"Description: <i>{report['structure_desc']}</i>\n",
+            f"📈 <b>MARKET BREADTH</b>",
+            f"Advances: {report['advances']} | Declines: {report['declines']}",
+            f"A/D Ratio: <b>{report['adv_dec_ratio']}</b>\n",
+            f"🔮 <b>TOMORROW OUTLOOK FORECAST</b>",
+            f"Forecast: <b>{pred['forecast']}</b>",
+            f"Narrative: <i>{pred.get('narrative', 'N/A')}</i>",
+            f"  • Bullish: {pred['probs']['BULLISH']}%",
+            f"  • Range-bound: {pred['probs']['RANGE']}%",
+            f"  • Bearish: {pred['probs']['BEARISH']}%",
+        ]
+
+        if report["unusual_volume"]:
+            lines.append(f"\n🐋 <b>SMART MONEY VOLUME SPIKES</b>")
+            for uv in report["unusual_volume"][:3]:
+                uv_sign = "+" if uv["change"] >= 0 else ""
+                lines.append(f"  • {uv['symbol']}: {uv['ratio']}x average | Change: {uv_sign}{uv['change']}%")
+
+        if acc.get("scored_yesterday"):
+            yesterday_res_emoji = "🎯" if acc["yesterday_result"] == "SUCCESS" else "❌"
+            lines.append(
+                f"\n🎯 <b>FORECAST ACCURACY TRACKER</b>\n"
+                f"  Yesterday Forecast: {acc['yesterday_forecast']}\n"
+                f"  Today Outcome: {yesterday_res_emoji} <b>{acc['yesterday_result']}</b>\n"
+                f"  Cumulative Accuracy: <b>{acc['accuracy_pct']}%</b> ({acc['successful_predictions']}/{acc['total_predictions']})"
+            )
+
+        lines.append(f"\n📁 Detailed report: <code>state/eod_report.md</code>")
+        return self._send("\n".join(lines))
 
     def test_connection(self) -> bool:
         """Send a test message to verify the bot is working."""
         return self._send("🤖 <b>Trading Bot Connected</b>\nAlerts are active.")
 
     def send_optimization_alert(self, rules: dict) -> bool:
-        """
-        Send a daily auto-optimization summary.
-        Tells the user what the bot has "learned" from paper trading history.
-        """
+        """Send a daily auto-optimization summary."""
         if not self.enabled:
             return False
 
@@ -195,6 +250,9 @@ class TelegramNotifier:
         rsi      = r.get("rsi", 0)
         pullback = r.get("pullback_pct", 0)
         rr       = r.get("risk_report", {})
+        conf     = r.get("confidence_score", 0)
+        pros     = r.get("pros", [])
+        cons     = r.get("cons", [])
 
         icon = {"BUY": "🟢", "SELL": "🔴"}.get(signal, "🟡")
         score_bar = "●" * score + "○" * (4 - score)
@@ -203,17 +261,27 @@ class TelegramNotifier:
             f"{icon} <b>{signal} SIGNAL — {r['symbol']}</b>",
             f"Date: {r.get('date', '?')}",
             f"Score: [{score_bar}] {score}/4",
+            f"Confidence Score: <b>{conf}/100</b>",
             f"Regime: <b>{regime}</b>",
             f"Close: {r.get('close', 0):.2f}  |  RSI: {rsi:.1f}",
-            f"Pullback: {pullback:.1f}%  |  ATR: {r.get('atr', 'N/A')}",
+            f"Pullback: {pullback:.1f}%  |  ATR: {r.get('atr', 'N/A')}\n",
         ]
+
+        if pros:
+            lines.append("<b>✓ Pros:</b>")
+            for p in pros[:3]:
+                lines.append(f"  {p}")
+        if cons:
+            lines.append("\n<b>✗ Cons:</b>")
+            for c in cons[:3]:
+                lines.append(f"  {c}")
 
         if rr.get("approved"):
             lines += [
                 f"",
                 f"<b>Risk ({rr.get('sl_method','?')})</b>",
-                f"Shares: {rr['shares']}  |  Cost: {rr['trade_cost']:,.0f}",
-                f"SL: {rr['stop_loss']:.2f}  |  TP: {rr['take_profit']:.2f}",
+                f"Shares: {rr['shares']}  |  Cost: ₹{rr['trade_cost']:,.0f}",
+                f"SL: ₹{rr['stop_loss']:.2f}  |  TP: ₹{rr['take_profit']:.2f}",
                 f"R:R: {rr['risk_reward']}  |  Risk: {rr['capital_at_risk_pct']:.2f}%",
             ]
 
@@ -234,16 +302,14 @@ class TelegramNotifier:
         if buys:
             lines.append(f"🟢 <b>BUY ({len(buys)})</b>")
             for r in buys:
-                rsi_threshold = r.get("rsi_threshold", "?")
                 lines.append(
-                    f"  • {r['symbol']}  Score:{r.get('score',0)}/4  "
-                    f"RSI:{r.get('rsi',0):.1f}  Pull:{r.get('pullback_pct',0):.1f}%"
+                    f"  • {r['symbol']} | Q-Score: {r.get('confidence_score',0)} | RSI:{r.get('rsi',0):.1f}"
                 )
 
         if sells:
             lines.append(f"\n🔴 <b>SELL ({len(sells)})</b>")
             for r in sells:
-                lines.append(f"  • {r['symbol']}  RSI:{r.get('rsi',0):.1f}")
+                lines.append(f"  • {r['symbol']} | RSI:{r.get('rsi',0):.1f}")
 
         if holds:
             syms = ", ".join(r["symbol"] for r in holds[:5])

@@ -56,7 +56,14 @@ def fetch_index_regime() -> tuple:
         df = compute_all_indicators(df)
 
         result    = detect_regime_detailed(df)
-        regime    = result.regime
+        raw_regime    = result.regime
+        
+        # Apply regime hysteresis to prevent rapid index regime flips (CRITICAL ISSUE #5)
+        from indicators.regime import apply_regime_hysteresis
+        regime = apply_regime_hysteresis(raw_regime)
+        
+        # Keep result object and allows_buy check in sync
+        result.regime = regime
         market_up = regime.allows_buy
 
         logger.info(
@@ -120,8 +127,29 @@ def generate_signal_for_symbol(
         regime=effective_regime,
     )
 
+    # Calculate high-resolution confidence score and pros/cons explanation
+    from analytics.learning_engine import load_journal
+    from analytics.pattern_detector import get_pattern_snapshot
+    from analytics.confidence import calculate_confidence_and_pros_cons
+    
+    journal = load_journal()
+    try:
+        snap = get_pattern_snapshot(df)
+    except Exception:
+        snap = {}
+        
+    conf_score, pros, cons = calculate_confidence_and_pros_cons(
+        symbol=symbol,
+        signal_result=latest,
+        market_regime=market_regime,
+        df=df,
+        journal=journal,
+        snap=snap
+    )
+
     rr_val   = risk_report.get("risk_reward", 0) if risk_report.get("approved") else 0
-    rank_key = (latest.get("score", 0) * 10) + rr_val
+    # Composite rank key puts confidence score as a core metric!
+    rank_key = (latest.get("score", 0) * 10) + conf_score + rr_val
 
     return {
         "symbol":          symbol,
@@ -149,6 +177,9 @@ def generate_signal_for_symbol(
         "min_score_req":   effective_regime.min_score_to_buy,
         "risk_report":     risk_report,
         "rank_key":        rank_key,
+        "confidence_score": conf_score,
+        "pros":            pros,
+        "cons":            cons,
     }
 
 
@@ -275,6 +306,20 @@ def print_signal_report(results: List[dict], market_regime: Regime = None) -> No
         print(f"\n  Stock    : {r['symbol']}  [{regime_icon}{regime_str}]")
         print(f"  Date     : {r['date']}")
         print(f"  Signal   : {sig_icon} {signal}   Score: [{score_bar}] {score}/4  (need {min_req}){demote_note}{block_note}")
+        print(f"  Confidence: {r.get('confidence_score', 0)}/100")
+        
+        # Print Pros & Cons
+        pros = r.get("pros", [])
+        cons = r.get("cons", [])
+        if pros:
+            print("  Pros     :")
+            for p_item in pros[:4]:
+                print(f"    {p_item}")
+        if cons:
+            print("  Cons     :")
+            for c_item in cons[:4]:
+                print(f"    {c_item}")
+
         print(f"  Close    : {r['close']:.2f}   ATR: {r.get('atr') or 'N/A'}")
         print(f"  RSI      : {r['rsi']:.2f} (threshold <{r.get('rsi_threshold','?')})   MA-200: {r['ma_200']:.2f}")
         print(f"  Pullback : {r.get('pullback_pct', 0):.1f}%  (need ≥{STRATEGY_CONFIG['min_pullback_pct']*100:.0f}%)")

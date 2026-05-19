@@ -1,11 +1,13 @@
 """
 Learning Engine
-Tracks detected patterns against their outcomes and builds a knowledge base.
+Tracks detected patterns against their outcomes and builds an institutional knowledge base.
 
-Three knowledge states per pattern condition:
-  LEARNED   — ≥5 trades, ≥60% win rate → trusted, used to guide decisions
-  LEARNING  — 2–4 trades, any win rate → gathering evidence
-  WATCHING  — pattern detected but 0 trades taken yet → monitoring
+Five knowledge states per pattern condition:
+  PROVEN      — ≥100 trades, ≥60% win rate, Profit Factor ≥1.2, expectancy > 0 → elite trusted edge
+  VALIDATED   — 50–99 trades, ≥55% win rate, Profit Factor ≥1.1, expectancy > 0 → robust edge
+  LEARNING    — 20–49 trades, any win rate → gathering evidence
+  WATCHING    — <20 trades → monitoring
+  UNRELIABLE  — ≥50 trades, fails to meet validated/proven performance metrics → avoid / skip
 
 The journal is seeded from 10-year backtest signal history on first run.
 """
@@ -28,11 +30,6 @@ from config.settings import DATA_CONFIG, RISK_CONFIG, STRATEGY_CONFIG
 logger = logging.getLogger(__name__)
 
 LEARNING_JOURNAL_FILE = os.path.join("state", "learning_journal.json")
-
-# Thresholds for knowledge state
-MIN_TRADES_LEARNED  = 5
-MIN_WIN_RATE_LEARNED = 0.60
-MIN_TRADES_LEARNING  = 2
 
 OUTCOME_LOOKAHEAD = 20   # bars to look ahead to determine outcome
 
@@ -63,29 +60,21 @@ def build_condition_key(
     rsi_bucket: str,
     score: int,
     channel: str,
-    strength: str,
-    momentum: str,
-    bb_signal: str,
     candles: List[str],
     near_support: bool,
-    divergence: Optional[str],
     volume_spike: bool,
 ) -> str:
     """
-    Build a canonical string key for a pattern condition.
-    Example: 'SIDEWAYS|RSI<30|S3|RISING|STRONG|BULLISH|NONE|HAMMER|SUPP|BULL_DIV|VOLSPK'
+    Build a simplified canonical 7-factor key to prevent overfitting.
+    Example: 'STRONG_TREND_UP|RSI<30|S3|RISING|HAMMER|SUPP|VOLSPK'
     """
     parts = [
         regime,
         rsi_bucket,
         f"S{score}",
         channel,
-        strength,
-        momentum,
-        bb_signal,
         "+".join(candles) if candles else "NOCNDLE",
         "SUPP" if near_support else "NOSUPP",
-        divergence if divergence else "NODIV",
         "VOLSPK" if volume_spike else "NOSPK",
     ]
     return "|".join(parts)
@@ -106,28 +95,116 @@ def rsi_to_bucket(rsi: float) -> str:
 
 # ── Observation Recording ──────────────────────────────────────────────────────
 
-def record_observation(journal: dict, key: str, won: bool, context: dict) -> None:
-    """Add one outcome observation to a pattern key."""
+def record_observation(journal: dict, key: str, won: bool, context: dict, pnl: Optional[float] = None, trade_date: Optional[str] = None) -> None:
+    """
+    Add one outcome observation to a pattern key.
+    Calculates institutional performance metrics (Profit Factor, Expectancy)
+    with Exponential Time Decay built-in.
+    """
+    import math
+    
     if key not in journal["patterns"]:
         journal["patterns"][key] = {
-            "trades":   0,
-            "wins":     0,
-            "losses":   0,
-            "win_rate": 0.0,
-            "state":    "WATCHING",
-            "context":  context,
+            "trades":        0.0,
+            "wins":          0.0,
+            "losses":        0.0,
+            "win_rate":      0.0,
+            "gross_profit":  0.0,
+            "gross_loss":    0.0,
+            "profit_factor": 1.0,
+            "expectancy":    0.0,
+            "state":         "WATCHING",
+            "context":       context,
+            "history":       []
         }
 
     p = journal["patterns"][key]
-    p["trades"] += 1
-    p["wins"]   += 1 if won else 0
-    p["losses"] += 0 if won else 1
-    p["win_rate"] = round(p["wins"] / p["trades"], 3) if p["trades"] > 0 else 0.0
+    
+    # Track trade outcome in history list
+    if "history" not in p:
+        p["history"] = []
+        
+    # PnL tracking for exact profit factor and expectancy
+    if pnl is None:
+        trade_pnl = 1.0 if won else -1.0
+    else:
+        trade_pnl = pnl
 
-    # Classify state
-    if p["trades"] >= MIN_TRADES_LEARNED and p["win_rate"] >= MIN_WIN_RATE_LEARNED:
-        p["state"] = "LEARNED"
-    elif p["trades"] >= MIN_TRADES_LEARNING:
+    if trade_date is None:
+        trade_date = datetime.now().strftime("%Y-%m-%d")
+
+    p["history"].append({
+        "date": trade_date,
+        "won": won,
+        "pnl": trade_pnl
+    })
+
+    # Limit history list to last 200 trades to prevent file bloat
+    if len(p["history"]) > 200:
+        p["history"] = p["history"][-200:]
+
+    # Apply Exponential Decay (CRITICAL ISSUE #5)
+    decay_lambda = 0.0019  # ~365 days half-life (older trades slowly lose significance)
+    current_dt = datetime.now()
+    
+    decayed_wins = 0.0
+    decayed_losses = 0.0
+    decayed_gp = 0.0
+    decayed_gl = 0.0
+    decayed_trades = 0.0
+    
+    for t_item in p["history"]:
+        try:
+            t_dt = datetime.strptime(t_item["date"], "%Y-%m-%d")
+        except ValueError:
+            t_dt = current_dt
+        
+        age_days = max((current_dt - t_dt).days, 0)
+        weight = math.exp(-decay_lambda * age_days)
+        
+        decayed_trades += weight
+        if t_item["won"]:
+            decayed_wins += weight
+            if t_item["pnl"] > 0:
+                decayed_gp += t_item["pnl"] * weight
+        else:
+            decayed_losses += weight
+            decayed_gl += abs(t_item["pnl"]) * weight
+
+    # Set decayed metrics
+    p["trades"] = round(decayed_trades, 2)
+    p["wins"] = round(decayed_wins, 2)
+    p["losses"] = round(decayed_losses, 2)
+    p["win_rate"] = round(decayed_wins / decayed_trades, 3) if decayed_trades > 0 else 0.0
+    p["gross_profit"] = round(decayed_gp, 2)
+    p["gross_loss"] = round(decayed_gl, 2)
+
+    # Calculate Profit Factor
+    if decayed_gl > 0:
+        p["profit_factor"] = round(decayed_gp / decayed_gl, 2)
+    else:
+        p["profit_factor"] = round(decayed_gp, 2) if decayed_gp > 0 else 1.0
+
+    # Calculate Expectancy
+    p["expectancy"] = round((decayed_gp - decayed_gl) / decayed_trades, 3) if decayed_trades > 0 else 0.0
+
+    # Institutional knowledge state classification
+    trades = p["trades"]
+    wr = p["win_rate"]
+    pf = p["profit_factor"]
+    ev = p["expectancy"]
+
+    if trades >= 100:
+        if wr >= 0.60 and pf >= 1.2 and ev > 0:
+            p["state"] = "PROVEN"
+        else:
+            p["state"] = "UNRELIABLE"
+    elif trades >= 50:
+        if wr >= 0.55 and pf >= 1.1 and ev > 0:
+            p["state"] = "VALIDATED"
+        else:
+            p["state"] = "UNRELIABLE"
+    elif trades >= 20:
         p["state"] = "LEARNING"
     else:
         p["state"] = "WATCHING"
@@ -199,21 +276,13 @@ def seed_from_history(symbols: Optional[List[str]] = None) -> dict:
                 atr       = float(latest.get("atr") or slice_df["ATR_14"].iloc[-1])
                 entry     = float(latest.get("close", 0))
 
-                bb_sig = "NONE"
-                if snap["bb_overbought"]: bb_sig = "OVERBOUGHT"
-                elif snap["bb_oversold"]: bb_sig = "OVERSOLD"
-
                 key = build_condition_key(
                     regime       = regime,
                     rsi_bucket   = rsi_bkt,
                     score        = score,
                     channel      = snap["trend_channel"],
-                    strength     = snap["trend_strength"],
-                    momentum     = snap["momentum"],
-                    bb_signal    = bb_sig,
                     candles      = snap["candlestick"],
                     near_support = snap["near_support"] is not None,
-                    divergence   = snap["rsi_divergence"],
                     volume_spike = snap["volume_spike"],
                 )
 
@@ -235,14 +304,8 @@ def seed_from_history(symbols: Optional[List[str]] = None) -> dict:
                     # Neither hit — skip ambiguous outcome
                     continue
 
-                context = {
-                    "symbol":  symbol,
-                    "regime":  regime,
-                    "rsi_bkt": rsi_bkt,
-                    "score":   score,
-                }
-
-                record_observation(journal, key, won, context)
+                trade_date = str(slice_df.index[-1].strftime("%Y-%m-%d"))
+                record_observation(journal, key, won, context, trade_date=trade_date)
                 if won: wins += 1
                 else:   losses += 1
 
@@ -257,7 +320,7 @@ def seed_from_history(symbols: Optional[List[str]] = None) -> dict:
 
 # ── Live Trade Recording ───────────────────────────────────────────────────────
 
-def record_live_trade(symbol: str, signal_result: dict, won: bool, df: pd.DataFrame) -> None:
+def record_live_trade(symbol: str, signal_result: dict, won: bool, df: pd.DataFrame, pnl: Optional[float] = None) -> None:
     """
     Record the outcome of a live paper trade into the learning journal.
     Call this when a paper trade is closed.
@@ -274,26 +337,19 @@ def record_live_trade(symbol: str, signal_result: dict, won: bool, df: pd.DataFr
     score    = int(signal_result.get("score", 0))
     rsi_bkt  = rsi_to_bucket(rsi)
 
-    bb_sig = "NONE"
-    if snap.get("bb_overbought"): bb_sig = "OVERBOUGHT"
-    elif snap.get("bb_oversold"): bb_sig = "OVERSOLD"
-
     key = build_condition_key(
         regime       = regime,
         rsi_bucket   = rsi_bkt,
         score        = score,
         channel      = snap.get("trend_channel", "SIDEWAYS"),
-        strength     = snap.get("trend_strength", "MODERATE"),
-        momentum     = snap.get("momentum", "NEUTRAL"),
-        bb_signal    = bb_sig,
         candles      = snap.get("candlestick", []),
         near_support = snap.get("near_support") is not None,
-        divergence   = snap.get("rsi_divergence"),
         volume_spike = snap.get("volume_spike", False),
     )
 
     context = {"symbol": symbol, "regime": regime, "rsi_bkt": rsi_bkt, "score": score}
-    record_observation(journal, key, won, context)
+    trade_date = datetime.now().strftime("%Y-%m-%d")
+    record_observation(journal, key, won, context, pnl=pnl, trade_date=trade_date)
     save_journal(journal)
     logger.info("Recorded live trade outcome for %s: %s", symbol, "WIN" if won else "LOSS")
 
@@ -302,38 +358,49 @@ def record_live_trade(symbol: str, signal_result: dict, won: bool, df: pd.DataFr
 
 def get_knowledge_summary(journal: dict) -> dict:
     """
-    Summarise the knowledge base into LEARNED / LEARNING / WATCHING buckets.
+    Summarise the knowledge base into PROVEN / VALIDATED / LEARNING / WATCHING / UNRELIABLE buckets.
     """
-    learned  = []
-    learning = []
-    watching = []
+    proven      = []
+    validated   = []
+    learning    = []
+    watching    = []
+    unreliable  = []
 
     for key, data in journal["patterns"].items():
         entry = {
-            "key":      key,
-            "trades":   data["trades"],
-            "wins":     data["wins"],
-            "win_rate": data["win_rate"],
-            "context":  data.get("context", {}),
+            "key":           key,
+            "trades":        data["trades"],
+            "wins":          data["wins"],
+            "win_rate":      data["win_rate"],
+            "profit_factor": data.get("profit_factor", 1.0),
+            "expectancy":    data.get("expectancy", 0.0),
+            "context":       data.get("context", {}),
         }
         state = data.get("state", "WATCHING")
 
-        if state == "LEARNED":
-            learned.append(entry)
+        if state == "PROVEN":
+            proven.append(entry)
+        elif state == "VALIDATED":
+            validated.append(entry)
         elif state == "LEARNING":
             learning.append(entry)
+        elif state == "UNRELIABLE":
+            unreliable.append(entry)
         else:
             watching.append(entry)
 
-    # Sort: highest win rate first
-    learned.sort(key=lambda x: x["win_rate"], reverse=True)
+    # Sort: highest win rate & trades first
+    proven.sort(key=lambda x: (x["expectancy"], x["trades"]), reverse=True)
+    validated.sort(key=lambda x: (x["expectancy"], x["trades"]), reverse=True)
     learning.sort(key=lambda x: x["trades"], reverse=True)
 
     return {
-        "learned":  learned,
-        "learning": learning,
-        "watching": watching[:10],   # top 10 most recent watching patterns
-        "total_patterns": len(journal["patterns"]),
+        "proven":             proven,
+        "validated":          validated,
+        "learning":           learning,
+        "unreliable":         unreliable,
+        "watching":           watching[:10],   # top 10 most recent watching patterns
+        "total_patterns":     len(journal["patterns"]),
         "total_observations": journal["metadata"].get("total_observations", 0),
-        "last_updated": journal["metadata"].get("last_updated"),
+        "last_updated":       journal["metadata"].get("last_updated"),
     }

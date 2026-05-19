@@ -16,5 +16,7 @@
       "slippage_cost": 2.88
     }
   },
-  "closed_trades": []
+  "closed_trades": [],
+  "max_portfolio_value": 100000,
+  "max_drawdown": 0.0
 }

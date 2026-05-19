@@ -1,107 +1,96 @@
-# 📚 QuantEdge Bot — Learning Report
-_Generated: 19 May 2026  07:00_
+# 📚 QuantEdge Bot — Intelligence Learning Report
+_Generated: 19 May 2026  11:01_
 
 ---
 
-## Summary
+## Knowledge Summary
 - **Total pattern conditions tracked**: 4144
 - **Total trade observations**: 24040
-- **Proven patterns (LEARNED)**: 626
-- **Patterns in training (LEARNING)**: 1361
-- **Patterns being watched**: 10
+- **Proven Elite Edges (PROVEN)**: 0
+- **Validated Patterns (VALIDATED)**: 0
+- **Patterns in Training (LEARNING)**: 1361
+- **Monitoring Patterns (WATCHING)**: 10
+- **Unreliable Patterns (AVOID)**: 0
 
 ---
 
-## ✅ What I Have Learned
-> These patterns have been confirmed through sufficient trade history.
-> The bot will prioritise signals matching these conditions.
+## 🔥 What I Have Proven (Elite Edges)
+> These pattern setups have strong statistical significance (100+ trades) and met strict institutional criteria (Win Rate ≥ 60%, Profit Factor ≥ 1.2).
+> The bot treats these setups as premium high-confidence entries.
 
-  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
-    → 100% win rate over 9 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
-    → 100% win rate over 6 trades
-  • When the market is slowly but steadily climbing, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal on a sudden burst of high volume.
-    → 100% win rate over 6 trades
-  • When the market is jumping up and down wildly, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 100% win rate over 6 trades
-  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
-    → 100% win rate over 6 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 100% win rate over 6 trades
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
-    → 100% win rate over 5 trades
-  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted an 'Inside Bar' (the market is pausing to catch its breath) right at a historical 'floor' (Support).
-    → 100% win rate over 6 trades
-  • When the market is stuck moving sideways, and the stock is trading at a fair price while climbing a steady 'staircase' up, I spotted a price signal right at a historical 'floor' (Support).
-    → 100% win rate over 6 trades
-  • When the overall market is in a powerful surge, and the stock is trading at a fair price, I spotted a price signal.
-    → 100% win rate over 5 trades
+  _No proven elite edges yet — need more paper trade data._
+
+
+---
+
+## ✅ What I Have Validated (Robust Setups)
+> These pattern setups are validated (50–99 trades) with positive metrics (Win Rate ≥ 55%, Profit Factor ≥ 1.1).
+> They form a robust part of our daily strategy framework.
+
+  _No validated patterns yet — gathering more trade metrics._
 
 
 ---
 
 ## 🔄 What I Am Currently Learning
-> These patterns have been seen in 2–4 trades. Win rates are preliminary.
-> More data is needed before the bot adjusts its behaviour.
+> These patterns are in the active data-gathering phase (20–49 trades) to establish reliable profit factors.
 
-  • When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
-    → 58% win rate | 158 trades | pending re-classification
-  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
-    → 54% win rate | 111 trades | pending re-classification
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted an 'Inside Bar' (the market is pausing to catch its breath).
-    → 58% win rate | 79 trades | pending re-classification
-  • When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a 'slope', I spotted a price signal.
-    → 58% win rate | 68 trades | pending re-classification
-  • When the overall market is in a powerful surge, and the stock is trading at a fair price while climbing a steady 'staircase' up, I spotted a price signal.
-    → 58% win rate | 67 trades | pending re-classification
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 50% win rate | 53 trades | pending re-classification
-  • When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
-    → 57% win rate | 47 trades | pending re-classification
-  • When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady 'staircase' up, I spotted a price signal.
-    → 57% win rate | 35 trades | pending re-classification
-  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal.
-    → 48% win rate | 35 trades | pending re-classification
-  • When the overall market is in a powerful surge, and the stock is at normal levels, I spotted a price signal.
-    → 58% win rate | 34 trades | pending re-classification
+  • **SIDEWAYS Setup** | Win: 58% | 158 trades | (need 0 trades to validate)
+    _When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a falling channel, I spotted a S3 signal triggered by a 'STRONG' pattern._
+  • **SIDEWAYS Setup** | Win: 54% | 111 trades | (need 0 trades to validate)
+    _When the market is stuck moving sideways, and the stock is entering a minor pullback while sliding down a falling channel, I spotted a S3 signal triggered by a 'STRONG' pattern._
+  • **STRONG_TREND_UP Setup** | Win: 58% | 79 trades | (need 0 trades to validate)
+    _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • **SIDEWAYS Setup** | Win: 58% | 68 trades | (need 0 trades to validate)
+    _When the market is stuck moving sideways, and the stock is entering a minor pullback while sliding down a falling channel, I spotted a S3 signal triggered by a 'STRONG' pattern._
+  • **STRONG_TREND_UP Setup** | Win: 58% | 67 trades | (need 0 trades to validate)
+    _When the overall market is in a powerful surge, and the stock is trading at a fair price while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • **STRONG_TREND_UP Setup** | Win: 50% | 53 trades | (need 0 trades to validate)
+    _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • **STRONG_TREND_UP Setup** | Win: 57% | 47 trades | (need 3 trades to validate)
+    _When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a falling channel, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • **STRONG_TREND_UP Setup** | Win: 57% | 35 trades | (need 15 trades to validate)
+    _When the overall market is in a powerful surge, and the stock is getting too expensive (overbought) while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'MODERATE' pattern._
+  • **SIDEWAYS Setup** | Win: 48% | 35 trades | (need 15 trades to validate)
+    _When the market is stuck moving sideways, and the stock is at normal levels while sliding down a falling channel, I spotted a S3 signal triggered by a 'STRONG' pattern._
+  • **STRONG_TREND_UP Setup** | Win: 58% | 34 trades | (need 16 trades to validate)
+    _When the overall market is in a powerful surge, and the stock is at normal levels while trading in a flat range, I spotted a S2 signal triggered by a 'MODERATE' pattern._
 
 
 ---
 
 ## 🎯 What I Plan to Learn Next
-> These patterns have been detected in recent market data but no trades
-> have been taken yet. The bot is monitoring them actively.
+> These patterns have been detected (<20 trades) but lack sufficient history to analyze. 
 
-  • When the overall market is in a powerful surge, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
-    → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is at normal levels while sliding down a 'slope', I spotted a 'Doji' (a moment where buyers and sellers are totally confused).
-    → Detected, waiting for a trade signal to track outcome
-  • When the market is slowly but steadily climbing, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
-    → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal on a sudden burst of high volume.
-    → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock becomes extremely cheap (oversold) while sliding down a 'slope', I spotted a price signal.
-    → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
-    → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a price signal right at a historical 'floor' (Support).
-    → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock is at normal levels while sliding down a 'slope', I spotted a 'Doji' (a moment where buyers and sellers are totally confused) on a sudden burst of high volume.
-    → Detected, waiting for a trade signal to track outcome
-  • When the market is stuck moving sideways, and the stock is at normal levels, I spotted a price signal right at a historical 'floor' (Support).
-    → Detected, waiting for a trade signal to track outcome
-  • When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a 'slope', I spotted a price signal.
-    → Detected, waiting for a trade signal to track outcome
+  • _When the overall market is in a powerful surge, and the stock is trading at a fair price while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • _When the overall market is in a powerful surge, and the stock is trading at a fair price while trading in a flat range, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • _When the overall market is in a powerful surge, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal triggered by a 'STRONG' pattern._
+  • _When the overall market is in a powerful surge, and the stock is trading at a fair price while trading in a flat range, I spotted a S2 signal triggered by a 'MODERATE' pattern._
+  • _When the overall market is in a powerful surge, and the stock is at normal levels while trading in a flat range, I spotted a S2 signal triggered by a 'WEAK' pattern._
+  • _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'MODERATE' pattern._
+  • _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • _When the overall market is in a powerful surge, and the stock is at normal levels while trading in a flat range, I spotted a S2 signal triggered by a 'STRONG' pattern._
+  • _When the overall market is in a powerful surge, and the stock is at normal levels while trading in a flat range, I spotted a S2 signal triggered by a 'STRONG' pattern._
 
 
 ---
 
-## 📈 How the Bot Improves
-1. Every day, new BUY/SELL signals are matched against pattern conditions
-2. When a paper trade closes, the outcome (win/loss) is recorded
-3. After 5 confirmed outcomes, a pattern moves from LEARNING → LEARNED
-4. LEARNED patterns influence the dynamic filter (blocking losing conditions)
-5. As more stocks are added, the knowledge base expands automatically
+## ⚠️ Unreliable Patterns (Danger Zones to Avoid)
+> These pattern setups have sufficient sample sizes (50+ trades) but failed to achieve sustainable expectancy.
+> **The bot automatically filters out and blocks buy signals matching these conditions.**
+
+  _No unreliable/failed patterns identified yet (that is good!)._
+
+
+---
+
+## 📈 How the Bot Adapts
+1. **Regime Filtering:** Every signal is evaluated under both Index and Stock regimes.
+2. **Key Simplification:** Patterns are grouped using a simplified 7-factor key to avoid mathematical overfitting.
+3. **Outcome Auditing:** After paper trades close, exact P&L, Win Rate, and Profit Factors are logged.
+4. **State Transition:** Patterns dynamically advance or demote across states based on performance thresholds.
+5. **Dynamic Blocking:** Proven failed/unreliable setups are blocked from entries, preserving capital.
 
 ---
 _This report is automatically generated and committed to the repository daily._

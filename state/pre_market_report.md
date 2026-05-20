@@ -1,91 +1,90 @@
 # 🔮 QuantEdge — Pre-Market Preparation Report
-_Generated: 2026-05-19 11:02_
+_Generated: 2026-05-20 07:00_
 
 ---
 
 ## 📈 Broad Market Context
 - **Index Regime:** ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size)
-- **Opening Bias:** **WEAK BULLISH**
-- **Confidence Rating:** **54%**
-- **Gap Expectation:** **Mild Gap Up / Flat**
-- **Risk Level:** **MEDIUM**
+- **Opening Bias:** **BEARISH**
+- **Confidence Rating:** **71%**
+- **Gap Expectation:** **High Gap Down Probability**
+- **Risk Level:** **HIGH**
 
 ---
 
 ## 🌍 Global Assets Snapshot
 | Asset Name | Value | Daily Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7403.05 | -0.07% | NEUTRAL (No major impact) |
-| US (Nasdaq) | 26090.73 | -0.51% | BEARISH (bearish pressure) |
-| VIX (Volatility) | 18.2 | +2.13% | NEUTRAL (No major impact) |
-| Crude Oil | 103.48 | -4.77% | BULLISH (softening crude oil / supportive) |
-| Dollar Index | 99.26 | +0.29% | BULLISH (supportive currency flow) |
-| Bond Yields (10Y) | 4.62 | +0.61% | NEUTRAL (No major impact) |
-| Japan (Nikkei 225) | 60550.59 | -0.44% | NEUTRAL (No major impact) |
+| US (S&P 500) | 7353.61 | -0.67% | BEARISH (bearish pressure) |
+| US (Nasdaq) | 25870.71 | -0.84% | BEARISH (bearish pressure) |
+| Crude Oil | 103.03 | -4.4% | BULLISH (softening crude oil / supportive) |
+| Dollar Index | 99.38 | +0.08% | BULLISH (supportive currency flow) |
+| Bond Yields (10Y) | 4.67 | +0.95% | NEUTRAL (No major impact) |
+| Japan (Nikkei 225) | 59804.41 | -1.23% | BEARISH (bearish pressure) |
 
 ---
 
 ## ⚡ Sector Strength Rankings
 | Sector Name | Average 5D Return | Status |
 | :--- | :--- | :--- |
-| IT | +3.06% | STRONG |
-| Energy/Infra | +2.95% | STRONG |
-| Others | +1.31% | STRONG |
-| FMCG | +0.95% | STRONG |
-| Banking | +0.25% | NEUTRAL |
-| Metals | -1.28% | WEAK |
-| Auto | -1.64% | WEAK |
+| IT | +4.4% | STRONG |
+| Energy/Infra | +2.79% | STRONG |
+| Others | +0.89% | STRONG |
+| Banking | +0.03% | NEUTRAL |
+| Auto | -0.71% | WEAK |
+| FMCG | -0.82% | WEAK |
+| Metals | -6.88% | WEAK |
 
 ---
 
 ## 🏆 Watchlist Quality Rankings
 | Symbol | Q-Score (0-100) | Signal | Current Close | RSI |
 | :--- | :--- | :--- | :--- | :--- |
-| ADANIENT.NS | **70/100** | SELL | 2725.00 | 74.12 |
-| APOLLOHOSP.NS | **70/100** | HOLD | 8026.00 | 61.19 |
-| AXISBANK.NS | **70/100** | HOLD | 1238.30 | 38.07 |
-| DIVISLAB.NS | **70/100** | HOLD | 6912.00 | 69.32 |
-| POWERGRID.NS | **70/100** | HOLD | 298.60 | 37.48 |
-| TATASTEEL.NS | **70/100** | HOLD | 209.29 | 47.27 |
-| ICICIBANK.NS | **69/100** | HOLD | 1240.80 | 39.87 |
-| INFY.NS | **69/100** | HOLD | 1196.90 | 50.51 |
-| TCS.NS | **69/100** | HOLD | 2327.10 | 40.07 |
-| TECHM.NS | **69/100** | HOLD | 1467.10 | 55.21 |
-| ADANIPORTS.NS | **66/100** | HOLD | 1762.80 | 63.75 |
-| BAJAJ-AUTO.NS | **66/100** | HOLD | 10205.00 | 54.96 |
-| COALINDIA.NS | **66/100** | HOLD | 456.95 | 48.28 |
-| DRREDDY.NS | **66/100** | HOLD | 1335.20 | 59.29 |
-| GRASIM.NS | **66/100** | HOLD | 2935.20 | 62.11 |
-| HINDALCO.NS | **66/100** | HOLD | 1048.30 | 53.53 |
-| INDUSINDBK.NS | **66/100** | HOLD | 895.25 | 51.49 |
-| NESTLEIND.NS | **66/100** | HOLD | 1431.40 | 58.23 |
-| NTPC.NS | **66/100** | HOLD | 389.40 | 46.48 |
-| SUNPHARMA.NS | **66/100** | HOLD | 1882.30 | 63.00 |
-| TATACONSUM.NS | **66/100** | HOLD | 1210.90 | 58.79 |
-| ASIANPAINT.NS | **63/100** | HOLD | 2600.70 | 62.02 |
-| JSWSTEEL.NS | **63/100** | HOLD | 1285.20 | 57.49 |
-| ONGC.NS | **63/100** | HOLD | 296.50 | 57.56 |
-| TITAN.NS | **63/100** | HOLD | 4102.00 | 40.13 |
-| BAJFINANCE.NS | **61/100** | HOLD | 923.55 | 50.23 |
-| HDFCBANK.NS | **61/100** | HOLD | 762.45 | 42.86 |
-| ITC.NS | **61/100** | HOLD | 310.30 | 54.91 |
-| KOTAKBANK.NS | **61/100** | HOLD | 381.95 | 51.69 |
-| M&M.NS | **61/100** | HOLD | 3092.30 | 44.77 |
-| RELIANCE.NS | **61/100** | HOLD | 1322.70 | 36.45 |
-| ULTRACEMCO.NS | **61/100** | HOLD | 11368.00 | 41.79 |
-| BAJAJFINSV.NS | **57/100** | HOLD | 1749.80 | 45.18 |
-| BHARTIARTL.NS | **57/100** | HOLD | 1913.50 | 58.98 |
-| BPCL.NS | **57/100** | HOLD | 286.45 | 41.15 |
-| BRITANNIA.NS | **57/100** | HOLD | 5416.50 | 39.95 |
-| CIPLA.NS | **57/100** | HOLD | 1409.80 | 64.67 |
-| EICHERMOT.NS | **57/100** | HOLD | 6882.50 | 39.68 |
-| HCLTECH.NS | **57/100** | HOLD | 1179.40 | 40.08 |
-| HDFCLIFE.NS | **57/100** | HOLD | 610.40 | 50.55 |
-| HEROMOTOCO.NS | **57/100** | HOLD | 5007.50 | 43.49 |
-| HINDUNILVR.NS | **57/100** | HOLD | 2232.90 | 46.48 |
-| MARUTI.NS | **57/100** | HOLD | 12956.00 | 42.10 |
-| SBILIFE.NS | **57/100** | HOLD | 1881.40 | 53.29 |
-| SBIN.NS | **57/100** | HOLD | 948.80 | 33.37 |
-| UPL.NS | **57/100** | HOLD | 633.30 | 46.88 |
-| WIPRO.NS | **51/100** | HOLD | 195.17 | 46.53 |
-| LT.NS | **50/100** | HOLD | 3921.00 | 47.61 |
+| DIVISLAB.NS | **75/100** | HOLD | 6900.00 | 68.44 |
+| HINDALCO.NS | **75/100** | HOLD | 1076.50 | 58.96 |
+| TATASTEEL.NS | **70/100** | HOLD | 204.69 | 41.75 |
+| ADANIENT.NS | **66/100** | SELL | 2705.60 | 71.89 |
+| ADANIPORTS.NS | **66/100** | HOLD | 1768.50 | 64.32 |
+| APOLLOHOSP.NS | **66/100** | HOLD | 8059.50 | 62.62 |
+| AXISBANK.NS | **66/100** | HOLD | 1241.60 | 39.27 |
+| BAJAJ-AUTO.NS | **66/100** | HOLD | 10409.00 | 59.63 |
+| COALINDIA.NS | **66/100** | HOLD | 457.75 | 48.90 |
+| DRREDDY.NS | **66/100** | HOLD | 1328.70 | 57.65 |
+| GRASIM.NS | **66/100** | HOLD | 2912.60 | 58.24 |
+| INDUSINDBK.NS | **66/100** | HOLD | 890.15 | 50.06 |
+| NESTLEIND.NS | **66/100** | HOLD | 1409.00 | 50.70 |
+| NTPC.NS | **66/100** | HOLD | 390.85 | 48.07 |
+| POWERGRID.NS | **66/100** | HOLD | 297.50 | 36.41 |
+| SUNPHARMA.NS | **66/100** | HOLD | 1875.20 | 61.54 |
+| TATACONSUM.NS | **66/100** | HOLD | 1211.30 | 58.87 |
+| ASIANPAINT.NS | **63/100** | HOLD | 2603.30 | 62.25 |
+| JSWSTEEL.NS | **63/100** | HOLD | 1273.10 | 53.91 |
+| ONGC.NS | **61/100** | HOLD | 299.65 | 60.33 |
+| TITAN.NS | **61/100** | HOLD | 4089.00 | 39.52 |
+| BAJAJFINSV.NS | **57/100** | HOLD | 1755.20 | 46.28 |
+| BAJFINANCE.NS | **57/100** | HOLD | 916.00 | 47.99 |
+| BHARTIARTL.NS | **57/100** | HOLD | 1904.50 | 57.50 |
+| BPCL.NS | **57/100** | HOLD | 290.80 | 44.43 |
+| BRITANNIA.NS | **57/100** | HOLD | 5341.00 | 36.49 |
+| CIPLA.NS | **57/100** | HOLD | 1404.90 | 63.51 |
+| EICHERMOT.NS | **57/100** | HOLD | 6862.00 | 38.96 |
+| HCLTECH.NS | **57/100** | HOLD | 1174.50 | 39.25 |
+| HDFCBANK.NS | **57/100** | HOLD | 757.60 | 41.28 |
+| HDFCLIFE.NS | **57/100** | HOLD | 606.65 | 48.75 |
+| HEROMOTOCO.NS | **57/100** | HOLD | 4988.00 | 42.66 |
+| HINDUNILVR.NS | **57/100** | HOLD | 2214.40 | 44.10 |
+| ICICIBANK.NS | **57/100** | HOLD | 1231.40 | 37.77 |
+| INFY.NS | **57/100** | HOLD | 1191.30 | 49.52 |
+| ITC.NS | **57/100** | HOLD | 306.50 | 49.04 |
+| KOTAKBANK.NS | **57/100** | HOLD | 382.45 | 52.11 |
+| M&M.NS | **57/100** | HOLD | 3127.50 | 47.39 |
+| MARUTI.NS | **57/100** | HOLD | 13010.00 | 43.55 |
+| RELIANCE.NS | **57/100** | HOLD | 1347.10 | 43.20 |
+| SBILIFE.NS | **57/100** | HOLD | 1874.70 | 51.89 |
+| SBIN.NS | **57/100** | HOLD | 946.50 | 32.98 |
+| TCS.NS | **57/100** | HOLD | 2335.00 | 41.25 |
+| TECHM.NS | **57/100** | HOLD | 1457.10 | 53.66 |
+| ULTRACEMCO.NS | **57/100** | HOLD | 11351.00 | 41.44 |
+| UPL.NS | **57/100** | HOLD | 627.15 | 44.65 |
+| LT.NS | **50/100** | HOLD | 3920.10 | 47.54 |
+| WIPRO.NS | **46/100** | HOLD | 196.92 | 49.69 |

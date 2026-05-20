@@ -92,7 +92,7 @@ def calculate_confidence_and_pros_cons(
         w_trend = 0.35
         w_volatility = 0.10
         w_expectancy = 0.15
-        pros.append("✓ Dynamic Focus: Trend & Volume dominant in Strong Index Trend")
+        pros.append("✓ Signal quality weighted because trend direction and volume confirmation carry highest weights (60% combined) under strong index trend conditions.")
     elif market_regime == Regime.SIDEWAYS:
         # Mean Reversion / Expectancy / Volatility are dominant
         w_regime = 0.10
@@ -100,7 +100,7 @@ def calculate_confidence_and_pros_cons(
         w_trend = 0.10
         w_volatility = 0.35
         w_expectancy = 0.30
-        pros.append("✓ Dynamic Focus: Volatility & Historical Edge dominant in Sideways Index")
+        pros.append("✓ Signal quality weighted because mean-reversion expectancy and volatility compression carry highest weights (65% combined) under sideways index conditions.")
     elif market_regime == Regime.VOLATILE:
         # Volatility / Risk mitigation are dominant
         w_regime = 0.15
@@ -108,7 +108,7 @@ def calculate_confidence_and_pros_cons(
         w_trend = 0.10
         w_volatility = 0.35
         w_expectancy = 0.25
-        pros.append("✓ Dynamic Focus: Volatility and Risk dominant in Volatile Index")
+        pros.append("✓ Signal quality weighted because volatility-adjusted risk and historical expectancy carry highest weights (60% combined) under volatile index conditions.")
     else:
         # Default balanced weights
         w_regime = 0.30
@@ -192,7 +192,7 @@ def calculate_confidence_and_pros_cons(
     expectancy_raw = 50  # default neutral
     
     # Construct the simplified key to look up in the journal
-    from analytics.learning_engine import build_condition_key, rsi_to_bucket
+    from analytics.learning_engine import build_condition_key, rsi_to_bucket, classify_behavioral_state, get_blended_expectancy
     rsi_bkt = rsi_to_bucket(rsi)
     
     score = signal_result.get("score", 0)
@@ -211,36 +211,50 @@ def calculate_confidence_and_pros_cons(
         volume_spike=volume_spike
     )
     
+    archetype = classify_behavioral_state(key)
     pattern = journal.get("patterns", {}).get(key)
+    
     if pattern:
-        state = pattern.get("state", "WATCHING")
-        wr = pattern.get("win_rate", 0.0)
         trades = pattern.get("trades", 0)
+        blended_exp = get_blended_expectancy(pattern, archetype, stock_regime_str, journal)
         
-        if state in ("PROVEN", "VALIDATED"):
-            if wr >= 0.70:
-                expectancy_raw = 100
-                pros.append(f"✓ Elite Historical Edge: Win-rate is {wr*100:.0f}% over {trades} trades")
-            elif wr >= 0.60:
-                expectancy_raw = 80
-                pros.append(f"✓ Proven Pattern: Solid win-rate ({wr*100:.0f}% over {trades} trades)")
-            elif wr >= 0.55:
-                expectancy_raw = 60
-                pros.append(f"✓ Confirmed Pattern: Validated win-rate ({wr*100:.0f}% over {trades} trades)")
-            else:
-                expectancy_raw = 10
-                cons.append(f"✗ Unfavorable Edge: Win-rate is sub-par ({wr*100:.0f}%)")
-        elif state == "LEARNING":
-            expectancy_raw = 70
-            pros.append(f"✓ Gathering Edge: Active learning phase ({trades} setups registered)")
+        # Calculate expectancy raw score based on Bayesian smoothed expectancy
+        if blended_exp >= 0.3:
+            expectancy_raw = 100
+            pros.append(f"✓ Elite Historical Edge: Bayesian expectancy is +{blended_exp:.2f}R over {trades:.1f} trades (State: {archetype})")
+        elif blended_exp >= 0.1:
+            expectancy_raw = 80
+            pros.append(f"✓ Proven Pattern: Solid Bayesian expectancy (+{blended_exp:.2f}R over {trades:.1f} trades)")
+        elif blended_exp >= 0.0:
+            expectancy_raw = 60
+            pros.append(f"✓ Confirmed Pattern: Positive Bayesian expectancy (+{blended_exp:.2f}R)")
         else:
-            expectancy_raw = 50
-            pros.append("✓ Base Expectancy: Neutral, under system observation")
+            expectancy_raw = 10
+            cons.append(f"✗ Unfavorable Edge: Negative Bayesian expectancy ({blended_exp:+.2f}R)")
     else:
-        pros.append("✓ Pristine Setup: No negative failure history recorded")
+        # Fallback to Archetype-level prior if pattern is completely new
+        archetypes = journal.get("archetypes", {})
+        prior_exp = 0.0
+        if archetype in archetypes:
+            arch_data = archetypes[archetype]
+            regime_data = arch_data.get("regimes", {}).get(stock_regime_str, {})
+            if regime_data.get("trades", 0.0) >= 20:
+                prior_exp = regime_data.get("expectancy", 0.0)
+            else:
+                prior_exp = arch_data.get("expectancy", 0.0)
+                
+        if prior_exp >= 0.1:
+            expectancy_raw = 75
+            pros.append(f"✓ Prior Edge: New setup, but parent state {archetype} has positive prior expectancy (+{prior_exp:.2f}R)")
+        elif prior_exp >= 0.0:
+            expectancy_raw = 55
+            pros.append(f"✓ Base prior: Setup falls into {archetype} state (neutral prior expectancy)")
+        else:
+            expectancy_raw = 20
+            cons.append(f"✗ Poor prior edge: Setup falls into high-risk state {archetype} (negative prior expectancy {prior_exp:+.2f}R)")
 
     # Additional standard Pros/Cons from Strategy
-    pullback = signal_result.get("pullback_pct", 0.0)
+    pullback = signal_result.get("pullback_pct", 0.0) / 100.0
     if rsi < 30:
         pros.append(f"✓ Oversold Value: RSI is extremely low ({rsi:.1f})")
     elif rsi < 40:

@@ -235,6 +235,8 @@ class PaperTrader:
             "take_profit":   rr["take_profit"],
             "entry_date":    datetime.now().strftime("%Y-%m-%d"),
             "score":         signal_data.get("score", 0),
+            "rsi":           signal_data.get("rsi", 50.0),
+            "confidence_score": signal_data.get("confidence_score", 50),
             "regime":        regime_str,
             "slippage_cost": slippage_cost,
         }
@@ -303,6 +305,36 @@ class PaperTrader:
         sign = "+" if gross_pnl >= 0 else ""
         logger.info("PAPER SELL | %s | %s | PnL: %s%.2f | Slip: -%.2f", symbol, reason, sign, gross_pnl, total_slip)
         print(f"  📤 PAPER SELL | {symbol} | {reason} | PnL: {sign}{gross_pnl:.2f} | Slip: -{total_slip:.2f}")
+
+        # Record outcome in learning journal
+        try:
+            from analytics.learning_engine import record_live_trade
+            from data.fetcher import load_stock_data
+            df = load_stock_data(symbol)
+            won = gross_pnl > 0
+            
+            # Reconstruct the signal result dictionary required by record_live_trade
+            signal_result = {
+                "regime": pos.get("regime", "?"),
+                "score": pos.get("score", 0),
+                "rsi": pos.get("rsi", 50.0),
+                "confidence_score": pos.get("confidence_score", 50),
+            }
+            # Calculate hold time
+            entry_dt = datetime.strptime(pos["entry_date"], "%Y-%m-%d")
+            exit_dt = datetime.strptime(trade["exit_date"], "%Y-%m-%d")
+            hold_time = max((exit_dt - entry_dt).days, 1)
+            
+            record_live_trade(
+                symbol=symbol,
+                signal_result=signal_result,
+                won=won,
+                df=df,
+                pnl=gross_pnl,
+                hold_time=hold_time
+            )
+        except Exception as e:
+            logger.warning("Failed to record trade to learning journal: %s", e)
 
     # ── Persistence ───────────────────────────────────────────────────────────
 

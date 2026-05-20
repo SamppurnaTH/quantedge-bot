@@ -83,14 +83,16 @@ class RiskManager:
         entry: float,
         atr: float = None,
         regime: Regime = Regime.STRONG_TREND_UP,
+        confidence_score: float = None,
     ) -> int:
         """
         Base shares = risk_amount / risk_per_share
-        Then scaled by regime.position_size_multiplier:
-          TRENDING_UP   → ×1.0 (full)
-          SIDEWAYS      → ×0.5 (half)
-          VOLATILE      → ×0.5 (half)
-          TRENDING_DOWN → ×0.0 (none — should never reach here)
+        Then scaled by regime.position_size_multiplier and confidence_score (Q-Score):
+          - Q-Score >= 90: 100% of regime size (multiplier ×1.0)
+          - Q-Score 75-89: 50% of regime size (multiplier ×0.5)
+          - Q-Score 60-74: 25% of regime size (multiplier ×0.25)
+          - Q-Score < 60:  0% of regime size (rejected)
+        Effective multiplier is the minimum of regime and confidence multipliers.
         """
         if entry <= 0:
             raise ValueError("Entry price must be positive.")
@@ -111,9 +113,21 @@ class RiskManager:
 
         base_shares = int(min(base_shares, shares_by_cap))
 
-        # Apply regime multiplier
-        size_mult = regime.position_size_multiplier
-        shares    = int(base_shares * size_mult)
+        # Determine confidence-based sizing multiplier
+        if confidence_score is not None:
+            if confidence_score >= 90:
+                conf_mult = 1.0
+            elif confidence_score >= 75:
+                conf_mult = 0.5
+            elif confidence_score >= 60:
+                conf_mult = 0.25
+            else:
+                conf_mult = 0.0
+            size_mult = min(regime.position_size_multiplier, conf_mult)
+        else:
+            size_mult = regime.position_size_multiplier
+
+        shares = int(base_shares * size_mult)
         return max(shares, 1) if size_mult > 0 else 0
 
     # ── Trade approval ────────────────────────────────────────────────────────
@@ -124,15 +138,17 @@ class RiskManager:
         signal: str,
         atr: float = None,
         regime: Regime = Regime.STRONG_TREND_UP,
+        confidence_score: float = None,
     ) -> dict:
         """
-        Full trade validation with regime-aware parameters.
+        Full trade validation with regime-aware and confidence-aware sizing.
 
         Args:
             entry:  Current market price
             signal: 'BUY' | 'SELL' | 'HOLD'
             atr:    Current ATR value
             regime: Effective regime for this symbol
+            confidence_score: Q-Score from confidence engine (0-100)
 
         Returns:
             dict with approved flag and complete risk parameters
@@ -149,20 +165,40 @@ class RiskManager:
                 "reason": f"Regime {regime} does not allow long entries.",
             }
 
+        if confidence_score is not None and confidence_score < 60:
+            return {
+                "approved": False,
+                "reason": f"Confidence score ({confidence_score}) is below the minimum threshold of 60.",
+            }
+
         if self.active_trades >= self.max_trades:
             return {
                 "approved": False,
                 "reason": f"Max active trades reached ({self.max_trades}).",
             }
 
+        # Calculate sizing multiplier for report logging
+        if confidence_score is not None:
+            if confidence_score >= 90:
+                conf_mult = 1.0
+            elif confidence_score >= 75:
+                conf_mult = 0.5
+            elif confidence_score >= 60:
+                conf_mult = 0.25
+            else:
+                conf_mult = 0.0
+            size_mult = min(regime.position_size_multiplier, conf_mult)
+        else:
+            size_mult = regime.position_size_multiplier
+
         sl     = self.stop_loss_price(entry, atr, regime)
         tp     = self.take_profit_price(entry, atr, regime)
-        shares = self.position_size(entry, atr, regime)
+        shares = self.position_size(entry, atr, regime, confidence_score)
         cost   = shares * entry
         rr     = self.risk_reward_ratio(entry, sl, tp)
 
         if shares == 0:
-            return {"approved": False, "reason": f"Regime {regime} → position size = 0."}
+            return {"approved": False, "reason": f"Regime {regime} or Confidence {confidence_score} → position size = 0."}
 
         if cost > self.capital:
             return {
@@ -179,7 +215,8 @@ class RiskManager:
             "take_profit":         tp,
             "atr_used":            round(atr, 2) if atr else None,
             "sl_multiplier":       regime.atr_sl_multiplier,
-            "size_multiplier":     regime.position_size_multiplier,
+            "size_multiplier":     size_mult,
+            "confidence_score":    confidence_score,
             "max_loss":            round(shares * (entry - sl), 2),
             "max_gain":            round(shares * (tp - entry), 2),
             "risk_reward":         rr,
@@ -190,9 +227,9 @@ class RiskManager:
         }
 
         logger.info(
-            "Trade approved | %-18s entry=%.2f shares=%d SL=%.2f TP=%.2f "
-            "R:R=%.2f regime=%s sl_mult=×%.1f size_mult=×%.1f",
-            "", entry, shares, sl, tp, rr, regime,
-            regime.atr_sl_multiplier, regime.position_size_multiplier,
+            "Trade approved | entry=%.2f shares=%d SL=%.2f TP=%.2f "
+            "R:R=%.2f regime=%s sl_mult=×%.1f size_mult=×%.2f Q-Score=%s",
+            entry, shares, sl, tp, rr, regime,
+            regime.atr_sl_multiplier, size_mult, str(confidence_score),
         )
         return report

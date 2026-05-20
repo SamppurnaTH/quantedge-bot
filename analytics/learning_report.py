@@ -146,6 +146,16 @@ def _section_unreliable(unreliable: list) -> str:
 
 # ── Full Report Builder ─────────────────────────────────────────────────────────
 
+ARCHETYPE_LABELS = {
+    "MEAN_REVERSION_PULLBACK": "Mean-Reversion / Pullback",
+    "TREND_BREAKOUT_CONTINUATION": "Trend Breakout / Continuation",
+    "RANGE_BOUND_SUPPORT": "Range-Bound / Support Plays",
+    "VOLATILITY_BREAKOUT": "Volatility Breakout",
+    "BEAR_REGIME_EXHAUSTION": "Bear-Regime Exhaustion",
+    "UNKNOWN_NOISE": "Noise / Unclassified"
+}
+
+
 def generate_learning_report(summary: dict) -> str:
     """Build the full markdown learning report."""
     now = datetime.now().strftime("%d %b %Y  %H:%M")
@@ -157,6 +167,21 @@ def generate_learning_report(summary: dict) -> str:
     unreliable  = summary["unreliable"]
     total_p     = summary["total_patterns"]
     total_o     = summary["total_observations"]
+    
+    # Build Archetypes Table
+    archetypes = summary.get("archetypes", {})
+    arch_rows = []
+    for name, arch in sorted(archetypes.items(), key=lambda x: x[1].get("expectancy", 0), reverse=True):
+        label = ARCHETYPE_LABELS.get(name, name)
+        wr_pct = arch.get("win_rate", 0.0) * 100
+        pf = arch.get("profit_factor", 1.0)
+        exp = arch.get("expectancy", 0.0)
+        e_sign = "+" if exp >= 0 else ""
+        hold = arch.get("avg_hold_time", 0.0)
+        arch_rows.append(
+            f"| **{label}** | {int(round(arch.get('trades', 0)))} | {wr_pct:.1f}% | {pf:.2f} | {e_sign}{exp:.3f}R | {hold:.1f} bars |"
+        )
+    arch_table = "\n".join(arch_rows) if arch_rows else "| _No archetype observations logged_ | | | | | |"
 
     report = f"""# 📚 QuantEdge Bot — Intelligence Learning Report
 _Generated: {now}_
@@ -165,12 +190,22 @@ _Generated: {now}_
 
 ## Knowledge Summary
 - **Total pattern conditions tracked**: {total_p}
-- **Total trade observations**: {total_o}
+- **Total historical signal evaluations analyzed**: {total_o}
 - **Proven Elite Edges (PROVEN)**: {len(proven)}
 - **Validated Patterns (VALIDATED)**: {len(validated)}
 - **Patterns in Training (LEARNING)**: {len(learning)}
 - **Monitoring Patterns (WATCHING)**: {len(watching)}
 - **Unreliable Patterns (AVOID)**: {len(unreliable)}
+
+---
+
+## 🔬 Archetype Expectancy Metrics
+> Technical pattern keys are compressed into 7 canonical behavioral archetypes to prevent overfitting.
+> Below is the performance of each archetype:
+
+| Archetype State | Observations (n) | Decayed Win Rate | Profit Factor | Expectancy (R) | Avg Hold Period |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+{arch_table}
 
 ---
 
@@ -236,7 +271,7 @@ def generate_telegram_summary(summary: dict) -> str:
 
     lines = [
         "📚 <b>DAILY LEARNING REPORT</b>",
-        f"Based on <b>{total_o}</b> total trade observations\n",
+        f"Based on <b>{total_o}</b> historical signal evaluations analyzed\n",
     ]
 
     # Proven

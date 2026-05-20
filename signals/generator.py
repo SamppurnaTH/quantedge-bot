@@ -115,22 +115,10 @@ def generate_signal_for_symbol(
         rsi_threshold=get_rsi_threshold(effective_regime),
     )
 
-    # Risk: regime controls SL multiplier and position size
-    rm = RiskManager(
-        capital=capital if capital else 100_000,
-        active_trades=active_trades,
-    )
-    risk_report = rm.approve_trade(
-        entry=latest["close"],
-        signal=latest["signal"],
-        atr=latest.get("atr"),
-        regime=effective_regime,
-    )
-
     # Calculate high-resolution confidence score and pros/cons explanation
     from analytics.learning_engine import load_journal
     from analytics.pattern_detector import get_pattern_snapshot
-    from analytics.confidence import calculate_confidence_and_pros_cons
+    from analytics.confidence import calculate_confidence_and_pros_cons, calibrate_score_to_probability
     
     journal = load_journal()
     try:
@@ -147,9 +135,27 @@ def generate_signal_for_symbol(
         snap=snap
     )
 
-    rr_val   = risk_report.get("risk_reward", 0) if risk_report.get("approved") else 0
+    # Risk: regime controls SL multiplier and position size
+    rm = RiskManager(
+        capital=capital if capital else 100_000,
+        active_trades=active_trades,
+    )
+    risk_report = rm.approve_trade(
+        entry=latest["close"],
+        signal=latest["signal"],
+        atr=latest.get("atr"),
+        regime=effective_regime,
+        confidence_score=conf_score,
+    )
+
+    rr_val   = risk_report.get("risk_reward", 2.0) if risk_report.get("approved") else 2.0
     # Composite rank key puts confidence score as a core metric!
     rank_key = (latest.get("score", 0) * 10) + conf_score + rr_val
+
+    # Calibrate confidence score to observed win probability
+    cal_prob, lower_ci, upper_ci, n_cal, cal_desc = calibrate_score_to_probability(conf_score, journal)
+    # Expectancy in R-multiples: expectancy_r = (win_rate * RR) - (1 - win_rate)
+    expectancy_r = (cal_prob * rr_val - (100.0 - cal_prob)) / 100.0
 
     return {
         "symbol":          symbol,
@@ -178,6 +184,8 @@ def generate_signal_for_symbol(
         "risk_report":     risk_report,
         "rank_key":        rank_key,
         "confidence_score": conf_score,
+        "calibrated_prob":  round(cal_prob, 1),
+        "expectancy_r":     round(expectancy_r, 2),
         "pros":            pros,
         "cons":            cons,
     }

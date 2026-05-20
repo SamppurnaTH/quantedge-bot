@@ -25,17 +25,51 @@ SYMBOL_SECTORS = {
     "RELIANCE.NS": "Energy/Infra",
     "TCS.NS": "IT",
     "INFY.NS": "IT",
+    "HCLTECH.NS": "IT",
+    "TECHM.NS": "IT",
+    "WIPRO.NS": "IT",
     "HDFCBANK.NS": "Banking",
     "ICICIBANK.NS": "Banking",
+    "AXISBANK.NS": "Banking",
+    "KOTAKBANK.NS": "Banking",
     "SBIN.NS": "Banking",
-    "BHARTIARTL.NS": "Energy/Infra",
+    "INDUSINDBK.NS": "Banking",
     "ITC.NS": "FMCG",
     "HINDUNILVR.NS": "FMCG",
-    "LTIM.NS": "IT",
+    "BRITANNIA.NS": "FMCG",
+    "NESTLEIND.NS": "FMCG",
+    "TATACONSUM.NS": "FMCG",
     "MARUTI.NS": "Auto",
-    "TATAMOTORS.NS": "Auto",
+    "BAJAJ-AUTO.NS": "Auto",
+    "EICHERMOT.NS": "Auto",
+    "HEROMOTOCO.NS": "Auto",
     "TATASTEEL.NS": "Metals",
-    "JIOFIN.NS": "Banking",
+    "JSWSTEEL.NS": "Metals",
+    "HINDALCO.NS": "Metals",
+    "BHARTIARTL.NS": "Telecom",
+    "SUNPHARMA.NS": "Pharma",
+    "DRREDDY.NS": "Pharma",
+    "CIPLA.NS": "Pharma",
+    "DIVISLAB.NS": "Pharma",
+    "APOLLOHOSP.NS": "Pharma",
+    "NTPC.NS": "Energy/Infra",
+    "POWERGRID.NS": "Energy/Infra",
+    "ONGC.NS": "Energy/Infra",
+    "BPCL.NS": "Energy/Infra",
+    "COALINDIA.NS": "Energy/Infra",
+    "LT.NS": "Energy/Infra",
+    "ADANIENT.NS": "Energy/Infra",
+    "ADANIPORTS.NS": "Energy/Infra",
+    "BAJFINANCE.NS": "NBFC",
+    "BAJAJFINSV.NS": "NBFC",
+    "HDFCLIFE.NS": "NBFC",
+    "SBILIFE.NS": "NBFC",
+    "ASIANPAINT.NS": "Consumer",
+    "TITAN.NS": "Consumer",
+    "GRASIM.NS": "Consumer",
+    "ULTRACEMCO.NS": "Consumer",
+    "M&M.NS": "Auto",
+    "UPL.NS": "Agro",
 }
 
 
@@ -256,16 +290,19 @@ def run_eod_cycle(symbols: List[str], pre_market_predictions: Optional[dict] = N
     close_structure = "RANGE-BOUND"
     structure_desc = "Price trading in a narrow range."
     nifty_chg = 0.0
-    
+    nifty_gap = 0.0   # today's opening gap vs yesterday's close
+
     try:
         df = fetch_stock_data(DATA_CONFIG["market_index"], save=True)
-        if not df.empty and len(df) >= 1:
+        if not df.empty and len(df) >= 2:
             o, h, l, c = df["Open"].iloc[-1], df["High"].iloc[-1], df["Low"].iloc[-1], df["Close"].iloc[-1]
-            nifty_chg = ((c - df["Close"].iloc[-2]) / df["Close"].iloc[-2]) * 100 if len(df) >= 2 else 0.0
-            
+            prev_c = df["Close"].iloc[-2]
+            nifty_chg = ((c - prev_c) / prev_c) * 100
+            nifty_gap = ((o - prev_c) / prev_c) * 100   # opening gap %
+
             rng = h - l
             pct_in_range = (c - l) / rng if rng > 0 else 0.5
-            
+
             if pct_in_range >= 0.90:
                 close_structure = "STRONG CLOSE"
                 structure_desc = "Institutional buying likely continued aggressively into the market close."
@@ -281,6 +318,17 @@ def run_eod_cycle(symbols: List[str], pre_market_predictions: Optional[dict] = N
     except Exception as e:
         logger.warning("Nifty EOD analysis failed: %s", e)
 
+    # BankNifty daily change
+    banknifty_chg = 0.0
+    try:
+        bnf_df = fetch_stock_data("^NSEBANK", save=True)
+        if not bnf_df.empty and len(bnf_df) >= 2:
+            bnf_c      = bnf_df["Close"].iloc[-1]
+            bnf_prev_c = bnf_df["Close"].iloc[-2]
+            banknifty_chg = ((bnf_c - bnf_prev_c) / bnf_prev_c) * 100
+    except Exception as e:
+        logger.warning("BankNifty EOD analysis failed: %s", e)
+
     # 2. Watchlist Breadth Analysis
     advances = 0
     declines = 0
@@ -289,7 +337,7 @@ def run_eod_cycle(symbols: List[str], pre_market_predictions: Optional[dict] = N
     
     for sym in symbols:
         try:
-            df = load_stock_data(sym)
+            df = fetch_stock_data(sym, save=True)
             if not df.empty and len(df) >= 2:
                 prev_c = df["Close"].iloc[-2]
                 curr_c = df["Close"].iloc[-1]
@@ -502,8 +550,14 @@ def run_eod_cycle(symbols: List[str], pre_market_predictions: Optional[dict] = N
     except Exception as e:
         logger.error("Failed to persist Market State snapshot: %s", e)
 
-    # 4. Historical Accuracy Tracker: score yesterday's forecast
-    accuracy_log = score_yesterday_prediction(nifty_chg)
+    # 4. Historical Accuracy Tracker: score yesterday's forecast (include gap & breadth info)
+    accuracy_log = score_yesterday_prediction(
+        today_nifty_chg=nifty_chg,
+        nifty_gap=nifty_gap,
+        adv_dec_ratio=adv_dec_ratio,
+        advances=advances,
+        declines=declines
+    )
 
     # 5. Alert Memory System: persist today's market stress conditions
     try:
@@ -515,6 +569,8 @@ def run_eod_cycle(symbols: List[str], pre_market_predictions: Optional[dict] = N
         "cycle": "EOD",
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "nifty_change": round(nifty_chg, 2),
+        "nifty_gap": round(nifty_gap, 2),
+        "banknifty_change": round(banknifty_chg, 2),
         "close_structure": close_structure,
         "structure_desc": structure_desc,
         "advances": advances,
@@ -529,7 +585,7 @@ def run_eod_cycle(symbols: List[str], pre_market_predictions: Optional[dict] = N
 
 # ── Prediction Scoring Engine ──────────────────────────────────────────────────
 
-def score_yesterday_prediction(today_nifty_chg: float) -> dict:
+def score_yesterday_prediction(today_nifty_chg: float, nifty_gap: float = None, adv_dec_ratio: float = None, advances: int = None, declines: int = None) -> dict:
     """
     Compares yesterday's forecast against today's Nifty actual price action to measure precision.
     Saves and returns cumulative tracker logs.
@@ -548,23 +604,75 @@ def score_yesterday_prediction(today_nifty_chg: float) -> dict:
         # Yesterday's prediction is at the tail
         yesterday = history[-1]
         forecast = yesterday.get("forecast", "NEUTRAL")
-        
-        # Scoring logic
-        result = "FAILED"
-        if today_nifty_chg > 0.15 and "BULLISH" in forecast:
-            result = "SUCCESS"
-        elif today_nifty_chg < -0.15 and "BEARISH" in forecast:
-            result = "SUCCESS"
-        elif -0.15 <= today_nifty_chg <= 0.15 and ("RANGE" in forecast or "NEUTRAL" in forecast):
-            result = "SUCCESS"
-            
-        yesterday["actual_change"] = round(today_nifty_chg, 2)
-        yesterday["result"] = result
-        scored_record = yesterday
-        
-        logger.info("Yesterday's forecast [%s] scored against Nifty change [%.2f%%]: %s", forecast, today_nifty_chg, result)
 
-    # Write tomorrow's prediction shell (will be updated when EOD forecast runs)
+        # Basic directional scoring
+        result = "FAILED"
+        if today_nifty_chg is not None:
+            if today_nifty_chg > 0.15 and "BULLISH" in forecast:
+                result = "SUCCESS"
+            elif today_nifty_chg < -0.15 and "BEARISH" in forecast:
+                result = "SUCCESS"
+            elif -0.15 <= today_nifty_chg <= 0.15 and ("RANGE" in forecast or "NEUTRAL" in forecast):
+                result = "SUCCESS"
+
+        # Gap match check (compare morning pre-market gap guidance if available)
+        gap_match = None
+        try:
+            with open(os.path.join("state", "pre_market_state.json"), "r", encoding="utf-8") as f:
+                pm = json.load(f)
+                morning_gap_out = pm.get("gap_probability", "UNKNOWN")
+                morning_bias = pm.get("opening_bias", "UNKNOWN")
+        except Exception:
+            morning_gap_out = None
+            morning_bias = None
+
+        if nifty_gap is not None and morning_gap_out:
+            # normalize checks
+            actual_gap_dir = "GAP-UP" if nifty_gap > 0.1 else ("GAP-DOWN" if nifty_gap < -0.1 else "FLAT OPEN")
+            gap_match = actual_gap_dir in str(morning_gap_out).upper() or (
+                "RANGE" in str(morning_gap_out).upper() and actual_gap_dir == "FLAT OPEN"
+            )
+
+        # Participation / breadth check
+        breadth_match = None
+        try:
+            market_state = {}
+            ms_file = os.path.join("state", "market_state.json")
+            if os.path.exists(ms_file):
+                with open(ms_file, "r", encoding="utf-8") as f:
+                    market_state = json.load(f)
+            breadth_score = market_state.get("breadth_score", None)
+            if breadth_score is not None and history:
+                # if forecast leaned bullish, expect breadth >50; bearish -> breadth <50; range -> near 50
+                if "BULL" in forecast and breadth_score >= 52:
+                    breadth_match = True
+                elif "BEAR" in forecast and breadth_score <= 48:
+                    breadth_match = True
+                elif "RANGE" in forecast and 48 < breadth_score < 52:
+                    breadth_match = True
+                else:
+                    breadth_match = False
+        except Exception:
+            breadth_match = None
+
+        # Attach audit details
+        yesterday["actual_change"] = round(today_nifty_chg, 2) if today_nifty_chg is not None else None
+        yesterday["result"] = result
+        yesterday["gap_match"] = gap_match
+        yesterday["breadth_match"] = breadth_match
+        yesterday["scored_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
+        scored_record = yesterday
+
+        logger.info("Yesterday's forecast [%s] scored against Nifty change [%.2f%%]: %s (gap_match=%s, breadth_match=%s)",
+                    forecast, today_nifty_chg, result, gap_match, breadth_match)
+
+        # Persist scored prediction to disk immediately to prevent loss when save_today_forecast runs
+        try:
+            with open(PREDICTION_HISTORY_FILE, "w") as f:
+                json.dump(history, f, indent=2)
+        except Exception as e:
+            logger.error("Failed to write updated prediction history to disk: %s", e)
+
     # Return cumulative accuracy
     total_scored = sum(1 for h in history if "result" in h)
     successful = sum(1 for h in history if h.get("result") == "SUCCESS")

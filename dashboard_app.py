@@ -125,6 +125,7 @@ MARKET_STATE_FILE = os.path.join("state", "market_state.json")
 CALIBRATION_FILE = os.path.join("state", "confidence_calibration.json")
 ALERT_MEMORY_FILE = os.path.join("state", "alert_memory.json")
 PREDICTION_HISTORY_FILE = os.path.join("state", "prediction_history.json")
+PRE_MARKET_STATE_FILE = os.path.join("state", "pre_market_state.json")
 
 def load_json(filepath):
     if not os.path.exists(filepath): return {}
@@ -151,6 +152,9 @@ def load_prediction_history():
         return []
 
 prediction_history = load_prediction_history()
+
+# Load today's pre-market state (from run_daily.py morning run)
+pre_market_state = load_json(PRE_MARKET_STATE_FILE)
 
 # Complete resilient fallbacks
 if not market_state:
@@ -380,6 +384,71 @@ if page == "📊 Executive Command":
 
     st.divider()
 
+    # ── CAPITAL ALLOCATION MODE CONSTRAINTS ──────────────────────────────────
+    st.markdown("#### 🚦 Today's Capital Allocation Mode")
+    st.caption("Derived live from the current index regime — governs position sizing and entry threshold for every trade.")
+    try:
+        from indicators.regime import Regime
+        _regime_enum = Regime(regime_raw)
+    except Exception:
+        _regime_enum = None
+
+    if _regime_enum is not None:
+        _sm  = _regime_enum.position_size_multiplier
+        _atr = _regime_enum.atr_sl_multiplier
+        _buys_ok = _regime_enum.allows_buy
+        _min_sc  = _regime_enum.min_score_to_buy
+
+        if _sm >= 1.0:
+            _alloc_mode = "🚀 FULL EXPOSURE (×1.0)"
+            _alloc_desc = "Optimal trending environment — capital sizing is maximised for standard portfolio weights."
+            _alloc_color = "#10B981"
+        elif hasattr(_regime_enum, 'name') and _regime_enum.name == 'VOLATILE':
+            _alloc_mode = "⚡ VOLATILE MODE — HALF SIZE, WIDER STOPS (×0.5)"
+            _alloc_desc = "Elevated ATR detected — stops widened, position size throttled by 50%."
+            _alloc_color = "#F59E0B"
+        elif _sm > 0:
+            _alloc_mode = "⚠️ REDUCED EXPOSURE — HALF SIZE (×0.5)"
+            _alloc_desc = "High-uncertainty or range-bound environment — sizing throttled by 50% to prevent churn."
+            _alloc_color = "#F59E0B"
+        else:
+            _alloc_mode = "🛑 CAPITAL PRESERVATION — NO NEW LONGS (×0.0)"
+            _alloc_desc = "Confirmed index downtrend — strategy blocks all new long entries to protect portfolio capital."
+            _alloc_color = "#EF4444"
+
+        st.markdown(f"""
+            <div style='background-color:#0B0E14; border:1px solid {_alloc_color}40; border-left:4px solid {_alloc_color};
+                        border-radius:8px; padding:20px; margin-bottom:24px;'>
+                <div style='font-size:1.1rem; font-weight:700; color:{_alloc_color};'>{_alloc_mode}</div>
+                <div style='display:flex; gap:30px; margin-top:12px;'>
+                    <div style='text-align:center;'>
+                        <div style='font-size:0.7rem; color:#64748B; text-transform:uppercase; letter-spacing:1px;'>New Longs</div>
+                        <div style='font-size:1.1rem; font-weight:700; color:{'#10B981' if _buys_ok else '#EF4444'};'>
+                            {'ALLOWED' if _buys_ok else 'BLOCKED'}</div>
+                    </div>
+                    <div style='text-align:center;'>
+                        <div style='font-size:0.7rem; color:#64748B; text-transform:uppercase; letter-spacing:1px;'>Min Score</div>
+                        <div style='font-size:1.1rem; font-weight:700; color:#E2E8F0;'>{_min_sc if _min_sc < 99 else 'N/A'}/3</div>
+                    </div>
+                    <div style='text-align:center;'>
+                        <div style='font-size:0.7rem; color:#64748B; text-transform:uppercase; letter-spacing:1px;'>Stop Width</div>
+                        <div style='font-size:1.1rem; font-weight:700; color:#E2E8F0;'>{_atr:.1f}× ATR</div>
+                    </div>
+                    <div style='text-align:center;'>
+                        <div style='font-size:0.7rem; color:#64748B; text-transform:uppercase; letter-spacing:1px;'>Position Size</div>
+                        <div style='font-size:1.1rem; font-weight:700; color:#E2E8F0;'>{int(_sm*100)}%</div>
+                    </div>
+                </div>
+                <div style='font-size:0.88rem; color:#94A3B8; margin-top:12px; border-top:1px solid #161F2E; padding-top:10px;'>
+                    <b>Operational Guideline:</b> {_alloc_desc}
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.info("Regime data unavailable — run the morning scan to populate.")
+
+    st.divider()
+
     # 2. Horizontal Color Timeline for the Market Regime (Instead of raw candle charts)
     st.markdown("#### ⏳ Horizontal Regime Timeline")
     st.caption("Consolidated macro index regime transitions over recent trading cycles.")
@@ -558,7 +627,55 @@ elif page == "🧠 Intelligence Engine":
         fig_exp.update_layout(template="plotly_dark", height=280, margin=dict(l=10, r=10, t=10, b=10), yaxis_title="Consensus Influence Weight")
         st.plotly_chart(fig_exp, use_container_width=True)
 
+        st.divider()
+
+        # ── Prediction Audit Ledger ───────────────────────────────────────────
+        st.markdown("#### 🎯 Prediction Audit Ledger")
+        st.caption("Each EOD forecast is scored against the following day's actual Nifty 50 close movement.")
+        if prediction_history:
+            scored = [x for x in prediction_history if "result" in x]
+            if scored:
+                audit_rows = []
+                for x in reversed(scored[-10:]):
+                    chg = x.get("actual_change", 0.0)
+                    chg_sign = "+" if chg >= 0 else ""
+                    result_lbl = "✅ HIT" if x.get("result") == "SUCCESS" else "❌ MISS"
+                    audit_rows.append({
+                        "Date":           x.get("date", "—"),
+                        "EOD Forecast":   x.get("forecast", "—"),
+                        "Actual Δ":       f"{chg_sign}{chg:.2f}%",
+                        "Verdict":        result_lbl,
+                        "Bull%":          f"{x.get('probs', {}).get('BULLISH', 0):.0f}%",
+                        "Bear%":          f"{x.get('probs', {}).get('BEARISH', 0):.0f}%",
+                    })
+                st.dataframe(pd.DataFrame(audit_rows), hide_index=True, use_container_width=True)
+                total_sc = len(scored)
+                wins_sc  = sum(1 for x in scored if x.get("result") == "SUCCESS")
+                acc_pct  = round(wins_sc / total_sc * 100, 1) if total_sc else 0
+                _delta_str = f"{wins_sc}/{total_sc} forecasts"
+                acc_color  = "#10B981" if acc_pct >= 60 else ("#F59E0B" if acc_pct >= 45 else "#EF4444")
+                st.markdown(f"""
+                    <div style='background-color:#0B0E14; border:1px solid #161F2E; border-radius:6px;
+                                padding:16px; margin-top:12px; display:flex; align-items:center; gap:20px;'>
+                        <div style='text-align:center;'>
+                            <div style='font-size:0.7rem; color:#64748B; text-transform:uppercase; letter-spacing:1px;'>Directional Accuracy</div>
+                            <div style='font-size:2rem; font-weight:700; color:{acc_color};'>{acc_pct}%</div>
+                            <div style='font-size:0.75rem; color:#64748B;'>{_delta_str}</div>
+                        </div>
+                        <div style='font-size:0.88rem; color:#94A3B8; flex:1;'>
+                            The model is calibrated to detect <b>directional bias</b> (Bullish / Bearish / Range-bound),
+                            not exact price levels. A score above <b>60%</b> indicates statistically significant edge
+                            above random baseline (33%).
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.info("No scored predictions yet — run the evening EOD cycle to begin scoring forecasts.")
+        else:
+            st.info("Prediction history is empty. Run `run_daily.py` at market close to generate the first forecast.")
+
     with tab2:
+
         st.markdown("#### Institutional Sector Flow Heatmap")
         st.caption("Size represents relative market cap weighting; color represents recent institutional flows.")
         
@@ -599,7 +716,48 @@ elif page == "📈 Watchlist Terminal":
     st.subheader("🔭 Watchlist Intelligence Terminal")
     st.caption("Active buy setups and quality factors with Bayesian confidence limits.")
 
-    if journal and journal.get("patterns"):
+    # ── Load real pre-market state if available ───────────────────────────────
+    pm_watchlist_raw = pre_market_state.get("watchlist", []) if pre_market_state else []
+
+    if pm_watchlist_raw:
+        st.caption(
+            f"📅 Loaded from this morning's scan — "
+            f"{pre_market_state.get('timestamp', 'unknown time')} | "
+            f"Regime: {pre_market_state.get('market_regime', '—')} | "
+            f"Bias: {pre_market_state.get('opening_bias', '—')}"
+        )
+        watchlist_items = []
+        for x in pm_watchlist_raw:
+            rr      = x.get("risk_report", {})
+            sl      = rr.get("stop_loss", 0)
+            tp      = rr.get("take_profit", 0)
+            exp_r   = x.get("expectancy_r", None)
+            cal_p   = x.get("calibrated_prob", None)
+            conf    = x.get("confidence_score", 50)
+            pros_list = x.get("pros", [])
+            cons_list = x.get("cons", [])
+            watchlist_items.append({
+                "Symbol":         x.get("symbol", "—"),
+                "Company":        NIFTY50_NAMES.get(x.get("symbol", ""), x.get("symbol", "—")),
+                "Signal":         x.get("signal", "HOLD"),
+                "Close":          round(x.get("close", 0), 2),
+                "RSI":            round(x.get("rsi", 0), 1),
+                "Q-Score":        conf,
+                "Win %":          f"{cal_p:.1f}%" if cal_p is not None else "—",
+                "Expectancy (R)": f"+{exp_r:.2f}" if exp_r is not None and exp_r >= 0 else (f"{exp_r:.2f}" if exp_r is not None else "—"),
+                "Stop":           f"₹{sl:.0f}" if sl else "—",
+                "Target":         f"₹{tp:.0f}" if tp else "—",
+                "Top Pro":        pros_list[0] if pros_list else "—",
+                "Top Con":        cons_list[0] if cons_list else "—",
+            })
+
+        df_wl = pd.DataFrame(watchlist_items).sort_values("Q-Score", ascending=False)
+        st.dataframe(df_wl, hide_index=True, use_container_width=True, column_config={
+            "Q-Score": st.column_config.ProgressColumn("Q-Score", format="%d", min_value=0, max_value=100),
+        })
+        st.info("💡 **Institutional Rule:** Skip entries where **Q-Score < 70** or **Win% < 55%**. The expectancy (R) value shows statistical edge per trade.")
+
+    elif journal and journal.get("patterns"):
         unique_syms = list(set([data.get("context", {}).get("symbol") for data in journal["patterns"].values() if data.get("context")]))
         
         if len(unique_syms) < 5:
@@ -777,6 +935,49 @@ elif page == "🔬 Research & Learning":
                 our database applies a dynamic mathematical decay factor. 
                 Older setups carry minimal impact relative to new, high-relevance observations.*
             """)
+
+        st.divider()
+
+        st.markdown("#### Canonical Archetype Expectancy Metrics")
+        ARCHETYPE_LABELS = {
+            "PANIC_EXHAUSTION": "Panic Exhaustion (Capitulation)",
+            "FORCED_MOMENTUM": "Forced Momentum (Trend Chasing)",
+            "VOLATILITY_COMPRESSION": "Volatility Compression (Squeeze)",
+            "ROTATIONAL_STRENGTH": "Rotational Strength (Outperformance)",
+            "FAILED_BREAKOUT": "Failed Breakout (Trapped Buyers)",
+            "LIQUIDITY_VACUUM": "Liquidity Vacuum (Low Volume)",
+            "UNKNOWN_NOISE": "Noise / Unclassified"
+        }
+
+        if journal and journal.get("archetypes"):
+            arch_data = []
+            for name, arch in journal["archetypes"].items():
+                if name == "UNKNOWN_NOISE":
+                    continue
+                wr_pct = arch.get("win_rate", 0.0) * 100
+                pf = arch.get("profit_factor", 1.0)
+                exp = arch.get("expectancy", 0.0)
+                e_sign = "+" if exp >= 0 else ""
+                label = ARCHETYPE_LABELS.get(name, name)
+                hold = arch.get("avg_hold_time", 0.0)
+                
+                arch_data.append({
+                    "Archetype State": label,
+                    "Observations (n)": int(round(arch.get("trades", 0))),
+                    "Decayed Win Rate": f"{wr_pct:.1f}%",
+                    "Profit Factor": round(pf, 2),
+                    "Expectancy": f"{e_sign}{exp:.3f}R",
+                    "Avg Hold Period": f"{hold:.1f} bars",
+                    "_sort_exp": exp
+                })
+            
+            if arch_data:
+                df_arch = pd.DataFrame(arch_data).sort_values("_sort_exp", ascending=False).drop(columns=["_sort_exp"])
+                st.dataframe(df_arch, hide_index=True, use_container_width=True)
+            else:
+                st.info("No archetype metrics available.")
+        else:
+            st.info("Learning engine archetypes offline.")
 
         st.divider()
 

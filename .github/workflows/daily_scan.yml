@@ -2,8 +2,8 @@ name: Daily Trading Scan
 
 on:
   schedule:
-    # 9:00 AM IST = 3:30 AM UTC, Monday–Friday
-    - cron: '30 3 * * 1-5'
+    # 8:30 AM IST = 3:00 AM UTC, Monday–Friday
+    - cron: '0 3 * * 1-5'
   # Trigger on every push to main (useful for testing)
   push:
     branches:

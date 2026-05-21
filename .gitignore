@@ -3,27 +3,23 @@
 .env.*
 !.env.example
 
-# Data cache — regenerated on first run
-data/raw/
-data/processed/
+# Generated data cache and artifacts
+/data/raw/
+/data/processed/
 *.csv
 *.json
+!/state/
 !state/*.json
 !state/*.csv
 !state/.gitkeep
-!.env.example
 
 # Logs — generated at runtime
-logs/
+/logs/
 *.log
 
-# State folder IS tracked (paper portfolio, signal history)
-# state/ — intentionally not ignored
-
-# Python
+# Python bytecode and build artifacts
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 *.pyd
 .Python
 *.egg-info/
@@ -40,15 +36,33 @@ venv/
 env/
 ENV/
 
-# IDE
+# IDE/editor settings
 .vscode/
 .idea/
-*.swp
-*.swo
 *.sublime-project
 *.sublime-workspace
+*.swp
+*.swo
 
-# OS
+# OS artifacts
 .DS_Store
 Thumbs.db
+
+# Binary and compiled artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.class
+*.jar
+*.apk
+*.pdb
+*.ipch
+*.obj
+*.o
+*.a
+*.lib
+*.db
+*.sqlite
+*.sqlite3
 

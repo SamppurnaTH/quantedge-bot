@@ -9,13 +9,25 @@ Determines execution mode dynamically based on the current time (IST):
 import sys
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timezone
+
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    ZoneInfo = None
 
 # Force UTF-8 encoding for stdout/stderr to handle emojis on all platforms
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 if sys.stderr.encoding != 'utf-8':
     sys.stderr.reconfigure(encoding='utf-8')
+
+
+def get_ist_now() -> datetime:
+    """Return the current time in India Standard Time (IST)."""
+    if ZoneInfo is not None:
+        return datetime.now(timezone.utc).astimezone(ZoneInfo("Asia/Kolkata"))
+    return datetime.now()
 
 sys.path.insert(0, os.path.dirname(__file__))
 
@@ -95,12 +107,25 @@ ARCHETYPE_LABELS = {
 def run_daily():
     setup_logging()
 
-    now = datetime.now()
+    local_now = datetime.now()
+    ist_now = get_ist_now()
+    logger = logging.getLogger(__name__)
+    logger.info(
+        "Daily runner start | local=%s | IST=%s",
+        local_now.strftime("%Y-%m-%d %H:%M:%S"),
+        ist_now.strftime("%Y-%m-%d %H:%M:%S %Z"),
+    )
+
+    now = ist_now
     # Before 12:00 PM IST is Morning Pre-Market Scan. 12:00 PM IST or after is EOD.
     is_afternoon = now.hour >= 12
 
     # Initialize Notifier & Trader
     notifier = TelegramNotifier()
+    if not notifier.enabled:
+        logger.warning(
+            "Telegram notifications disabled. Verify TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in the scheduled task environment."
+        )
     trader = PaperTrader(capital=RISK_CONFIG["default_capital"])
 
     if not is_afternoon:
@@ -109,7 +134,7 @@ def run_daily():
         # =======================================================================
         report_title = "PRE-MARKET INTELLIGENCE COCKPIT"
         print(f"\n{'='*70}")
-        print(f"  {report_title} — {now.strftime('%A, %d %b %Y  %H:%M')}")
+        print(f"  {report_title} — {now.strftime('%A, %d %b %Y  %H:%M %Z')}")
         print(f"{'='*70}\n")
 
         # 1. Run Auto-Optimization
@@ -715,4 +740,9 @@ _Generated: {eod_report['timestamp']}_
 
 
 if __name__ == "__main__":
-    run_daily()
+    try:
+        run_daily()
+    except Exception as exc:
+        logger = logging.getLogger(__name__)
+        logger.exception("Daily runner failed unexpectedly: %s", exc)
+        raise

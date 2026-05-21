@@ -339,12 +339,22 @@ class TelegramNotifier:
                 },
                 timeout=10,
             )
+            if resp.status_code != 200:
+                logger.warning(
+                    "Telegram API returned HTTP %s: %s",
+                    resp.status_code,
+                    resp.text,
+                )
             data = resp.json()
             if data.get("ok"):
                 logger.info("Telegram alert sent successfully")
                 return True
             else:
-                logger.warning("Telegram API error: %s", data.get("description", "unknown"))
+                logger.warning(
+                    "Telegram API error: %s | response=%s",
+                    data.get("description", "unknown"),
+                    data,
+                )
                 return False
         except requests.exceptions.ConnectionError:
             logger.warning("Telegram: no internet connection")

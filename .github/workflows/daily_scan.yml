@@ -2,12 +2,10 @@ name: Daily Trading Scan
 
 on:
   schedule:
-    # 8:30 AM IST = 3:00 AM UTC, Monday–Friday
+    # ── Morning run: 8:30 AM IST = 3:00 AM UTC, Mon–Fri ──────────────────────
     - cron: '0 3 * * 1-5'
-  # Trigger on every push to main (useful for testing)
-  push:
-    branches:
-      - main
+    # ── EOD run: 3:30 PM IST = 10:00 AM UTC, Mon–Fri ─────────────────────────
+    - cron: '0 10 * * 1-5'
   # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
 
@@ -34,58 +32,103 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # ── 4. Restore persistent state ─────────────────────────────────────────
-      # state/ is tracked by git — copy into logs/ so the bot can read it.
-      - name: Restore portfolio state
+      # ── 4. Check NSE market holiday ─────────────────────────────────────────
+      # Skip the run entirely on NSE holidays to avoid false signals.
+      - name: Check NSE market holiday
+        id: holiday_check
         run: |
-          mkdir -p logs data/raw
-          if [ -f state/paper_portfolio.json ]; then
-            cp state/paper_portfolio.json logs/paper_portfolio.json
-            echo "Portfolio state restored."
-          else
-            echo "No existing portfolio state — fresh start."
-          fi
-          if [ -f state/signals_history.csv ]; then
-            cp state/signals_history.csv logs/signals_history.csv
-          fi
-          if [ -f state/backtest_results.csv ]; then
-            cp state/backtest_results.csv logs/backtest_results.csv
-          fi
-          if [ -f state/ab_test_results.json ]; then
-            cp state/ab_test_results.json logs/ab_test_results.json
-          fi
+          python - <<'PYEOF'
+          import datetime, sys, json, urllib.request
 
-      # ── 5. Run daily scan ────────────────────────────────────────────────────
+          today = datetime.date.today()
+
+          # NSE 2025–2026 holiday list (add new years as needed)
+          NSE_HOLIDAYS = {
+              # 2025
+              datetime.date(2025, 1, 26),   # Republic Day
+              datetime.date(2025, 2, 26),   # Mahashivratri
+              datetime.date(2025, 3, 14),   # Holi
+              datetime.date(2025, 3, 31),   # Id-Ul-Fitr (Ramzan Eid)
+              datetime.date(2025, 4, 10),   # Shri Ram Navami
+              datetime.date(2025, 4, 14),   # Dr. Baba Saheb Ambedkar Jayanti
+              datetime.date(2025, 4, 18),   # Good Friday
+              datetime.date(2025, 5, 1),    # Maharashtra Day
+              datetime.date(2025, 8, 15),   # Independence Day
+              datetime.date(2025, 8, 27),   # Ganesh Chaturthi
+              datetime.date(2025, 10, 2),   # Mahatma Gandhi Jayanti
+              datetime.date(2025, 10, 2),   # Dussehra
+              datetime.date(2025, 10, 20),  # Diwali Laxmi Pujan (Muhurat Trading)
+              datetime.date(2025, 10, 21),  # Diwali Balipratipada
+              datetime.date(2025, 11, 5),   # Prakash Gurpurb Sri Guru Nanak Dev Ji
+              datetime.date(2025, 12, 25),  # Christmas
+              # 2026
+              datetime.date(2026, 1, 26),   # Republic Day
+              datetime.date(2026, 3, 20),   # Holi
+              datetime.date(2026, 4, 3),    # Good Friday
+              datetime.date(2026, 4, 14),   # Dr. Baba Saheb Ambedkar Jayanti
+              datetime.date(2026, 4, 15),   # Ram Navami
+              datetime.date(2026, 5, 1),    # Maharashtra Day
+              datetime.date(2026, 8, 15),   # Independence Day
+              datetime.date(2026, 10, 2),   # Mahatma Gandhi Jayanti
+              datetime.date(2026, 11, 11),  # Diwali Laxmi Pujan
+              datetime.date(2026, 12, 25),  # Christmas
+          }
+
+          if today in NSE_HOLIDAYS:
+              print(f"NSE_HOLIDAY=true")
+              with open("$GITHUB_OUTPUT", "a") as f:
+                  f.write("skip=true\n")
+              print(f"Today ({today}) is an NSE holiday — skipping run.")
+          else:
+              with open("$GITHUB_OUTPUT", "a") as f:
+                  f.write("skip=false\n")
+              print(f"Today ({today}) is a trading day — proceeding.")
+          PYEOF
+
+      # ── 5. Restore persistent state ─────────────────────────────────────────
+      - name: Restore portfolio state
+        if: steps.holiday_check.outputs.skip != 'true'
+        run: |
+          mkdir -p logs data/raw state
+          # Core portfolio files
+          [ -f state/paper_portfolio.json ]   && cp state/paper_portfolio.json   logs/paper_portfolio.json   && echo "Restored paper_portfolio.json"
+          [ -f state/signals_history.csv ]    && cp state/signals_history.csv    logs/signals_history.csv    && echo "Restored signals_history.csv"
+          [ -f state/backtest_results.csv ]   && cp state/backtest_results.csv   logs/backtest_results.csv   && echo "Restored backtest_results.csv"
+          [ -f state/ab_test_results.json ]   && cp state/ab_test_results.json   logs/ab_test_results.json   && echo "Restored ab_test_results.json"
+          # Intelligence & learning state
+          [ -f state/regime_history.json ]    && cp state/regime_history.json    state/regime_history.json   && echo "Restored regime_history.json"
+          [ -f state/learning_journal.json ]  && echo "Learning journal present."
+          [ -f state/pre_market_state.json ]  && echo "Pre-market state present."
+          echo "State restore complete."
+
+      # ── 6. Run daily scan ────────────────────────────────────────────────────
       - name: Run daily trading scan
+        if: steps.holiday_check.outputs.skip != 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python run_daily.py
 
-      # ── 6. Save persistent state back to repo ───────────────────────────────
+      # ── 7. Save all persistent state back to repo ────────────────────────────
       - name: Save portfolio state
+        if: steps.holiday_check.outputs.skip != 'true'
         run: |
           mkdir -p state
-          if [ -f logs/paper_portfolio.json ]; then
-            cp logs/paper_portfolio.json state/paper_portfolio.json
-          fi
-          if [ -f logs/signals_history.csv ]; then
-            cp logs/signals_history.csv state/signals_history.csv
-          fi
-          if [ -f logs/backtest_results.csv ]; then
-            cp logs/backtest_results.csv state/backtest_results.csv
-          fi
-          if [ -f logs/ab_test_results.json ]; then
-            cp logs/ab_test_results.json state/ab_test_results.json
-          fi
+          # Core portfolio files
+          [ -f logs/paper_portfolio.json ]  && cp logs/paper_portfolio.json  state/paper_portfolio.json
+          [ -f logs/signals_history.csv ]   && cp logs/signals_history.csv   state/signals_history.csv
+          [ -f logs/backtest_results.csv ]  && cp logs/backtest_results.csv  state/backtest_results.csv
+          [ -f logs/ab_test_results.json ]  && cp logs/ab_test_results.json  state/ab_test_results.json
+          # Intelligence & learning state (written directly to state/ by run_daily.py)
+          echo "State save complete."
 
-      # ── 7. Commit state back to repo ────────────────────────────────────────
+      # ── 8. Commit state back to repo ────────────────────────────────────────
       - name: Commit updated state
+        if: steps.holiday_check.outputs.skip != 'true'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add state/
-          # Only commit if something actually changed
           if git diff --staged --quiet; then
             echo "No state changes to commit."
           else

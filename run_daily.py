@@ -9,6 +9,7 @@ Determines execution mode dynamically based on the current time (IST):
 import sys
 import os
 import json
+import logging
 from datetime import datetime, timezone
 
 try:
@@ -42,6 +43,7 @@ from analytics.dashboard import run_auto_optimization
 from analytics.learning_engine import load_journal, seed_from_history
 from analytics.learning_report import run_learning_report
 from config.settings import DATA_CONFIG, RISK_CONFIG
+from data.fetcher import load_stock_data
 from analytics.intelligence_cycles import (
     run_pre_market_cycle,
     run_eod_cycle,

@@ -1,90 +1,113 @@
-# 🔮 QuantEdge — Pre-Market Preparation Report
-_Generated: 2026-05-20 07:00_
+# 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
+_Generated: 2026-05-24 10:00_
 
 ---
 
-## 📈 Broad Market Context
-- **Index Regime:** ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size)
-- **Opening Bias:** **BEARISH**
-- **Confidence Rating:** **71%**
-- **Gap Expectation:** **High Gap Down Probability**
-- **Risk Level:** **HIGH**
+## 🌍 Section 1 — Market Opening Status
+| Metric | Value |
+| :--- | :--- |
+| **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
+| **Risk Level** | LOW |
+| **Opening Bias** | BULLISH (100% confidence) |
+| **Gap Outlook** | High Gap Up Probability |
+| **Interpretation** | *Positive global cues support an upside open — watch for early continuation setups.* |
 
 ---
 
-## 🌍 Global Assets Snapshot
-| Asset Name | Value | Daily Change | Impact |
+## 🚫 Section 2 — Capital Protection Alerts
+_No critical risk warnings detected for this session._
+
+---
+
+## 🎯 Section 3 — Today's Best Opportunities (Top 5 BUY Setups)
+| Symbol | Q-Score | Signal | Expectancy (R) | Win% | Entry | Stop | Target |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **POWERGRID.NS** | 66/100 | BUY | +0.44R | 48.0% | ₹294.30 | ₹280.52 | ₹321.86 |
+| **NTPC.NS** | 61/100 | BUY | +0.44R | 48.0% | ₹388.65 | ₹372.01 | ₹421.93 |
+
+---
+
+## 🧠 Section 4 — Setup Reasoning (Pros & Cons)
+
+### POWERGRID.NS — Q-Score 66/100
+**Pros:**
+- ✅ ✓ Institutional Liquidity: High dollar volume (₹294.3 Cr/day) ensures low slippage
+- ✅ ✓ Signal quality weighted because mean-reversion expectancy and volatility compression carry highest weights (65% combined) under sideways index conditions.
+- ✅ ✓ Volume Surge: Volume is 1.5x the 20-day average
+- ✅ ✓ Long-term Health: Trading above its structural 200-day SMA
+- ✅ ✓ Powerful Momentum: ADX trend strength is robust (34.2)
+- ✅ ✓ Stable Volatility: ATR ratio is in the optimal band (0.92)
+- ✅ ✓ Value Buy: RSI is in oversold pullback territory (33.9)
+- ✅ ✓ Deep Pullback: Fell 8.3% from recent peak, offering a discount
+- ✅ ✓ Probability Calibration: 48.0% [28%–63%] 90% CI (wide-interval (low sample count), n=0) — Theoretical fair-calibrated mean reversion
+**Cons:**
+- ⚠️ ✗ Regime Unconfirmed: Mismatch with index trend structure
+- ⚠️ ✗ Poor prior edge: Setup falls into high-risk state UNKNOWN_NOISE (negative prior expectancy -0.12R)
+
+### NTPC.NS — Q-Score 61/100
+**Pros:**
+- ✅ ✓ Institutional Liquidity: High dollar volume (₹326.9 Cr/day) ensures low slippage
+- ✅ ✓ Signal quality weighted because mean-reversion expectancy and volatility compression carry highest weights (65% combined) under sideways index conditions.
+- ✅ ✓ Normal Flow: Volume is slightly above average (1.4x)
+- ✅ ✓ Long-term Health: Trading above its structural 200-day SMA
+- ✅ ✓ Powerful Momentum: ADX trend strength is robust (28.2)
+- ✅ ✓ Stable Volatility: ATR ratio is in the optimal band (0.90)
+- ✅ ✓ Deep Pullback: Fell 5.2% from recent peak, offering a discount
+- ✅ ✓ Candlestick Trigger: Bullish 'BEARISH_ENGULFING' candle detected
+- ✅ ✓ Probability Calibration: 48.0% [28%–63%] 90% CI (wide-interval (low sample count), n=0) — Theoretical fair-calibrated mean reversion
+**Cons:**
+- ⚠️ ✗ Regime Unconfirmed: Mismatch with index trend structure
+- ⚠️ ✗ Poor prior edge: Setup falls into high-risk state UNKNOWN_NOISE (negative prior expectancy -0.12R)
+
+---
+
+## 📊 Section 5 — Market Internals (Global Snapshot)
+| Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7353.61 | -0.67% | BEARISH (bearish pressure) |
-| US (Nasdaq) | 25870.71 | -0.84% | BEARISH (bearish pressure) |
-| Crude Oil | 103.03 | -4.4% | BULLISH (softening crude oil / supportive) |
-| Dollar Index | 99.38 | +0.08% | BULLISH (supportive currency flow) |
-| Bond Yields (10Y) | 4.67 | +0.95% | NEUTRAL (No major impact) |
-| Japan (Nikkei 225) | 59804.41 | -1.23% | BEARISH (bearish pressure) |
+| US (S&P 500) | 7473.47 | +0.37% | NEUTRAL — No major impact |
+| US (Nasdaq) | 26343.97 | +0.19% | NEUTRAL — No major impact |
+| VIX (Volatility) | 16.7 | -0.36% | NEUTRAL — No major impact |
+| Bond Yields (10Y) | 4.56 | -0.61% | NEUTRAL — No major impact |
+| Japan (Nikkei 225) | 63339.07 | +2.68% | BULLISH — bullish support |
+
+---
+
+## 🚦 Section 6 — Today's Execution Mode
+- **Mode:** ⚠️ REDUCED EXPOSURE — HALF SIZE (×0.5)
+- **Operational Guideline:** High-uncertainty or range-bound environment — sizing throttled by 50% to prevent churn.
+- **Minimum Signal Quality Score:** 3/3
+- **Stop Loss Width:** 2.0× ATR
+- **Position Size:** 50% of standard weight
 
 ---
 
 ## ⚡ Sector Strength Rankings
-| Sector Name | Average 5D Return | Status |
+| Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| IT | +4.4% | STRONG |
-| Energy/Infra | +2.79% | STRONG |
-| Others | +0.89% | STRONG |
-| Banking | +0.03% | NEUTRAL |
-| Auto | -0.71% | WEAK |
-| FMCG | -0.82% | WEAK |
-| Metals | -6.88% | WEAK |
+| Telecom | +6.47% | STRONG |
+| IT | +4.13% | STRONG |
+| Pharma | +3.06% | STRONG |
+| NBFC | +1.83% | STRONG |
+| Energy/Infra | +0.97% | STRONG |
+| Agro | +0.67% | STRONG |
+| Banking | +0.46% | NEUTRAL |
+| Auto | -0.15% | NEUTRAL |
+| Consumer | -0.22% | NEUTRAL |
+| Metals | -1.31% | WEAK |
+| FMCG | -1.37% | WEAK |
 
 ---
 
-## 🏆 Watchlist Quality Rankings
-| Symbol | Q-Score (0-100) | Signal | Current Close | RSI |
-| :--- | :--- | :--- | :--- | :--- |
-| DIVISLAB.NS | **75/100** | HOLD | 6900.00 | 68.44 |
-| HINDALCO.NS | **75/100** | HOLD | 1076.50 | 58.96 |
-| TATASTEEL.NS | **70/100** | HOLD | 204.69 | 41.75 |
-| ADANIENT.NS | **66/100** | SELL | 2705.60 | 71.89 |
-| ADANIPORTS.NS | **66/100** | HOLD | 1768.50 | 64.32 |
-| APOLLOHOSP.NS | **66/100** | HOLD | 8059.50 | 62.62 |
-| AXISBANK.NS | **66/100** | HOLD | 1241.60 | 39.27 |
-| BAJAJ-AUTO.NS | **66/100** | HOLD | 10409.00 | 59.63 |
-| COALINDIA.NS | **66/100** | HOLD | 457.75 | 48.90 |
-| DRREDDY.NS | **66/100** | HOLD | 1328.70 | 57.65 |
-| GRASIM.NS | **66/100** | HOLD | 2912.60 | 58.24 |
-| INDUSINDBK.NS | **66/100** | HOLD | 890.15 | 50.06 |
-| NESTLEIND.NS | **66/100** | HOLD | 1409.00 | 50.70 |
-| NTPC.NS | **66/100** | HOLD | 390.85 | 48.07 |
-| POWERGRID.NS | **66/100** | HOLD | 297.50 | 36.41 |
-| SUNPHARMA.NS | **66/100** | HOLD | 1875.20 | 61.54 |
-| TATACONSUM.NS | **66/100** | HOLD | 1211.30 | 58.87 |
-| ASIANPAINT.NS | **63/100** | HOLD | 2603.30 | 62.25 |
-| JSWSTEEL.NS | **63/100** | HOLD | 1273.10 | 53.91 |
-| ONGC.NS | **61/100** | HOLD | 299.65 | 60.33 |
-| TITAN.NS | **61/100** | HOLD | 4089.00 | 39.52 |
-| BAJAJFINSV.NS | **57/100** | HOLD | 1755.20 | 46.28 |
-| BAJFINANCE.NS | **57/100** | HOLD | 916.00 | 47.99 |
-| BHARTIARTL.NS | **57/100** | HOLD | 1904.50 | 57.50 |
-| BPCL.NS | **57/100** | HOLD | 290.80 | 44.43 |
-| BRITANNIA.NS | **57/100** | HOLD | 5341.00 | 36.49 |
-| CIPLA.NS | **57/100** | HOLD | 1404.90 | 63.51 |
-| EICHERMOT.NS | **57/100** | HOLD | 6862.00 | 38.96 |
-| HCLTECH.NS | **57/100** | HOLD | 1174.50 | 39.25 |
-| HDFCBANK.NS | **57/100** | HOLD | 757.60 | 41.28 |
-| HDFCLIFE.NS | **57/100** | HOLD | 606.65 | 48.75 |
-| HEROMOTOCO.NS | **57/100** | HOLD | 4988.00 | 42.66 |
-| HINDUNILVR.NS | **57/100** | HOLD | 2214.40 | 44.10 |
-| ICICIBANK.NS | **57/100** | HOLD | 1231.40 | 37.77 |
-| INFY.NS | **57/100** | HOLD | 1191.30 | 49.52 |
-| ITC.NS | **57/100** | HOLD | 306.50 | 49.04 |
-| KOTAKBANK.NS | **57/100** | HOLD | 382.45 | 52.11 |
-| M&M.NS | **57/100** | HOLD | 3127.50 | 47.39 |
-| MARUTI.NS | **57/100** | HOLD | 13010.00 | 43.55 |
-| RELIANCE.NS | **57/100** | HOLD | 1347.10 | 43.20 |
-| SBILIFE.NS | **57/100** | HOLD | 1874.70 | 51.89 |
-| SBIN.NS | **57/100** | HOLD | 946.50 | 32.98 |
-| TCS.NS | **57/100** | HOLD | 2335.00 | 41.25 |
-| TECHM.NS | **57/100** | HOLD | 1457.10 | 53.66 |
-| ULTRACEMCO.NS | **57/100** | HOLD | 11351.00 | 41.44 |
-| UPL.NS | **57/100** | HOLD | 627.15 | 44.65 |
-| LT.NS | **50/100** | HOLD | 3920.10 | 47.54 |
-| WIPRO.NS | **46/100** | HOLD | 196.92 | 49.69 |
+## 🚀 Section 7 — Best Single Idea of the Day
+> **POWERGRID.NS** — Q-Score 66/100
+
+| Metric | Value |
+| :--- | :--- |
+| **Entry Price** | ₹294.30 |
+| **Win Probability** | 48.0% |
+| **Expectancy** | +0.44R |
+| **RSI** | 33.9 |
+| **Stop Loss** | ₹280.52 |
+| **Take Profit** | ₹321.86 |
+| **Risk/Reward** | 2.0x |
+| **Trade Cost** | ₹4,709 |

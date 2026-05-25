@@ -1,6 +1,6 @@
 {
   "initial_capital": 100000,
-  "cash": 97118.2718,
+  "cash": 87629.3924,
   "positions": {
     "ADANIPOWER.NS": {
       "symbol": "ADANIPOWER.NS",
@@ -14,6 +14,36 @@
       "score": 3,
       "regime": "SIDEWAYS",
       "slippage_cost": 2.88
+    },
+    "NTPC.NS": {
+      "symbol": "NTPC.NS",
+      "shares": 6,
+      "entry_price": 392.34195,
+      "quoted_price": 391.95,
+      "current_price": 392.34195,
+      "stop_loss": 376.03,
+      "take_profit": 423.79,
+      "entry_date": "2026-05-25",
+      "score": 3,
+      "rsi": 49.77,
+      "confidence_score": 61,
+      "regime": "SIDEWAYS",
+      "slippage_cost": 4.7
+    },
+    "POWERGRID.NS": {
+      "symbol": "POWERGRID.NS",
+      "shares": 8,
+      "entry_price": 298.7985,
+      "quoted_price": 298.5,
+      "current_price": 298.7985,
+      "stop_loss": 285.1,
+      "take_profit": 325.3,
+      "entry_date": "2026-05-25",
+      "score": 3,
+      "rsi": 40.76,
+      "confidence_score": 61,
+      "regime": "SIDEWAYS",
+      "slippage_cost": 4.78
     }
   },
   "closed_trades": [],

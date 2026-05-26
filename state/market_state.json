@@ -1,20 +1,20 @@
 {
-  "date": "2026-05-25",
+  "date": "2026-05-26",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 81,
+  "breadth_score": 54,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Banking",
-    "IT"
+    "Agro",
+    "Consumer"
   ],
   "sector_laggards": [
     "FMCG",
     "Telecom"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.24,
-    "sideways": 0.31,
-    "bullish": 0.45
+    "bearish": 0.32,
+    "sideways": 0.32,
+    "bullish": 0.36
   }
 }

@@ -61,9 +61,9 @@
     "forecast": "Range-Bound Consolidation Likelihood Elevated",
     "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
     "probs": {
-      "BULLISH": 38.9,
-      "RANGE": 32.2,
-      "BEARISH": 28.9
+      "BULLISH": 34.7,
+      "RANGE": 31.0,
+      "BEARISH": 34.3
     }
   }
 ]

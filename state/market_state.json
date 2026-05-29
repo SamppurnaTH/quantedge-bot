@@ -2,19 +2,19 @@
   "date": "2026-05-29",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 29,
+  "breadth_score": 10,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Agro",
-    "Metals"
+    "Banking"
   ],
   "sector_laggards": [
     "Pharma",
     "Telecom"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.42,
+    "bearish": 0.44,
     "sideways": 0.31,
-    "bullish": 0.27
+    "bullish": 0.25
   }
 }

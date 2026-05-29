@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-05-29 06:59_
+_Generated: 2026-05-29 12:44_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-05-29 06:59_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.21% | -0.02% | FAILED RALLY |
-| **Bank Nifty** | +0.05% | — | — |
+| **Nifty 50** | -1.50% | -0.02% | RANGE-BOUND |
+| **Bank Nifty** | -1.12% | — | — |
 
-- **Structural Summary:** *Late-day selloff completely erased early gains, signaling distribution.*
-- **Advances:** 14 symbols  |  **Declines:** 34 symbols  |  **A/D Ratio:** 0.41
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 5 symbols  |  **Declines:** 43 symbols  |  **A/D Ratio:** 0.12
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.21%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -1.50%)
 - ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (-0.02%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.21%
-- **Cumulative Model Accuracy: 0.0%** (0/6 scored predictions)
+- Today's Actual Nifty Change: -1.50%
+- **Cumulative Model Accuracy: 0.0%** (0/7 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a FAILED RALLY. Late-day selloff completely erased early gains, signaling distribution.
-- **Breadth:** Advances/Declines stood at 14/34 with an A/D Ratio of 0.41.
-- **Smart Money:** Unusual volume detected in BHARTIARTL.NS, COALINDIA.NS, WIPRO.NS.
-- **Weakness:** Breakout failures occurred in WIPRO.NS.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 5/43 with an A/D Ratio of 0.12.
+- **Smart Money:** Unusual volume detected in APOLLOHOSP.NS, ASIANPAINT.NS, AXISBANK.NS, BAJFINANCE.NS, BHARTIARTL.NS, BPCL.NS, BRITANNIA.NS, CIPLA.NS, COALINDIA.NS, DRREDDY.NS, EICHERMOT.NS, HCLTECH.NS, HDFCBANK.NS, HEROMOTOCO.NS, HINDALCO.NS, HINDUNILVR.NS, INFY.NS, M&M.NS, MARUTI.NS, NESTLEIND.NS, ONGC.NS, POWERGRID.NS, RELIANCE.NS, SBILIFE.NS, SUNPHARMA.NS, TATACONSUM.NS, TATASTEEL.NS, TCS.NS, ULTRACEMCO.NS, UPL.NS, WIPRO.NS.
+- **Weakness:** Breakout failures occurred in INFY.NS, WIPRO.NS.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-05-29 06:59_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2947.50 | +7.58% | +0.00R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹393.10 | +0.29% | +0.07R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹295.10 | -1.14% | -0.25R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3139.50 | -1.27% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8286.00 | -1.71% | +0.00R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2937.40 | +7.21% | +0.00R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹386.90 | -1.29% | -0.32R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3122.40 | -1.81% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹290.55 | -2.66% | -0.59R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8176.50 | -3.01% | +0.00R |
 
 ---
 
@@ -65,12 +65,12 @@ _Generated: 2026-05-29 06:59_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Bearish to Neutral Distribution Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **27.2%** |
+| 🟢 Bullish Continuation | **24.7%** |
 | 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **41.8%** |
+| 🔴 Bearish Continuation | **44.3%** |

@@ -2,19 +2,19 @@
   "date": "2026-06-01",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 22,
+  "breadth_score": 20,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "IT",
     "Agro"
   ],
   "sector_laggards": [
-    "Telecom",
+    "FMCG",
     "NBFC"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.51,
-    "sideways": 0.29,
-    "bullish": 0.2
+    "bearish": 0.5,
+    "sideways": 0.28,
+    "bullish": 0.22
   }
 }

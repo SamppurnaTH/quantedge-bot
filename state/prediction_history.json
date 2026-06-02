@@ -109,6 +109,21 @@
       "BULLISH": 21.8,
       "RANGE": 28.5,
       "BEARISH": 49.7
+    },
+    "actual_change": 0.56,
+    "result": "FAILED",
+    "gap_match": false,
+    "breadth_match": false,
+    "scored_at": "2026-06-02 08:01"
+  },
+  {
+    "date": "2026-06-02",
+    "forecast": "Neutral to Bullish Reversal Bias",
+    "narrative": "Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.",
+    "probs": {
+      "BULLISH": 42.4,
+      "RANGE": 30.7,
+      "BEARISH": 26.9
     }
   }
 ]

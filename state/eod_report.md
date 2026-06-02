@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-01 15:51_
+_Generated: 2026-06-02 08:01_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-06-01 15:51_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.70% | +0.45% | WEAK CLOSE |
-| **Bank Nifty** | -1.10% | — | — |
+| **Nifty 50** | +0.56% | -0.66% | STRONG CLOSE |
+| **Bank Nifty** | +0.50% | — | — |
 
-- **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
-- **Advances:** 10 symbols  |  **Declines:** 38 symbols  |  **A/D Ratio:** 0.26
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.70%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.45%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.56%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.66%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.70%
+- Today's Actual Nifty Change: +0.56%
 - **Cumulative Model Accuracy: 0.0%** (0/8 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
-- **Breadth:** Advances/Declines stood at 10/38 with an A/D Ratio of 0.26.
-- **Smart Money:** Unusual volume detected in COALINDIA.NS, TECHM.NS.
-- **Weakness:** Breakout failures occurred in HCLTECH.NS, SBILIFE.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
+- **Smart Money:** Unusual volume detected in none.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,17 +39,17 @@ _Generated: 2026-06-01 15:51_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2909.40 | +6.19% | +0.00R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3102.60 | -2.43% | +0.00R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹378.70 | -3.38% | -0.83R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8108.50 | -3.81% | +0.00R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹286.15 | -4.14% | -0.92R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2940.50 | +7.33% | +0.00R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3094.90 | -2.68% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8053.00 | -4.47% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹280.35 | -6.08% | -1.35R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹366.75 | -6.43% | -1.58R |
 
 ---
 
 ## 🔬 Section 5 — Learning Engine Update
-- **Closed Trades Processed Today:** 0
-- **Dataset Size:** 23994 historical signal evaluations analyzed.
+- **Closed Trades Processed Today:** 2
+- **Dataset Size:** 23996 historical signal evaluations analyzed.
 
 ### Archetype Expectancy Performance
 | Archetype State | Observations (n) | Decayed Win Rate | Profit Factor | Expectancy (R) | Avg Hold Period |
@@ -65,12 +65,12 @@ _Generated: 2026-06-01 15:51_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Neutral to Bullish Reversal Bias**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **21.8%** |
-| 🟡 Sideways / Range-Bound | **28.5%** |
-| 🔴 Bearish Continuation | **49.7%** |
+| 🟢 Bullish Continuation | **42.4%** |
+| 🟡 Sideways / Range-Bound | **30.7%** |
+| 🔴 Bearish Continuation | **26.9%** |

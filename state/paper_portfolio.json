@@ -1,6 +1,6 @@
 {
   "initial_capital": 100000,
-  "cash": 87629.3924,
+  "cash": 92135.06221999999,
   "positions": {
     "ADANIPOWER.NS": {
       "symbol": "ADANIPOWER.NS",
@@ -14,39 +14,36 @@
       "score": 3,
       "regime": "SIDEWAYS",
       "slippage_cost": 2.88
-    },
-    "NTPC.NS": {
+    }
+  },
+  "closed_trades": [
+    {
       "symbol": "NTPC.NS",
       "shares": 6,
       "entry_price": 392.34195,
-      "quoted_price": 391.95,
-      "current_price": 378.7000122070313,
-      "stop_loss": 376.03,
-      "take_profit": 423.79,
+      "exit_price": 375.65396999999996,
       "entry_date": "2026-05-25",
+      "exit_date": "2026-06-02",
+      "pnl": -100.13,
+      "exit_reason": "STOP-LOSS",
       "score": 3,
-      "rsi": 49.77,
-      "confidence_score": 61,
       "regime": "SIDEWAYS",
-      "slippage_cost": 4.7
+      "slippage_cost": 6.96
     },
-    "POWERGRID.NS": {
+    {
       "symbol": "POWERGRID.NS",
       "shares": 8,
       "entry_price": 298.7985,
-      "quoted_price": 298.5,
-      "current_price": 286.1499938964844,
-      "stop_loss": 285.1,
-      "take_profit": 325.3,
+      "exit_price": 281.46825,
       "entry_date": "2026-05-25",
+      "exit_date": "2026-06-02",
+      "pnl": -138.64,
+      "exit_reason": "GAP-DOWN-SL",
       "score": 3,
-      "rsi": 40.76,
-      "confidence_score": 61,
       "regime": "SIDEWAYS",
-      "slippage_cost": 4.78
+      "slippage_cost": 7.03
     }
-  },
-  "closed_trades": [],
+  ],
   "max_portfolio_value": 100000,
   "max_drawdown": 0.0
 }

@@ -16053,15 +16053,15 @@
       ]
     },
     "SIDEWAYS|RSI<50|S3|FALLING|NOCNDLE|NOSUPP|NOSPK": {
-      "trades": 31.66,
-      "wins": 16.16,
-      "losses": 15.5,
-      "win_rate": 0.51,
-      "gross_profit": 16.16,
-      "gross_loss": 15.5,
-      "profit_factor": 1.04,
-      "expectancy": 0.021,
-      "avg_hold_time": 5.7,
+      "trades": 30.99,
+      "wins": 14.87,
+      "losses": 16.12,
+      "win_rate": 0.48,
+      "gross_profit": 14.87,
+      "gross_loss": 115.25,
+      "profit_factor": 0.13,
+      "expectancy": -3.239,
+      "avg_hold_time": 6.0,
       "state": "LEARNING",
       "context": {
         "symbol": "ADANIENT.NS",
@@ -16070,12 +16070,6 @@
         "score": 3
       },
       "history": [
-        {
-          "date": "2026-04-07",
-          "won": true,
-          "pnl": 1.0,
-          "hold_time": 1
-        },
         {
           "date": "2018-08-03",
           "won": false,
@@ -17269,6 +17263,12 @@
           "won": false,
           "pnl": -1.0,
           "hold_time": 9
+        },
+        {
+          "date": "2026-06-02",
+          "won": false,
+          "pnl": -100.12788000000023,
+          "hold_time": 8
         }
       ]
     },
@@ -68661,15 +68661,15 @@
       ]
     },
     "SIDEWAYS|RSI<50|S3|FALLING|NOCNDLE|SUPP|NOSPK": {
-      "trades": 12.84,
-      "wins": 7.01,
-      "losses": 5.82,
-      "win_rate": 0.546,
-      "gross_profit": 7.01,
-      "gross_loss": 5.82,
-      "profit_factor": 1.2,
-      "expectancy": 0.093,
-      "avg_hold_time": 5.2,
+      "trades": 13.52,
+      "wins": 6.84,
+      "losses": 6.68,
+      "win_rate": 0.506,
+      "gross_profit": 6.84,
+      "gross_loss": 144.32,
+      "profit_factor": 0.05,
+      "expectancy": -10.167,
+      "avg_hold_time": 5.4,
       "state": "WATCHING",
       "context": {
         "symbol": "ADANIPORTS.NS",
@@ -69247,6 +69247,12 @@
           "won": false,
           "pnl": -1.0,
           "hold_time": 1
+        },
+        {
+          "date": "2026-06-02",
+          "won": false,
+          "pnl": -138.64199999999983,
+          "hold_time": 8
         }
       ]
     },
@@ -98228,8 +98234,8 @@
     }
   },
   "metadata": {
-    "last_updated": "2026-05-20 22:00",
-    "total_observations": 23994,
+    "last_updated": "2026-06-02 08:01",
+    "total_observations": 23996,
     "garbage_ratio": 0.001
   },
   "archetypes": {
@@ -101875,28 +101881,16 @@
       }
     },
     "UNKNOWN_NOISE": {
-      "trades": 29.38,
-      "wins": 12.9,
-      "losses": 16.48,
-      "win_rate": 0.439,
-      "gross_profit": 12.9,
-      "gross_loss": 16.48,
-      "profit_factor": 0.78,
-      "expectancy": -0.122,
-      "avg_hold_time": 4.1,
+      "trades": 30.66,
+      "wins": 12.58,
+      "losses": 18.08,
+      "win_rate": 0.41,
+      "gross_profit": 12.58,
+      "gross_loss": 254.85,
+      "profit_factor": 0.05,
+      "expectancy": -7.903,
+      "avg_hold_time": 4.4,
       "history": [
-        {
-          "date": "2018-10-25",
-          "won": true,
-          "pnl": 1.0,
-          "hold_time": 2
-        },
-        {
-          "date": "2018-11-02",
-          "won": true,
-          "pnl": 1.0,
-          "hold_time": 10
-        },
         {
           "date": "2018-11-09",
           "won": false,
@@ -103084,6 +103078,18 @@
           "won": false,
           "pnl": -1.0,
           "hold_time": 1
+        },
+        {
+          "date": "2026-06-02",
+          "won": false,
+          "pnl": -100.12788000000023,
+          "hold_time": 8
+        },
+        {
+          "date": "2026-06-02",
+          "won": false,
+          "pnl": -138.64199999999983,
+          "hold_time": 8
         }
       ],
       "regimes": {
@@ -105514,28 +105520,16 @@
           ]
         },
         "SIDEWAYS": {
-          "trades": 36.94,
-          "wins": 19.77,
-          "losses": 17.17,
-          "win_rate": 0.535,
-          "gross_profit": 19.77,
-          "gross_loss": 17.17,
-          "profit_factor": 1.15,
-          "expectancy": 0.07,
-          "avg_hold_time": 4.5,
+          "trades": 37.93,
+          "wins": 19.23,
+          "losses": 18.69,
+          "win_rate": 0.507,
+          "gross_profit": 19.23,
+          "gross_loss": 255.46,
+          "profit_factor": 0.08,
+          "expectancy": -6.229,
+          "avg_hold_time": 4.7,
           "history": [
-            {
-              "date": "2022-03-15",
-              "won": true,
-              "pnl": 1.0,
-              "hold_time": 4
-            },
-            {
-              "date": "2022-04-12",
-              "won": false,
-              "pnl": -1.0,
-              "hold_time": 2
-            },
             {
               "date": "2023-03-31",
               "won": false,
@@ -106723,6 +106717,18 @@
               "won": false,
               "pnl": -1.0,
               "hold_time": 7
+            },
+            {
+              "date": "2026-06-02",
+              "won": false,
+              "pnl": -100.12788000000023,
+              "hold_time": 8
+            },
+            {
+              "date": "2026-06-02",
+              "won": false,
+              "pnl": -138.64199999999983,
+              "hold_time": 8
             }
           ]
         },
@@ -121130,6 +121136,88 @@
               "won": true,
               "pnl": 1.0,
               "hold_time": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "canonical_archetypes": {
+    "UNKNOWN_NOISE": {
+      "trades": 1.0,
+      "wins": 0.0,
+      "losses": 1.0,
+      "win_rate": 0.0,
+      "gross_profit": 0.0,
+      "gross_loss": 100.13,
+      "profit_factor": 0.0,
+      "expectancy": -100.128,
+      "avg_hold_time": 8.0,
+      "history": [
+        {
+          "date": "2026-06-02",
+          "won": false,
+          "pnl": -100.12788000000023,
+          "hold_time": 8
+        }
+      ],
+      "regimes": {
+        "SIDEWAYS": {
+          "trades": 1.0,
+          "wins": 0.0,
+          "losses": 1.0,
+          "win_rate": 0.0,
+          "gross_profit": 0.0,
+          "gross_loss": 100.13,
+          "profit_factor": 0.0,
+          "expectancy": -100.128,
+          "avg_hold_time": 8.0,
+          "history": [
+            {
+              "date": "2026-06-02",
+              "won": false,
+              "pnl": -100.12788000000023,
+              "hold_time": 8
+            }
+          ]
+        }
+      }
+    },
+    "RANGE_BOUND_SUPPORT": {
+      "trades": 1.0,
+      "wins": 0.0,
+      "losses": 1.0,
+      "win_rate": 0.0,
+      "gross_profit": 0.0,
+      "gross_loss": 138.64,
+      "profit_factor": 0.0,
+      "expectancy": -138.642,
+      "avg_hold_time": 8.0,
+      "history": [
+        {
+          "date": "2026-06-02",
+          "won": false,
+          "pnl": -138.64199999999983,
+          "hold_time": 8
+        }
+      ],
+      "regimes": {
+        "SIDEWAYS": {
+          "trades": 1.0,
+          "wins": 0.0,
+          "losses": 1.0,
+          "win_rate": 0.0,
+          "gross_profit": 0.0,
+          "gross_loss": 138.64,
+          "profit_factor": 0.0,
+          "expectancy": -138.642,
+          "avg_hold_time": 8.0,
+          "history": [
+            {
+              "date": "2026-06-02",
+              "won": false,
+              "pnl": -138.64199999999983,
+              "hold_time": 8
             }
           ]
         }

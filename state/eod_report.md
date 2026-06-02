@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-02 08:01_
+_Generated: 2026-06-02 13:55_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-06-02 08:01_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.56% | -0.66% | STRONG CLOSE |
-| **Bank Nifty** | +0.50% | — | — |
+| **Nifty 50** | +0.43% | -0.66% | RANGE-BOUND |
+| **Bank Nifty** | +0.13% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 26 symbols  |  **Declines:** 22 symbols  |  **A/D Ratio:** 1.18
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.56%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.43%)
 - ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.66%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: +0.56%
-- **Cumulative Model Accuracy: 0.0%** (0/8 scored predictions)
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: +0.43%
+- **Cumulative Model Accuracy: 0.0%** (0/9 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
-- **Smart Money:** Unusual volume detected in none.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 26/22 with an A/D Ratio of 1.18.
+- **Smart Money:** Unusual volume detected in HCLTECH.NS, INFY.NS, TCS.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,16 +39,16 @@ _Generated: 2026-06-02 08:01_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2940.50 | +7.33% | +0.00R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3094.90 | -2.68% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8053.00 | -4.47% | +0.00R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹280.35 | -6.08% | -1.35R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹366.75 | -6.43% | -1.58R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2968.10 | +8.33% | +0.00R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3097.60 | -2.59% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8089.50 | -4.04% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹282.15 | -5.48% | -1.22R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹367.40 | -6.26% | -1.54R |
 
 ---
 
 ## 🔬 Section 5 — Learning Engine Update
-- **Closed Trades Processed Today:** 2
+- **Closed Trades Processed Today:** 0
 - **Dataset Size:** 23996 historical signal evaluations analyzed.
 
 ### Archetype Expectancy Performance
@@ -65,12 +65,12 @@ _Generated: 2026-06-02 08:01_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **42.4%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **26.9%** |
+| 🟢 Bullish Continuation | **30.7%** |
+| 🟡 Sideways / Range-Bound | **34.5%** |
+| 🔴 Bearish Continuation | **34.8%** |

@@ -1,20 +1,20 @@
 {
-  "date": "2026-06-03",
+  "date": "2026-06-04",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 39,
+  "breadth_score": 43,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "IT",
-    "Metals"
+    "Consumer"
   ],
   "sector_laggards": [
     "FMCG",
     "NBFC"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.34,
-    "sideways": 0.32,
-    "bullish": 0.35
+    "bearish": 0.37,
+    "sideways": 0.34,
+    "bullish": 0.29
   }
 }

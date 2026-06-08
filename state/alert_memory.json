@@ -132,8 +132,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-06-08"
     },
     {
       "date": "2026-06-03",
@@ -147,8 +147,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-06-08"
     },
     {
       "date": "2026-06-03",
@@ -177,8 +177,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-06-08"
     },
     {
       "date": "2026-06-04",
@@ -207,8 +207,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-06-08"
     },
     {
       "date": "2026-06-08",
@@ -222,8 +222,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-06-08"
     },
     {
       "date": "2026-06-08",

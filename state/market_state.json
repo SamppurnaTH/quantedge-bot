@@ -5,16 +5,16 @@
   "breadth_score": 64,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Pharma",
-    "Banking"
+    "Banking",
+    "Pharma"
   ],
   "sector_laggards": [
     "Metals",
     "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.3,
-    "sideways": 0.32,
-    "bullish": 0.38
+    "bearish": 0.25,
+    "sideways": 0.3,
+    "bullish": 0.46
   }
 }

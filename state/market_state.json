@@ -2,19 +2,19 @@
   "date": "2026-06-12",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 64,
+  "breadth_score": 75,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Banking",
     "Telecom"
   ],
   "sector_laggards": [
-    "IT",
-    "Agro"
+    "Agro",
+    "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.35,
+    "bearish": 0.2,
     "sideways": 0.28,
-    "bullish": 0.37
+    "bullish": 0.51
   }
 }

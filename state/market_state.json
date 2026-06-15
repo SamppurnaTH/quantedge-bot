@@ -2,7 +2,7 @@
   "date": "2026-06-15",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 70,
+  "breadth_score": 64,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Banking",
@@ -13,8 +13,8 @@
     "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.26,
+    "bearish": 0.27,
     "sideways": 0.31,
-    "bullish": 0.43
+    "bullish": 0.42
   }
 }

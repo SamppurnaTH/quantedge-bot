@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-16 08:51_
+_Generated: 2026-06-16 14:55_
 
 ---
 
@@ -7,11 +7,11 @@ _Generated: 2026-06-16 08:51_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.55% | +1.27% | STRONG CLOSE |
-| **Bank Nifty** | +0.76% | — | — |
+| **Nifty 50** | +1.55% | +1.27% | RANGE-BOUND |
+| **Bank Nifty** | +0.85% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 32 symbols  |  **Declines:** 16 symbols  |  **A/D Ratio:** 2.00
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 30 symbols  |  **Declines:** 18 symbols  |  **A/D Ratio:** 1.67
 
 ---
 
@@ -21,17 +21,17 @@ _Generated: 2026-06-16 08:51_
 - ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+1.27%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
 - Today's Actual Nifty Change: +1.55%
-- **Cumulative Model Accuracy: 0.0%** (0/18 scored predictions)
+- **Cumulative Model Accuracy: 0.0%** (0/19 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 32/16 with an A/D Ratio of 2.00.
-- **Smart Money:** Unusual volume detected in HCLTECH.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 30/18 with an A/D Ratio of 1.67.
+- **Smart Money:** Unusual volume detected in BAJAJFINSV.NS, HCLTECH.NS.
+- **Weakness:** Breakout failures occurred in SBILIFE.NS.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-06-16 08:51_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2957.10 | +7.93% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8398.00 | -0.38% | +0.00R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3146.90 | -1.04% | +0.00R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹285.05 | -4.51% | -1.00R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹354.40 | -9.58% | -2.36R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2943.60 | +7.44% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8390.50 | -0.47% | +0.00R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3140.30 | -1.25% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹285.15 | -4.47% | -1.00R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹355.55 | -9.29% | -2.29R |
 
 ---
 
@@ -65,12 +65,12 @@ _Generated: 2026-06-16 08:51_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **49.7%** |
-| 🟡 Sideways / Range-Bound | **28.5%** |
-| 🔴 Bearish Continuation | **21.8%** |
+| 🟢 Bullish Continuation | **41.4%** |
+| 🟡 Sideways / Range-Bound | **31.0%** |
+| 🔴 Bearish Continuation | **27.6%** |

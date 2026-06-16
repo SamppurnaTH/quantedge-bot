@@ -342,9 +342,9 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-06-16"
     }
   ],
-  "last_updated": "2026-06-15"
+  "last_updated": "2026-06-16"
 }

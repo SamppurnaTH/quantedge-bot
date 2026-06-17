@@ -1,20 +1,20 @@
 {
-  "date": "2026-06-16",
+  "date": "2026-06-17",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 62,
+  "breadth_score": 52,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Banking",
-    "NBFC"
+    "NBFC",
+    "Telecom"
   ],
   "sector_laggards": [
     "Agro",
-    "Metals"
+    "Pharma"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.28,
-    "sideways": 0.31,
-    "bullish": 0.41
+    "bearish": 0.32,
+    "sideways": 0.32,
+    "bullish": 0.36
   }
 }

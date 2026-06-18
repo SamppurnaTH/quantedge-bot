@@ -2,7 +2,7 @@
   "date": "2026-06-18",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 43,
+  "breadth_score": 62,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "NBFC",
@@ -13,8 +13,8 @@
     "Pharma"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.34,
+    "bearish": 0.3,
     "sideways": 0.32,
-    "bullish": 0.34
+    "bullish": 0.38
   }
 }

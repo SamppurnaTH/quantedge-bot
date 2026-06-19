@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-19 08:36_
+_Generated: 2026-06-19 13:29_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-06-19 08:36_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.78% | -0.73% | ACCUMULATION |
-| **Bank Nifty** | -0.49% | — | — |
+| **Nifty 50** | -0.30% | -0.39% | ACCUMULATION |
+| **Bank Nifty** | +0.17% | — | — |
 
 - **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 14 symbols  |  **Declines:** 34 symbols  |  **A/D Ratio:** 0.41
+- **Advances:** 20 symbols  |  **Declines:** 28 symbols  |  **A/D Ratio:** 0.71
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.78%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.73%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.30%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.39%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.78%
-- **Cumulative Model Accuracy: 0.0%** (0/21 scored predictions)
+- Today's Actual Nifty Change: -0.30%
+- **Cumulative Model Accuracy: 0.0%** (0/22 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 14/34 with an A/D Ratio of 0.41.
-- **Smart Money:** Unusual volume detected in INFY.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Breadth:** Advances/Declines stood at 20/28 with an A/D Ratio of 0.71.
+- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, BAJAJ-AUTO.NS, HCLTECH.NS, INDUSINDBK.NS, INFY.NS, TCS.NS, TECHM.NS, UPL.NS.
+- **Weakness:** Breakout failures occurred in ADANIPORTS.NS, MARUTI.NS.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-06-19 08:36_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹3025.30 | +10.42% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8449.00 | +0.23% | +0.00R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3138.20 | -1.31% | +0.00R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹291.70 | -2.28% | -0.51R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹365.45 | -6.76% | -1.66R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹3038.40 | +10.90% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8489.50 | +0.71% | +0.00R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3149.50 | -0.96% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹292.25 | -2.09% | -0.47R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹365.80 | -6.67% | -1.64R |
 
 ---
 
@@ -71,6 +71,6 @@ _Generated: 2026-06-19 08:36_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **32.2%** |
-| 🟡 Sideways / Range-Bound | **29.7%** |
-| 🔴 Bearish Continuation | **38.1%** |
+| 🟢 Bullish Continuation | **32.0%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **34.8%** |

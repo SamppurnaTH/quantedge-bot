@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-23 12:29_
+_Generated: 2026-06-24 06:53_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-06-23 12:29_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -1.16% | -0.13% | RANGE-BOUND |
-| **Bank Nifty** | -1.30% | — | — |
+| **Nifty 50** | +0.74% | -0.12% | STRONG CLOSE |
+| **Bank Nifty** | +1.63% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 10 symbols  |  **Declines:** 38 symbols  |  **A/D Ratio:** 0.26
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -1.16%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.13%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.74%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.12%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -1.16%
+- Today's Actual Nifty Change: +0.74%
 - **Cumulative Model Accuracy: 0.0%** (0/24 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 10/38 with an A/D Ratio of 0.26.
-- **Smart Money:** Unusual volume detected in CIPLA.NS, DRREDDY.NS.
-- **Weakness:** Breakout failures occurred in DRREDDY.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
+- **Smart Money:** Unusual volume detected in none.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-06-23 12:29_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2962.90 | +8.14% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8487.50 | +0.68% | +0.00R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3144.30 | -1.12% | +0.00R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹291.95 | -2.19% | -0.49R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹364.60 | -6.98% | -1.72R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹3029.50 | +10.57% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8561.50 | +1.56% | +0.00R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3113.20 | -2.10% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹290.25 | -2.76% | -0.62R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹358.65 | -8.50% | -2.09R |
 
 ---
 
@@ -65,12 +65,12 @@ _Generated: 2026-06-23 12:29_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Neutral to Bullish Reversal Bias**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **26.8%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **42.2%** |
+| 🟢 Bullish Continuation | **47.6%** |
+| 🟡 Sideways / Range-Bound | **28.5%** |
+| 🔴 Bearish Continuation | **23.9%** |

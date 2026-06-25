@@ -2,7 +2,7 @@
   "date": "2026-06-25",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 66,
+  "breadth_score": 37,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Pharma",
@@ -13,8 +13,8 @@
     "Metals"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.27,
-    "sideways": 0.31,
-    "bullish": 0.42
+    "bearish": 0.43,
+    "sideways": 0.3,
+    "bullish": 0.28
   }
 }

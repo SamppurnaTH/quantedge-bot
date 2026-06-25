@@ -373,12 +373,12 @@
   },
   {
     "date": "2026-06-25",
-    "forecast": "Neutral to Bullish Reversal Bias",
-    "narrative": "Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.",
+    "forecast": "Bearish to Neutral Distribution Bias",
+    "narrative": "Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.",
     "probs": {
-      "BULLISH": 42.2,
-      "RANGE": 31.0,
-      "BEARISH": 26.8
+      "BULLISH": 27.6,
+      "RANGE": 29.7,
+      "BEARISH": 42.6
     }
   }
 ]

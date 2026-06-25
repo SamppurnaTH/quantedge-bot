@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-25 06:52_
+_Generated: 2026-06-25 12:13_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-06-25 06:52_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.88% | +0.43% | RANGE-BOUND |
-| **Bank Nifty** | +0.85% | — | — |
+| **Nifty 50** | +0.14% | +0.43% | WEAK CLOSE |
+| **Bank Nifty** | +0.05% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 32 symbols  |  **Declines:** 16 symbols  |  **A/D Ratio:** 2.00
+- **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
+- **Advances:** 18 symbols  |  **Declines:** 30 symbols  |  **A/D Ratio:** 0.60
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.88%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed NEUTRAL (Nifty +0.14%)
 - ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.43%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.88%
-- **Cumulative Model Accuracy: 0.0%** (0/25 scored predictions)
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: +0.14%
+- **Cumulative Model Accuracy: 0.0%** (0/26 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 32/16 with an A/D Ratio of 2.00.
-- **Smart Money:** Unusual volume detected in none.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
+- **Breadth:** Advances/Declines stood at 18/30 with an A/D Ratio of 0.60.
+- **Smart Money:** Unusual volume detected in HEROMOTOCO.NS, MARUTI.NS, ONGC.NS.
+- **Weakness:** Breakout failures occurred in HEROMOTOCO.NS.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-06-25 06:52_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹3073.90 | +12.19% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8626.00 | +2.33% | +0.00R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3137.10 | -1.35% | +0.00R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹288.85 | -3.23% | -0.72R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹356.00 | -9.17% | -2.26R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹3038.00 | +10.88% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8592.00 | +1.92% | +0.00R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3126.60 | -1.68% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹283.90 | -4.89% | -1.09R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹352.05 | -10.18% | -2.51R |
 
 ---
 
@@ -65,12 +65,12 @@ _Generated: 2026-06-25 06:52_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Bearish to Neutral Distribution Bias**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **42.2%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **26.8%** |
+| 🟢 Bullish Continuation | **27.6%** |
+| 🟡 Sideways / Range-Bound | **29.7%** |
+| 🔴 Bearish Continuation | **42.6%** |

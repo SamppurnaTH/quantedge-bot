@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-26 06:59_
+_Generated: 2026-06-26 12:07_
 
 ---
 
@@ -23,7 +23,7 @@ _Generated: 2026-06-26 06:59_
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
 - Today's Actual Nifty Change: +0.14%
-- **Cumulative Model Accuracy: 0.0%** (0/26 scored predictions)
+- **Cumulative Model Accuracy: 0.0%** (0/27 scored predictions)
 
 ---
 
@@ -71,6 +71,6 @@ _Generated: 2026-06-26 06:59_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **27.6%** |
-| 🟡 Sideways / Range-Bound | **29.7%** |
-| 🔴 Bearish Continuation | **42.6%** |
+| 🟢 Bullish Continuation | **23.9%** |
+| 🟡 Sideways / Range-Bound | **32.0%** |
+| 🔴 Bearish Continuation | **44.1%** |

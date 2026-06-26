@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-25 12:13_
+_Generated: 2026-06-26 06:59_
 
 ---
 
@@ -21,7 +21,7 @@ _Generated: 2026-06-25 12:13_
 - ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.43%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
 - Today's Actual Nifty Change: +0.14%
 - **Cumulative Model Accuracy: 0.0%** (0/26 scored predictions)
 

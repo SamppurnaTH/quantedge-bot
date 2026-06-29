@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-06-26 12:07_
+_Generated: 2026-06-29 08:20_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-06-26 12:07_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.14% | +0.43% | WEAK CLOSE |
-| **Bank Nifty** | +0.05% | — | — |
+| **Nifty 50** | -0.49% | +0.02% | WEAK CLOSE |
+| **Bank Nifty** | -0.65% | — | — |
 
 - **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
-- **Advances:** 18 symbols  |  **Declines:** 30 symbols  |  **A/D Ratio:** 0.60
+- **Advances:** 17 symbols  |  **Declines:** 31 symbols  |  **A/D Ratio:** 0.55
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed NEUTRAL (Nifty +0.14%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.43%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.49%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (+0.02%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: +0.14%
+- Today's Actual Nifty Change: -0.49%
 - **Cumulative Model Accuracy: 0.0%** (0/27 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
-- **Breadth:** Advances/Declines stood at 18/30 with an A/D Ratio of 0.60.
-- **Smart Money:** Unusual volume detected in HEROMOTOCO.NS, MARUTI.NS, ONGC.NS.
-- **Weakness:** Breakout failures occurred in HEROMOTOCO.NS.
+- **Breadth:** Advances/Declines stood at 17/31 with an A/D Ratio of 0.55.
+- **Smart Money:** Unusual volume detected in DRREDDY.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-06-26 12:07_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ADANIENT.NS** | SELL | ₹2739.80 | ₹3038.00 | +10.88% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8592.00 | +1.92% | +0.00R |
-| **GRASIM.NS** | SELL | ₹3180.00 | ₹3126.60 | -1.68% | +0.00R |
-| **POWERGRID.NS** | BUY | ₹298.50 | ₹283.90 | -4.89% | -1.09R |
-| **NTPC.NS** | BUY | ₹391.95 | ₹352.05 | -10.18% | -2.51R |
+| **ADANIENT.NS** | SELL | ₹2739.80 | ₹2987.60 | +9.04% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8430.00 | ₹8680.50 | +2.97% | +0.00R |
+| **GRASIM.NS** | SELL | ₹3180.00 | ₹3090.30 | -2.82% | +0.00R |
+| **POWERGRID.NS** | BUY | ₹298.50 | ₹287.00 | -3.85% | -0.86R |
+| **NTPC.NS** | BUY | ₹391.95 | ₹355.95 | -9.18% | -2.26R |
 
 ---
 
@@ -71,6 +71,6 @@ _Generated: 2026-06-26 12:07_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **23.9%** |
+| 🟢 Bullish Continuation | **22.0%** |
 | 🟡 Sideways / Range-Bound | **32.0%** |
-| 🔴 Bearish Continuation | **44.1%** |
+| 🔴 Bearish Continuation | **46.1%** |

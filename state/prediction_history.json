@@ -403,12 +403,12 @@
   },
   {
     "date": "2026-06-29",
-    "forecast": "Bearish to Neutral Distribution Bias",
-    "narrative": "Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.",
+    "forecast": "Range-Bound Consolidation Likelihood Elevated",
+    "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
     "probs": {
-      "BULLISH": 22.0,
-      "RANGE": 32.0,
-      "BEARISH": 46.1
+      "BULLISH": 28.2,
+      "RANGE": 34.5,
+      "BEARISH": 37.3
     }
   }
 ]

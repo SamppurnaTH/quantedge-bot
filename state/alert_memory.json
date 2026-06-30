@@ -599,6 +599,21 @@
       },
       "resolved": false,
       "resolved_date": null
+    },
+    {
+      "date": "2026-06-30",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 43,
+        "consensus_pct": 34,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
+      "resolved": false,
+      "resolved_date": null
     }
   ],
   "last_updated": "2026-06-30"

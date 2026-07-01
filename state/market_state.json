@@ -2,15 +2,15 @@
   "date": "2026-07-01",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 60,
+  "breadth_score": 62,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Consumer",
-    "FMCG"
+    "FMCG",
+    "Consumer"
   ],
   "sector_laggards": [
-    "IT",
-    "Agro"
+    "Agro",
+    "IT"
   ],
   "tomorrow_outlook": {
     "bearish": 0.28,

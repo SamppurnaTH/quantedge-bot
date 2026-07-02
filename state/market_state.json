@@ -2,19 +2,19 @@
   "date": "2026-07-02",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 68,
+  "breadth_score": 79,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Consumer",
     "NBFC"
   ],
   "sector_laggards": [
-    "Auto",
-    "Agro"
+    "IT",
+    "Metals"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.32,
-    "sideways": 0.34,
-    "bullish": 0.34
+    "bearish": 0.27,
+    "sideways": 0.33,
+    "bullish": 0.39
   }
 }

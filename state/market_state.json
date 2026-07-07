@@ -2,19 +2,19 @@
   "date": "2026-07-07",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 60,
+  "breadth_score": 50,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Agro",
-    "IT"
+    "IT",
+    "Agro"
   ],
   "sector_laggards": [
-    "Metals",
+    "Pharma",
     "Energy/Infra"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.34,
+    "bearish": 0.36,
     "sideways": 0.34,
-    "bullish": 0.32
+    "bullish": 0.3
   }
 }

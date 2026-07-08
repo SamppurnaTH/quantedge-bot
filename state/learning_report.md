@@ -1,11 +1,11 @@
 # 📚 QuantEdge Bot — Intelligence Learning Report
-_Generated: 25 May 2026  03:43_
+_Generated: 08 Jul 2026  05:56_
 
 ---
 
 ## Knowledge Summary
 - **Total pattern conditions tracked**: 555
-- **Total historical signal evaluations analyzed**: 23994
+- **Total historical signal evaluations analyzed**: 23996
 - **Proven Elite Edges (PROVEN)**: 0
 - **Validated Patterns (VALIDATED)**: 0
 - **Patterns in Training (LEARNING)**: 32
@@ -20,13 +20,8 @@ _Generated: 25 May 2026  03:43_
 
 | Archetype State | Observations (n) | Decayed Win Rate | Profit Factor | Expectancy (R) | Avg Hold Period |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **PANIC_EXHAUSTION** | 33 | 63.5% | 1.74 | +0.270R | 5.8 bars |
-| **LIQUIDITY_VACUUM** | 29 | 58.9% | 1.43 | +0.177R | 5.1 bars |
-| **ROTATIONAL_STRENGTH** | 23 | 56.9% | 1.32 | +0.137R | 4.6 bars |
-| **FAILED_BREAKOUT** | 22 | 52.1% | 1.09 | +0.042R | 4.7 bars |
-| **VOLATILITY_COMPRESSION** | 31 | 46.4% | 0.87 | -0.072R | 5.6 bars |
-| **Noise / Unclassified** | 29 | 43.9% | 0.78 | -0.122R | 4.1 bars |
-| **FORCED_MOMENTUM** | 36 | 39.3% | 0.65 | -0.215R | 4.9 bars |
+| **Noise / Unclassified** | 1 | 0.0% | 0.00 | -100.128R | 8.0 bars |
+| **Range-Bound / Support Plays** | 1 | 0.0% | 0.00 | -138.642R | 8.0 bars |
 
 ---
 
@@ -63,10 +58,10 @@ _Generated: 25 May 2026  03:43_
     _When the overall market is in a powerful surge, and the stock is at normal levels while trading in a flat range, I spotted a S2 signal right at a historical floor (Support)._
   • **SIDEWAYS Setup** | Win: 44% | 33.34 trades | (need 16.659999999999997 trades to validate)
     _When the market is stuck moving sideways, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal._
-  • **SIDEWAYS Setup** | Win: 51% | 31.66 trades | (need 18.34 trades to validate)
-    _When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a falling channel, I spotted a S3 signal._
   • **STRONG_TREND_UP Setup** | Win: 50% | 31.07 trades | (need 18.93 trades to validate)
     _When the overall market is in a powerful surge, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal right at a historical floor (Support)._
+  • **SIDEWAYS Setup** | Win: 48% | 30.99 trades | (need 19.01 trades to validate)
+    _When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a falling channel, I spotted a S3 signal._
   • **STRONG_TREND_UP Setup** | Win: 53% | 29.45 trades | (need 20.55 trades to validate)
     _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S3 signal right at a historical floor (Support)._
   • **SIDEWAYS Setup** | Win: 59% | 29.4 trades | (need 20.6 trades to validate)

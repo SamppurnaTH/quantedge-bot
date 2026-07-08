@@ -582,8 +582,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-07-08"
     },
     {
       "date": "2026-06-30",
@@ -597,8 +597,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-07-08"
     },
     {
       "date": "2026-06-30",
@@ -627,8 +627,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-07-08"
     },
     {
       "date": "2026-07-02",
@@ -642,8 +642,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-07-08"
     },
     {
       "date": "2026-07-03",
@@ -657,8 +657,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-07-08"
     },
     {
       "date": "2026-07-06",
@@ -672,8 +672,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-07-08"
     },
     {
       "date": "2026-07-07",
@@ -687,9 +687,24 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
+      "resolved": true,
+      "resolved_date": "2026-07-08"
+    },
+    {
+      "date": "2026-07-08",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 8,
+        "consensus_pct": 48,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
       "resolved": false,
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-07-07"
+  "last_updated": "2026-07-08"
 }

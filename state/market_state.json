@@ -1,11 +1,11 @@
 {
-  "date": "2026-07-08",
+  "date": "2026-07-09",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 8,
+  "breadth_score": 56,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "IT",
+    "Telecom",
     "Agro"
   ],
   "sector_laggards": [
@@ -13,8 +13,8 @@
     "Energy/Infra"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.48,
-    "sideways": 0.33,
-    "bullish": 0.19
+    "bearish": 0.29,
+    "sideways": 0.31,
+    "bullish": 0.4
   }
 }

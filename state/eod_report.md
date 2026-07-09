@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-08 11:43_
+_Generated: 2026-07-09 06:50_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-07-08 11:43_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -2.12% | -0.57% | RANGE-BOUND |
-| **Bank Nifty** | -2.51% | — | — |
+| **Nifty 50** | +0.73% | +0.20% | RANGE-BOUND |
+| **Bank Nifty** | +0.88% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 4 symbols  |  **Declines:** 44 symbols  |  **A/D Ratio:** 0.09
+- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -2.12%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.57%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.73%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.20%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -2.12%
-- **Cumulative Model Accuracy: 0.0%** (0/34 scored predictions)
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: +0.73%
+- **Cumulative Model Accuracy: 0.0%** (0/35 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 4/44 with an A/D Ratio of 0.09.
-- **Smart Money:** Unusual volume detected in none.
-- **Weakness:** Breakout failures occurred in SUNPHARMA.NS.
+- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
+- **Smart Money:** Unusual volume detected in DRREDDY.NS, HDFCLIFE.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-07-08 11:43_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **APOLLOHOSP.NS** | SELL | ₹8832.00 | ₹8753.50 | -0.89% | +0.00R |
-| **SUNPHARMA.NS** | SELL | ₹1905.40 | ₹1888.20 | -0.90% | +0.00R |
-| **HDFCBANK.NS** | SELL | ₹826.95 | ₹810.30 | -2.01% | +0.00R |
-| **BAJFINANCE.NS** | SELL | ₹1032.60 | ₹1010.40 | -2.15% | +0.00R |
-| **INDUSINDBK.NS** | SELL | ₹1023.50 | ₹994.65 | -2.82% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹1905.40 | ₹1935.00 | +1.55% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8832.00 | ₹8882.50 | +0.57% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹826.95 | ₹819.30 | -0.93% | +0.00R |
+| **INDUSINDBK.NS** | SELL | ₹1023.50 | ₹1013.00 | -1.03% | +0.00R |
+| **BAJFINANCE.NS** | SELL | ₹1032.60 | ₹1004.90 | -2.68% | +0.00R |
 
 ---
 
@@ -65,12 +65,12 @@ _Generated: 2026-07-08 11:43_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **19.1%** |
-| 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **47.7%** |
+| 🟢 Bullish Continuation | **40.1%** |
+| 🟡 Sideways / Range-Bound | **31.0%** |
+| 🔴 Bearish Continuation | **28.9%** |

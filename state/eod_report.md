@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-10 06:50_
+_Generated: 2026-07-10 12:21_
 
 ---
 
@@ -7,29 +7,29 @@ _Generated: 2026-07-10 06:50_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.84% | +0.68% | RANGE-BOUND |
-| **Bank Nifty** | +1.06% | — | — |
+| **Nifty 50** | +1.02% | +0.68% | RANGE-BOUND |
+| **Bank Nifty** | +1.39% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 44 symbols  |  **Declines:** 4 symbols  |  **A/D Ratio:** 11.00
+- **Advances:** 39 symbols  |  **Declines:** 9 symbols  |  **A/D Ratio:** 4.33
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.84%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +1.02%)
 - ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.68%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.84%
-- **Cumulative Model Accuracy: 0.0%** (0/36 scored predictions)
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: +1.02%
+- **Cumulative Model Accuracy: 0.0%** (0/37 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 44/4 with an A/D Ratio of 11.00.
+- **Breadth:** Advances/Declines stood at 39/9 with an A/D Ratio of 4.33.
 - **Smart Money:** Unusual volume detected in DRREDDY.NS.
 - **Weakness:** Breakout failures occurred in none.
 
@@ -39,11 +39,11 @@ _Generated: 2026-07-10 06:50_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **SUNPHARMA.NS** | SELL | ₹1905.40 | ₹1938.80 | +1.75% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹8832.00 | ₹8822.50 | -0.11% | +0.00R |
-| **HDFCBANK.NS** | SELL | ₹826.95 | ₹823.65 | -0.40% | +0.00R |
-| **INDUSINDBK.NS** | SELL | ₹1023.50 | ₹1018.95 | -0.44% | +0.00R |
-| **BAJFINANCE.NS** | SELL | ₹1032.60 | ₹1013.20 | -1.88% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹1905.40 | ₹1935.50 | +1.58% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹8832.00 | ₹8841.00 | +0.10% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹826.95 | ₹824.95 | -0.24% | +0.00R |
+| **INDUSINDBK.NS** | SELL | ₹1023.50 | ₹1015.80 | -0.75% | +0.00R |
+| **BAJFINANCE.NS** | SELL | ₹1032.60 | ₹1020.50 | -1.17% | +0.00R |
 
 ---
 
@@ -71,6 +71,6 @@ _Generated: 2026-07-10 06:50_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **47.2%** |
+| 🟢 Bullish Continuation | **45.1%** |
 | 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **21.8%** |
+| 🔴 Bearish Continuation | **23.9%** |

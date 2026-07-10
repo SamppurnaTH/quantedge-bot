@@ -2,19 +2,19 @@
   "date": "2026-07-10",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 91,
+  "breadth_score": 81,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Metals",
-    "Telecom"
+    "IT"
   ],
   "sector_laggards": [
-    "FMCG",
-    "Energy/Infra"
+    "Pharma",
+    "Agro"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.22,
+    "bearish": 0.24,
     "sideways": 0.31,
-    "bullish": 0.47
+    "bullish": 0.45
   }
 }

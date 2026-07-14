@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-13 12:27_
+_Generated: 2026-07-14 11:20_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-07-13 12:27_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.02% | -0.69% | RANGE-BOUND |
-| **Bank Nifty** | +0.15% | — | — |
+| **Nifty 50** | -0.66% | -0.59% | FAILED RALLY |
+| **Bank Nifty** | -1.15% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 20 symbols  |  **Declines:** 28 symbols  |  **A/D Ratio:** 0.71
+- **Structural Summary:** *Late-day selloff completely erased early gains, signaling distribution.*
+- **Advances:** 17 symbols  |  **Declines:** 31 symbols  |  **A/D Ratio:** 0.55
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed NEUTRAL (Nifty +0.02%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.69%)
+- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -0.66%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.59%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +0.02%
-- **Cumulative Model Accuracy: 0.0%** (0/37 scored predictions)
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: -0.66%
+- **Cumulative Model Accuracy: 0.0%** (0/38 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 20/28 with an A/D Ratio of 0.71.
-- **Smart Money:** Unusual volume detected in BAJAJ-AUTO.NS, TCS.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a FAILED RALLY. Late-day selloff completely erased early gains, signaling distribution.
+- **Breadth:** Advances/Declines stood at 17/31 with an A/D Ratio of 0.55.
+- **Smart Money:** Unusual volume detected in DIVISLAB.NS, HCLTECH.NS.
+- **Weakness:** Breakout failures occurred in HINDUNILVR.NS.
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-07-13 12:27_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Bearish to Neutral Distribution Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **28.2%** |
-| 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **37.3%** |
+| 🟢 Bullish Continuation | **20.7%** |
+| 🟡 Sideways / Range-Bound | **32.0%** |
+| 🔴 Bearish Continuation | **47.3%** |

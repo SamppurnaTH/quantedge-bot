@@ -747,9 +747,24 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
+      "resolved": true,
+      "resolved_date": "2026-07-14"
+    },
+    {
+      "date": "2026-07-14",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 35,
+        "consensus_pct": 47,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
       "resolved": false,
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-07-13"
+  "last_updated": "2026-07-14"
 }

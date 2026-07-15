@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-14 11:20_
+_Generated: 2026-07-15 11:24_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-07-14 11:20_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.66% | -0.59% | FAILED RALLY |
-| **Bank Nifty** | -1.15% | — | — |
+| **Nifty 50** | -0.55% | -0.52% | FAILED RALLY |
+| **Bank Nifty** | -0.64% | — | — |
 
 - **Structural Summary:** *Late-day selloff completely erased early gains, signaling distribution.*
-- **Advances:** 17 symbols  |  **Declines:** 31 symbols  |  **A/D Ratio:** 0.55
+- **Advances:** 25 symbols  |  **Declines:** 23 symbols  |  **A/D Ratio:** 1.09
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -0.66%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.59%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.55%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.52%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.66%
-- **Cumulative Model Accuracy: 0.0%** (0/38 scored predictions)
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: -0.55%
+- **Cumulative Model Accuracy: 0.0%** (0/39 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a FAILED RALLY. Late-day selloff completely erased early gains, signaling distribution.
-- **Breadth:** Advances/Declines stood at 17/31 with an A/D Ratio of 0.55.
-- **Smart Money:** Unusual volume detected in DIVISLAB.NS, HCLTECH.NS.
-- **Weakness:** Breakout failures occurred in HINDUNILVR.NS.
+- **Breadth:** Advances/Declines stood at 25/23 with an A/D Ratio of 1.09.
+- **Smart Money:** Unusual volume detected in none.
+- **Weakness:** Breakout failures occurred in APOLLOHOSP.NS, AXISBANK.NS.
 
 ---
 
@@ -39,7 +39,8 @@ _Generated: 2026-07-14 11:20_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| _No buy/sell signals triggered this morning_ | | | | | |
+| **DIVISLAB.NS** | SELL | ₹7265.00 | ₹7273.00 | +0.11% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹1955.60 | ₹1951.50 | -0.21% | +0.00R |
 
 ---
 
@@ -67,6 +68,6 @@ _Generated: 2026-07-14 11:20_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **20.7%** |
+| 🟢 Bullish Continuation | **24.1%** |
 | 🟡 Sideways / Range-Bound | **32.0%** |
-| 🔴 Bearish Continuation | **47.3%** |
+| 🔴 Bearish Continuation | **44.0%** |

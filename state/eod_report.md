@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-15 11:24_
+_Generated: 2026-07-16 11:28_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-07-15 11:24_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.55% | -0.52% | FAILED RALLY |
-| **Bank Nifty** | -0.64% | — | — |
+| **Nifty 50** | -0.02% | +0.26% | RANGE-BOUND |
+| **Bank Nifty** | -0.30% | — | — |
 
-- **Structural Summary:** *Late-day selloff completely erased early gains, signaling distribution.*
-- **Advances:** 25 symbols  |  **Declines:** 23 symbols  |  **A/D Ratio:** 1.09
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.55%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.52%)
+- ✓ Directional Bias: Predicted NEUTRAL, Market closed NEUTRAL (Nifty -0.02%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.26%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.55%
-- **Cumulative Model Accuracy: 0.0%** (0/39 scored predictions)
+- Today's Actual Nifty Change: -0.02%
+- **Cumulative Model Accuracy: 0.0%** (0/40 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a FAILED RALLY. Late-day selloff completely erased early gains, signaling distribution.
-- **Breadth:** Advances/Declines stood at 25/23 with an A/D Ratio of 1.09.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
 - **Smart Money:** Unusual volume detected in none.
-- **Weakness:** Breakout failures occurred in APOLLOHOSP.NS, AXISBANK.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,8 +39,8 @@ _Generated: 2026-07-15 11:24_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹7265.00 | ₹7273.00 | +0.11% | +0.00R |
-| **SUNPHARMA.NS** | SELL | ₹1955.60 | ₹1951.50 | -0.21% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹1954.30 | ₹1950.10 | -0.21% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹7355.00 | ₹7316.00 | -0.53% | +0.00R |
 
 ---
 
@@ -62,12 +62,12 @@ _Generated: 2026-07-15 11:24_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **24.1%** |
-| 🟡 Sideways / Range-Bound | **32.0%** |
-| 🔴 Bearish Continuation | **44.0%** |
+| 🟢 Bullish Continuation | **31.1%** |
+| 🟡 Sideways / Range-Bound | **34.5%** |
+| 🔴 Bearish Continuation | **34.4%** |

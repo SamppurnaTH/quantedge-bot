@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-16 11:28_
+_Generated: 2026-07-17 11:17_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-07-16 11:28_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.02% | +0.26% | RANGE-BOUND |
-| **Bank Nifty** | -0.30% | — | — |
+| **Nifty 50** | +1.09% | +0.23% | RANGE-BOUND |
+| **Bank Nifty** | +1.63% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
+- **Advances:** 36 symbols  |  **Declines:** 12 symbols  |  **A/D Ratio:** 3.00
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted NEUTRAL, Market closed NEUTRAL (Nifty -0.02%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.26%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +1.09%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.23%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.02%
-- **Cumulative Model Accuracy: 0.0%** (0/40 scored predictions)
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: +1.09%
+- **Cumulative Model Accuracy: 0.0%** (0/41 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
-- **Smart Money:** Unusual volume detected in none.
+- **Breadth:** Advances/Declines stood at 36/12 with an A/D Ratio of 3.00.
+- **Smart Money:** Unusual volume detected in TECHM.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,8 +39,7 @@ _Generated: 2026-07-16 11:28_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **SUNPHARMA.NS** | SELL | ₹1954.30 | ₹1950.10 | -0.21% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹7355.00 | ₹7316.00 | -0.53% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹7286.50 | ₹7247.50 | -0.54% | +0.00R |
 
 ---
 
@@ -68,6 +67,6 @@ _Generated: 2026-07-16 11:28_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **31.1%** |
-| 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **34.4%** |
+| 🟢 Bullish Continuation | **38.6%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **28.1%** |

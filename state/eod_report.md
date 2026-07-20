@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-17 11:17_
+_Generated: 2026-07-20 12:11_
 
 ---
 
@@ -7,8 +7,8 @@ _Generated: 2026-07-17 11:17_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.09% | +0.23% | RANGE-BOUND |
-| **Bank Nifty** | +1.63% | — | — |
+| **Nifty 50** | -0.39% | -0.59% | RANGE-BOUND |
+| **Bank Nifty** | -0.98% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
 - **Advances:** 36 symbols  |  **Declines:** 12 symbols  |  **A/D Ratio:** 3.00
@@ -17,20 +17,20 @@ _Generated: 2026-07-17 11:17_
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +1.09%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.23%)
+- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -0.39%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.59%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +1.09%
-- **Cumulative Model Accuracy: 0.0%** (0/41 scored predictions)
+- Today's Actual Nifty Change: -0.39%
+- **Cumulative Model Accuracy: 0.0%** (0/42 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
 - **Breadth:** Advances/Declines stood at 36/12 with an A/D Ratio of 3.00.
-- **Smart Money:** Unusual volume detected in TECHM.NS.
+- **Smart Money:** Unusual volume detected in AXISBANK.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,7 +39,8 @@ _Generated: 2026-07-17 11:17_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹7286.50 | ₹7247.50 | -0.54% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1452.90 | ₹1460.20 | +0.50% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹7364.50 | ₹7318.00 | -0.63% | +0.00R |
 
 ---
 
@@ -67,6 +68,6 @@ _Generated: 2026-07-17 11:17_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **38.6%** |
-| 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **28.1%** |
+| 🟢 Bullish Continuation | **34.9%** |
+| 🟡 Sideways / Range-Bound | **34.5%** |
+| 🔴 Bearish Continuation | **30.6%** |

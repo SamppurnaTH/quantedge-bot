@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-20 12:11_
+_Generated: 2026-07-21 11:43_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-07-20 12:11_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.39% | -0.59% | RANGE-BOUND |
-| **Bank Nifty** | -0.98% | — | — |
+| **Nifty 50** | -0.21% | -0.09% | RANGE-BOUND |
+| **Bank Nifty** | -0.19% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 36 symbols  |  **Declines:** 12 symbols  |  **A/D Ratio:** 3.00
+- **Advances:** 33 symbols  |  **Declines:** 15 symbols  |  **A/D Ratio:** 2.20
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -0.39%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.59%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.21%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (-0.09%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.39%
-- **Cumulative Model Accuracy: 0.0%** (0/42 scored predictions)
+- Today's Actual Nifty Change: -0.21%
+- **Cumulative Model Accuracy: 0.0%** (0/43 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 36/12 with an A/D Ratio of 3.00.
-- **Smart Money:** Unusual volume detected in AXISBANK.NS.
+- **Breadth:** Advances/Declines stood at 33/15 with an A/D Ratio of 2.20.
+- **Smart Money:** Unusual volume detected in BAJAJ-AUTO.NS, INDUSINDBK.NS, ULTRACEMCO.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,8 +39,11 @@ _Generated: 2026-07-20 12:11_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ICICIBANK.NS** | SELL | ₹1452.90 | ₹1460.20 | +0.50% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹7364.50 | ₹7318.00 | -0.63% | +0.00R |
+| **INDUSINDBK.NS** | SELL | ₹1057.30 | ₹1063.45 | +0.58% | +0.00R |
+| **TITAN.NS** | SELL | ₹4670.40 | ₹4688.70 | +0.39% | +0.00R |
+| **BAJFINANCE.NS** | SELL | ₹1066.70 | ₹1069.20 | +0.23% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1463.90 | ₹1463.10 | -0.05% | +0.00R |
+| **TECHM.NS** | SELL | ₹1588.00 | ₹1576.30 | -0.74% | +0.00R |
 
 ---
 
@@ -68,6 +71,6 @@ _Generated: 2026-07-20 12:11_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **34.9%** |
+| 🟢 Bullish Continuation | **33.6%** |
 | 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **30.6%** |
+| 🔴 Bearish Continuation | **31.9%** |

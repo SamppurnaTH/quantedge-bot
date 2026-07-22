@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-21 11:43_
+_Generated: 2026-07-22 11:43_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-07-21 11:43_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.21% | -0.09% | RANGE-BOUND |
-| **Bank Nifty** | -0.19% | — | — |
+| **Nifty 50** | -0.79% | -0.15% | RANGE-BOUND |
+| **Bank Nifty** | -1.23% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 33 symbols  |  **Declines:** 15 symbols  |  **A/D Ratio:** 2.20
+- **Advances:** 14 symbols  |  **Declines:** 34 symbols  |  **A/D Ratio:** 0.41
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.21%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (-0.09%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.79%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.15%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.21%
-- **Cumulative Model Accuracy: 0.0%** (0/43 scored predictions)
+- Today's Actual Nifty Change: -0.79%
+- **Cumulative Model Accuracy: 0.0%** (0/44 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 33/15 with an A/D Ratio of 2.20.
-- **Smart Money:** Unusual volume detected in BAJAJ-AUTO.NS, INDUSINDBK.NS, ULTRACEMCO.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Breadth:** Advances/Declines stood at 14/34 with an A/D Ratio of 0.41.
+- **Smart Money:** Unusual volume detected in BAJAJ-AUTO.NS, INDUSINDBK.NS, JSWSTEEL.NS, NESTLEIND.NS.
+- **Weakness:** Breakout failures occurred in JSWSTEEL.NS.
 
 ---
 
@@ -39,11 +39,9 @@ _Generated: 2026-07-21 11:43_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **INDUSINDBK.NS** | SELL | ₹1057.30 | ₹1063.45 | +0.58% | +0.00R |
-| **TITAN.NS** | SELL | ₹4670.40 | ₹4688.70 | +0.39% | +0.00R |
-| **BAJFINANCE.NS** | SELL | ₹1066.70 | ₹1069.20 | +0.23% | +0.00R |
-| **ICICIBANK.NS** | SELL | ₹1463.90 | ₹1463.10 | -0.05% | +0.00R |
-| **TECHM.NS** | SELL | ₹1588.00 | ₹1576.30 | -0.74% | +0.00R |
+| **INDUSINDBK.NS** | SELL | ₹1065.40 | ₹1069.30 | +0.37% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹7390.50 | ₹7386.50 | -0.05% | +0.00R |
+| **TITAN.NS** | SELL | ₹4721.20 | ₹4711.60 | -0.20% | +0.00R |
 
 ---
 
@@ -65,12 +63,12 @@ _Generated: 2026-07-21 11:43_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Bearish to Neutral Distribution Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **33.6%** |
-| 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **31.9%** |
+| 🟢 Bullish Continuation | **23.2%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **43.6%** |

@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-07-21 05:55_
+_Generated: 2026-07-22 05:55_
 
 ---
 
@@ -33,13 +33,13 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7443.28 | -0.19% | NEUTRAL — No major impact |
-| US (Nasdaq) | 25508.07 | -0.05% | NEUTRAL — No major impact |
-| VIX (Volatility) | 18.65 | -0.64% | NEUTRAL — No major impact |
-| Crude Oil | 82.12 | -1.33% | NEUTRAL — No major impact |
-| Dollar Index | 100.91 | -0.08% | NEUTRAL — No major impact |
-| Bond Yields (10Y) | 4.6 | +1.26% | NEUTRAL — No major impact |
-| Japan (Nikkei 225) | 65954.03 | +2.83% | BULLISH — bullish support |
+| US (S&P 500) | 7509.2 | +0.89% | BULLISH — bullish support |
+| US (Nasdaq) | 25837.21 | +1.29% | BULLISH — bullish support |
+| VIX (Volatility) | 17.05 | -8.58% | NEUTRAL — No major impact |
+| Crude Oil | 85.13 | +0.26% | NEUTRAL — No major impact |
+| Dollar Index | 101.14 | -0.03% | NEUTRAL — No major impact |
+| Bond Yields (10Y) | 4.63 | +0.65% | NEUTRAL — No major impact |
+| Japan (Nikkei 225) | 66254.0 | +0.03% | NEUTRAL — No major impact |
 
 ---
 
@@ -55,14 +55,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Agro | +5.2% | STRONG |
-| Telecom | +2.33% | STRONG |
-| IT | +2.13% | STRONG |
-| Consumer | +1.91% | STRONG |
-| Auto | +1.86% | STRONG |
-| FMCG | +0.98% | STRONG |
-| Energy/Infra | +0.96% | STRONG |
-| Banking | +0.65% | STRONG |
-| Pharma | +0.2% | NEUTRAL |
-| NBFC | +0.15% | NEUTRAL |
-| Metals | -0.5% | WEAK |
+| Agro | +3.25% | STRONG |
+| Auto | +3.03% | STRONG |
+| Consumer | +2.47% | STRONG |
+| FMCG | +2.36% | STRONG |
+| IT | +2.25% | STRONG |
+| Telecom | +1.44% | STRONG |
+| Energy/Infra | +1.41% | STRONG |
+| NBFC | +0.87% | STRONG |
+| Metals | -0.12% | NEUTRAL |
+| Pharma | -0.5% | WEAK |
+| Banking | -0.86% | WEAK |

@@ -1,20 +1,20 @@
 {
-  "date": "2026-07-22",
+  "date": "2026-07-23",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 29,
+  "breadth_score": 37,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Auto",
-    "Agro"
+    "FMCG"
   ],
   "sector_laggards": [
-    "Pharma",
+    "Agro",
     "Banking"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.44,
-    "sideways": 0.33,
-    "bullish": 0.23
+    "bearish": 0.47,
+    "sideways": 0.32,
+    "bullish": 0.21
   }
 }

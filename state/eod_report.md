@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-24 11:37_
+_Generated: 2026-07-27 06:35_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-07-24 11:37_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.43% | -0.85% | RANGE-BOUND |
-| **Bank Nifty** | +0.18% | — | — |
+| **Nifty 50** | +0.36% | +0.25% | RANGE-BOUND |
+| **Bank Nifty** | +0.66% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 16 symbols  |  **Declines:** 32 symbols  |  **A/D Ratio:** 0.50
+- **Advances:** 34 symbols  |  **Declines:** 14 symbols  |  **A/D Ratio:** 2.43
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -0.43%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.85%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.36%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.25%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.43%
-- **Cumulative Model Accuracy: 0.0%** (0/46 scored predictions)
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: +0.36%
+- **Cumulative Model Accuracy: 0.0%** (0/47 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 16/32 with an A/D Ratio of 0.50.
-- **Smart Money:** Unusual volume detected in INFY.NS.
+- **Breadth:** Advances/Declines stood at 34/14 with an A/D Ratio of 2.43.
+- **Smart Money:** Unusual volume detected in none.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,7 +39,7 @@ _Generated: 2026-07-24 11:37_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **BAJAJ-AUTO.NS** | SELL | ₹11279.50 | ₹11130.00 | -1.33% | +0.00R |
+| **BAJAJ-AUTO.NS** | SELL | ₹11279.50 | ₹11215.00 | -0.57% | +0.00R |
 
 ---
 
@@ -67,6 +67,6 @@ _Generated: 2026-07-24 11:37_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **26.6%** |
+| 🟢 Bullish Continuation | **34.1%** |
 | 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **39.0%** |
+| 🔴 Bearish Continuation | **31.5%** |

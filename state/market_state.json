@@ -2,7 +2,7 @@
   "date": "2026-07-27",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 70,
+  "breadth_score": 87,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Auto",
@@ -13,8 +13,8 @@
     "Banking"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.31,
-    "sideways": 0.34,
-    "bullish": 0.34
+    "bearish": 0.24,
+    "sideways": 0.32,
+    "bullish": 0.44
   }
 }

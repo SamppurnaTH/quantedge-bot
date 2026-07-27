@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-27 06:35_
+_Generated: 2026-07-27 12:52_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-07-27 06:35_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.36% | +0.25% | RANGE-BOUND |
-| **Bank Nifty** | +0.66% | — | — |
+| **Nifty 50** | +0.53% | +0.25% | RANGE-BOUND |
+| **Bank Nifty** | +0.88% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 34 symbols  |  **Declines:** 14 symbols  |  **A/D Ratio:** 2.43
+- **Advances:** 42 symbols  |  **Declines:** 6 symbols  |  **A/D Ratio:** 7.00
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.36%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.53%)
 - ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.25%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.36%
-- **Cumulative Model Accuracy: 0.0%** (0/47 scored predictions)
+- Today's Actual Nifty Change: +0.53%
+- **Cumulative Model Accuracy: 0.0%** (0/48 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 34/14 with an A/D Ratio of 2.43.
-- **Smart Money:** Unusual volume detected in none.
+- **Breadth:** Advances/Declines stood at 42/6 with an A/D Ratio of 7.00.
+- **Smart Money:** Unusual volume detected in SUNPHARMA.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,7 +39,7 @@ _Generated: 2026-07-27 06:35_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **BAJAJ-AUTO.NS** | SELL | ₹11279.50 | ₹11215.00 | -0.57% | +0.00R |
+| **BAJAJ-AUTO.NS** | SELL | ₹11279.50 | ₹11183.50 | -0.85% | +0.00R |
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-07-27 06:35_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **34.1%** |
-| 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **31.5%** |
+| 🟢 Bullish Continuation | **44.1%** |
+| 🟡 Sideways / Range-Bound | **31.7%** |
+| 🔴 Bearish Continuation | **24.1%** |

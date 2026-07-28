@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-27 12:52_
+_Generated: 2026-07-28 11:52_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-07-27 12:52_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.53% | +0.25% | RANGE-BOUND |
-| **Bank Nifty** | +0.88% | — | — |
+| **Nifty 50** | -0.04% | -0.10% | FAILED RALLY |
+| **Bank Nifty** | -0.58% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 42 symbols  |  **Declines:** 6 symbols  |  **A/D Ratio:** 7.00
+- **Structural Summary:** *Late-day selloff completely erased early gains, signaling distribution.*
+- **Advances:** 30 symbols  |  **Declines:** 18 symbols  |  **A/D Ratio:** 1.67
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.53%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.25%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed NEUTRAL (Nifty -0.04%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was FLAT OPEN (-0.10%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.53%
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: -0.04%
 - **Cumulative Model Accuracy: 0.0%** (0/48 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 42/6 with an A/D Ratio of 7.00.
-- **Smart Money:** Unusual volume detected in SUNPHARMA.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a FAILED RALLY. Late-day selloff completely erased early gains, signaling distribution.
+- **Breadth:** Advances/Declines stood at 30/18 with an A/D Ratio of 1.67.
+- **Smart Money:** Unusual volume detected in COALINDIA.NS, HINDUNILVR.NS, INFY.NS, NESTLEIND.NS.
+- **Weakness:** Breakout failures occurred in SUNPHARMA.NS.
 
 ---
 
@@ -39,7 +39,11 @@ _Generated: 2026-07-27 12:52_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **BAJAJ-AUTO.NS** | SELL | ₹11279.50 | ₹11183.50 | -0.85% | +0.00R |
+| **BAJAJ-AUTO.NS** | SELL | ₹11219.50 | ₹11374.00 | +1.38% | +0.00R |
+| **TITAN.NS** | SELL | ₹4784.70 | ₹4849.70 | +1.36% | +0.00R |
+| **TECHM.NS** | SELL | ₹1630.00 | ₹1635.20 | +0.32% | +0.00R |
+| **TCS.NS** | SELL | ₹2403.50 | ₹2398.00 | -0.23% | +0.00R |
+| **HCLTECH.NS** | SELL | ₹1340.00 | ₹1318.60 | -1.60% | +0.00R |
 
 ---
 
@@ -61,12 +65,12 @@ _Generated: 2026-07-27 12:52_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **44.1%** |
-| 🟡 Sideways / Range-Bound | **31.7%** |
-| 🔴 Bearish Continuation | **24.1%** |
+| 🟢 Bullish Continuation | **28.6%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **38.1%** |

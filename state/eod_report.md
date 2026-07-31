@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-30 11:46_
+_Generated: 2026-07-31 11:53_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-07-30 11:46_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.28% | +-0.00% | RANGE-BOUND |
-| **Bank Nifty** | -0.10% | — | — |
+| **Nifty 50** | +0.27% | +0.18% | ACCUMULATION |
+| **Bank Nifty** | +0.21% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 26 symbols  |  **Declines:** 22 symbols  |  **A/D Ratio:** 1.18
+- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
+- **Advances:** 31 symbols  |  **Declines:** 17 symbols  |  **A/D Ratio:** 1.82
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.28%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was FLAT OPEN (+-0.00%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.27%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.18%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.28%
-- **Cumulative Model Accuracy: 0.0%** (0/50 scored predictions)
+- Today's Actual Nifty Change: +0.27%
+- **Cumulative Model Accuracy: 0.0%** (0/51 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 26/22 with an A/D Ratio of 1.18.
-- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, ASIANPAINT.NS, COALINDIA.NS, EICHERMOT.NS, M&M.NS, WIPRO.NS.
-- **Weakness:** Breakout failures occurred in INFY.NS.
+- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
+- **Breadth:** Advances/Declines stood at 31/17 with an A/D Ratio of 1.82.
+- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, BAJAJFINSV.NS, BAJFINANCE.NS, HDFCLIFE.NS, M&M.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,15 +39,14 @@ _Generated: 2026-07-30 11:46_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TITAN.NS** | SELL | ₹4838.90 | ₹4850.00 | +0.23% | +0.00R |
-| **HEROMOTOCO.NS** | SELL | ₹5324.00 | ₹5325.00 | +0.02% | +0.00R |
-| **TECHM.NS** | SELL | ₹1671.80 | ₹1669.00 | -0.17% | +0.00R |
-| **SUNPHARMA.NS** | SELL | ₹2006.60 | ₹2001.10 | -0.27% | +0.00R |
-| **ADANIPORTS.NS** | BUY | ₹1668.80 | ₹1664.10 | -0.28% | -0.06R |
-| **BAJAJ-AUTO.NS** | SELL | ₹11465.00 | ₹11432.00 | -0.29% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹7869.50 | ₹7835.00 | -0.44% | +0.00R |
-| **HCLTECH.NS** | SELL | ₹1360.70 | ₹1352.70 | -0.59% | +0.00R |
-| **TCS.NS** | SELL | ₹2461.00 | ₹2431.80 | -1.19% | +0.00R |
+| **BAJFINANCE.NS** | SELL | ₹1130.40 | ₹1141.20 | +0.96% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8025.00 | ₹8056.00 | +0.39% | +0.00R |
+| **TECHM.NS** | SELL | ₹1645.10 | ₹1651.30 | +0.38% | +0.00R |
+| **TITAN.NS** | SELL | ₹4858.10 | ₹4875.20 | +0.35% | +0.00R |
+| **HEROMOTOCO.NS** | SELL | ₹5367.40 | ₹5386.00 | +0.35% | +0.00R |
+| **HCLTECH.NS** | SELL | ₹1344.10 | ₹1346.90 | +0.21% | +0.00R |
+| **BAJAJ-AUTO.NS** | SELL | ₹11562.00 | ₹11520.50 | -0.36% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹2020.00 | ₹1990.50 | -1.46% | +0.00R |
 
 ---
 
@@ -75,6 +74,6 @@ _Generated: 2026-07-30 11:46_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **30.7%** |
-| 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **34.8%** |
+| 🟢 Bullish Continuation | **41.8%** |
+| 🟡 Sideways / Range-Bound | **31.0%** |
+| 🔴 Bearish Continuation | **27.2%** |

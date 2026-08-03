@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-07-31 11:53_
+_Generated: 2026-08-03 12:51_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-07-31 11:53_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.27% | +0.18% | ACCUMULATION |
-| **Bank Nifty** | +0.21% | — | — |
+| **Nifty 50** | +1.60% | +0.78% | STRONG CLOSE |
+| **Bank Nifty** | +1.72% | — | — |
 
-- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 31 symbols  |  **Declines:** 17 symbols  |  **A/D Ratio:** 1.82
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 42 symbols  |  **Declines:** 6 symbols  |  **A/D Ratio:** 7.00
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.27%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.18%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +1.60%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.78%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.27%
-- **Cumulative Model Accuracy: 0.0%** (0/51 scored predictions)
+- Today's Actual Nifty Change: +1.60%
+- **Cumulative Model Accuracy: 0.0%** (0/52 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 31/17 with an A/D Ratio of 1.82.
-- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, BAJAJFINSV.NS, BAJFINANCE.NS, HDFCLIFE.NS, M&M.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 42/6 with an A/D Ratio of 7.00.
+- **Smart Money:** Unusual volume detected in BAJAJFINSV.NS, DIVISLAB.NS, ITC.NS, MARUTI.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,14 +39,14 @@ _Generated: 2026-07-31 11:53_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **BAJFINANCE.NS** | SELL | ₹1130.40 | ₹1141.20 | +0.96% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹8025.00 | ₹8056.00 | +0.39% | +0.00R |
-| **TECHM.NS** | SELL | ₹1645.10 | ₹1651.30 | +0.38% | +0.00R |
-| **TITAN.NS** | SELL | ₹4858.10 | ₹4875.20 | +0.35% | +0.00R |
-| **HEROMOTOCO.NS** | SELL | ₹5367.40 | ₹5386.00 | +0.35% | +0.00R |
-| **HCLTECH.NS** | SELL | ₹1344.10 | ₹1346.90 | +0.21% | +0.00R |
-| **BAJAJ-AUTO.NS** | SELL | ₹11562.00 | ₹11520.50 | -0.36% | +0.00R |
-| **SUNPHARMA.NS** | SELL | ₹2020.00 | ₹1990.50 | -1.46% | +0.00R |
+| **BAJAJ-AUTO.NS** | SELL | ₹11493.00 | ₹11856.00 | +3.16% | +0.00R |
+| **TITAN.NS** | SELL | ₹4893.30 | ₹5000.00 | +2.18% | +0.00R |
+| **HCLTECH.NS** | SELL | ₹1349.00 | ₹1377.00 | +2.08% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8467.00 | ₹8585.00 | +1.39% | +0.00R |
+| **BAJAJFINSV.NS** | SELL | ₹2085.00 | ₹2096.00 | +0.53% | +0.00R |
+| **HEROMOTOCO.NS** | SELL | ₹5436.50 | ₹5460.00 | +0.43% | +0.00R |
+| **EICHERMOT.NS** | SELL | ₹8045.00 | ₹8050.00 | +0.06% | +0.00R |
+| **BAJFINANCE.NS** | SELL | ₹1155.60 | ₹1153.00 | -0.22% | +0.00R |
 
 ---
 
@@ -68,12 +68,12 @@ _Generated: 2026-07-31 11:53_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **41.8%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **27.2%** |
+| 🟢 Bullish Continuation | **53.9%** |
+| 🟡 Sideways / Range-Bound | **28.5%** |
+| 🔴 Bearish Continuation | **17.6%** |

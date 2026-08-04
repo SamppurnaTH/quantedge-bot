@@ -1,20 +1,20 @@
 {
-  "date": "2026-08-03",
+  "date": "2026-08-04",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 87,
+  "breadth_score": 31,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "IT",
+    "Metals",
     "NBFC"
   ],
   "sector_laggards": [
-    "FMCG",
-    "Energy/Infra"
+    "Energy/Infra",
+    "Agro"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.18,
-    "sideways": 0.28,
-    "bullish": 0.54
+    "bearish": 0.31,
+    "sideways": 0.3,
+    "bullish": 0.39
   }
 }

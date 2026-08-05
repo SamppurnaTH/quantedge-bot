@@ -1017,9 +1017,24 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
+      "resolved": true,
+      "resolved_date": "2026-08-05"
+    },
+    {
+      "date": "2026-08-05",
+      "type": "CONSENSUS_SPLIT",
+      "label": "Model Consensus Split",
+      "severity": "CRITICAL",
+      "action": "Reduce active position sizing by 50% immediately.",
+      "value": {
+        "breadth": 50,
+        "consensus_pct": 39,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
       "resolved": false,
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-08-04"
+  "last_updated": "2026-08-05"
 }

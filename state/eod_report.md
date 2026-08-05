@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-04 11:58_
+_Generated: 2026-08-05 11:52_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-08-04 11:58_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.95% | +1.31% | ACCUMULATION |
-| **Bank Nifty** | +1.12% | — | — |
+| **Nifty 50** | +0.04% | +0.22% | ACCUMULATION |
+| **Bank Nifty** | -0.29% | — | — |
 
 - **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
+- **Advances:** 24 symbols  |  **Declines:** 24 symbols  |  **A/D Ratio:** 1.00
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.95%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+1.31%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed NEUTRAL (Nifty +0.04%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.22%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +0.95%
-- **Cumulative Model Accuracy: 0.0%** (0/53 scored predictions)
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: +0.04%
+- **Cumulative Model Accuracy: 0.0%** (0/54 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
-- **Smart Money:** Unusual volume detected in HDFCLIFE.NS, UPL.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Breadth:** Advances/Declines stood at 24/24 with an A/D Ratio of 1.00.
+- **Smart Money:** Unusual volume detected in BHARTIARTL.NS, HDFCBANK.NS, RELIANCE.NS.
+- **Weakness:** Breakout failures occurred in BAJAJFINSV.NS, HDFCBANK.NS, ONGC.NS, UPL.NS.
 
 ---
 
@@ -39,14 +39,16 @@ _Generated: 2026-08-04 11:58_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **BAJAJFINSV.NS** | SELL | ₹2080.50 | ₹2105.00 | +1.18% | +0.00R |
-| **TITAN.NS** | SELL | ₹4897.80 | ₹4935.00 | +0.76% | +0.00R |
-| **HCLTECH.NS** | SELL | ₹1360.80 | ₹1369.90 | +0.67% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹8352.50 | ₹8378.00 | +0.31% | +0.00R |
-| **BAJAJ-AUTO.NS** | SELL | ₹11575.00 | ₹11600.00 | +0.22% | +0.00R |
-| **BAJFINANCE.NS** | SELL | ₹1150.00 | ₹1149.00 | -0.09% | +0.00R |
-| **TECHM.NS** | SELL | ₹1650.50 | ₹1648.50 | -0.12% | +0.00R |
-| **HEROMOTOCO.NS** | SELL | ₹5556.50 | ₹5548.00 | -0.15% | +0.00R |
+| **BAJAJ-AUTO.NS** | SELL | ₹11700.00 | ₹11800.00 | +0.85% | +0.00R |
+| **HEROMOTOCO.NS** | SELL | ₹5659.50 | ₹5690.00 | +0.54% | +0.00R |
+| **TITAN.NS** | SELL | ₹4908.00 | ₹4912.40 | +0.09% | +0.00R |
+| **ULTRACEMCO.NS** | SELL | ₹12201.00 | ₹12190.00 | -0.09% | +0.00R |
+| **BAJFINANCE.NS** | SELL | ₹1161.50 | ₹1158.80 | -0.23% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8415.00 | ₹8388.00 | -0.32% | +0.00R |
+| **HCLTECH.NS** | SELL | ₹1355.80 | ₹1350.00 | -0.43% | +0.00R |
+| **M&M.NS** | SELL | ₹3472.10 | ₹3455.40 | -0.48% | +0.00R |
+| **BAJAJFINSV.NS** | SELL | ₹2099.80 | ₹2086.00 | -0.66% | +0.00R |
+| **TECHM.NS** | SELL | ₹1662.70 | ₹1650.00 | -0.76% | +0.00R |
 
 ---
 
@@ -75,5 +77,5 @@ _Generated: 2026-08-04 11:58_
 | Scenario | Model Probability |
 | :--- | :--- |
 | 🟢 Bullish Continuation | **38.9%** |
-| 🟡 Sideways / Range-Bound | **29.7%** |
-| 🔴 Bearish Continuation | **31.4%** |
+| 🟡 Sideways / Range-Bound | **31.0%** |
+| 🔴 Bearish Continuation | **30.1%** |

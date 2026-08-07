@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-06 11:58_
+_Generated: 2026-08-07 10:44_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-08-06 11:58_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.05% | +0.07% | RANGE-BOUND |
-| **Bank Nifty** | +0.56% | — | — |
+| **Nifty 50** | -0.27% | -0.39% | RANGE-BOUND |
+| **Bank Nifty** | -0.55% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 11 symbols  |  **Declines:** 37 symbols  |  **A/D Ratio:** 0.30
+- **Advances:** 25 symbols  |  **Declines:** 23 symbols  |  **A/D Ratio:** 1.09
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed NEUTRAL (Nifty +0.05%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was FLAT OPEN (+0.07%)
+- ✓ Directional Bias: Predicted WEAK BEARISH, Market closed BEARISH (Nifty -0.27%)
+- ✗ Opening Gap: Predicted Mild Gap Down / Flat, Actual open was GAP-DOWN (-0.39%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.05%
-- **Cumulative Model Accuracy: 0.0%** (0/55 scored predictions)
+- Today's Actual Nifty Change: -0.27%
+- **Cumulative Model Accuracy: 0.0%** (0/56 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 11/37 with an A/D Ratio of 0.30.
-- **Smart Money:** Unusual volume detected in POWERGRID.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Breadth:** Advances/Declines stood at 25/23 with an A/D Ratio of 1.09.
+- **Smart Money:** Unusual volume detected in BRITANNIA.NS, GRASIM.NS, HEROMOTOCO.NS, SBIN.NS.
+- **Weakness:** Breakout failures occurred in BRITANNIA.NS, TECHM.NS.
 
 ---
 
@@ -39,14 +39,10 @@ _Generated: 2026-08-06 11:58_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TITAN.NS** | SELL | ₹4978.20 | ₹4998.00 | +0.40% | +0.00R |
-| **BAJAJFINSV.NS** | SELL | ₹2086.90 | ₹2086.00 | -0.04% | +0.00R |
-| **BAJAJ-AUTO.NS** | SELL | ₹11691.00 | ₹11620.00 | -0.61% | +0.00R |
-| **ULTRACEMCO.NS** | SELL | ₹12180.00 | ₹12075.00 | -0.86% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹8434.50 | ₹8349.00 | -1.01% | +0.00R |
-| **BAJFINANCE.NS** | SELL | ₹1157.80 | ₹1144.80 | -1.12% | +0.00R |
-| **TECHM.NS** | SELL | ₹1652.70 | ₹1632.20 | -1.24% | +0.00R |
-| **HEROMOTOCO.NS** | SELL | ₹5645.00 | ₹5550.50 | -1.67% | +0.00R |
+| **HEROMOTOCO.NS** | SELL | ₹5728.00 | ₹5725.00 | -0.05% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8283.00 | ₹8275.00 | -0.10% | +0.00R |
+| **TITAN.NS** | SELL | ₹4989.90 | ₹4941.00 | -0.98% | +0.00R |
+| **TECHM.NS** | SELL | ₹1654.80 | ₹1635.00 | -1.20% | +0.00R |
 
 ---
 
@@ -74,6 +70,6 @@ _Generated: 2026-08-06 11:58_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **29.7%** |
+| 🟢 Bullish Continuation | **35.6%** |
 | 🟡 Sideways / Range-Bound | **32.2%** |
-| 🔴 Bearish Continuation | **38.1%** |
+| 🔴 Bearish Continuation | **32.2%** |

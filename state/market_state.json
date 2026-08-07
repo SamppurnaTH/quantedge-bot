@@ -1,20 +1,20 @@
 {
-  "date": "2026-08-06",
+  "date": "2026-08-07",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 22,
+  "breadth_score": 52,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "NBFC",
-    "Metals"
+    "Metals",
+    "Consumer"
   ],
   "sector_laggards": [
-    "IT",
+    "NBFC",
     "Agro"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.38,
+    "bearish": 0.32,
     "sideways": 0.32,
-    "bullish": 0.3
+    "bullish": 0.36
   }
 }

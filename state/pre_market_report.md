@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-08-10 04:43_
+_Generated: 2026-08-11 04:24_
 
 ---
 
@@ -33,11 +33,13 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7757.64 | +0.62% | BULLISH — bullish support |
-| US (Nasdaq) | 26690.62 | +1.3% | BULLISH — bullish support |
-| VIX (Volatility) | 14.9 | -1.65% | BULLISH — volatility compression |
-| Bond Yields (10Y) | 4.66 | -0.21% | NEUTRAL — No major impact |
-| Japan (Nikkei 225) | 66929.13 | +2.02% | BULLISH — bullish support |
+| US (S&P 500) | 7753.11 | -0.06% | NEUTRAL — No major impact |
+| US (Nasdaq) | 26605.36 | -0.32% | NEUTRAL — No major impact |
+| VIX (Volatility) | 15.46 | +3.76% | NEUTRAL — No major impact |
+| Crude Oil | 82.02 | -0.13% | NEUTRAL — No major impact |
+| Dollar Index | 99.79 | -0.02% | BULLISH — supportive currency flow |
+| Bond Yields (10Y) | 4.7 | +0.84% | NEUTRAL — No major impact |
+| Japan (Nikkei 225) | 66970.22 | +2.08% | BULLISH — bullish support |
 
 ---
 
@@ -53,14 +55,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Metals | +2.54% | STRONG |
-| Auto | +1.68% | STRONG |
-| Consumer | +0.36% | NEUTRAL |
-| IT | -0.34% | NEUTRAL |
-| Pharma | -0.98% | WEAK |
-| FMCG | -1.07% | WEAK |
-| Banking | -1.26% | WEAK |
-| Telecom | -1.4% | WEAK |
-| Energy/Infra | -2.04% | WEAK |
-| NBFC | -4.7% | WEAK |
-| Agro | -8.11% | WEAK |
+| Auto | +2.42% | STRONG |
+| Consumer | +2.26% | STRONG |
+| Metals | +1.41% | STRONG |
+| IT | +0.16% | NEUTRAL |
+| FMCG | -0.43% | NEUTRAL |
+| Energy/Infra | -1.1% | WEAK |
+| Banking | -1.34% | WEAK |
+| Pharma | -1.48% | WEAK |
+| Telecom | -2.52% | WEAK |
+| Agro | -2.89% | WEAK |
+| NBFC | -3.01% | WEAK |

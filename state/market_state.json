@@ -1,20 +1,20 @@
 {
-  "date": "2026-08-10",
+  "date": "2026-08-11",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 50,
+  "breadth_score": 27,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Metals",
-    "Auto"
+    "Auto",
+    "Consumer"
   ],
   "sector_laggards": [
-    "NBFC",
-    "Agro"
+    "Telecom",
+    "NBFC"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.3,
-    "sideways": 0.31,
-    "bullish": 0.39
+    "bearish": 0.37,
+    "sideways": 0.32,
+    "bullish": 0.31
   }
 }

@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-10 11:00_
+_Generated: 2026-08-11 10:43_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-08-10 11:00_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.05% | +0.04% | ACCUMULATION |
-| **Bank Nifty** | -0.10% | — | — |
+| **Nifty 50** | -0.46% | -0.04% | RANGE-BOUND |
+| **Bank Nifty** | -0.42% | — | — |
 
-- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 24 symbols  |  **Declines:** 24 symbols  |  **A/D Ratio:** 1.00
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 13 symbols  |  **Declines:** 35 symbols  |  **A/D Ratio:** 0.37
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed NEUTRAL (Nifty +0.05%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (+0.04%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.46%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (-0.04%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.05%
-- **Cumulative Model Accuracy: 0.0%** (0/57 scored predictions)
+- Today's Actual Nifty Change: -0.46%
+- **Cumulative Model Accuracy: 0.0%** (0/58 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 24/24 with an A/D Ratio of 1.00.
-- **Smart Money:** Unusual volume detected in GRASIM.NS, TITAN.NS.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 13/35 with an A/D Ratio of 0.37.
+- **Smart Money:** Unusual volume detected in APOLLOHOSP.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,10 +39,10 @@ _Generated: 2026-08-10 11:00_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TITAN.NS** | SELL | ₹5064.00 | ₹5090.00 | +0.51% | +0.00R |
-| **M&M.NS** | SELL | ₹3515.20 | ₹3517.00 | +0.05% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹8298.00 | ₹8300.00 | +0.02% | +0.00R |
-| **HEROMOTOCO.NS** | SELL | ₹5895.50 | ₹5860.00 | -0.60% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8308.50 | ₹8578.50 | +3.25% | +0.00R |
+| **TITAN.NS** | SELL | ₹5146.50 | ₹5128.00 | -0.36% | +0.00R |
+| **HCLTECH.NS** | SELL | ₹1371.60 | ₹1365.40 | -0.45% | +0.00R |
+| **HEROMOTOCO.NS** | SELL | ₹5916.50 | ₹5865.50 | -0.86% | +0.00R |
 
 ---
 
@@ -70,6 +70,6 @@ _Generated: 2026-08-10 11:00_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **38.9%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **30.1%** |
+| 🟢 Bullish Continuation | **30.6%** |
+| 🟡 Sideways / Range-Bound | **32.2%** |
+| 🔴 Bearish Continuation | **37.2%** |

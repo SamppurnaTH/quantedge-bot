@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-13 10:55_
+_Generated: 2026-08-14 10:51_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-08-13 10:55_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.16% | -0.02% | ACCUMULATION |
-| **Bank Nifty** | -0.43% | — | — |
+| **Nifty 50** | -0.12% | -0.14% | ACCUMULATION |
+| **Bank Nifty** | -0.25% | — | — |
 
 - **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 22 symbols  |  **Declines:** 26 symbols  |  **A/D Ratio:** 0.85
+- **Advances:** 10 symbols  |  **Declines:** 38 symbols  |  **A/D Ratio:** 0.26
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.16%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (-0.02%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed NEUTRAL (Nifty -0.12%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.14%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.16%
-- **Cumulative Model Accuracy: 0.0%** (0/60 scored predictions)
+- Today's Actual Nifty Change: -0.12%
+- **Cumulative Model Accuracy: 0.0%** (0/61 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 22/26 with an A/D Ratio of 0.85.
-- **Smart Money:** Unusual volume detected in APOLLOHOSP.NS, BHARTIARTL.NS.
-- **Weakness:** Breakout failures occurred in APOLLOHOSP.NS, BHARTIARTL.NS, SBILIFE.NS.
+- **Breadth:** Advances/Declines stood at 10/38 with an A/D Ratio of 0.26.
+- **Smart Money:** Unusual volume detected in APOLLOHOSP.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,9 +39,9 @@ _Generated: 2026-08-13 10:55_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹8427.50 | ₹8500.00 | +0.86% | +0.00R |
-| **HEROMOTOCO.NS** | SELL | ₹5875.00 | ₹5850.00 | -0.43% | +0.00R |
-| **APOLLOHOSP.NS** | BUY | ₹8661.50 | ₹8600.00 | -0.71% | +0.00R |
+| **HEROMOTOCO.NS** | SELL | ₹5812.00 | ₹5790.00 | -0.38% | +0.00R |
+| **TITAN.NS** | SELL | ₹5085.30 | ₹5056.20 | -0.57% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8545.00 | ₹8477.00 | -0.80% | +0.00R |
 
 ---
 
@@ -69,6 +69,6 @@ _Generated: 2026-08-13 10:55_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **35.8%** |
+| 🟢 Bullish Continuation | **30.8%** |
 | 🟡 Sideways / Range-Bound | **31.7%** |
-| 🔴 Bearish Continuation | **32.5%** |
+| 🔴 Bearish Continuation | **37.5%** |

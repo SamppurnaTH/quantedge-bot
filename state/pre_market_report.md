@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-08-14 04:52_
+_Generated: 2026-08-17 03:54_
 
 ---
 
@@ -33,13 +33,13 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7798.99 | +0.65% | BULLISH — bullish support |
-| US (Nasdaq) | 26803.03 | +0.81% | BULLISH — bullish support |
-| VIX (Volatility) | 14.63 | +0.55% | BULLISH — volatility compression |
-| Crude Oil | 81.32 | +0.09% | NEUTRAL — No major impact |
-| Dollar Index | 99.87 | -0.09% | BULLISH — supportive currency flow |
-| Bond Yields (10Y) | 4.64 | -0.88% | NEUTRAL — No major impact |
-| Japan (Nikkei 225) | 68570.59 | +0.38% | NEUTRAL — No major impact |
+| US (S&P 500) | 7785.76 | -0.17% | NEUTRAL — No major impact |
+| US (Nasdaq) | 26729.16 | -0.28% | NEUTRAL — No major impact |
+| VIX (Volatility) | 14.25 | -2.6% | BULLISH — volatility compression |
+| Crude Oil | 82.56 | +0.19% | NEUTRAL — No major impact |
+| Dollar Index | 99.55 | -0.12% | BULLISH — supportive currency flow |
+| Bond Yields (10Y) | 4.7 | +1.19% | NEUTRAL — No major impact |
+| Japan (Nikkei 225) | 68833.44 | +0.17% | NEUTRAL — No major impact |
 
 ---
 
@@ -55,14 +55,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Pharma | +0.31% | NEUTRAL |
-| Auto | -0.25% | NEUTRAL |
-| FMCG | -0.57% | WEAK |
-| Telecom | -0.73% | WEAK |
-| Consumer | -0.77% | WEAK |
-| Banking | -0.9% | WEAK |
-| Energy/Infra | -0.99% | WEAK |
-| IT | -1.18% | WEAK |
-| Agro | -1.3% | WEAK |
-| NBFC | -1.43% | WEAK |
-| Metals | -3.01% | WEAK |
+| Telecom | +2.47% | STRONG |
+| Pharma | +0.47% | NEUTRAL |
+| Auto | -0.42% | NEUTRAL |
+| Agro | -0.71% | WEAK |
+| Energy/Infra | -0.76% | WEAK |
+| Banking | -1.25% | WEAK |
+| NBFC | -1.71% | WEAK |
+| IT | -1.82% | WEAK |
+| FMCG | -1.94% | WEAK |
+| Consumer | -2.55% | WEAK |
+| Metals | -3.03% | WEAK |

@@ -1002,8 +1002,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-04",
@@ -1032,8 +1032,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-06",
@@ -1062,8 +1062,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-07",
@@ -1077,8 +1077,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-10",
@@ -1092,8 +1092,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-11",
@@ -1107,8 +1107,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-11",
@@ -1137,8 +1137,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-12",
@@ -1167,8 +1167,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-14",
@@ -1182,8 +1182,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-14",
@@ -1212,8 +1212,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-08-18"
     },
     {
       "date": "2026-08-17",
@@ -1224,6 +1224,21 @@
       "value": {
         "breadth": 37,
         "consensus_pct": 35,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
+      "resolved": false,
+      "resolved_date": null
+    },
+    {
+      "date": "2026-08-18",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 25,
+        "consensus_pct": 49,
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
@@ -1231,5 +1246,5 @@
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-08-17"
+  "last_updated": "2026-08-18"
 }

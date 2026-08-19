@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-08-18 03:49_
+_Generated: 2026-08-19 03:52_
 
 ---
 
@@ -8,7 +8,7 @@ _Generated: 2026-08-18 03:49_
 | :--- | :--- |
 | **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
 | **Risk Level** | HIGH |
-| **Opening Bias** | BEARISH (100% confidence) |
+| **Opening Bias** | BEARISH (81% confidence) |
 | **Gap Outlook** | High Gap Down Probability |
 | **Interpretation** | *Risk-off global cues — protect open positions, avoid chasing early momentum.* |
 
@@ -33,10 +33,13 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7745.06 | -0.52% | BEARISH — bearish pressure |
-| US (Nasdaq) | 26644.91 | -0.32% | NEUTRAL — No major impact |
-| VIX (Volatility) | 15.19 | +6.6% | NEUTRAL — No major impact |
-| Bond Yields (10Y) | 4.72 | +0.6% | NEUTRAL — No major impact |
+| US (S&P 500) | 7691.76 | -0.69% | BEARISH — bearish pressure |
+| US (Nasdaq) | 26289.71 | -1.33% | BEARISH — bearish pressure |
+| VIX (Volatility) | 15.84 | +4.28% | NEUTRAL — No major impact |
+| Crude Oil | 84.7 | +0.24% | NEUTRAL — No major impact |
+| Dollar Index | 99.59 | -0.05% | BULLISH — supportive currency flow |
+| Bond Yields (10Y) | 4.71 | -0.38% | NEUTRAL — No major impact |
+| Japan (Nikkei 225) | 65772.71 | -2.5% | BEARISH — bearish pressure |
 
 ---
 
@@ -52,14 +55,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Telecom | +1.8% | STRONG |
-| Agro | +0.09% | NEUTRAL |
-| Energy/Infra | -0.29% | NEUTRAL |
-| Pharma | -0.41% | NEUTRAL |
-| Banking | -0.55% | WEAK |
-| Metals | -0.57% | WEAK |
-| Auto | -0.74% | WEAK |
-| NBFC | -1.3% | WEAK |
-| FMCG | -1.3% | WEAK |
-| Consumer | -2.0% | WEAK |
-| IT | -4.11% | WEAK |
+| Energy/Infra | -0.36% | NEUTRAL |
+| Telecom | -0.42% | NEUTRAL |
+| Banking | -0.92% | WEAK |
+| Auto | -1.03% | WEAK |
+| FMCG | -1.23% | WEAK |
+| Pharma | -1.31% | WEAK |
+| NBFC | -1.59% | WEAK |
+| Agro | -1.6% | WEAK |
+| Metals | -2.18% | WEAK |
+| Consumer | -2.57% | WEAK |
+| IT | -3.33% | WEAK |

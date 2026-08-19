@@ -949,6 +949,21 @@
       "BULLISH": 22.6,
       "RANGE": 28.5,
       "BEARISH": 48.9
+    },
+    "actual_change": -0.32,
+    "result": "FAILED",
+    "gap_match": false,
+    "breadth_match": false,
+    "scored_at": "2026-08-19 10:20"
+  },
+  {
+    "date": "2026-08-19",
+    "forecast": "Range-Bound Consolidation Likelihood Elevated",
+    "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
+    "probs": {
+      "BULLISH": 31.8,
+      "RANGE": 32.2,
+      "BEARISH": 36.0
     }
   }
 ]

@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-08-20 03:51_
+_Generated: 2026-08-21 03:54_
 
 ---
 
@@ -7,10 +7,10 @@ _Generated: 2026-08-20 03:51_
 | Metric | Value |
 | :--- | :--- |
 | **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
-| **Risk Level** | LOW |
-| **Opening Bias** | BULLISH (100% confidence) |
-| **Gap Outlook** | High Gap Up Probability |
-| **Interpretation** | *Positive global cues support an upside open — watch for early continuation setups.* |
+| **Risk Level** | HIGH |
+| **Opening Bias** | BEARISH (75% confidence) |
+| **Gap Outlook** | High Gap Down Probability |
+| **Interpretation** | *Risk-off global cues — protect open positions, avoid chasing early momentum.* |
 
 ---
 
@@ -33,13 +33,13 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7707.98 | +0.21% | NEUTRAL — No major impact |
-| US (Nasdaq) | 26331.09 | +0.16% | NEUTRAL — No major impact |
-| VIX (Volatility) | 14.89 | -6.0% | BULLISH — volatility compression |
-| Crude Oil | 84.43 | -0.6% | NEUTRAL — No major impact |
-| Dollar Index | 98.83 | -0.83% | BULLISH — supportive currency flow |
-| Bond Yields (10Y) | 4.65 | -1.13% | NEUTRAL — No major impact |
-| Japan (Nikkei 225) | 65821.25 | +0.76% | BULLISH — bullish support |
+| US (S&P 500) | 7641.16 | -0.87% | BEARISH — bearish pressure |
+| US (Nasdaq) | 26067.17 | -1.0% | BEARISH — bearish pressure |
+| VIX (Volatility) | 16.01 | +7.52% | NEUTRAL — No major impact |
+| Crude Oil | 86.55 | +0.84% | NEUTRAL — No major impact |
+| Dollar Index | 98.76 | -0.07% | BULLISH — supportive currency flow |
+| Bond Yields (10Y) | 4.7 | +0.92% | NEUTRAL — No major impact |
+| Japan (Nikkei 225) | 66071.7 | -0.22% | NEUTRAL — No major impact |
 
 ---
 
@@ -55,14 +55,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Telecom | +0.05% | NEUTRAL |
-| Metals | +0.05% | NEUTRAL |
-| Agro | -0.12% | NEUTRAL |
-| Banking | -0.18% | NEUTRAL |
-| NBFC | -0.31% | NEUTRAL |
-| Pharma | -0.81% | WEAK |
-| Energy/Infra | -0.92% | WEAK |
-| Auto | -1.14% | WEAK |
-| Consumer | -1.71% | WEAK |
-| FMCG | -2.12% | WEAK |
-| IT | -2.54% | WEAK |
+| Agro | +1.25% | STRONG |
+| Metals | +0.46% | NEUTRAL |
+| Banking | +0.05% | NEUTRAL |
+| NBFC | -0.2% | NEUTRAL |
+| Pharma | -0.47% | NEUTRAL |
+| Energy/Infra | -0.53% | WEAK |
+| Auto | -0.77% | WEAK |
+| Consumer | -1.22% | WEAK |
+| Telecom | -2.35% | WEAK |
+| FMCG | -2.74% | WEAK |
+| IT | -3.25% | WEAK |

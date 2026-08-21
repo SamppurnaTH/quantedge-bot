@@ -1259,7 +1259,22 @@
       },
       "resolved": true,
       "resolved_date": "2026-08-20"
+    },
+    {
+      "date": "2026-08-21",
+      "type": "CONSENSUS_SPLIT",
+      "label": "Model Consensus Split",
+      "severity": "CRITICAL",
+      "action": "Reduce active position sizing by 50% immediately.",
+      "value": {
+        "breadth": 47,
+        "consensus_pct": 35,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
+      "resolved": false,
+      "resolved_date": null
     }
   ],
-  "last_updated": "2026-08-20"
+  "last_updated": "2026-08-21"
 }

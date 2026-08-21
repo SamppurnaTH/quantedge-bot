@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-20 10:21_
+_Generated: 2026-08-21 10:21_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-08-20 10:21_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.64% | +0.61% | RANGE-BOUND |
-| **Bank Nifty** | +0.45% | — | — |
+| **Nifty 50** | +0.08% | +0.22% | RANGE-BOUND |
+| **Bank Nifty** | +0.46% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 38 symbols  |  **Declines:** 10 symbols  |  **A/D Ratio:** 3.80
+- **Advances:** 23 symbols  |  **Declines:** 25 symbols  |  **A/D Ratio:** 0.92
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.64%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.61%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed NEUTRAL (Nifty +0.08%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.22%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.64%
-- **Cumulative Model Accuracy: 0.0%** (0/65 scored predictions)
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: +0.08%
+- **Cumulative Model Accuracy: 0.0%** (0/66 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 38/10 with an A/D Ratio of 3.80.
-- **Smart Money:** Unusual volume detected in JSWSTEEL.NS.
+- **Breadth:** Advances/Declines stood at 23/25 with an A/D Ratio of 0.92.
+- **Smart Money:** Unusual volume detected in none.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,7 +39,7 @@ _Generated: 2026-08-20 10:21_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹8555.00 | ₹8570.00 | +0.18% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8570.00 | ₹8597.00 | +0.32% | +0.00R |
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-08-20 10:21_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **44.7%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **24.3%** |
+| 🟢 Bullish Continuation | **34.7%** |
+| 🟡 Sideways / Range-Bound | **32.2%** |
+| 🔴 Bearish Continuation | **33.1%** |

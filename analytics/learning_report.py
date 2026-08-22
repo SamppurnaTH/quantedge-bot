@@ -167,6 +167,9 @@ def generate_learning_report(summary: dict) -> str:
     unreliable  = summary["unreliable"]
     total_p     = summary["total_patterns"]
     total_o     = summary["total_observations"]
+    sources     = summary.get("observation_sources", {})
+    hist_o      = sources.get("historical_seed", 0)
+    live_o      = sources.get("live_paper", 0)
     
     # Build Archetypes Table
     archetypes = summary.get("archetypes", {})
@@ -190,7 +193,9 @@ _Generated: {now}_
 
 ## Knowledge Summary
 - **Total pattern conditions tracked**: {total_p}
-- **Total historical signal evaluations analyzed**: {total_o}
+- **Total signal outcome observations analyzed**: {total_o}
+- **Historical seed observations**: {hist_o}
+- **Live/paper trade observations**: {live_o}
 - **Proven Elite Edges (PROVEN)**: {len(proven)}
 - **Validated Patterns (VALIDATED)**: {len(validated)}
 - **Patterns in Training (LEARNING)**: {len(learning)}
@@ -240,8 +245,8 @@ _Generated: {now}_
 ---
 
 ## ⚠️ Unreliable Patterns (Danger Zones to Avoid)
-> These pattern setups have sufficient sample sizes (50+ trades) but failed to achieve sustainable expectancy.
-> **The bot automatically filters out and blocks buy signals matching these conditions.**
+> These pattern setups have sufficient sample sizes (50+ observations) but failed to achieve sustainable expectancy.
+> **Exact entry patterns marked UNRELIABLE are blocked from new BUY signals.**
 
 {_section_unreliable(unreliable)}
 
@@ -250,9 +255,9 @@ _Generated: {now}_
 ## 📈 How the Bot Adapts
 1. **Regime Filtering:** Every signal is evaluated under both Index and Stock regimes.
 2. **Key Simplification:** Patterns are grouped using a simplified 7-factor key to avoid mathematical overfitting.
-3. **Outcome Auditing:** After paper trades close, exact P&L, Win Rate, and Profit Factors are logged.
+3. **Outcome Auditing:** Historical seeds are tracked separately from live/paper closed trades.
 4. **State Transition:** Patterns dynamically advance or demote across states based on performance thresholds.
-5. **Dynamic Blocking:** Proven failed/unreliable setups are blocked from entries, preserving capital.
+5. **Dynamic Blocking:** Exact unreliable entry patterns and poor live/paper trade cohorts are blocked from entries.
 
 ---
 _This report is automatically generated and committed to the repository daily._
@@ -268,10 +273,12 @@ def generate_telegram_summary(summary: dict) -> str:
     watching    = summary["watching"]
     unreliable  = summary["unreliable"]
     total_o     = summary["total_observations"]
+    sources     = summary.get("observation_sources", {})
+    live_o      = sources.get("live_paper", 0)
 
     lines = [
         "📚 <b>DAILY LEARNING REPORT</b>",
-        f"Based on <b>{total_o}</b> historical signal evaluations analyzed\n",
+        f"Based on <b>{total_o}</b> signal outcomes analyzed (<b>{live_o}</b> live/paper)\n",
     ]
 
     # Proven

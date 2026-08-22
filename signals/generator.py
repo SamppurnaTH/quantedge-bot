@@ -116,7 +116,7 @@ def generate_signal_for_symbol(
     )
 
     # Calculate high-resolution confidence score and pros/cons explanation
-    from analytics.learning_engine import load_journal
+    from analytics.learning_engine import build_condition_key, load_journal, rsi_to_bucket
     from analytics.pattern_detector import get_pattern_snapshot
     from analytics.confidence import calculate_confidence_and_pros_cons, calibrate_score_to_probability
     
@@ -125,6 +125,15 @@ def generate_signal_for_symbol(
         snap = get_pattern_snapshot(df)
     except Exception:
         snap = {}
+    pattern_key = build_condition_key(
+        regime=str(effective_regime),
+        rsi_bucket=rsi_to_bucket(latest["rsi"]),
+        score=latest.get("score", 0),
+        channel=snap.get("trend_channel", "SIDEWAYS"),
+        candles=snap.get("candlestick", []),
+        near_support=snap.get("near_support") is not None,
+        volume_spike=snap.get("volume_spike", False),
+    )
         
     conf_score, pros, cons = calculate_confidence_and_pros_cons(
         symbol=symbol,
@@ -188,6 +197,9 @@ def generate_signal_for_symbol(
         "expectancy_r":     round(expectancy_r, 2),
         "pros":            pros,
         "cons":            cons,
+        "pattern_key":      pattern_key,
+        "pattern_snapshot": snap,
+        "learning_state":   journal.get("patterns", {}).get(pattern_key, {}).get("state", "NEW"),
     }
 
 
@@ -233,7 +245,9 @@ def scan_watchlist(
             if result.get("signal") == "BUY":
                 regime_str = result.get("regime", "")
                 score      = result.get("score", 0)
-                if regime_str in skip_regimes:
+                if result.get("learning_state") == "UNRELIABLE":
+                    result = {**result, "signal": "HOLD", "_filtered": "entry pattern marked UNRELIABLE by learning journal"}
+                elif regime_str in skip_regimes:
                     result = {**result, "signal": "HOLD", "_filtered": f"regime {regime_str} blocked by journal"}
                 elif symbol in skip_symbols:
                     result = {**result, "signal": "HOLD", "_filtered": f"{symbol} blocked by journal"}

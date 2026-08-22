@@ -16,6 +16,8 @@ from indicators.regime import Regime
 
 logger = logging.getLogger(__name__)
 
+PAPER_STATE_FILE = os.path.join("logs", "paper_portfolio.json")
+
 
 def wilson_ci(wins: int, n: int, z: float = 1.645) -> Tuple[float, float]:
     """
@@ -192,7 +194,7 @@ def calculate_confidence_and_pros_cons(
     expectancy_raw = 50  # default neutral
     
     # Construct the simplified key to look up in the journal
-    from analytics.learning_engine import build_condition_key, rsi_to_bucket, classify_behavioral_state, get_blended_expectancy
+    from analytics.learning_engine import build_condition_key, rsi_to_bucket, classify_archetype, get_blended_expectancy
     rsi_bkt = rsi_to_bucket(rsi)
     
     score = signal_result.get("score", 0)
@@ -211,7 +213,7 @@ def calculate_confidence_and_pros_cons(
         volume_spike=volume_spike
     )
     
-    archetype = classify_behavioral_state(key)
+    archetype = classify_archetype(key)
     pattern = journal.get("patterns", {}).get(key)
     
     if pattern:
@@ -232,8 +234,10 @@ def calculate_confidence_and_pros_cons(
             expectancy_raw = 10
             cons.append(f"✗ Unfavorable Edge: Negative Bayesian expectancy ({blended_exp:+.2f}R)")
     else:
-        # Fallback to Archetype-level prior if pattern is completely new
-        archetypes = journal.get("archetypes", {})
+        # Fallback to archetype-level prior if pattern is completely new.
+        archetypes = journal.get("canonical_archetypes", {})
+        if archetype not in archetypes:
+            archetypes = journal.get("archetypes", {})
         prior_exp = 0.0
         if archetype in archetypes:
             arch_data = archetypes[archetype]
@@ -331,7 +335,7 @@ def calibrate_score_to_probability(
         theoretical_prob = 32.0
         label = "speculative high-risk play"
 
-    closed_trades = journal.get("closed_trades", [])
+    closed_trades = load_closed_trades_for_calibration(journal)
 
     if len(closed_trades) >= 10:
         bucket_trades = []
@@ -374,6 +378,44 @@ def calibrate_score_to_probability(
     return theoretical_prob, lower_ci, upper_ci, 0, f"Theoretical {label}"
 
 
+def load_closed_trades_for_calibration(journal: dict) -> List[dict]:
+    """
+    Return closed paper trades for empirical calibration.
+
+    New trades are mirrored into the learning journal. The paper portfolio is
+    also read so older runs and dashboards remain a valid calibration source.
+    """
+    merged = []
+    seen = set()
+
+    def add_trade(t: dict) -> None:
+        key = (
+            t.get("symbol"),
+            t.get("entry_date"),
+            t.get("exit_date"),
+            t.get("entry_price"),
+            t.get("exit_price"),
+            t.get("pnl"),
+        )
+        if key not in seen:
+            seen.add(key)
+            merged.append(t)
+
+    for trade in journal.get("closed_trades", []):
+        add_trade(trade)
+
+    if os.path.exists(PAPER_STATE_FILE):
+        try:
+            with open(PAPER_STATE_FILE, "r", encoding="utf-8") as f:
+                state = json.load(f)
+            for trade in state.get("closed_trades", []):
+                add_trade(trade)
+        except Exception as exc:
+            logger.warning("Could not load paper trades for calibration: %s", exc)
+
+    return merged
+
+
 def update_confidence_calibration(journal: dict) -> None:
     """
     Computes real empirical win-rates of closed trades grouped by confidence buckets,
@@ -382,7 +424,7 @@ def update_confidence_calibration(journal: dict) -> None:
     import os
     import json
     
-    closed_trades = journal.get("closed_trades", [])
+    closed_trades = load_closed_trades_for_calibration(journal)
     
     buckets = {
         "90_100": {"trades": 0, "wins": 0, "win_rate": 0.0},

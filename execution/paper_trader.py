@@ -208,22 +208,20 @@ class PaperTrader:
         return price + nudge if is_buy else price - nudge
 
     def _open_position(self, symbol: str, price: float, rr: dict, signal_data: dict, regime_str: str) -> None:
-        # Check capital
-        trade_cost = rr["trade_cost"]
-        if trade_cost > self.cash:
-            logger.warning("PAPER BUY SKIP | %s | Insufficient cash (needs %.2f, has %.2f)", symbol, trade_cost, self.cash)
-            return
-
-        fill_price    = self._apply_slippage(price, is_buy=True)
-        slippage_cost = round((fill_price - price) * rr["shares"], 2)  # cost of entry slip
-
-        self.cash -= fill_price * rr["shares"]
-
         # Apply position sizing multiplier based on regime
         size_mult = signal_data.get("size_multiplier", 1.0)
         shares = int(rr["shares"] * size_mult)
         if shares <= 0:
             shares = 1
+
+        fill_price = self._apply_slippage(price, is_buy=True)
+        trade_cost = fill_price * shares
+        if trade_cost > self.cash:
+            logger.warning("PAPER BUY SKIP | %s | Insufficient cash (needs %.2f, has %.2f)", symbol, trade_cost, self.cash)
+            return
+
+        slippage_cost = round((fill_price - price) * shares, 2)  # cost of entry slip
+        self.cash -= trade_cost
 
         self.positions[symbol] = {
             "symbol":        symbol,
@@ -239,6 +237,8 @@ class PaperTrader:
             "confidence_score": signal_data.get("confidence_score", 50),
             "regime":        regime_str,
             "slippage_cost": slippage_cost,
+            "pattern_key":    signal_data.get("pattern_key"),
+            "pattern_snapshot": signal_data.get("pattern_snapshot", {}),
         }
 
         size_note = f" (×{size_mult} regime)" if size_mult < 1.0 else ""
@@ -298,6 +298,8 @@ class PaperTrader:
             "exit_reason":   reason,
             "score":         pos.get("score", 0),
             "regime":        pos.get("regime", "?"),
+            "confidence_score": pos.get("confidence_score", 50),
+            "pattern_key":    pos.get("pattern_key"),
             "slippage_cost": total_slip,
         }
         self.closed_trades.append(trade)
@@ -309,8 +311,6 @@ class PaperTrader:
         # Record outcome in learning journal
         try:
             from analytics.learning_engine import record_live_trade
-            from data.fetcher import load_stock_data
-            df = load_stock_data(symbol)
             won = gross_pnl > 0
             
             # Reconstruct the signal result dictionary required by record_live_trade
@@ -319,7 +319,14 @@ class PaperTrader:
                 "score": pos.get("score", 0),
                 "rsi": pos.get("rsi", 50.0),
                 "confidence_score": pos.get("confidence_score", 50),
+                "pattern_key": pos.get("pattern_key"),
+                "pattern_snapshot": pos.get("pattern_snapshot", {}),
             }
+            df = None
+            if not signal_result["pattern_key"]:
+                from data.fetcher import load_stock_data
+                df = load_stock_data(symbol)
+
             # Calculate hold time
             entry_dt = datetime.strptime(pos["entry_date"], "%Y-%m-%d")
             exit_dt = datetime.strptime(trade["exit_date"], "%Y-%m-%d")
@@ -331,7 +338,8 @@ class PaperTrader:
                 won=won,
                 df=df,
                 pnl=gross_pnl,
-                hold_time=hold_time
+                hold_time=hold_time,
+                trade=trade
             )
         except Exception as e:
             logger.warning("Failed to record trade to learning journal: %s", e)

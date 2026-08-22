@@ -196,7 +196,9 @@ def get_blended_expectancy(pattern_data: dict, archetype_name: str, regime_name:
     prior_exp = 0.0
     c_constant = 30.0
     
-    archetypes = journal.get("archetypes", {})
+    archetypes = journal.get("canonical_archetypes", {})
+    if archetype_name not in archetypes:
+        archetypes = journal.get("archetypes", {})
     if archetype_name in archetypes:
         arch_data = archetypes[archetype_name]
         regime_data = arch_data.get("regimes", {}).get(regime_name, {})
@@ -278,6 +280,7 @@ def record_observation(
     pnl: Optional[float] = None,
     trade_date: Optional[str] = None,
     hold_time: int = 0,
+    source: str = "historical_seed",
 ) -> None:
     """
     Add one outcome observation to a pattern key.
@@ -301,6 +304,7 @@ def record_observation(
         }
 
     p = journal["patterns"][key]
+    p["context"] = {**p.get("context", {}), **context}
     trade_pnl = pnl if pnl is not None else (1.0 if won else -1.0)
     t_date = trade_date if trade_date is not None else datetime.now().strftime("%Y-%m-%d")
 
@@ -381,6 +385,8 @@ def record_observation(
 
     # Track garbage ratio to prevent statistical landfilling
     journal["metadata"]["total_observations"] = journal["metadata"].get("total_observations", 0) + 1
+    source_counts = journal["metadata"].setdefault("observation_sources", {})
+    source_counts[source] = source_counts.get(source, 0) + 1
     
     unknown_trades = journal["archetypes"].get("UNKNOWN_NOISE", {}).get("trades", 0.0)
     total_o = journal["metadata"]["total_observations"]
@@ -595,36 +601,73 @@ def seed_from_history(symbols: Optional[List[str]] = None) -> dict:
 
 # ── Live Trade Recording ───────────────────────────────────────────────────────
 
-def record_live_trade(symbol: str, signal_result: dict, won: bool, df: pd.DataFrame, pnl: Optional[float] = None, hold_time: int = 0) -> None:
+def record_live_trade(
+    symbol: str,
+    signal_result: dict,
+    won: bool,
+    df: Optional[pd.DataFrame] = None,
+    pnl: Optional[float] = None,
+    hold_time: int = 0,
+    trade: Optional[dict] = None,
+) -> None:
     """
     Record the outcome of a live paper trade into the learning journal.
     Call this when a paper trade is closed.
     """
     journal = load_journal()
 
-    try:
-        snap = get_pattern_snapshot(df)
-    except Exception:
-        snap = {}
-
     regime   = signal_result.get("regime", "UNKNOWN")
     rsi      = float(signal_result.get("rsi", 50))
     score    = int(signal_result.get("score", 0))
     rsi_bkt  = rsi_to_bucket(rsi)
+    key = signal_result.get("pattern_key")
+    snap = signal_result.get("pattern_snapshot", {})
 
-    key = build_condition_key(
-        regime       = regime,
-        rsi_bucket   = rsi_bkt,
-        score        = score,
-        channel      = snap.get("trend_channel", "SIDEWAYS"),
-        candles      = snap.get("candlestick", []),
-        near_support = snap.get("near_support") is not None,
-        volume_spike = snap.get("volume_spike", False),
+    if not key:
+        if df is not None:
+            try:
+                snap = get_pattern_snapshot(df)
+            except Exception:
+                snap = {}
+
+        key = build_condition_key(
+            regime       = regime,
+            rsi_bucket   = rsi_bkt,
+            score        = score,
+            channel      = snap.get("trend_channel", "SIDEWAYS"),
+            candles      = snap.get("candlestick", []),
+            near_support = snap.get("near_support") is not None,
+            volume_spike = snap.get("volume_spike", False),
+        )
+
+    context = {
+        "symbol": symbol,
+        "regime": regime,
+        "rsi_bkt": rsi_bkt,
+        "score": score,
+        "source": "live_paper",
+    }
+    trade_date = (trade or {}).get("exit_date") or datetime.now().strftime("%Y-%m-%d")
+    record_observation(
+        journal,
+        key,
+        won,
+        context,
+        pnl=pnl,
+        trade_date=trade_date,
+        hold_time=hold_time,
+        source="live_paper",
     )
 
-    context = {"symbol": symbol, "regime": regime, "rsi_bkt": rsi_bkt, "score": score}
-    trade_date = datetime.now().strftime("%Y-%m-%d")
-    record_observation(journal, key, won, context, pnl=pnl, trade_date=trade_date, hold_time=hold_time)
+    if trade is not None:
+        journal.setdefault("closed_trades", []).append({
+            **trade,
+            "pattern_key": key,
+            "pattern_snapshot": snap,
+        })
+        if len(journal["closed_trades"]) > 1000:
+            journal["closed_trades"] = journal["closed_trades"][-1000:]
+
     save_journal(journal)
     logger.info("Recorded live trade outcome for %s: %s", symbol, "WIN" if won else "LOSS")
 
@@ -690,6 +733,12 @@ def get_knowledge_summary(journal: dict) -> dict:
                 e["expectancy_blended"] = e.get("expectancy", 0.0)
                 e["win_rate_blended"] = e.get("win_rate", 0.0)
 
+    observation_sources = dict(journal["metadata"].get("observation_sources", {}))
+    known_sources = sum(observation_sources.values())
+    total_observations = journal["metadata"].get("total_observations", 0)
+    if total_observations > known_sources:
+        observation_sources["historical_seed"] = observation_sources.get("historical_seed", 0) + (total_observations - known_sources)
+
     return {
         "proven":             proven,
         "validated":          validated,
@@ -697,7 +746,8 @@ def get_knowledge_summary(journal: dict) -> dict:
         "unreliable":         unreliable,
         "watching":           watching[:10],   # top 10 most recent watching patterns
         "total_patterns":     len(journal["patterns"]),
-        "total_observations": journal["metadata"].get("total_observations", 0),
+        "total_observations": total_observations,
+        "observation_sources": observation_sources,
         "last_updated":       journal["metadata"].get("last_updated"),
         # Prefer canonical compressed archetypes for reporting; fall back to legacy archetypes
         "archetypes":         journal.get("canonical_archetypes", journal.get("archetypes", {})),

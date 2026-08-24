@@ -1,11 +1,13 @@
 # 📚 QuantEdge Bot — Intelligence Learning Report
-_Generated: 21 Aug 2026  03:54_
+_Generated: 24 Aug 2026  03:58_
 
 ---
 
 ## Knowledge Summary
 - **Total pattern conditions tracked**: 555
-- **Total historical signal evaluations analyzed**: 23996
+- **Total signal outcome observations analyzed**: 23996
+- **Historical seed observations**: 23996
+- **Live/paper trade observations**: 0
 - **Proven Elite Edges (PROVEN)**: 0
 - **Validated Patterns (VALIDATED)**: 0
 - **Patterns in Training (LEARNING)**: 32
@@ -88,8 +90,8 @@ _Generated: 21 Aug 2026  03:54_
 ---
 
 ## ⚠️ Unreliable Patterns (Danger Zones to Avoid)
-> These pattern setups have sufficient sample sizes (50+ trades) but failed to achieve sustainable expectancy.
-> **The bot automatically filters out and blocks buy signals matching these conditions.**
+> These pattern setups have sufficient sample sizes (50+ observations) but failed to achieve sustainable expectancy.
+> **Exact entry patterns marked UNRELIABLE are blocked from new BUY signals.**
 
   _No unreliable/failed patterns identified yet (that is good!)._
 
@@ -99,9 +101,9 @@ _Generated: 21 Aug 2026  03:54_
 ## 📈 How the Bot Adapts
 1. **Regime Filtering:** Every signal is evaluated under both Index and Stock regimes.
 2. **Key Simplification:** Patterns are grouped using a simplified 7-factor key to avoid mathematical overfitting.
-3. **Outcome Auditing:** After paper trades close, exact P&L, Win Rate, and Profit Factors are logged.
+3. **Outcome Auditing:** Historical seeds are tracked separately from live/paper closed trades.
 4. **State Transition:** Patterns dynamically advance or demote across states based on performance thresholds.
-5. **Dynamic Blocking:** Proven failed/unreliable setups are blocked from entries, preserving capital.
+5. **Dynamic Blocking:** Exact unreliable entry patterns and poor live/paper trade cohorts are blocked from entries.
 
 ---
 _This report is automatically generated and committed to the repository daily._

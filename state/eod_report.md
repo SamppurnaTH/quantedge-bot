@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-24 10:30_
+_Generated: 2026-08-25 10:23_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-08-24 10:30_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.14% | +0.14% | RANGE-BOUND |
-| **Bank Nifty** | -0.41% | — | — |
+| **Nifty 50** | +0.48% | -0.18% | STRONG CLOSE |
+| **Bank Nifty** | -0.02% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 25 symbols  |  **Declines:** 23 symbols  |  **A/D Ratio:** 1.09
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 30 symbols  |  **Declines:** 18 symbols  |  **A/D Ratio:** 1.67
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted WEAK BEARISH, Market closed NEUTRAL (Nifty -0.14%)
-- ✗ Opening Gap: Predicted Mild Gap Down / Flat, Actual open was GAP-UP (+0.14%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.48%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.18%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.14%
-- **Cumulative Model Accuracy: 0.0%** (0/67 scored predictions)
+- Today's Actual Nifty Change: +0.48%
+- **Cumulative Model Accuracy: 0.0%** (0/68 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 25/23 with an A/D Ratio of 1.09.
-- **Smart Money:** Unusual volume detected in JSWSTEEL.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 30/18 with an A/D Ratio of 1.67.
+- **Smart Money:** Unusual volume detected in none.
+- **Weakness:** Breakout failures occurred in SBILIFE.NS.
 
 ---
 
@@ -39,7 +39,7 @@ _Generated: 2026-08-24 10:30_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| _No buy/sell signals triggered this morning_ | | | | | |
+| **DIVISLAB.NS** | SELL | ₹8545.50 | ₹8744.50 | +2.33% | +0.00R |
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-08-24 10:30_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **35.6%** |
-| 🟡 Sideways / Range-Bound | **32.2%** |
-| 🔴 Bearish Continuation | **32.2%** |
+| 🟢 Bullish Continuation | **45.1%** |
+| 🟡 Sideways / Range-Bound | **29.7%** |
+| 🔴 Bearish Continuation | **25.1%** |

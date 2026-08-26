@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-25 10:23_
+_Generated: 2026-08-26 10:27_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-08-25 10:23_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.48% | -0.18% | STRONG CLOSE |
-| **Bank Nifty** | -0.02% | — | — |
+| **Nifty 50** | -0.52% | +0.03% | WEAK CLOSE |
+| **Bank Nifty** | +0.47% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 30 symbols  |  **Declines:** 18 symbols  |  **A/D Ratio:** 1.67
+- **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
+- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.48%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.18%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.52%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (+0.03%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.48%
-- **Cumulative Model Accuracy: 0.0%** (0/68 scored predictions)
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: -0.52%
+- **Cumulative Model Accuracy: 0.0%** (0/69 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 30/18 with an A/D Ratio of 1.67.
+- **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
+- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
 - **Smart Money:** Unusual volume detected in none.
-- **Weakness:** Breakout failures occurred in SBILIFE.NS.
+- **Weakness:** Breakout failures occurred in ADANIENT.NS.
 
 ---
 
@@ -39,7 +39,8 @@ _Generated: 2026-08-25 10:23_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹8545.50 | ₹8744.50 | +2.33% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8841.00 | ₹9025.00 | +2.08% | +0.00R |
+| **TITAN.NS** | SELL | ₹5119.80 | ₹5100.00 | -0.39% | +0.00R |
 
 ---
 
@@ -61,12 +62,12 @@ _Generated: 2026-08-25 10:23_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Bearish to Neutral Distribution Bias**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **45.1%** |
-| 🟡 Sideways / Range-Bound | **29.7%** |
-| 🔴 Bearish Continuation | **25.1%** |
+| 🟢 Bullish Continuation | **23.9%** |
+| 🟡 Sideways / Range-Bound | **28.5%** |
+| 🔴 Bearish Continuation | **47.6%** |

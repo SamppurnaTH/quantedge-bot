@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-08-26 03:57_
+_Generated: 2026-08-27 20:05_
 
 ---
 
@@ -33,13 +33,12 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7677.28 | +0.32% | NEUTRAL — No major impact |
-| US (Nasdaq) | 26151.3 | +0.66% | BULLISH — bullish support |
-| VIX (Volatility) | 15.45 | -2.52% | NEUTRAL — No major impact |
-| Crude Oil | 80.29 | -5.55% | BULLISH — softening crude oil / supportive |
-| Dollar Index | 98.97 | -0.03% | BULLISH — supportive currency flow |
-| Bond Yields (10Y) | 4.64 | -1.38% | NEUTRAL — No major impact |
-| Japan (Nikkei 225) | 66352.32 | +0.75% | BULLISH — bullish support |
+| US (S&P 500) | 7730.98 | +0.72% | BULLISH — bullish support |
+| US (Nasdaq) | 26541.35 | +1.57% | BULLISH — bullish support |
+| VIX (Volatility) | 14.47 | -4.87% | BULLISH — volatility compression |
+| Crude Oil | 83.68 | +1.76% | NEUTRAL — No major impact |
+| Dollar Index | 99.16 | -0.01% | BULLISH — supportive currency flow |
+| Bond Yields (10Y) | 4.67 | +0.17% | NEUTRAL — No major impact |
 
 ---
 
@@ -55,14 +54,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Agro | +4.14% | STRONG |
-| Energy/Infra | +1.73% | STRONG |
-| Banking | +1.63% | STRONG |
-| NBFC | +1.24% | STRONG |
-| Pharma | +1.14% | STRONG |
-| Metals | +1.13% | STRONG |
-| Consumer | +0.99% | STRONG |
-| Auto | +0.44% | NEUTRAL |
-| IT | +0.38% | NEUTRAL |
-| Telecom | +0.37% | NEUTRAL |
-| FMCG | +0.08% | NEUTRAL |
+| Energy/Infra | nan% | NEUTRAL |
+| Pharma | nan% | NEUTRAL |
+| Consumer | nan% | NEUTRAL |
+| Banking | nan% | NEUTRAL |
+| Auto | nan% | NEUTRAL |
+| NBFC | nan% | NEUTRAL |
+| Telecom | nan% | NEUTRAL |
+| FMCG | nan% | NEUTRAL |
+| IT | nan% | NEUTRAL |
+| Metals | nan% | NEUTRAL |
+| Agro | nan% | NEUTRAL |

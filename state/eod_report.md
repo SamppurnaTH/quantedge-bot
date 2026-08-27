@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-26 10:27_
+_Generated: 2026-08-27 14:00_
 
 ---
 
@@ -7,8 +7,8 @@ _Generated: 2026-08-26 10:27_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.52% | +0.03% | WEAK CLOSE |
-| **Bank Nifty** | +0.47% | — | — |
+| **Nifty 50** | -0.48% | +0.29% | WEAK CLOSE |
+| **Bank Nifty** | -0.47% | — | — |
 
 - **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
 - **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
@@ -17,21 +17,21 @@ _Generated: 2026-08-26 10:27_
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.52%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was FLAT OPEN (+0.03%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.48%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.29%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: -0.52%
-- **Cumulative Model Accuracy: 0.0%** (0/69 scored predictions)
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: -0.48%
+- **Cumulative Model Accuracy: 0.0%** (0/70 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
 - **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
-- **Smart Money:** Unusual volume detected in none.
-- **Weakness:** Breakout failures occurred in ADANIENT.NS.
+- **Smart Money:** Unusual volume detected in KOTAKBANK.NS.
+- **Weakness:** Breakout failures occurred in TATASTEEL.NS.
 
 ---
 
@@ -39,8 +39,8 @@ _Generated: 2026-08-26 10:27_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹8841.00 | ₹9025.00 | +2.08% | +0.00R |
-| **TITAN.NS** | SELL | ₹5119.80 | ₹5100.00 | -0.39% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹8841.00 | ₹9060.00 | +2.48% | +0.00R |
+| **TITAN.NS** | SELL | ₹5119.80 | ₹5139.30 | +0.38% | +0.00R |
 
 ---
 
@@ -68,6 +68,6 @@ _Generated: 2026-08-26 10:27_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **23.9%** |
-| 🟡 Sideways / Range-Bound | **28.5%** |
-| 🔴 Bearish Continuation | **47.6%** |
+| 🟢 Bullish Continuation | **26.4%** |
+| 🟡 Sideways / Range-Bound | **29.7%** |
+| 🔴 Bearish Continuation | **43.9%** |

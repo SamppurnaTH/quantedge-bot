@@ -1039,6 +1039,21 @@
       "BULLISH": 23.9,
       "RANGE": 28.5,
       "BEARISH": 47.6
+    },
+    "actual_change": -0.48,
+    "result": "FAILED",
+    "gap_match": false,
+    "breadth_match": false,
+    "scored_at": "2026-08-27 14:00"
+  },
+  {
+    "date": "2026-08-27",
+    "forecast": "Bearish to Neutral Distribution Bias",
+    "narrative": "Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.",
+    "probs": {
+      "BULLISH": 26.4,
+      "RANGE": 29.7,
+      "BEARISH": 43.9
     }
   }
 ]

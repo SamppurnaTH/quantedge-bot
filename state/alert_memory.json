@@ -1,21 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-05-28",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 66,
-        "consensus_pct": 35,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-06-01"
-    },
-    {
       "date": "2026-05-29",
       "type": "WEAK_BREADTH",
       "label": "Narrow Market Breadth",
@@ -1259,7 +1244,37 @@
       },
       "resolved": false,
       "resolved_date": null
+    },
+    {
+      "date": "2026-08-27",
+      "type": "CONSENSUS_SPLIT",
+      "label": "Model Consensus Split",
+      "severity": "CRITICAL",
+      "action": "Reduce active position sizing by 50% immediately.",
+      "value": {
+        "breadth": 31,
+        "consensus_pct": 44,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
+      "resolved": false,
+      "resolved_date": null
+    },
+    {
+      "date": "2026-08-27",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 31,
+        "consensus_pct": 44,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
+      "resolved": false,
+      "resolved_date": null
     }
   ],
-  "last_updated": "2026-08-26"
+  "last_updated": "2026-08-27"
 }

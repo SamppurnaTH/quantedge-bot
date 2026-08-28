@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-08-27 20:05_
+_Generated: 2026-08-28 21:03_
 
 ---
 
@@ -7,9 +7,9 @@ _Generated: 2026-08-27 20:05_
 | Metric | Value |
 | :--- | :--- |
 | **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
-| **Risk Level** | LOW |
-| **Opening Bias** | BULLISH (100% confidence) |
-| **Gap Outlook** | High Gap Up Probability |
+| **Risk Level** | MEDIUM |
+| **Opening Bias** | WEAK BULLISH (57% confidence) |
+| **Gap Outlook** | Mild Gap Up / Flat |
 | **Interpretation** | *Positive global cues support an upside open — watch for early continuation setups.* |
 
 ---
@@ -33,12 +33,12 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7730.98 | +0.72% | BULLISH — bullish support |
-| US (Nasdaq) | 26541.35 | +1.57% | BULLISH — bullish support |
-| VIX (Volatility) | 14.47 | -4.87% | BULLISH — volatility compression |
-| Crude Oil | 83.68 | +1.76% | NEUTRAL — No major impact |
-| Dollar Index | 99.16 | -0.01% | BULLISH — supportive currency flow |
-| Bond Yields (10Y) | 4.67 | +0.17% | NEUTRAL — No major impact |
+| US (S&P 500) | 7711.76 | -0.25% | NEUTRAL — No major impact |
+| US (Nasdaq) | 26402.42 | -0.52% | BEARISH — bearish pressure |
+| VIX (Volatility) | 14.43 | -0.55% | BULLISH — volatility compression |
+| Crude Oil | 83.34 | -0.23% | NEUTRAL — No major impact |
+| Dollar Index | 99.68 | +0.53% | BULLISH — supportive currency flow |
+| Bond Yields (10Y) | 4.72 | +1.03% | NEUTRAL — No major impact |
 
 ---
 

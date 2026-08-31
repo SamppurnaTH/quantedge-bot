@@ -2,7 +2,7 @@
   "date": "2026-08-31",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 27,
+  "breadth_score": 35,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Pharma",
@@ -13,8 +13,8 @@
     "Telecom"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.39,
-    "sideways": 0.33,
-    "bullish": 0.28
+    "bearish": 0.33,
+    "sideways": 0.31,
+    "bullish": 0.36
   }
 }

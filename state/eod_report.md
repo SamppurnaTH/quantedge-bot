@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-08-31 09:32_
+_Generated: 2026-08-31 17:19_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-08-31 09:32_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.45% | -0.24% | RANGE-BOUND |
-| **Bank Nifty** | -0.14% | — | — |
+| **Nifty 50** | -0.39% | -0.24% | ACCUMULATION |
+| **Bank Nifty** | +0.92% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 13 symbols  |  **Declines:** 35 symbols  |  **A/D Ratio:** 0.37
+- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
+- **Advances:** 17 symbols  |  **Declines:** 31 symbols  |  **A/D Ratio:** 0.55
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted WEAK BULLISH, Market closed BEARISH (Nifty -0.45%)
+- ✗ Directional Bias: Predicted WEAK BULLISH, Market closed BEARISH (Nifty -0.39%)
 - ✗ Opening Gap: Predicted Mild Gap Up / Flat, Actual open was GAP-DOWN (-0.24%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.45%
-- **Cumulative Model Accuracy: 0.0%** (0/72 scored predictions)
+- Today's Actual Nifty Change: -0.39%
+- **Cumulative Model Accuracy: 0.0%** (0/73 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 13/35 with an A/D Ratio of 0.37.
-- **Smart Money:** Unusual volume detected in ADANIENT.NS, HDFCBANK.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
+- **Breadth:** Advances/Declines stood at 17/31 with an A/D Ratio of 0.55.
+- **Smart Money:** Unusual volume detected in ADANIENT.NS, ADANIPORTS.NS, ASIANPAINT.NS, BHARTIARTL.NS, EICHERMOT.NS, HDFCBANK.NS, RELIANCE.NS, WIPRO.NS.
+- **Weakness:** Breakout failures occurred in RELIANCE.NS.
 
 ---
 
@@ -39,9 +39,9 @@ _Generated: 2026-08-31 09:32_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9191.00 | +1.45% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹423.05 | -0.27% | +0.00R |
-| **TITAN.NS** | SELL | ₹5139.30 | ₹5124.10 | -0.30% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9467.00 | +4.49% | +0.00R |
+| **TITAN.NS** | SELL | ₹5139.30 | ₹5102.40 | -0.72% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹419.40 | -1.13% | +0.00R |
 
 ---
 
@@ -69,6 +69,6 @@ _Generated: 2026-08-31 09:32_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **28.3%** |
-| 🟡 Sideways / Range-Bound | **33.0%** |
-| 🔴 Bearish Continuation | **38.7%** |
+| 🟢 Bullish Continuation | **36.0%** |
+| 🟡 Sideways / Range-Bound | **31.0%** |
+| 🔴 Bearish Continuation | **33.1%** |

@@ -1,20 +1,20 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-01",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 35,
+  "breadth_score": 33,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Pharma",
-    "Banking"
+    "IT",
+    "Pharma"
   ],
   "sector_laggards": [
-    "Metals",
+    "Energy/Infra",
     "Telecom"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.33,
-    "sideways": 0.31,
-    "bullish": 0.36
+    "bearish": 0.39,
+    "sideways": 0.34,
+    "bullish": 0.27
   }
 }

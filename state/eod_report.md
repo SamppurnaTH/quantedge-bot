@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-09-01 08:29_
+_Generated: 2026-09-01 14:26_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-09-01 08:29_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.31% | -0.01% | RANGE-BOUND |
-| **Bank Nifty** | -1.28% | — | — |
+| **Nifty 50** | -0.10% | -0.01% | RANGE-BOUND |
+| **Bank Nifty** | -1.06% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 16 symbols  |  **Declines:** 32 symbols  |  **A/D Ratio:** 0.50
+- **Advances:** 21 symbols  |  **Declines:** 27 symbols  |  **A/D Ratio:** 0.78
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted WEAK BULLISH, Market closed BEARISH (Nifty -0.31%)
+- ✗ Directional Bias: Predicted WEAK BULLISH, Market closed NEUTRAL (Nifty -0.10%)
 - ✗ Opening Gap: Predicted Mild Gap Up / Flat, Actual open was FLAT OPEN (-0.01%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.31%
-- **Cumulative Model Accuracy: 0.0%** (0/73 scored predictions)
+- Today's Actual Nifty Change: -0.10%
+- **Cumulative Model Accuracy: 0.0%** (0/74 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 16/32 with an A/D Ratio of 0.50.
-- **Smart Money:** Unusual volume detected in MARUTI.NS.
-- **Weakness:** Breakout failures occurred in ADANIENT.NS.
+- **Breadth:** Advances/Declines stood at 21/27 with an A/D Ratio of 0.78.
+- **Smart Money:** Unusual volume detected in ADANIENT.NS, BAJAJ-AUTO.NS, EICHERMOT.NS, HCLTECH.NS, ITC.NS, MARUTI.NS, SUNPHARMA.NS, UPL.NS.
+- **Weakness:** Breakout failures occurred in ADANIENT.NS, TATASTEEL.NS.
 
 ---
 
@@ -39,9 +39,9 @@ _Generated: 2026-09-01 08:29_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9169.00 | +1.20% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹426.90 | +0.64% | +0.00R |
-| **TITAN.NS** | SELL | ₹5139.30 | ₹5035.00 | -2.03% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9165.00 | +1.16% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹425.00 | +0.19% | +0.00R |
+| **TITAN.NS** | SELL | ₹5139.30 | ₹5050.00 | -1.74% | +0.00R |
 
 ---
 
@@ -69,6 +69,6 @@ _Generated: 2026-09-01 08:29_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **26.6%** |
-| 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **39.0%** |
+| 🟢 Bullish Continuation | **31.6%** |
+| 🟡 Sideways / Range-Bound | **33.0%** |
+| 🔴 Bearish Continuation | **35.4%** |

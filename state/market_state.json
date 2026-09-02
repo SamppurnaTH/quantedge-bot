@@ -2,19 +2,19 @@
   "date": "2026-09-02",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 22,
+  "breadth_score": 31,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "IT",
     "Pharma"
   ],
   "sector_laggards": [
-    "Agro",
+    "Metals",
     "Auto"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.42,
-    "sideways": 0.32,
-    "bullish": 0.26
+    "bearish": 0.38,
+    "sideways": 0.31,
+    "bullish": 0.31
   }
 }

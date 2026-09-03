@@ -1182,8 +1182,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-09-03"
     },
     {
       "date": "2026-08-31",
@@ -1227,8 +1227,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-09-03"
     },
     {
       "date": "2026-09-02",
@@ -1257,8 +1257,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-09-03"
     },
     {
       "date": "2026-09-03",
@@ -1269,6 +1269,21 @@
       "value": {
         "breadth": 33,
         "consensus_pct": 46,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
+      "resolved": true,
+      "resolved_date": "2026-09-03"
+    },
+    {
+      "date": "2026-09-03",
+      "type": "CONSENSUS_SPLIT",
+      "label": "Model Consensus Split",
+      "severity": "CRITICAL",
+      "action": "Reduce active position sizing by 50% immediately.",
+      "value": {
+        "breadth": 47,
+        "consensus_pct": 44,
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },

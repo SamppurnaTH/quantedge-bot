@@ -2,7 +2,7 @@
   "date": "2026-09-04",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 60,
+  "breadth_score": 45,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Agro",
@@ -13,8 +13,8 @@
     "Auto"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.34,
-    "sideways": 0.34,
-    "bullish": 0.32
+    "bearish": 0.44,
+    "sideways": 0.32,
+    "bullish": 0.24
   }
 }

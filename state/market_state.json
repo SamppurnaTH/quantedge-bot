@@ -1,20 +1,20 @@
 {
-  "date": "2026-09-04",
+  "date": "2026-09-07",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 45,
+  "breadth_score": 22,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Agro",
     "Energy/Infra"
   ],
   "sector_laggards": [
-    "FMCG",
-    "Auto"
+    "Auto",
+    "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.44,
+    "bearish": 0.43,
     "sideways": 0.32,
-    "bullish": 0.24
+    "bullish": 0.25
   }
 }

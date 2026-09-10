@@ -2,7 +2,7 @@
   "date": "2026-09-10",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 31,
+  "breadth_score": 45,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Energy/Infra",
@@ -13,8 +13,8 @@
     "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.41,
+    "bearish": 0.31,
     "sideways": 0.31,
-    "bullish": 0.28
+    "bullish": 0.38
   }
 }

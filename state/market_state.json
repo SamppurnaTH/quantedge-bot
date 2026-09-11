@@ -2,19 +2,19 @@
   "date": "2026-09-11",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 27,
+  "breadth_score": 20,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Energy/Infra",
     "Pharma"
   ],
   "sector_laggards": [
-    "NBFC",
+    "Metals",
     "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.44,
+    "bearish": 0.4,
     "sideways": 0.33,
-    "bullish": 0.23
+    "bullish": 0.27
   }
 }

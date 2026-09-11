@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-09-10 13:59_
+_Generated: 2026-09-11 07:55_
 
 ---
 
@@ -7,29 +7,29 @@ _Generated: 2026-09-10 13:59_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.20% | +0.06% | ACCUMULATION |
-| **Bank Nifty** | +0.31% | — | — |
+| **Nifty 50** | -0.60% | -0.88% | RANGE-BOUND |
+| **Bank Nifty** | -0.41% | — | — |
 
-- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 22 symbols  |  **Declines:** 26 symbols  |  **A/D Ratio:** 0.85
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 13 symbols  |  **Declines:** 35 symbols  |  **A/D Ratio:** 0.37
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted WEAK BULLISH, Market closed BULLISH (Nifty +0.20%)
-- ✗ Opening Gap: Predicted Mild Gap Up / Flat, Actual open was FLAT OPEN (+0.06%)
+- ✗ Directional Bias: Predicted WEAK BULLISH, Market closed BEARISH (Nifty -0.60%)
+- ✗ Opening Gap: Predicted Mild Gap Up / Flat, Actual open was GAP-DOWN (-0.88%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.20%
+- Today's Actual Nifty Change: -0.60%
 - **Cumulative Model Accuracy: 0.0%** (0/81 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 22/26 with an A/D Ratio of 0.85.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 13/35 with an A/D Ratio of 0.37.
 - **Smart Money:** Unusual volume detected in none.
 - **Weakness:** Breakout failures occurred in none.
 
@@ -39,9 +39,9 @@ _Generated: 2026-09-10 13:59_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9438.50 | +4.18% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹416.55 | -1.80% | +0.00R |
-| **TITAN.NS** | SELL | ₹5139.30 | ₹5021.00 | -2.30% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9337.00 | +3.06% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹416.95 | -1.71% | +0.00R |
+| **TITAN.NS** | SELL | ₹5139.30 | ₹4989.50 | -2.91% | +0.00R |
 
 ---
 
@@ -63,12 +63,12 @@ _Generated: 2026-09-10 13:59_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Bearish to Neutral Distribution Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **38.1%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **31.0%** |
+| 🟢 Bullish Continuation | **22.8%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **44.0%** |

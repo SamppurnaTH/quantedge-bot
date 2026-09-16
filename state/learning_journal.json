@@ -98231,12 +98231,42 @@
           "hold_time": 5
         }
       ]
+    },
+    "SIDEWAYS|RSI<60|S3|FALLING|BEARISH_ENGULFING|NOSUPP|NOSPK": {
+      "trades": 1.0,
+      "wins": 0.0,
+      "losses": 1.0,
+      "win_rate": 0.0,
+      "gross_profit": 0.0,
+      "gross_loss": 113.47,
+      "profit_factor": 0.0,
+      "expectancy": -113.468,
+      "avg_hold_time": 55.0,
+      "state": "WATCHING",
+      "context": {
+        "symbol": "INDUSINDBK.NS",
+        "regime": "SIDEWAYS",
+        "rsi_bkt": "RSI<60",
+        "score": 3,
+        "source": "live_paper"
+      },
+      "history": [
+        {
+          "date": "2026-09-16",
+          "won": false,
+          "pnl": -113.46843999999987,
+          "hold_time": 55
+        }
+      ]
     }
   },
   "metadata": {
-    "last_updated": "2026-06-02 08:01",
-    "total_observations": 23996,
-    "garbage_ratio": 0.001
+    "last_updated": "2026-09-16 08:26",
+    "total_observations": 23997,
+    "garbage_ratio": 0.001,
+    "observation_sources": {
+      "live_paper": 1
+    }
   },
   "archetypes": {
     "FORCED_MOMENTUM": {
@@ -101881,22 +101911,16 @@
       }
     },
     "UNKNOWN_NOISE": {
-      "trades": 30.66,
-      "wins": 12.58,
-      "losses": 18.08,
-      "win_rate": 0.41,
-      "gross_profit": 12.58,
-      "gross_loss": 254.85,
-      "profit_factor": 0.05,
-      "expectancy": -7.903,
-      "avg_hold_time": 4.4,
+      "trades": 26.06,
+      "wins": 10.28,
+      "losses": 15.78,
+      "win_rate": 0.395,
+      "gross_profit": 10.28,
+      "gross_loss": 321.83,
+      "profit_factor": 0.03,
+      "expectancy": -11.955,
+      "avg_hold_time": 6.3,
       "history": [
-        {
-          "date": "2018-11-09",
-          "won": false,
-          "pnl": -1.0,
-          "hold_time": 8
-        },
         {
           "date": "2018-11-26",
           "won": true,
@@ -103090,6 +103114,12 @@
           "won": false,
           "pnl": -138.64199999999983,
           "hold_time": 8
+        },
+        {
+          "date": "2026-09-16",
+          "won": false,
+          "pnl": -113.46843999999987,
+          "hold_time": 55
         }
       ],
       "regimes": {
@@ -105520,22 +105550,16 @@
           ]
         },
         "SIDEWAYS": {
-          "trades": 37.93,
-          "wins": 19.23,
-          "losses": 18.69,
-          "win_rate": 0.507,
-          "gross_profit": 19.23,
-          "gross_loss": 255.46,
-          "profit_factor": 0.08,
-          "expectancy": -6.229,
-          "avg_hold_time": 4.7,
+          "trades": 31.92,
+          "wins": 15.72,
+          "losses": 16.19,
+          "win_rate": 0.493,
+          "gross_profit": 15.72,
+          "gross_loss": 322.24,
+          "profit_factor": 0.05,
+          "expectancy": -9.603,
+          "avg_hold_time": 6.3,
           "history": [
-            {
-              "date": "2023-03-31",
-              "won": false,
-              "pnl": -1.0,
-              "hold_time": 8
-            },
             {
               "date": "2023-04-05",
               "won": false,
@@ -106729,6 +106753,12 @@
               "won": false,
               "pnl": -138.64199999999983,
               "hold_time": 8
+            },
+            {
+              "date": "2026-09-16",
+              "won": false,
+              "pnl": -113.46843999999987,
+              "hold_time": 55
             }
           ]
         },
@@ -121144,40 +121174,52 @@
   },
   "canonical_archetypes": {
     "UNKNOWN_NOISE": {
-      "trades": 1.0,
+      "trades": 1.82,
       "wins": 0.0,
-      "losses": 1.0,
+      "losses": 1.82,
       "win_rate": 0.0,
       "gross_profit": 0.0,
-      "gross_loss": 100.13,
+      "gross_loss": 195.33,
       "profit_factor": 0.0,
-      "expectancy": -100.128,
-      "avg_hold_time": 8.0,
+      "expectancy": -107.468,
+      "avg_hold_time": 33.9,
       "history": [
         {
           "date": "2026-06-02",
           "won": false,
           "pnl": -100.12788000000023,
           "hold_time": 8
+        },
+        {
+          "date": "2026-09-16",
+          "won": false,
+          "pnl": -113.46843999999987,
+          "hold_time": 55
         }
       ],
       "regimes": {
         "SIDEWAYS": {
-          "trades": 1.0,
+          "trades": 1.82,
           "wins": 0.0,
-          "losses": 1.0,
+          "losses": 1.82,
           "win_rate": 0.0,
           "gross_profit": 0.0,
-          "gross_loss": 100.13,
+          "gross_loss": 195.33,
           "profit_factor": 0.0,
-          "expectancy": -100.128,
-          "avg_hold_time": 8.0,
+          "expectancy": -107.468,
+          "avg_hold_time": 33.9,
           "history": [
             {
               "date": "2026-06-02",
               "won": false,
               "pnl": -100.12788000000023,
               "hold_time": 8
+            },
+            {
+              "date": "2026-09-16",
+              "won": false,
+              "pnl": -113.46843999999987,
+              "hold_time": 55
             }
           ]
         }
@@ -121223,5 +121265,52 @@
         }
       }
     }
-  }
+  },
+  "closed_trades": [
+    {
+      "symbol": "INDUSINDBK.NS",
+      "shares": 2,
+      "entry_price": 1005.5045,
+      "exit_price": 948.7702800000001,
+      "entry_date": "2026-07-23",
+      "exit_date": "2026-09-16",
+      "pnl": -113.47,
+      "exit_reason": "STOP-LOSS",
+      "score": 3,
+      "regime": "SIDEWAYS",
+      "confidence_score": 66,
+      "pattern_key": "SIDEWAYS|RSI<60|S3|FALLING|BEARISH_ENGULFING|NOSUPP|NOSPK",
+      "slippage_cost": 5.92,
+      "pattern_snapshot": {
+        "support_levels": [
+          868.79,
+          879.58,
+          984.05
+        ],
+        "resistance_levels": [
+          938.68,
+          951.96,
+          956.35
+        ],
+        "near_support": null,
+        "near_resistance": 938.68,
+        "trend_channel": "FALLING",
+        "trend_strength": "WEAK",
+        "adx_value": 0.0,
+        "momentum": "BEARISH",
+        "macd_hist": 0.0,
+        "bb_overbought": true,
+        "bb_oversold": false,
+        "channel_slope": -0.002559,
+        "channel_r2": 0.55,
+        "candlestick": [
+          "BEARISH_ENGULFING"
+        ],
+        "rsi_divergence": null,
+        "volume_spike": false,
+        "pivot_high": 1022.0,
+        "pivot_low": 944.5
+      }
+    }
+  ]
 }

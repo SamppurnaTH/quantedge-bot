@@ -1,6 +1,6 @@
 {
   "initial_capital": 100000,
-  "cash": 84772.10661999999,
+  "cash": 86669.64717999999,
   "positions": {
     "ADANIPOWER.NS": {
       "symbol": "ADANIPOWER.NS",
@@ -15,27 +15,12 @@
       "regime": "SIDEWAYS",
       "slippage_cost": 2.88
     },
-    "INDUSINDBK.NS": {
-      "symbol": "INDUSINDBK.NS",
-      "shares": 2,
-      "entry_price": 1005.5045,
-      "quoted_price": 1004.5,
-      "current_price": 956.5,
-      "stop_loss": 949.72,
-      "take_profit": 1114.06,
-      "entry_date": "2026-07-23",
-      "score": 3,
-      "rsi": 53.75,
-      "confidence_score": 66,
-      "regime": "SIDEWAYS",
-      "slippage_cost": 4.02
-    },
     "ADANIPORTS.NS": {
       "symbol": "ADANIPORTS.NS",
       "shares": 1,
       "entry_price": 1670.4687999999999,
       "quoted_price": 1668.8,
-      "current_price": 1713.800048828125,
+      "current_price": 1730.800048828125,
       "stop_loss": 1587.68,
       "take_profit": 1831.04,
       "entry_date": "2026-07-30",
@@ -72,6 +57,21 @@
       "score": 3,
       "regime": "SIDEWAYS",
       "slippage_cost": 7.03
+    },
+    {
+      "symbol": "INDUSINDBK.NS",
+      "shares": 2,
+      "entry_price": 1005.5045,
+      "exit_price": 948.7702800000001,
+      "entry_date": "2026-07-23",
+      "exit_date": "2026-09-16",
+      "pnl": -113.47,
+      "exit_reason": "STOP-LOSS",
+      "score": 3,
+      "regime": "SIDEWAYS",
+      "confidence_score": 66,
+      "pattern_key": null,
+      "slippage_cost": 5.92
     }
   ],
   "max_portfolio_value": 100000,

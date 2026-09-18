@@ -1,20 +1,20 @@
 {
-  "date": "2026-09-17",
+  "date": "2026-09-18",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 68,
+  "breadth_score": 54,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "IT",
+    "Pharma",
     "NBFC"
   ],
   "sector_laggards": [
-    "Consumer",
-    "Agro"
+    "Agro",
+    "Consumer"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.32,
+    "bearish": 0.35,
     "sideways": 0.34,
-    "bullish": 0.34
+    "bullish": 0.31
   }
 }

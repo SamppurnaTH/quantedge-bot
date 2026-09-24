@@ -1,36 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-06-25",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 66,
-        "consensus_pct": 42,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-06-29"
-    },
-    {
-      "date": "2026-06-25",
-      "type": "WEAK_BREADTH",
-      "label": "Narrow Market Breadth",
-      "severity": "WARNING",
-      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
-      "value": {
-        "breadth": 37,
-        "consensus_pct": 43,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-06-30"
-    },
-    {
       "date": "2026-06-26",
       "type": "WEAK_BREADTH",
       "label": "Narrow Market Breadth",
@@ -1272,8 +1242,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-09-24"
     },
     {
       "date": "2026-09-23",
@@ -1287,9 +1257,24 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
+      "resolved": true,
+      "resolved_date": "2026-09-24"
+    },
+    {
+      "date": "2026-09-24",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 12,
+        "consensus_pct": 51,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
       "resolved": false,
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-09-23"
+  "last_updated": "2026-09-24"
 }

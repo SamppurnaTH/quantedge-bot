@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 12,
+  "breadth_score": 64,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Pharma",
@@ -10,11 +10,11 @@
   ],
   "sector_laggards": [
     "Telecom",
-    "IT"
+    "Agro"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.51,
-    "sideways": 0.28,
-    "bullish": 0.2
+    "bearish": 0.33,
+    "sideways": 0.34,
+    "bullish": 0.33
   }
 }

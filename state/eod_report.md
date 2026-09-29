@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-09-29 09:38_
+_Generated: 2026-09-29 16:16_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-09-29 09:38_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.42% | -0.21% | ACCUMULATION |
-| **Bank Nifty** | -0.23% | — | — |
+| **Nifty 50** | -0.28% | -0.21% | ACCUMULATION |
+| **Bank Nifty** | -0.39% | — | — |
 
 - **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 14 symbols  |  **Declines:** 34 symbols  |  **A/D Ratio:** 0.41
+- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted WEAK BULLISH, Market closed BEARISH (Nifty -0.42%)
+- ✗ Directional Bias: Predicted WEAK BULLISH, Market closed BEARISH (Nifty -0.28%)
 - ✗ Opening Gap: Predicted Mild Gap Up / Flat, Actual open was GAP-DOWN (-0.21%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.42%
-- **Cumulative Model Accuracy: 0.0%** (0/93 scored predictions)
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: -0.28%
+- **Cumulative Model Accuracy: 0.0%** (0/94 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 14/34 with an A/D Ratio of 0.41.
-- **Smart Money:** Unusual volume detected in DRREDDY.NS, KOTAKBANK.NS, SBIN.NS, WIPRO.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
+- **Smart Money:** Unusual volume detected in ADANIENT.NS, ADANIPORTS.NS, BAJAJ-AUTO.NS, BRITANNIA.NS, DRREDDY.NS, HCLTECH.NS, KOTAKBANK.NS, POWERGRID.NS, RELIANCE.NS, SBIN.NS, SUNPHARMA.NS, TATACONSUM.NS, TITAN.NS, WIPRO.NS.
+- **Weakness:** Breakout failures occurred in CIPLA.NS, EICHERMOT.NS, ICICIBANK.NS, LT.NS, POWERGRID.NS.
 
 ---
 
@@ -39,9 +39,9 @@ _Generated: 2026-09-29 09:38_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9489.00 | +4.74% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹406.35 | -4.21% | +0.00R |
-| **TITAN.NS** | SELL | ₹5139.30 | ₹4693.50 | -8.67% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9431.00 | +4.09% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹406.00 | -4.29% | +0.00R |
+| **TITAN.NS** | SELL | ₹5139.30 | ₹4675.00 | -9.03% | +0.00R |
 
 ---
 
@@ -69,6 +69,6 @@ _Generated: 2026-09-29 09:38_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **34.7%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **34.3%** |
+| 🟢 Bullish Continuation | **32.9%** |
+| 🟡 Sideways / Range-Bound | **31.7%** |
+| 🔴 Bearish Continuation | **35.4%** |

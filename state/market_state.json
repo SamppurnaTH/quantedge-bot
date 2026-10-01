@@ -2,19 +2,19 @@
   "date": "2026-10-01",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 20,
+  "breadth_score": 27,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Banking",
-    "IT"
+    "IT",
+    "Banking"
   ],
   "sector_laggards": [
     "Auto",
     "Agro"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.45,
+    "bearish": 0.44,
     "sideways": 0.33,
-    "bullish": 0.22
+    "bullish": 0.23
   }
 }

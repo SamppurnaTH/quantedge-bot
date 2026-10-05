@@ -1,21 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-07-06",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 66,
-        "consensus_pct": 42,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-07-08"
-    },
-    {
       "date": "2026-07-07",
       "type": "CONSENSUS_SPLIT",
       "label": "Model Consensus Split",
@@ -1167,8 +1152,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-05"
     },
     {
       "date": "2026-09-29",
@@ -1182,8 +1167,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-05"
     },
     {
       "date": "2026-09-29",
@@ -1227,8 +1212,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-05"
     },
     {
       "date": "2026-10-01",
@@ -1242,8 +1227,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-05"
     },
     {
       "date": "2026-10-01",
@@ -1287,9 +1272,24 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
+      "resolved": true,
+      "resolved_date": "2026-10-05"
+    },
+    {
+      "date": "2026-10-05",
+      "type": "CONSENSUS_SPLIT",
+      "label": "Model Consensus Split",
+      "severity": "CRITICAL",
+      "action": "Reduce active position sizing by 50% immediately.",
+      "value": {
+        "breadth": 54,
+        "consensus_pct": 38,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
       "resolved": false,
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-10-02"
+  "last_updated": "2026-10-05"
 }

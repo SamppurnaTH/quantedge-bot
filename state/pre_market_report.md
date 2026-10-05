@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-08-28 21:03_
+_Generated: 2026-10-05 18:59_
 
 ---
 
@@ -7,9 +7,9 @@ _Generated: 2026-08-28 21:03_
 | Metric | Value |
 | :--- | :--- |
 | **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
-| **Risk Level** | MEDIUM |
-| **Opening Bias** | WEAK BULLISH (57% confidence) |
-| **Gap Outlook** | Mild Gap Up / Flat |
+| **Risk Level** | LOW |
+| **Opening Bias** | BULLISH (100% confidence) |
+| **Gap Outlook** | High Gap Up Probability |
 | **Interpretation** | *Positive global cues support an upside open — watch for early continuation setups.* |
 
 ---
@@ -33,12 +33,10 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7711.76 | -0.25% | NEUTRAL — No major impact |
-| US (Nasdaq) | 26402.42 | -0.52% | BEARISH — bearish pressure |
-| VIX (Volatility) | 14.43 | -0.55% | BULLISH — volatility compression |
-| Crude Oil | 83.34 | -0.23% | NEUTRAL — No major impact |
-| Dollar Index | 99.68 | +0.53% | BULLISH — supportive currency flow |
-| Bond Yields (10Y) | 4.72 | +1.03% | NEUTRAL — No major impact |
+| US (S&P 500) | 7784.38 | +0.8% | BULLISH — bullish support |
+| US (Nasdaq) | 27501.61 | +1.14% | BULLISH — bullish support |
+| VIX (Volatility) | 15.58 | +1.76% | NEUTRAL — No major impact |
+| Bond Yields (10Y) | 5.34 | +1.12% | NEUTRAL — No major impact |
 
 ---
 

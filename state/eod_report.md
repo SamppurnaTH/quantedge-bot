@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-05 10:13_
+_Generated: 2026-10-06 09:58_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-05 10:13_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.60% | +0.49% | ACCUMULATION |
-| **Bank Nifty** | +0.48% | — | — |
+| **Nifty 50** | +0.72% | +0.21% | STRONG CLOSE |
+| **Bank Nifty** | +0.51% | — | — |
 
-- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 26 symbols  |  **Declines:** 22 symbols  |  **A/D Ratio:** 1.18
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted WEAK BULLISH, Market closed BULLISH (Nifty +0.60%)
-- ✗ Opening Gap: Predicted Mild Gap Up / Flat, Actual open was GAP-UP (+0.49%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.72%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.21%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: +0.60%
-- **Cumulative Model Accuracy: 0.0%** (0/97 scored predictions)
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: +0.72%
+- **Cumulative Model Accuracy: 0.0%** (0/98 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 26/22 with an A/D Ratio of 1.18.
-- **Smart Money:** Unusual volume detected in BAJFINANCE.NS, HDFCBANK.NS, HEROMOTOCO.NS, ITC.NS, UPL.NS.
-- **Weakness:** Breakout failures occurred in BAJFINANCE.NS, WIPRO.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
+- **Smart Money:** Unusual volume detected in APOLLOHOSP.NS, KOTAKBANK.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,9 +39,7 @@ _Generated: 2026-10-05 10:13_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DIVISLAB.NS** | SELL | ₹9060.00 | ₹9196.00 | +1.50% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹424.20 | ₹416.00 | -1.93% | +0.00R |
-| **TITAN.NS** | SELL | ₹5139.30 | ₹4580.00 | -10.88% | +0.00R |
+| _No buy/sell signals triggered this morning_ | | | | | |
 
 ---
 
@@ -63,12 +61,12 @@ _Generated: 2026-10-05 10:13_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **38.2%** |
-| 🟡 Sideways / Range-Bound | **32.0%** |
-| 🔴 Bearish Continuation | **29.8%** |
+| 🟢 Bullish Continuation | **42.4%** |
+| 🟡 Sideways / Range-Bound | **30.7%** |
+| 🔴 Bearish Continuation | **26.9%** |

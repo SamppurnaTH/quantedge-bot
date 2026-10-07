@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-06 16:25_
+_Generated: 2026-10-07 10:03_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-06 16:25_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.98% | +0.21% | STRONG CLOSE |
-| **Bank Nifty** | +0.76% | — | — |
+| **Nifty 50** | -0.76% | -0.38% | RANGE-BOUND |
+| **Bank Nifty** | -0.13% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 31 symbols  |  **Declines:** 17 symbols  |  **A/D Ratio:** 1.82
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 8 symbols  |  **Declines:** 40 symbols  |  **A/D Ratio:** 0.20
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.98%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.21%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.76%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.38%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +0.98%
+- Today's Actual Nifty Change: -0.76%
 - **Cumulative Model Accuracy: 0.0%** (0/99 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 31/17 with an A/D Ratio of 1.82.
-- **Smart Money:** Unusual volume detected in APOLLOHOSP.NS, KOTAKBANK.NS.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 8/40 with an A/D Ratio of 0.20.
+- **Smart Money:** Unusual volume detected in BHARTIARTL.NS, ITC.NS, TITAN.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -61,12 +61,12 @@ _Generated: 2026-10-06 16:25_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Bearish to Neutral Distribution Bias**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **44.1%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **25.2%** |
+| 🟢 Bullish Continuation | **20.7%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **46.1%** |

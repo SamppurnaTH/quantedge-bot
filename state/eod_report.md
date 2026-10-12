@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-09 16:44_
+_Generated: 2026-10-12 10:30_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-09 16:44_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.30% | +0.37% | RANGE-BOUND |
-| **Bank Nifty** | +1.36% | — | — |
+| **Nifty 50** | -0.70% | +0.32% | RANGE-BOUND |
+| **Bank Nifty** | -0.61% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 43 symbols  |  **Declines:** 5 symbols  |  **A/D Ratio:** 8.60
+- **Advances:** 13 symbols  |  **Declines:** 35 symbols  |  **A/D Ratio:** 0.37
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +1.30%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.37%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.70%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.32%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +1.30%
+- Today's Actual Nifty Change: -0.70%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 43/5 with an A/D Ratio of 8.60.
-- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, APOLLOHOSP.NS, TCS.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Breadth:** Advances/Declines stood at 13/35 with an A/D Ratio of 0.37.
+- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, TECHM.NS.
+- **Weakness:** Breakout failures occurred in ADANIPORTS.NS.
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-10-09 16:44_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Bearish to Neutral Distribution Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **41.6%** |
+| 🟢 Bullish Continuation | **22.8%** |
 | 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **25.2%** |
+| 🔴 Bearish Continuation | **44.0%** |

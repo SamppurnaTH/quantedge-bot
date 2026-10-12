@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-10-05 18:59_
+_Generated: 2026-10-12 19:32_
 
 ---
 
@@ -7,10 +7,10 @@ _Generated: 2026-10-05 18:59_
 | Metric | Value |
 | :--- | :--- |
 | **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
-| **Risk Level** | LOW |
-| **Opening Bias** | BULLISH (100% confidence) |
-| **Gap Outlook** | High Gap Up Probability |
-| **Interpretation** | *Positive global cues support an upside open — watch for early continuation setups.* |
+| **Risk Level** | MEDIUM |
+| **Opening Bias** | NEUTRAL (50% confidence) |
+| **Gap Outlook** | Flat Opening |
+| **Interpretation** | *Mixed global signals — standard mean-reversion rules apply today.* |
 
 ---
 
@@ -33,10 +33,11 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7784.38 | +0.8% | BULLISH — bullish support |
-| US (Nasdaq) | 27501.61 | +1.14% | BULLISH — bullish support |
-| VIX (Volatility) | 15.58 | +1.76% | NEUTRAL — No major impact |
-| Bond Yields (10Y) | 5.34 | +1.12% | NEUTRAL — No major impact |
+| US (S&P 500) | 7800.28 | -0.14% | NEUTRAL — No major impact |
+| US (Nasdaq) | 27233.72 | -0.48% | NEUTRAL — No major impact |
+| VIX (Volatility) | 15.34 | +3.37% | NEUTRAL — No major impact |
+| Bond Yields (10Y) | 5.24 | -0.08% | NEUTRAL — No major impact |
+| Japan (Nikkei 225) | 69030.92 | -0.02% | NEUTRAL — No major impact |
 
 ---
 

@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-12 10:30_
+_Generated: 2026-10-13 10:20_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-12 10:30_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.70% | +0.32% | RANGE-BOUND |
-| **Bank Nifty** | -0.61% | — | — |
+| **Nifty 50** | +1.60% | +0.00% | STRONG CLOSE |
+| **Bank Nifty** | +1.03% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 13 symbols  |  **Declines:** 35 symbols  |  **A/D Ratio:** 0.37
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 36 symbols  |  **Declines:** 12 symbols  |  **A/D Ratio:** 3.00
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.70%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.32%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.60%)
+- ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (+0.00%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.70%
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: +1.60%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 13/35 with an A/D Ratio of 0.37.
-- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, TECHM.NS.
-- **Weakness:** Breakout failures occurred in ADANIPORTS.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 36/12 with an A/D Ratio of 3.00.
+- **Smart Money:** Unusual volume detected in HCLTECH.NS, INDUSINDBK.NS, NESTLEIND.NS, TCS.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-10-12 10:30_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Neutral to Bullish Reversal Bias**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **22.8%** |
-| 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **44.0%** |
+| 🟢 Bullish Continuation | **46.1%** |
+| 🟡 Sideways / Range-Bound | **30.7%** |
+| 🔴 Bearish Continuation | **23.1%** |

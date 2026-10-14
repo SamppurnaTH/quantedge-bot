@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-14 08:32_
+_Generated: 2026-10-14 14:48_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-14 08:32_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.33% | -0.03% | RANGE-BOUND |
-| **Bank Nifty** | -0.26% | — | — |
+| **Nifty 50** | -0.44% | -0.03% | RANGE-BOUND |
+| **Bank Nifty** | -0.30% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 20 symbols  |  **Declines:** 28 symbols  |  **A/D Ratio:** 0.71
+- **Advances:** 19 symbols  |  **Declines:** 29 symbols  |  **A/D Ratio:** 0.66
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.33%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.44%)
 - ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (-0.03%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: -0.33%
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: -0.44%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 20/28 with an A/D Ratio of 0.71.
-- **Smart Money:** Unusual volume detected in TCS.NS.
+- **Breadth:** Advances/Declines stood at 19/29 with an A/D Ratio of 0.66.
+- **Smart Money:** Unusual volume detected in HCLTECH.NS, HINDUNILVR.NS, NESTLEIND.NS, TATACONSUM.NS, TCS.NS.
 - **Weakness:** Breakout failures occurred in HCLTECH.NS.
 
 ---
@@ -67,6 +67,6 @@ _Generated: 2026-10-14 08:32_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **28.2%** |
+| 🟢 Bullish Continuation | **27.8%** |
 | 🟡 Sideways / Range-Bound | **34.5%** |
-| 🔴 Bearish Continuation | **37.3%** |
+| 🔴 Bearish Continuation | **37.7%** |

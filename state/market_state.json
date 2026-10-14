@@ -2,18 +2,18 @@
   "date": "2026-10-14",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 41,
+  "breadth_score": 39,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Agro",
     "IT"
   ],
   "sector_laggards": [
-    "Pharma",
+    "Telecom",
     "Metals"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.37,
+    "bearish": 0.38,
     "sideways": 0.34,
     "bullish": 0.28
   }

@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-13 17:16_
+_Generated: 2026-10-14 08:32_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-13 17:16_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.60% | +0.00% | STRONG CLOSE |
-| **Bank Nifty** | +1.03% | — | — |
+| **Nifty 50** | -0.33% | -0.03% | RANGE-BOUND |
+| **Bank Nifty** | -0.26% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 36 symbols  |  **Declines:** 12 symbols  |  **A/D Ratio:** 3.00
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 20 symbols  |  **Declines:** 28 symbols  |  **A/D Ratio:** 0.71
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.60%)
-- ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (+0.00%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.33%)
+- ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (-0.03%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +1.60%
+- Today's Actual Nifty Change: -0.33%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 36/12 with an A/D Ratio of 3.00.
-- **Smart Money:** Unusual volume detected in HCLTECH.NS, INDUSINDBK.NS, NESTLEIND.NS, TCS.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 20/28 with an A/D Ratio of 0.71.
+- **Smart Money:** Unusual volume detected in TCS.NS.
+- **Weakness:** Breakout failures occurred in HCLTECH.NS.
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-10-13 17:16_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **46.1%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **23.1%** |
+| 🟢 Bullish Continuation | **28.2%** |
+| 🟡 Sideways / Range-Bound | **34.5%** |
+| 🔴 Bearish Continuation | **37.3%** |

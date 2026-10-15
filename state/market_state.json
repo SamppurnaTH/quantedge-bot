@@ -2,7 +2,7 @@
   "date": "2026-10-15",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 89,
+  "breadth_score": 85,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Agro",
@@ -13,8 +13,8 @@
     "NBFC"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.2,
-    "sideways": 0.31,
-    "bullish": 0.49
+    "bearish": 0.26,
+    "sideways": 0.33,
+    "bullish": 0.41
   }
 }

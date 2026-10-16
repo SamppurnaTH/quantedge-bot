@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-16 08:01_
+_Generated: 2026-10-16 14:26_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-16 08:01_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.55% | +0.29% | ACCUMULATION |
-| **Bank Nifty** | +0.01% | — | — |
+| **Nifty 50** | +0.65% | +0.29% | STRONG CLOSE |
+| **Bank Nifty** | +0.06% | — | — |
 
-- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 29 symbols  |  **Declines:** 19 symbols  |  **A/D Ratio:** 1.53
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.55%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.65%)
 - ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.29%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.55%
+- Today's Actual Nifty Change: +0.65%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 29/19 with an A/D Ratio of 1.53.
-- **Smart Money:** Unusual volume detected in TECHM.NS, WIPRO.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
+- **Smart Money:** Unusual volume detected in BHARTIARTL.NS, TCS.NS, TECHM.NS, WIPRO.NS.
+- **Weakness:** Breakout failures occurred in ASIANPAINT.NS, TATASTEEL.NS.
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-10-16 08:01_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **39.5%** |
-| 🟡 Sideways / Range-Bound | **32.0%** |
-| 🔴 Bearish Continuation | **28.6%** |
+| 🟢 Bullish Continuation | **42.4%** |
+| 🟡 Sideways / Range-Bound | **30.7%** |
+| 🔴 Bearish Continuation | **26.9%** |

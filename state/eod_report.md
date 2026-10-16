@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-15 14:35_
+_Generated: 2026-10-16 08:01_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-15 14:35_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.66% | +0.21% | RANGE-BOUND |
-| **Bank Nifty** | +0.89% | — | — |
+| **Nifty 50** | +0.55% | +0.29% | ACCUMULATION |
+| **Bank Nifty** | +0.01% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 41 symbols  |  **Declines:** 7 symbols  |  **A/D Ratio:** 5.86
+- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
+- **Advances:** 29 symbols  |  **Declines:** 19 symbols  |  **A/D Ratio:** 1.53
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.66%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.21%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.55%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.29%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +1.66%
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: +0.55%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 41/7 with an A/D Ratio of 5.86.
-- **Smart Money:** Unusual volume detected in NESTLEIND.NS, TECHM.NS.
-- **Weakness:** Breakout failures occurred in TATACONSUM.NS, TCS.NS.
+- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
+- **Breadth:** Advances/Declines stood at 29/19 with an A/D Ratio of 1.53.
+- **Smart Money:** Unusual volume detected in TECHM.NS, WIPRO.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -67,6 +67,6 @@ _Generated: 2026-10-15 14:35_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **40.7%** |
-| 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **26.1%** |
+| 🟢 Bullish Continuation | **39.5%** |
+| 🟡 Sideways / Range-Bound | **32.0%** |
+| 🔴 Bearish Continuation | **28.6%** |

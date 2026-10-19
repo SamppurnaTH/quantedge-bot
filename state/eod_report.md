@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-16 14:26_
+_Generated: 2026-10-19 08:40_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-16 14:26_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.65% | +0.29% | STRONG CLOSE |
-| **Bank Nifty** | +0.06% | — | — |
+| **Nifty 50** | -1.15% | +0.02% | RANGE-BOUND |
+| **Bank Nifty** | -0.64% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 11 symbols  |  **Declines:** 37 symbols  |  **A/D Ratio:** 0.30
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.65%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.29%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -1.15%)
+- ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (+0.02%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.65%
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: -1.15%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
-- **Smart Money:** Unusual volume detected in BHARTIARTL.NS, TCS.NS, TECHM.NS, WIPRO.NS.
-- **Weakness:** Breakout failures occurred in ASIANPAINT.NS, TATASTEEL.NS.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 11/37 with an A/D Ratio of 0.30.
+- **Smart Money:** Unusual volume detected in none.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-10-16 14:26_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Bearish to Neutral Distribution Bias**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **42.4%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **26.9%** |
+| 🟢 Bullish Continuation | **22.0%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **44.8%** |

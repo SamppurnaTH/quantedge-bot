@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-19 08:40_
+_Generated: 2026-10-19 16:43_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-19 08:40_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -1.15% | +0.02% | RANGE-BOUND |
+| **Nifty 50** | -1.11% | +0.02% | RANGE-BOUND |
 | **Bank Nifty** | -0.64% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 11 symbols  |  **Declines:** 37 symbols  |  **A/D Ratio:** 0.30
+- **Advances:** 9 symbols  |  **Declines:** 39 symbols  |  **A/D Ratio:** 0.23
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -1.15%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -1.11%)
 - ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (+0.02%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: -1.15%
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: -1.11%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 11/37 with an A/D Ratio of 0.30.
-- **Smart Money:** Unusual volume detected in none.
+- **Breadth:** Advances/Declines stood at 9/39 with an A/D Ratio of 0.23.
+- **Smart Money:** Unusual volume detected in ICICIBANK.NS, ULTRACEMCO.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -67,6 +67,6 @@ _Generated: 2026-10-19 08:40_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **22.0%** |
+| 🟢 Bullish Continuation | **21.1%** |
 | 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **44.8%** |
+| 🔴 Bearish Continuation | **45.6%** |

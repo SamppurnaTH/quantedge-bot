@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-19 16:43_
+_Generated: 2026-10-20 08:20_
 
 ---
 
@@ -11,7 +11,7 @@ _Generated: 2026-10-19 16:43_
 | **Bank Nifty** | -0.64% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 9 symbols  |  **Declines:** 39 symbols  |  **A/D Ratio:** 0.23
+- **Advances:** 7 symbols  |  **Declines:** 41 symbols  |  **A/D Ratio:** 0.17
 
 ---
 
@@ -29,7 +29,7 @@ _Generated: 2026-10-19 16:43_
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 9/39 with an A/D Ratio of 0.23.
+- **Breadth:** Advances/Declines stood at 7/41 with an A/D Ratio of 0.17.
 - **Smart Money:** Unusual volume detected in ICICIBANK.NS, ULTRACEMCO.NS.
 - **Weakness:** Breakout failures occurred in none.
 
@@ -67,6 +67,6 @@ _Generated: 2026-10-19 16:43_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **21.1%** |
-| 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **45.6%** |
+| 🟢 Bullish Continuation | **23.3%** |
+| 🟡 Sideways / Range-Bound | **31.7%** |
+| 🔴 Bearish Continuation | **45.0%** |

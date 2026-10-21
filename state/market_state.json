@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 18,
+  "breadth_score": 20,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "IT",
@@ -13,8 +13,8 @@
     "NBFC"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.46,
-    "sideways": 0.33,
-    "bullish": 0.21
+    "bearish": 0.53,
+    "sideways": 0.31,
+    "bullish": 0.17
   }
 }

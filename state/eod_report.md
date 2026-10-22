@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-22 08:27_
+_Generated: 2026-10-22 14:47_
 
 ---
 
@@ -7,29 +7,29 @@ _Generated: 2026-10-22 08:27_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.70% | -0.54% | RANGE-BOUND |
-| **Bank Nifty** | -0.21% | — | — |
+| **Nifty 50** | -0.54% | -0.54% | RANGE-BOUND |
+| **Bank Nifty** | -0.09% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 11 symbols  |  **Declines:** 37 symbols  |  **A/D Ratio:** 0.30
+- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.70%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.54%)
 - ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.54%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.70%
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: -0.54%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 11/37 with an A/D Ratio of 0.30.
+- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
 - **Smart Money:** Unusual volume detected in BPCL.NS.
 - **Weakness:** Breakout failures occurred in none.
 
@@ -67,6 +67,6 @@ _Generated: 2026-10-22 08:27_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **22.0%** |
+| 🟢 Bullish Continuation | **23.6%** |
 | 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **44.8%** |
+| 🔴 Bearish Continuation | **43.1%** |

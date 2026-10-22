@@ -1,21 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-07-23",
-      "type": "WEAK_BREADTH",
-      "label": "Narrow Market Breadth",
-      "severity": "WARNING",
-      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
-      "value": {
-        "breadth": 37,
-        "consensus_pct": 47,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-07-27"
-    },
-    {
       "date": "2026-07-24",
       "type": "WEAK_BREADTH",
       "label": "Narrow Market Breadth",
@@ -1302,9 +1287,24 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
+      "resolved": true,
+      "resolved_date": "2026-10-22"
+    },
+    {
+      "date": "2026-10-22",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 22,
+        "consensus_pct": 45,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
       "resolved": false,
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-10-21"
+  "last_updated": "2026-10-22"
 }

@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-22 14:47_
+_Generated: 2026-10-23 08:23_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-22 14:47_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.54% | -0.54% | RANGE-BOUND |
-| **Bank Nifty** | -0.09% | — | — |
+| **Nifty 50** | -0.76% | +0.24% | RANGE-BOUND |
+| **Bank Nifty** | -1.28% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
+- **Advances:** 9 symbols  |  **Declines:** 39 symbols  |  **A/D Ratio:** 0.23
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.54%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.54%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.76%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.24%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.54%
+- Today's Actual Nifty Change: -0.76%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
-- **Smart Money:** Unusual volume detected in BPCL.NS.
+- **Breadth:** Advances/Declines stood at 9/39 with an A/D Ratio of 0.23.
+- **Smart Money:** Unusual volume detected in none.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -67,6 +67,6 @@ _Generated: 2026-10-22 14:47_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **23.6%** |
+| 🟢 Bullish Continuation | **21.1%** |
 | 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **43.1%** |
+| 🔴 Bearish Continuation | **45.6%** |

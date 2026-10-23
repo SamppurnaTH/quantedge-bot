@@ -1,20 +1,20 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 31,
+  "breadth_score": 18,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "IT",
     "Telecom"
   ],
   "sector_laggards": [
-    "Agro",
-    "FMCG"
+    "FMCG",
+    "Agro"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.43,
+    "bearish": 0.46,
     "sideways": 0.33,
-    "bullish": 0.24
+    "bullish": 0.21
   }
 }

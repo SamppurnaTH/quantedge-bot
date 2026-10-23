@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-23 08:23_
+_Generated: 2026-10-23 14:34_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-23 08:23_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.76% | +0.24% | RANGE-BOUND |
-| **Bank Nifty** | -1.28% | — | — |
+| **Nifty 50** | -0.39% | +0.24% | RANGE-BOUND |
+| **Bank Nifty** | -1.16% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 9 symbols  |  **Declines:** 39 symbols  |  **A/D Ratio:** 0.23
+- **Advances:** 13 symbols  |  **Declines:** 35 symbols  |  **A/D Ratio:** 0.37
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.76%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.39%)
 - ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.24%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.76%
+- Today's Actual Nifty Change: -0.39%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 9/39 with an A/D Ratio of 0.23.
-- **Smart Money:** Unusual volume detected in none.
+- **Breadth:** Advances/Declines stood at 13/35 with an A/D Ratio of 0.37.
+- **Smart Money:** Unusual volume detected in INFY.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -61,12 +61,12 @@ _Generated: 2026-10-23 08:23_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **21.1%** |
-| 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **45.6%** |
+| 🟢 Bullish Continuation | **21.6%** |
+| 🟡 Sideways / Range-Bound | **36.7%** |
+| 🔴 Bearish Continuation | **41.7%** |

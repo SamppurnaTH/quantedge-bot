@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-26 08:42_
+_Generated: 2026-10-26 16:24_
 
 ---
 
@@ -7,29 +7,29 @@ _Generated: 2026-10-26 08:42_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.44% | -0.33% | STRONG CLOSE |
-| **Bank Nifty** | -0.02% | — | — |
+| **Nifty 50** | +0.68% | -0.33% | STRONG CLOSE |
+| **Bank Nifty** | +0.15% | — | — |
 
 - **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 31 symbols  |  **Declines:** 17 symbols  |  **A/D Ratio:** 1.82
+- **Advances:** 35 symbols  |  **Declines:** 13 symbols  |  **A/D Ratio:** 2.69
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.44%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.68%)
 - ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.33%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.44%
+- Today's Actual Nifty Change: +0.68%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 31/17 with an A/D Ratio of 1.82.
+- **Breadth:** Advances/Declines stood at 35/13 with an A/D Ratio of 2.69.
 - **Smart Money:** Unusual volume detected in DRREDDY.NS.
 - **Weakness:** Breakout failures occurred in none.
 
@@ -61,12 +61,12 @@ _Generated: 2026-10-26 08:42_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **40.3%** |
-| 🟡 Sideways / Range-Bound | **32.0%** |
-| 🔴 Bearish Continuation | **27.7%** |
+| 🟢 Bullish Continuation | **45.7%** |
+| 🟡 Sideways / Range-Bound | **30.7%** |
+| 🔴 Bearish Continuation | **23.6%** |

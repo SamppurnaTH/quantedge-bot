@@ -1,21 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-07-27",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 70,
-        "consensus_pct": 34,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-08-03"
-    },
-    {
       "date": "2026-07-28",
       "type": "CONSENSUS_SPLIT",
       "label": "Model Consensus Split",
@@ -1212,8 +1197,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-26"
     },
     {
       "date": "2026-10-20",
@@ -1227,8 +1212,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-26"
     },
     {
       "date": "2026-10-21",
@@ -1242,8 +1227,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-26"
     },
     {
       "date": "2026-10-21",
@@ -1272,8 +1257,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-26"
     },
     {
       "date": "2026-10-22",
@@ -1302,8 +1287,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-26"
     },
     {
       "date": "2026-10-23",
@@ -1319,7 +1304,22 @@
       },
       "resolved": false,
       "resolved_date": null
+    },
+    {
+      "date": "2026-10-26",
+      "type": "CONSENSUS_SPLIT",
+      "label": "Model Consensus Split",
+      "severity": "CRITICAL",
+      "action": "Reduce active position sizing by 50% immediately.",
+      "value": {
+        "breadth": 64,
+        "consensus_pct": 40,
+        "volatility": "NORMAL",
+        "regime": "SIDEWAYS"
+      },
+      "resolved": false,
+      "resolved_date": null
     }
   ],
-  "last_updated": "2026-10-23"
+  "last_updated": "2026-10-26"
 }

@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-23 14:34_
+_Generated: 2026-10-26 08:42_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-23 14:34_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.39% | +0.24% | RANGE-BOUND |
-| **Bank Nifty** | -1.16% | — | — |
+| **Nifty 50** | +0.44% | -0.33% | STRONG CLOSE |
+| **Bank Nifty** | -0.02% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 13 symbols  |  **Declines:** 35 symbols  |  **A/D Ratio:** 0.37
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 31 symbols  |  **Declines:** 17 symbols  |  **A/D Ratio:** 1.82
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.39%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.24%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.44%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.33%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: -0.39%
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: +0.44%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 13/35 with an A/D Ratio of 0.37.
-- **Smart Money:** Unusual volume detected in INFY.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 31/17 with an A/D Ratio of 1.82.
+- **Smart Money:** Unusual volume detected in DRREDDY.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -67,6 +67,6 @@ _Generated: 2026-10-23 14:34_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **21.6%** |
-| 🟡 Sideways / Range-Bound | **36.7%** |
-| 🔴 Bearish Continuation | **41.7%** |
+| 🟢 Bullish Continuation | **40.3%** |
+| 🟡 Sideways / Range-Bound | **32.0%** |
+| 🔴 Bearish Continuation | **27.7%** |

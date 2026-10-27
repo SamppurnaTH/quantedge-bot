@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-26 16:24_
+_Generated: 2026-10-27 08:48_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-26 16:24_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.68% | -0.33% | STRONG CLOSE |
-| **Bank Nifty** | +0.15% | — | — |
+| **Nifty 50** | -0.45% | -0.20% | WEAK CLOSE |
+| **Bank Nifty** | -0.67% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 35 symbols  |  **Declines:** 13 symbols  |  **A/D Ratio:** 2.69
+- **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
+- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.68%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.33%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.45%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.20%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.68%
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: -0.45%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 35/13 with an A/D Ratio of 2.69.
-- **Smart Money:** Unusual volume detected in DRREDDY.NS.
+- **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
+- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
+- **Smart Money:** Unusual volume detected in CIPLA.NS, HINDUNILVR.NS, TATACONSUM.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -61,12 +61,12 @@ _Generated: 2026-10-26 16:24_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Bearish to Neutral Distribution Bias**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **45.7%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **23.6%** |
+| 🟢 Bullish Continuation | **21.1%** |
+| 🟡 Sideways / Range-Bound | **32.0%** |
+| 🔴 Bearish Continuation | **46.9%** |

@@ -1,20 +1,5 @@
 [
   {
-    "date": "2026-06-09",
-    "forecast": "Neutral to Bullish Reversal Bias",
-    "narrative": "Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.",
-    "probs": {
-      "BULLISH": 45.6,
-      "RANGE": 29.7,
-      "BEARISH": 24.7
-    },
-    "actual_change": 1.0,
-    "result": "FAILED",
-    "gap_match": false,
-    "breadth_match": false,
-    "scored_at": "2026-06-10 07:13"
-  },
-  {
     "date": "2026-06-10",
     "forecast": "Range-Bound Consolidation Likelihood Elevated",
     "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
@@ -1492,6 +1477,21 @@
       "BULLISH": 45.7,
       "RANGE": 30.7,
       "BEARISH": 23.6
+    },
+    "actual_change": -0.45,
+    "result": "FAILED",
+    "gap_match": false,
+    "breadth_match": false,
+    "scored_at": "2026-10-27 08:48"
+  },
+  {
+    "date": "2026-10-27",
+    "forecast": "Bearish to Neutral Distribution Bias",
+    "narrative": "Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.",
+    "probs": {
+      "BULLISH": 21.1,
+      "RANGE": 32.0,
+      "BEARISH": 46.9
     }
   }
 ]

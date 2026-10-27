@@ -2,19 +2,19 @@
   "date": "2026-10-27",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 31,
+  "breadth_score": 47,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Telecom",
     "Pharma"
   ],
   "sector_laggards": [
-    "NBFC",
-    "Agro"
+    "Banking",
+    "NBFC"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.47,
-    "sideways": 0.32,
-    "bullish": 0.21
+    "bearish": 0.36,
+    "sideways": 0.34,
+    "bullish": 0.29
   }
 }

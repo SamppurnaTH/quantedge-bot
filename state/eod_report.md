@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-27 08:48_
+_Generated: 2026-10-27 15:38_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-27 08:48_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.45% | -0.20% | WEAK CLOSE |
-| **Bank Nifty** | -0.67% | — | — |
+| **Nifty 50** | -0.02% | -0.20% | RANGE-BOUND |
+| **Bank Nifty** | -0.72% | — | — |
 
-- **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
-- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 23 symbols  |  **Declines:** 25 symbols  |  **A/D Ratio:** 0.92
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.45%)
+- ✓ Directional Bias: Predicted NEUTRAL, Market closed NEUTRAL (Nifty -0.02%)
 - ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.20%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: -0.45%
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: -0.02%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
-- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
-- **Smart Money:** Unusual volume detected in CIPLA.NS, HINDUNILVR.NS, TATACONSUM.NS.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 23/25 with an A/D Ratio of 0.92.
+- **Smart Money:** Unusual volume detected in BAJAJFINSV.NS, CIPLA.NS, HINDUNILVR.NS, TATACONSUM.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -61,12 +61,12 @@ _Generated: 2026-10-27 08:48_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **21.1%** |
-| 🟡 Sideways / Range-Bound | **32.0%** |
-| 🔴 Bearish Continuation | **46.9%** |
+| 🟢 Bullish Continuation | **29.5%** |
+| 🟡 Sideways / Range-Bound | **34.5%** |
+| 🔴 Bearish Continuation | **36.1%** |

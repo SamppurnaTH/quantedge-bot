@@ -2,7 +2,7 @@
   "date": "2026-10-28",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 58,
+  "breadth_score": 52,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Pharma",
@@ -13,8 +13,8 @@
     "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.28,
+    "bearish": 0.3,
     "sideways": 0.31,
-    "bullish": 0.41
+    "bullish": 0.39
   }
 }

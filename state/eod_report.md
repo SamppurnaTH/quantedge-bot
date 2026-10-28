@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-28 09:28_
+_Generated: 2026-10-28 16:22_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-28 09:28_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.18% | -0.32% | ACCUMULATION |
-| **Bank Nifty** | +0.62% | — | — |
+| **Nifty 50** | -0.22% | -0.32% | ACCUMULATION |
+| **Bank Nifty** | +0.54% | — | — |
 
 - **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 28 symbols  |  **Declines:** 20 symbols  |  **A/D Ratio:** 1.40
+- **Advances:** 25 symbols  |  **Declines:** 23 symbols  |  **A/D Ratio:** 1.09
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.18%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BEARISH (Nifty -0.22%)
 - ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-DOWN (-0.32%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.18%
+- Today's Actual Nifty Change: -0.22%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 28/20 with an A/D Ratio of 1.40.
-- **Smart Money:** Unusual volume detected in BAJAJ-AUTO.NS, LT.NS.
-- **Weakness:** Breakout failures occurred in BAJAJ-AUTO.NS.
+- **Breadth:** Advances/Declines stood at 25/23 with an A/D Ratio of 1.09.
+- **Smart Money:** Unusual volume detected in BAJAJ-AUTO.NS, HINDUNILVR.NS, LT.NS, UPL.NS.
+- **Weakness:** Breakout failures occurred in BAJAJ-AUTO.NS, LT.NS.
 
 ---
 
@@ -67,6 +67,6 @@ _Generated: 2026-10-28 09:28_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **40.6%** |
+| 🟢 Bullish Continuation | **39.3%** |
 | 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **28.5%** |
+| 🔴 Bearish Continuation | **29.7%** |

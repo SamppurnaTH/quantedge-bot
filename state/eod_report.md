@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-29 09:41_
+_Generated: 2026-10-29 16:32_
 
 ---
 
@@ -7,7 +7,7 @@ _Generated: 2026-10-29 09:41_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.11% | -0.04% | STRONG CLOSE |
+| **Nifty 50** | +1.05% | -0.04% | STRONG CLOSE |
 | **Bank Nifty** | +1.18% | — | — |
 
 - **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
@@ -17,12 +17,12 @@ _Generated: 2026-10-29 09:41_
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.11%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.05%)
 - ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (-0.04%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +1.11%
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: +1.05%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
@@ -44,7 +44,7 @@ _Generated: 2026-10-29 09:41_
 ---
 
 ## 🔬 Section 5 — Learning Engine Update
-- **Closed Trades Processed Today:** 1
+- **Closed Trades Processed Today:** 0
 - **Dataset Size:** 23998 historical signal evaluations analyzed.
 
 ### Archetype Expectancy Performance
@@ -67,6 +67,6 @@ _Generated: 2026-10-29 09:41_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **47.4%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **21.9%** |
+| 🟢 Bullish Continuation | **50.4%** |
+| 🟡 Sideways / Range-Bound | **29.2%** |
+| 🔴 Bearish Continuation | **20.4%** |

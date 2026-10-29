@@ -1,21 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-07-30",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 54,
-        "consensus_pct": 35,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-08-03"
-    },
-    {
       "date": "2026-07-31",
       "type": "CONSENSUS_SPLIT",
       "label": "Model Consensus Split",
@@ -1317,8 +1302,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-29"
     },
     {
       "date": "2026-10-28",
@@ -1332,9 +1317,9 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-10-29"
     }
   ],
-  "last_updated": "2026-10-28"
+  "last_updated": "2026-10-29"
 }

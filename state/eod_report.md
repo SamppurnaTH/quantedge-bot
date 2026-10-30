@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-29 16:32_
+_Generated: 2026-10-30 09:47_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-10-29 16:32_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.05% | -0.04% | STRONG CLOSE |
-| **Bank Nifty** | +1.18% | — | — |
+| **Nifty 50** | +0.32% | +0.12% | RANGE-BOUND |
+| **Bank Nifty** | -0.49% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 39 symbols  |  **Declines:** 9 symbols  |  **A/D Ratio:** 4.33
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.05%)
-- ✓ Opening Gap: Predicted Flat Opening, Actual open was FLAT OPEN (-0.04%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.32%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.12%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +1.05%
+- Today's Actual Nifty Change: +0.32%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 39/9 with an A/D Ratio of 4.33.
-- **Smart Money:** Unusual volume detected in ADANIPORTS.NS, ASIANPAINT.NS.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
+- **Smart Money:** Unusual volume detected in COALINDIA.NS, SUNPHARMA.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -61,12 +61,12 @@ _Generated: 2026-10-29 16:32_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **50.4%** |
-| 🟡 Sideways / Range-Bound | **29.2%** |
-| 🔴 Bearish Continuation | **20.4%** |
+| 🟢 Bullish Continuation | **31.1%** |
+| 🟡 Sideways / Range-Bound | **34.5%** |
+| 🔴 Bearish Continuation | **34.4%** |

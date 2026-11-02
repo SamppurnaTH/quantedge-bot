@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-10-30 16:23_
+_Generated: 2026-11-02 10:46_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-10-30 16:23_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.51% | +0.12% | RANGE-BOUND |
-| **Bank Nifty** | -0.41% | — | — |
+| **Nifty 50** | +1.68% | +0.73% | STRONG CLOSE |
+| **Bank Nifty** | +0.58% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 27 symbols  |  **Declines:** 21 symbols  |  **A/D Ratio:** 1.29
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 35 symbols  |  **Declines:** 13 symbols  |  **A/D Ratio:** 2.69
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +0.51%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.12%)
+- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.68%)
+- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.73%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +0.51%
+- Today's Actual Nifty Change: +1.68%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 27/21 with an A/D Ratio of 1.29.
-- **Smart Money:** Unusual volume detected in COALINDIA.NS, SUNPHARMA.NS.
-- **Weakness:** Breakout failures occurred in SUNPHARMA.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 35/13 with an A/D Ratio of 2.69.
+- **Smart Money:** Unusual volume detected in RELIANCE.NS, SUNPHARMA.NS, UPL.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-10-30 16:23_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **31.1%** |
-| 🟡 Sideways / Range-Bound | **35.5%** |
-| 🔴 Bearish Continuation | **33.4%** |
+| 🟢 Bullish Continuation | **45.7%** |
+| 🟡 Sideways / Range-Bound | **30.7%** |
+| 🔴 Bearish Continuation | **23.6%** |

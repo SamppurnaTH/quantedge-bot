@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-10-12 19:32_
+_Generated: 2026-11-02 19:55_
 
 ---
 
@@ -7,10 +7,10 @@ _Generated: 2026-10-12 19:32_
 | Metric | Value |
 | :--- | :--- |
 | **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
-| **Risk Level** | MEDIUM |
-| **Opening Bias** | NEUTRAL (50% confidence) |
-| **Gap Outlook** | Flat Opening |
-| **Interpretation** | *Mixed global signals — standard mean-reversion rules apply today.* |
+| **Risk Level** | HIGH |
+| **Opening Bias** | BEARISH (100% confidence) |
+| **Gap Outlook** | High Gap Down Probability |
+| **Interpretation** | *Risk-off global cues — protect open positions, avoid chasing early momentum.* |
 
 ---
 
@@ -33,11 +33,10 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7800.28 | -0.14% | NEUTRAL — No major impact |
-| US (Nasdaq) | 27233.72 | -0.48% | NEUTRAL — No major impact |
-| VIX (Volatility) | 15.34 | +3.37% | NEUTRAL — No major impact |
-| Bond Yields (10Y) | 5.24 | -0.08% | NEUTRAL — No major impact |
-| Japan (Nikkei 225) | 69030.92 | -0.02% | NEUTRAL — No major impact |
+| US (S&P 500) | 7564.86 | -0.2% | NEUTRAL — No major impact |
+| US (Nasdaq) | 25286.0 | -0.59% | BEARISH — bearish pressure |
+| VIX (Volatility) | 21.25 | +9.42% | BEARISH — volatility expansion |
+| Bond Yields (10Y) | 4.89 | -0.75% | NEUTRAL — No major impact |
 
 ---
 

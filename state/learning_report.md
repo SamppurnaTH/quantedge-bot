@@ -1,13 +1,13 @@
 # 📚 QuantEdge Bot — Intelligence Learning Report
-_Generated: 12 Oct 2026  19:32_
+_Generated: 02 Nov 2026  19:54_
 
 ---
 
 ## Knowledge Summary
 - **Total pattern conditions tracked**: 556
-- **Total signal outcome observations analyzed**: 23997
+- **Total signal outcome observations analyzed**: 23998
 - **Historical seed observations**: 23996
-- **Live/paper trade observations**: 1
+- **Live/paper trade observations**: 2
 - **Proven Elite Edges (PROVEN)**: 0
 - **Validated Patterns (VALIDATED)**: 0
 - **Patterns in Training (LEARNING)**: 32
@@ -22,8 +22,8 @@ _Generated: 12 Oct 2026  19:32_
 
 | Archetype State | Observations (n) | Decayed Win Rate | Profit Factor | Expectancy (R) | Avg Hold Period |
 | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Range-Bound / Support Plays** | 2 | 57.0% | 1.52 | +30.957R | 55.3 bars |
 | **Noise / Unclassified** | 2 | 0.0% | 0.00 | -107.468R | 33.9 bars |
-| **Range-Bound / Support Plays** | 1 | 0.0% | 0.00 | -138.642R | 8.0 bars |
 
 ---
 

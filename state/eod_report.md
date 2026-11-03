@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-02 10:46_
+_Generated: 2026-11-03 10:39_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-11-02 10:46_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.68% | +0.73% | STRONG CLOSE |
-| **Bank Nifty** | +0.58% | — | — |
+| **Nifty 50** | +1.58% | +0.60% | STRONG CLOSE |
+| **Bank Nifty** | +0.98% | — | — |
 
 - **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 35 symbols  |  **Declines:** 13 symbols  |  **A/D Ratio:** 2.69
+- **Advances:** 38 symbols  |  **Declines:** 10 symbols  |  **A/D Ratio:** 3.80
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted NEUTRAL, Market closed BULLISH (Nifty +1.68%)
-- ✗ Opening Gap: Predicted Flat Opening, Actual open was GAP-UP (+0.73%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +1.58%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.60%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: +1.68%
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: +1.58%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 35/13 with an A/D Ratio of 2.69.
-- **Smart Money:** Unusual volume detected in RELIANCE.NS, SUNPHARMA.NS, UPL.NS.
+- **Breadth:** Advances/Declines stood at 38/10 with an A/D Ratio of 3.80.
+- **Smart Money:** Unusual volume detected in ASIANPAINT.NS, BRITANNIA.NS, RELIANCE.NS, SBIN.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,7 +39,9 @@ _Generated: 2026-11-02 10:46_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| _No buy/sell signals triggered this morning_ | | | | | |
+| **DRREDDY.NS** | SELL | ₹1352.00 | ₹1368.30 | +1.21% | +0.00R |
+| **HCLTECH.NS** | SELL | ₹1428.10 | ₹1439.10 | +0.77% | +0.00R |
+| **WIPRO.NS** | SELL | ₹198.31 | ₹198.00 | -0.16% | +0.00R |
 
 ---
 
@@ -67,6 +69,6 @@ _Generated: 2026-11-02 10:46_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **45.7%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **23.6%** |
+| 🟢 Bullish Continuation | **43.2%** |
+| 🟡 Sideways / Range-Bound | **33.0%** |
+| 🔴 Bearish Continuation | **23.8%** |

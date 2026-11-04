@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 79,
+  "breadth_score": 70,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "FMCG",
@@ -14,7 +14,7 @@
   ],
   "tomorrow_outlook": {
     "bearish": 0.24,
-    "sideways": 0.33,
-    "bullish": 0.43
+    "sideways": 0.31,
+    "bullish": 0.45
   }
 }

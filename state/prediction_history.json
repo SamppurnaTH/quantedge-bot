@@ -1,20 +1,5 @@
 [
   {
-    "date": "2026-06-18",
-    "forecast": "Range-Bound Consolidation Likelihood Elevated",
-    "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
-    "probs": {
-      "BULLISH": 37.6,
-      "RANGE": 32.2,
-      "BEARISH": 30.1
-    },
-    "actual_change": -0.78,
-    "result": "FAILED",
-    "gap_match": false,
-    "breadth_match": false,
-    "scored_at": "2026-06-19 08:36"
-  },
-  {
     "date": "2026-06-19",
     "forecast": "Range-Bound Consolidation Likelihood Elevated",
     "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
@@ -1492,6 +1477,21 @@
       "BULLISH": 45.3,
       "RANGE": 30.7,
       "BEARISH": 24.0
+    },
+    "actual_change": 2.4,
+    "result": "FAILED",
+    "gap_match": false,
+    "breadth_match": false,
+    "scored_at": "2026-11-05 10:36"
+  },
+  {
+    "date": "2026-11-05",
+    "forecast": "Neutral to Bullish Reversal Bias",
+    "narrative": "Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.",
+    "probs": {
+      "BULLISH": 44.7,
+      "RANGE": 31.0,
+      "BEARISH": 24.3
     }
   }
 ]

@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "market_regime": "SIDEWAYS",
   "risk_level": "MEDIUM",
-  "breadth_score": 70,
+  "breadth_score": 79,
   "volatility_state": "NORMAL",
   "sector_leaders": [
-    "FMCG",
-    "Consumer"
+    "Consumer",
+    "NBFC"
   ],
   "sector_laggards": [
     "IT",

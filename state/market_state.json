@@ -1,9 +1,9 @@
 {
   "date": "2026-11-05",
   "market_regime": "SIDEWAYS",
-  "risk_level": "MEDIUM",
+  "risk_level": "HIGH",
   "breadth_score": 79,
-  "volatility_state": "NORMAL",
+  "volatility_state": "HIGH_VOLATILITY",
   "sector_leaders": [
     "Consumer",
     "NBFC"
@@ -13,8 +13,8 @@
     "Agro"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.24,
-    "sideways": 0.31,
-    "bullish": 0.45
+    "bearish": 0.26,
+    "sideways": 0.33,
+    "bullish": 0.41
   }
 }

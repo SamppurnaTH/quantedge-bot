@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "market_regime": "SIDEWAYS",
   "risk_level": "HIGH",
-  "breadth_score": 79,
+  "breadth_score": 87,
   "volatility_state": "HIGH_VOLATILITY",
   "sector_leaders": [
     "Consumer",
     "NBFC"
   ],
   "sector_laggards": [
-    "IT",
-    "Agro"
+    "Pharma",
+    "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.26,
-    "sideways": 0.33,
-    "bullish": 0.41
+    "bearish": 0.19,
+    "sideways": 0.31,
+    "bullish": 0.5
   }
 }

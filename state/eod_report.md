@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-06 17:03_
+_Generated: 2026-11-09 11:10_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-11-06 17:03_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +2.01% | +0.01% | STRONG CLOSE |
-| **Bank Nifty** | +2.27% | — | — |
+| **Nifty 50** | +0.06% | +0.18% | ACCUMULATION |
+| **Bank Nifty** | +1.11% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 42 symbols  |  **Declines:** 6 symbols  |  **A/D Ratio:** 7.00
+- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
+- **Advances:** 23 symbols  |  **Declines:** 25 symbols  |  **A/D Ratio:** 0.92
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +2.01%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was FLAT OPEN (+0.01%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed NEUTRAL (Nifty +0.06%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.18%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +2.01%
+- Today's Actual Nifty Change: +0.06%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 42/6 with an A/D Ratio of 7.00.
-- **Smart Money:** Unusual volume detected in BRITANNIA.NS, HDFCBANK.NS, HDFCLIFE.NS, HINDALCO.NS, ICICIBANK.NS, INDUSINDBK.NS, M&M.NS, ONGC.NS, TITAN.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
+- **Breadth:** Advances/Declines stood at 23/25 with an A/D Ratio of 0.92.
+- **Smart Money:** Unusual volume detected in DIVISLAB.NS, GRASIM.NS, TATASTEEL.NS.
+- **Weakness:** Breakout failures occurred in ONGC.NS, TATASTEEL.NS.
 
 ---
 
@@ -39,9 +39,9 @@ _Generated: 2026-11-06 17:03_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DRREDDY.NS** | SELL | ₹1352.00 | ₹1373.00 | +1.55% | +0.00R |
-| **HCLTECH.NS** | SELL | ₹1428.10 | ₹1440.00 | +0.83% | +0.00R |
-| **WIPRO.NS** | SELL | ₹198.31 | ₹198.00 | -0.16% | +0.00R |
+| **DRREDDY.NS** | SELL | ₹1352.00 | ₹1385.00 | +2.44% | +0.00R |
+| **WIPRO.NS** | SELL | ₹198.31 | ₹199.00 | +0.35% | +0.00R |
+| **HCLTECH.NS** | SELL | ₹1428.10 | ₹1407.00 | -1.48% | +0.00R |
 
 ---
 
@@ -63,12 +63,12 @@ _Generated: 2026-11-06 17:03_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **50.1%** |
-| 🟡 Sideways / Range-Bound | **30.7%** |
-| 🔴 Bearish Continuation | **19.1%** |
+| 🟢 Bullish Continuation | **34.7%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **32.1%** |

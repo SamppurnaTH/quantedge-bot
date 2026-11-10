@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-10 10:54_
+_Generated: 2026-11-10 17:24_
 
 ---
 
@@ -78,6 +78,6 @@ _Generated: 2026-11-10 10:54_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **38.5%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **30.6%** |
+| 🟢 Bullish Continuation | **34.7%** |
+| 🟡 Sideways / Range-Bound | **33.2%** |
+| 🔴 Bearish Continuation | **32.1%** |

@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-09 11:10_
+_Generated: 2026-11-10 10:54_
 
 ---
 
@@ -17,11 +17,11 @@ _Generated: 2026-11-09 11:10_
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed NEUTRAL (Nifty +0.06%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.18%)
+- ✗ Directional Bias: Predicted BULLISH, Market closed NEUTRAL (Nifty +0.06%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.18%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
 - Today's Actual Nifty Change: +0.06%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
@@ -39,9 +39,18 @@ _Generated: 2026-11-09 11:10_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DRREDDY.NS** | SELL | ₹1352.00 | ₹1385.00 | +2.44% | +0.00R |
-| **WIPRO.NS** | SELL | ₹198.31 | ₹199.00 | +0.35% | +0.00R |
-| **HCLTECH.NS** | SELL | ₹1428.10 | ₹1407.00 | -1.48% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹798.15 | ₹798.15 | +0.00% | +0.00R |
+| **M&M.NS** | SELL | ₹3290.60 | ₹3290.60 | +0.00% | +0.00R |
+| **TATACONSUM.NS** | SELL | ₹1083.90 | ₹1083.90 | +0.00% | +0.00R |
+| **LT.NS** | SELL | ₹4185.00 | ₹4185.00 | +0.00% | +0.00R |
+| **DRREDDY.NS** | SELL | ₹1385.00 | ₹1385.00 | +0.00% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1589.00 | ₹1589.00 | +0.00% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹479.50 | ₹479.50 | +0.00% | +0.00R |
+| **MARUTI.NS** | SELL | ₹12928.00 | ₹12928.00 | +0.00% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹11565.50 | ₹11565.50 | +0.00% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹1904.50 | ₹1904.50 | +0.00% | +0.00R |
+| **TITAN.NS** | SELL | ₹5005.00 | ₹5005.00 | +0.00% | +0.00R |
+| **ULTRACEMCO.NS** | SELL | ₹12275.00 | ₹12275.00 | +0.00% | +0.00R |
 
 ---
 
@@ -69,6 +78,6 @@ _Generated: 2026-11-09 11:10_
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **34.7%** |
-| 🟡 Sideways / Range-Bound | **33.2%** |
-| 🔴 Bearish Continuation | **32.1%** |
+| 🟢 Bullish Continuation | **38.5%** |
+| 🟡 Sideways / Range-Bound | **31.0%** |
+| 🔴 Bearish Continuation | **30.6%** |

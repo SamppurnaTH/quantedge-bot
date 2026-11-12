@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-11 17:36_
+_Generated: 2026-11-12 10:49_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-11-11 17:36_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.84% | +1.17% | RANGE-BOUND |
-| **Bank Nifty** | +1.76% | — | — |
+| **Nifty 50** | +0.18% | -0.16% | RANGE-BOUND |
+| **Bank Nifty** | +1.19% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 32 symbols  |  **Declines:** 16 symbols  |  **A/D Ratio:** 2.00
+- **Advances:** 17 symbols  |  **Declines:** 31 symbols  |  **A/D Ratio:** 0.55
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.84%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+1.17%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.18%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.16%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +0.84%
+- Today's Actual Nifty Change: +0.18%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 32/16 with an A/D Ratio of 2.00.
-- **Smart Money:** Unusual volume detected in BPCL.NS, INDUSINDBK.NS, ONGC.NS.
-- **Weakness:** Breakout failures occurred in BPCL.NS, EICHERMOT.NS, GRASIM.NS, INDUSINDBK.NS, NTPC.NS, TITAN.NS.
+- **Breadth:** Advances/Declines stood at 17/31 with an A/D Ratio of 0.55.
+- **Smart Money:** Unusual volume detected in HDFCLIFE.NS, HINDALCO.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,18 +39,18 @@ _Generated: 2026-11-11 17:36_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **M&M.NS** | SELL | ₹3290.60 | ₹3465.00 | +5.30% | +0.00R |
-| **MARUTI.NS** | SELL | ₹12928.00 | ₹13185.00 | +1.99% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹479.50 | ₹487.70 | +1.71% | +0.00R |
-| **HDFCBANK.NS** | SELL | ₹798.15 | ₹806.60 | +1.06% | +0.00R |
-| **TATACONSUM.NS** | SELL | ₹1083.90 | ₹1093.00 | +0.84% | +0.00R |
-| **ULTRACEMCO.NS** | SELL | ₹12275.00 | ₹12362.00 | +0.71% | +0.00R |
-| **LT.NS** | SELL | ₹4185.00 | ₹4212.00 | +0.65% | +0.00R |
-| **SUNPHARMA.NS** | SELL | ₹1904.50 | ₹1902.30 | -0.12% | +0.00R |
-| **DRREDDY.NS** | SELL | ₹1385.00 | ₹1377.00 | -0.58% | +0.00R |
-| **TITAN.NS** | SELL | ₹5005.00 | ₹4970.00 | -0.70% | +0.00R |
-| **ICICIBANK.NS** | SELL | ₹1589.00 | ₹1571.60 | -1.10% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹11565.50 | ₹11367.00 | -1.72% | +0.00R |
+| **M&M.NS** | SELL | ₹3290.60 | ₹3399.00 | +3.29% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹479.50 | ₹490.40 | +2.27% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹798.15 | ₹812.30 | +1.77% | +0.00R |
+| **MARUTI.NS** | SELL | ₹12928.00 | ₹13024.00 | +0.74% | +0.00R |
+| **ULTRACEMCO.NS** | SELL | ₹12275.00 | ₹12337.00 | +0.51% | +0.00R |
+| **TATACONSUM.NS** | SELL | ₹1083.90 | ₹1085.30 | +0.13% | +0.00R |
+| **DRREDDY.NS** | SELL | ₹1385.00 | ₹1386.60 | +0.12% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1589.00 | ₹1590.00 | +0.06% | +0.00R |
+| **LT.NS** | SELL | ₹4185.00 | ₹4159.20 | -0.62% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹11565.50 | ₹11485.00 | -0.70% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹1904.50 | ₹1885.00 | -1.02% | +0.00R |
+| **TITAN.NS** | SELL | ₹5005.00 | ₹4921.90 | -1.66% | +0.00R |
 
 ---
 
@@ -72,12 +72,12 @@ _Generated: 2026-11-11 17:36_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **42.2%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **26.8%** |
+| 🟢 Bullish Continuation | **32.2%** |
+| 🟡 Sideways / Range-Bound | **32.2%** |
+| 🔴 Bearish Continuation | **35.6%** |

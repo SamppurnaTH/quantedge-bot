@@ -40,7 +40,7 @@ from indicators.regime import Regime, regime_summary
 from execution.paper_trader import PaperTrader
 from notifications.telegram import TelegramNotifier
 from analytics.dashboard import run_auto_optimization
-from analytics.learning_engine import load_journal, seed_from_history
+from analytics.learning_engine import load_journal, seed_from_history, refresh_journal_if_needed
 from analytics.learning_report import run_learning_report
 from config.settings import DATA_CONFIG, RISK_CONFIG
 from data.fetcher import load_stock_data
@@ -144,10 +144,12 @@ def run_daily():
         opt_rules = run_auto_optimization()
 
         # 2. Seed and Generate Learning Report
-        journal = load_journal()
-        if journal.get("metadata", {}).get("total_observations", 0) == 0:
-            print("  🌱 Seeding learning journal from 10-year history (first run)...")
-            journal = seed_from_history()
+        print("  🌱 Checking learning journal (re-seeds monthly / on schema change)...")
+        journal = refresh_journal_if_needed()
+
+        # Catch up open positions / pending orders on any bars since the last run
+        print("  🔄 Updating paper positions with latest completed bars...")
+        trader.update()
 
         # Update confidence calibration file dynamically
         from analytics.confidence import update_confidence_calibration
@@ -160,8 +162,9 @@ def run_daily():
         print("  🌍 Fetching global market snapshot & calculating bias...")
         pm_report = run_pre_market_cycle(
             symbols=DATA_CONFIG["symbols"],
-            capital=RISK_CONFIG["default_capital"],
-            active_trades=len(trader.positions)
+            capital=trader.equity(),
+            active_trades=trader.slots_used(),
+            cash=trader.free_cash(),
         )
 
         # ── Derive key metrics for report ─────────────────────────────────────
@@ -392,7 +395,7 @@ _Generated: {pm_report['timestamp']}_
         print("  📊 Pre-market state saved for dashboard.")
 
         # 5. Process order entry/exits through paper trader
-        print("\n  📥 Morning Mode: Processing watchlist signals through paper trader...")
+        print("\n  📥 Morning Mode: Placing next-open orders for approved signals...")
         trader.process_signals(pm_report["watchlist"])
         trader.print_portfolio()
 
@@ -442,27 +445,11 @@ _Generated: {pm_report['timestamp']}_
         # 2. Save tomorrow forecast to prediction history
         save_today_forecast(eod_report["prediction"])
 
-        # ── Construct EOD Watchlist & Check exits through Paper Trader ──
-        print("\n  📥 Afternoon Mode: Processing watchlist exits through paper trader...")
-        eod_watchlist = []
-        for sym in DATA_CONFIG["symbols"]:
-            try:
-                df = load_stock_data(sym)  # loads the EOD data fetched in run_eod_cycle
-                if not df.empty and len(df) >= 2:
-                    close = float(df["Close"].iloc[-1])
-                    open_price = float(df["Open"].iloc[-1])
-                    eod_watchlist.append({
-                        "symbol": sym,
-                        "signal": "HOLD",  # exits are checked via SL/TP
-                        "close": close,
-                        "open_price": open_price,
-                        "regime": str(eod_report.get("market_regime", "SIDEWAYS"))
-                    })
-            except Exception as e:
-                print(f"  ⚠️ Failed to prepare EOD signal for {sym}: {e}")
-
-        # Process EOD exits through paper trader
-        trader.process_signals(eod_watchlist)
+        # ── Settle today's bar: fill this morning's orders at today's open,
+        #    then check stops/targets (intraday high/low), RSI and time exits
+        #    for EVERY open position — including symbols not in the scan list.
+        print("\n  📥 Afternoon Mode: Filling pending orders & managing exits bar-by-bar...")
+        trader.update()
         trader.print_portfolio()
 
         # Reload journal for EOD updates

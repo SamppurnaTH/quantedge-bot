@@ -119,10 +119,11 @@ def run_paper_trading(symbols, capital, top_n, reset=False):
         print("  Paper portfolio reset.\n")
 
     trader  = PaperTrader(capital=capital)
+    trader.update()                       # settle any bars since the last run first
     results = scan_watchlist(
         symbols=symbols,
-        capital=capital,
-        active_trades=len(trader.positions),
+        capital=trader.equity(),
+        active_trades=trader.slots_used(),
         top_n=top_n,
     )
 

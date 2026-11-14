@@ -45,7 +45,9 @@ def calculate_confidence_and_pros_cons(
     market_regime: Regime,
     df: pd.DataFrame,
     journal: dict,
-    snap: dict
+    snap: dict,
+    edge: Optional[dict] = None,
+    pattern_key: Optional[str] = None,
 ) -> Tuple[int, List[str], List[str]]:
     """
     Computes a 0-100 weighted confidence score and builds dynamic Pros and Cons lists.
@@ -190,72 +192,33 @@ def calculate_confidence_and_pros_cons(
         volatility_raw = 20
         cons.append(f"✗ Chaotic Spreads: Wild price action (ATR ratio {atr_ratio:.2f})")
 
-    # 5. Historical Expectancy (Max 100 points raw)
-    expectancy_raw = 50  # default neutral
-    
-    # Construct the simplified key to look up in the journal
-    from analytics.learning_engine import build_condition_key, rsi_to_bucket, classify_archetype, get_blended_expectancy
-    rsi_bkt = rsi_to_bucket(rsi)
-    
+    # 5. Historical Expectancy (Max 100 points raw) — measured edge in R
+    from analytics.learning_engine import build_condition_key, rsi_to_bucket, get_edge_estimate
+    from analytics.pattern_detector import latest_key_features
     score = signal_result.get("score", 0)
-    channel = snap.get("trend_channel", "SIDEWAYS")
-    candles = snap.get("candlestick", [])
-    near_support = snap.get("near_support") is not None
-    volume_spike = snap.get("volume_spike", False)
-    
-    key = build_condition_key(
-        regime=stock_regime_str,
-        rsi_bucket=rsi_bkt,
-        score=score,
-        channel=channel,
-        candles=candles,
-        near_support=near_support,
-        volume_spike=volume_spike
-    )
-    
-    archetype = classify_archetype(key)
-    pattern = journal.get("patterns", {}).get(key)
-    
-    if pattern:
-        trades = pattern.get("trades", 0)
-        blended_exp = get_blended_expectancy(pattern, archetype, stock_regime_str, journal)
-        
-        # Calculate expectancy raw score based on Bayesian smoothed expectancy
-        if blended_exp >= 0.3:
-            expectancy_raw = 100
-            pros.append(f"✓ Elite Historical Edge: Bayesian expectancy is +{blended_exp:.2f}R over {trades:.1f} trades (State: {archetype})")
-        elif blended_exp >= 0.1:
-            expectancy_raw = 80
-            pros.append(f"✓ Proven Pattern: Solid Bayesian expectancy (+{blended_exp:.2f}R over {trades:.1f} trades)")
-        elif blended_exp >= 0.0:
-            expectancy_raw = 60
-            pros.append(f"✓ Confirmed Pattern: Positive Bayesian expectancy (+{blended_exp:.2f}R)")
-        else:
-            expectancy_raw = 10
-            cons.append(f"✗ Unfavorable Edge: Negative Bayesian expectancy ({blended_exp:+.2f}R)")
+    feats = latest_key_features(df)
+    near_support = feats["near_support"]
+    if edge is None:
+        key = pattern_key or build_condition_key(regime=stock_regime_str, rsi_bucket=rsi_to_bucket(rsi),
+                                                 score=score, **feats)
+        edge = get_edge_estimate(journal, key)
+    er, lo, n_pat, ev = edge["expected_r"], edge["lower_r"], edge["n"], edge["evidence"]
+    if ev == "none":
+        expectancy_raw = 50
+        cons.append("✗ No historical evidence yet for this setup (learning journal empty)")
+    elif lo > 0:
+        expectancy_raw = 100
+        pros.append(f"✓ Proven Edge: {er:+.2f}R expected per trade, 90% lower bound {lo:+.2f}R "
+                    f"(pattern n={n_pat:.0f}, evidence level: {ev})")
+    elif er > 0.1:
+        expectancy_raw = 75
+        pros.append(f"✓ Positive Edge: {er:+.2f}R expected (not yet significant, pattern n={n_pat:.0f})")
+    elif er > 0:
+        expectancy_raw = 55
+        pros.append(f"✓ Marginal Edge: {er:+.2f}R expected (pattern n={n_pat:.0f})")
     else:
-        # Fallback to archetype-level prior if pattern is completely new.
-        archetypes = journal.get("canonical_archetypes", {})
-        if archetype not in archetypes:
-            archetypes = journal.get("archetypes", {})
-        prior_exp = 0.0
-        if archetype in archetypes:
-            arch_data = archetypes[archetype]
-            regime_data = arch_data.get("regimes", {}).get(stock_regime_str, {})
-            if regime_data.get("trades", 0.0) >= 20:
-                prior_exp = regime_data.get("expectancy", 0.0)
-            else:
-                prior_exp = arch_data.get("expectancy", 0.0)
-                
-        if prior_exp >= 0.1:
-            expectancy_raw = 75
-            pros.append(f"✓ Prior Edge: New setup, but parent state {archetype} has positive prior expectancy (+{prior_exp:.2f}R)")
-        elif prior_exp >= 0.0:
-            expectancy_raw = 55
-            pros.append(f"✓ Base prior: Setup falls into {archetype} state (neutral prior expectancy)")
-        else:
-            expectancy_raw = 20
-            cons.append(f"✗ Poor prior edge: Setup falls into high-risk state {archetype} (negative prior expectancy {prior_exp:+.2f}R)")
+        expectancy_raw = 10
+        cons.append(f"✗ Negative Edge: {er:+.2f}R expected per trade after costs (pattern n={n_pat:.0f})")
 
     # Additional standard Pros/Cons from Strategy
     pullback = signal_result.get("pullback_pct", 0.0) / 100.0
@@ -272,7 +235,7 @@ def calculate_confidence_and_pros_cons(
         cons.append(f"✗ Shallow Dip: Pullback is only {pullback*100:.1f}% (minor entry discount)")
 
     if near_support:
-        pros.append(f"✓ Support Cushion: Trading near verified support floor ({snap.get('near_support'):.2f})")
+        pros.append("✓ Support Cushion: Close is within 2% of the 10-day swing low")
     if snap.get("candlestick"):
         pros.append(f"✓ Candlestick Trigger: Bullish '{'+'.join(snap['candlestick'])}' candle detected")
 
@@ -289,19 +252,9 @@ def calculate_confidence_and_pros_cons(
     calibrated_score = raw_confidence * liquidity_multiplier
     calibrated_score = min(max(calibrated_score, 0), 100)
 
-    # ── BAYESIAN PROBABILISTIC CALIBRATION WITH WILSON CI ───────────────────
-    cal_prob, lower_ci, upper_ci, n_cal, cal_desc = calibrate_score_to_probability(calibrated_score, journal)
-    ci_width_pct = (upper_ci - lower_ci) * 100
-    if ci_width_pct <= 10:
-        ci_quality = "high-precision"
-    elif ci_width_pct <= 20:
-        ci_quality = "moderate-precision"
-    else:
-        ci_quality = "wide-interval (low sample count)"
-    pros.append(
-        f"✓ Probability Calibration: {cal_prob:.1f}% [{lower_ci*100:.0f}%–{upper_ci*100:.0f}%] "
-        f"90% CI ({ci_quality}, n={n_cal}) — {cal_desc}"
-    )
+    # Win probability straight from the learning journal (shrunk estimate)
+    pros.append(f"✓ Historical win rate for this setup: {edge['win_prob']*100:.1f}% "
+                f"(2R target → break-even ≈ 33% before costs)")
 
     return int(calibrated_score), pros, cons
 
@@ -321,19 +274,11 @@ def calibrate_score_to_probability(
         The normal approximation CI (p ± z*sqrt(p(1-p)/n)) breaks down at small n
         and produces intervals outside [0,1]. Wilson is bounded and valid at n=0.
     """
-    # Theoretical base calibration curve derived from institutional backtests
-    if score >= 90:
-        theoretical_prob = 82.0
-        label = "highly-calibrated institutional setup"
-    elif score >= 70:
-        theoretical_prob = 61.0
-        label = "moderately-calibrated trend setup"
-    elif score >= 50:
-        theoretical_prob = 48.0
-        label = "fair-calibrated mean reversion"
-    else:
-        theoretical_prob = 32.0
-        label = "speculative high-risk play"
+    # Base rate = the journal's overall historical win rate for the strategy.
+    # (The previous 82/61/48/32% "institutional" curve was invented, not measured.)
+    g = journal.get("global", {}) or {}
+    theoretical_prob = float(g.get("win_rate", 0.40)) * 100.0
+    label = f"journal base rate over {g.get('trades', 0):.0f} effective trades" if g else "uninformed prior"
 
     closed_trades = load_closed_trades_for_calibration(journal)
 

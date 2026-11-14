@@ -5,7 +5,10 @@ Also provides market index data for the market trend filter.
 """
 
 import os
+import time
 import logging
+from datetime import datetime, timedelta, timezone
+
 import pandas as pd
 import yfinance as yf
 
@@ -34,11 +37,19 @@ def fetch_stock_data(
     """
     logger.info("Fetching %s | period=%s interval=%s", symbol, period, interval)
 
-    ticker = yf.Ticker(symbol)
-    df = ticker.history(period=period, interval=interval, auto_adjust=True)
+    df = pd.DataFrame()
+    last_exc = None
+    for attempt in range(3):                      # Yahoo is flaky — retry with backoff
+        try:
+            df = yf.Ticker(symbol).history(period=period, interval=interval, auto_adjust=True)
+            if not df.empty:
+                break
+        except Exception as exc:                  # network / rate limit
+            last_exc = exc
+        time.sleep(2 ** attempt)
 
     if df.empty:
-        raise ValueError(f"No data returned for symbol '{symbol}'. Check the ticker.")
+        raise ValueError(f"No data returned for symbol '{symbol}' ({last_exc or 'empty response'}).")
 
     # Keep only OHLCV columns
     df = df[["Open", "High", "Low", "Close", "Volume"]].copy()
@@ -49,6 +60,10 @@ def fetch_stock_data(
     if df.index.tz is not None:
         df.index = df.index.tz_localize(None)
 
+    df = df[~df.index.duplicated(keep="last")].sort_index()
+    df = df.dropna(subset=["Open", "High", "Low", "Close"])
+    df = drop_incomplete_bar(df) if interval == "1d" else df
+
     logger.info("Fetched %d rows for %s", len(df), symbol)
 
     if save:
@@ -57,18 +72,52 @@ def fetch_stock_data(
     return df
 
 
-def load_stock_data(symbol: str) -> pd.DataFrame:
+def load_stock_data(symbol: str, max_age_hours: float = 12.0) -> pd.DataFrame:
     """
     Load cached CSV data for a symbol.
-    Falls back to fetching if the file doesn't exist.
+
+    Re-fetches when the cache is missing OR older than `max_age_hours`.
+    (Previously a cache file was trusted forever, so learning/exits could run
+    on weeks-old prices without any warning.)
     """
     path = _csv_path(symbol)
     if os.path.exists(path):
-        logger.info("Loading cached data for %s from %s", symbol, path)
-        df = pd.read_csv(path, index_col="Date", parse_dates=True)
-        return df
+        age_h = (time.time() - os.path.getmtime(path)) / 3600.0
+        if age_h <= max_age_hours:
+            logger.info("Loading cached data for %s from %s (%.1fh old)", symbol, path, age_h)
+            return pd.read_csv(path, index_col="Date", parse_dates=True)
+        logger.info("Cache for %s is %.1fh old — refreshing.", symbol, age_h)
+        try:
+            return fetch_stock_data(symbol)
+        except Exception as exc:
+            logger.warning("Refresh failed for %s (%s) — using stale cache.", symbol, exc)
+            return pd.read_csv(path, index_col="Date", parse_dates=True)
     logger.warning("No cache found for %s — fetching from Yahoo Finance.", symbol)
     return fetch_stock_data(symbol)
+
+
+# NSE cash session closes 15:30 IST; Yahoo's daily bar is final a bit later.
+_IST = timezone(timedelta(hours=5, minutes=30))
+_BAR_FINAL_HOUR_IST = 16
+
+
+def drop_incomplete_bar(df: pd.DataFrame, now: datetime = None) -> pd.DataFrame:
+    """
+    Remove today's daily bar if the session is not finished yet.
+
+    During market hours Yahoo returns a *partial* bar for today whose
+    Close/High/Low/Volume keep changing. Treating it as a completed day is
+    look-ahead/repainting: signals appear and disappear intraday and the
+    learning engine records outcomes on prices that never closed there.
+    """
+    if df.empty:
+        return df
+    now = now or datetime.now(_IST)
+    last_date = pd.Timestamp(df.index[-1]).date()
+    if last_date == now.date() and now.hour < _BAR_FINAL_HOUR_IST:
+        logger.info("Dropping incomplete intraday bar for %s", last_date)
+        return df.iloc[:-1]
+    return df
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -104,11 +153,10 @@ def fetch_market_trend(
         True if market is in uptrend, False otherwise
     """
     try:
-        ticker = yf.Ticker(index)
-        df = ticker.history(period=period, interval="1d", auto_adjust=True)
+        df = fetch_stock_data(index, period=period, save=False)
         if df.empty or len(df) < ma_period:
-            logger.warning("Insufficient index data for %s — assuming market UP.", index)
-            return True
+            logger.warning("Insufficient index data for %s — assuming market DOWN (fail safe).", index)
+            return False
 
         close = df["Close"]
         sma   = close.rolling(window=ma_period).mean()
@@ -120,5 +168,5 @@ def fetch_market_trend(
         )
         return market_up
     except Exception as exc:
-        logger.warning("Could not fetch market index %s: %s — assuming UP.", index, exc)
-        return True
+        logger.warning("Could not fetch market index %s: %s — assuming DOWN (fail safe).", index, exc)
+        return False

@@ -11,7 +11,7 @@
 
 **Production-grade stock market decision-support system for Indian equities.**
 
-Runs automatically every weekday at 9:00 AM IST via GitHub Actions. Sends signals to Telegram. No server required.
+Runs automatically every weekday at 8:30 AM IST (orders) and 4:30 PM IST (fills & exits) via GitHub Actions. Sends signals to Telegram. No server required.
 
 > **Not a trade executor.** Generates signals, manages risk, tracks performance. All execution decisions stay with the human.
 
@@ -50,6 +50,42 @@ Every morning the system:
 | **Performance dashboard** | Expectancy by regime/score/symbol, ASCII equity curve, dynamic filter |
 | **Telegram alerts** | Daily summary + individual BUY/SELL signals sent to your phone |
 | **GitHub Actions** | Fully automated — runs every weekday, no server needed |
+
+---
+
+## How the bot learns (v2 learning engine)
+
+```
+signal (day T close) ─► next-open order ─► fill at T+1 open ─► bar-by-bar exits ─► R-multiple ─► learning journal
+                                                                                                     │
+          position size  ◄──  edge multiplier  ◄──  shrunk expected R (pattern → archetype → global) ◄┘
+```
+
+* **One trade definition** (`execution/trade_model.py`) is used both to simulate 10 years of history
+  and to run the paper portfolio: next-open entry, 2×ATR stop (2.5× in volatile regimes), 2R target,
+  gap handling, intraday high/low checks, RSI-overbought exit after 3 bars, 20-bar time stop,
+  slippage + Indian delivery costs (STT, stamp, DP charges).
+* **Every outcome is an R-multiple** (net P&L ÷ initial risk) so historical and live trades,
+  cheap and expensive stocks, are directly comparable.
+* **Statistically honest states**: a setup is VALIDATED/PROVEN only when the 90% lower bound of its
+  mean R is above zero, and UNRELIABLE only when it is significantly negative — not on raw win rate
+  (a 2R-target strategy is profitable at a 40% win rate).
+* **Edge drives risk**: expected R ≤ 0 → no trade; proven edge → full 1% risk; unproven → half size;
+  regime multiplier on top. Ranking uses expected R.
+* **Live-vs-model drift** is tracked (actual R vs expected R at entry) — the first sign an edge is decaying.
+* The journal re-seeds itself monthly from fresh data and replays live trades on top.
+
+Validate the edge out-of-sample before trusting it:
+
+```bash
+python scripts/edge_report.py --split 2022-01-01
+```
+
+Run the offline test-suite:
+
+```bash
+python -m pytest tests -q
+```
 
 ---
 

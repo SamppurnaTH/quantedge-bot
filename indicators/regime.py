@@ -109,7 +109,7 @@ class Regime(str, Enum):
     def description(self) -> str:
         return {
             Regime.STRONG_TREND_UP:   "Strong uptrend — score ≥ 2, full size",
-            Regime.WEAK_TREND_UP:     "Weak uptrend — score = 3 only, full size",
+            Regime.WEAK_TREND_UP:     "Weak uptrend — score ≥ 3, half size",
             Regime.SIDEWAYS:          "Range-bound — score = 3 only, half size",
             Regime.VOLATILE:          "High volatility — score = 3, wider SL, half size",
             Regime.WEAK_TREND_DOWN:   "Weak downtrend — no new longs",
@@ -256,24 +256,90 @@ def regime_allows_trade(regime: Regime, score: int) -> tuple:
     return False, f"Score {score}/4 below {regime} threshold ({min_score})"
 
 
+_CONSERVATIVE_RANK = {
+    Regime.STRONG_TREND_UP:   0,
+    Regime.WEAK_TREND_UP:     1,
+    Regime.SIDEWAYS:          2,
+    Regime.VOLATILE:          3,
+    Regime.WEAK_TREND_DOWN:   4,
+    Regime.STRONG_TREND_DOWN: 5,
+}
+
+
 def _more_conservative(r1: Regime, r2: Regime) -> Regime:
-    """Return the regime with the smaller position_size_multiplier."""
-    if r1.position_size_multiplier <= r2.position_size_multiplier:
-        return r1
-    return r2
-
-
-def apply_regime_hysteresis(new_regime: Regime) -> Regime:
     """
-    Prevents rapid regime flipping by requiring 2 consecutive days of confirmation.
-    Saves and reads history from state/regime_history.json.
+    Return the more conservative of two regimes.
+
+    Uses an explicit risk ordering. The old implementation compared
+    position_size_multiplier only, so WEAK_TREND_UP / SIDEWAYS / VOLATILE
+    (all ×0.5) tied and the result depended on argument order — e.g. a
+    VOLATILE stock in a SIDEWAYS market was treated as SIDEWAYS and lost its
+    wider stop.
+    """
+    return r1 if _CONSERVATIVE_RANK[Regime(r1)] >= _CONSERVATIVE_RANK[Regime(r2)] else r2
+
+
+def compute_regime_series(df: pd.DataFrame) -> pd.Series:
+    """
+    Vectorised, point-in-time regime for EVERY bar (no look-ahead).
+
+    Mirrors detect_regime_detailed() exactly so that historical learning,
+    backtests and the live scan classify bars identically.
+    """
+    import numpy as np
+
+    ma_fast_col = f"SMA_{INDICATOR_CONFIG['ma_fast']}"
+    ma_slow_col = f"SMA_{INDICATOR_CONFIG['ma_slow']}"
+    atr_col     = f"ATR_{INDICATOR_CONFIG['atr_period']}"
+
+    atr_ratio  = df[atr_col] / df[atr_col].rolling(50).mean()
+    slope_norm = df[ma_fast_col].diff().rolling(REGIME_CONFIG["slope_window"]).mean() / df[ma_fast_col]
+    price, ma50, ma200 = df["Close"], df[ma_fast_col], df[ma_slow_col]
+    p_above = price > ma200
+    p_below = (price < ma50) & (price < ma200)
+
+    out = np.select(
+        [
+            atr_ratio > REGIME_CONFIG["atr_ratio_threshold"],
+            p_above & (slope_norm >= REGIME_CONFIG["slope_strong_up"]),
+            p_above & (slope_norm >= REGIME_CONFIG["slope_weak_up"]),
+            p_below & (slope_norm <= REGIME_CONFIG["slope_strong_down"]),
+            p_below & (slope_norm <= REGIME_CONFIG["slope_weak_down"]),
+        ],
+        [
+            Regime.VOLATILE.value, Regime.STRONG_TREND_UP.value, Regime.WEAK_TREND_UP.value,
+            Regime.STRONG_TREND_DOWN.value, Regime.WEAK_TREND_DOWN.value,
+        ],
+        default=Regime.SIDEWAYS.value,
+    )
+    return pd.Series(out, index=df.index, name="regime")
+
+
+def more_conservative_series(a: pd.Series, b: pd.Series) -> pd.Series:
+    """Element-wise _more_conservative for two aligned regime-string Series."""
+    rank = {str(k): v for k, v in _CONSERVATIVE_RANK.items()}
+    ra = a.map(rank).fillna(2)
+    rb = b.map(rank).fillna(2)
+    return a.where(ra >= rb, b)
+
+
+def apply_regime_hysteresis(new_regime: Regime, as_of=None) -> Regime:
+    """
+    Prevent rapid regime flipping: a new regime must be observed on 2
+    consecutive TRADING DAYS before it becomes active.
+
+    `as_of` is the date of the bar the regime was computed from. The state
+    only advances once per bar date — previously the counter advanced on every
+    call, and because both the morning and EOD runs call this, a "2-day"
+    confirmation actually happened within a single day.
     """
     import os
     import json
-    
+
     history_file = os.path.join("state", "regime_history.json")
     os.makedirs(os.path.dirname(history_file), exist_ok=True)
-    
+    as_of = str(as_of)[:10] if as_of is not None else None
+
     history = {}
     if os.path.exists(history_file):
         try:
@@ -282,55 +348,40 @@ def apply_regime_hysteresis(new_regime: Regime) -> Regime:
         except Exception:
             history = {}
 
+    def _save(h):
+        with open(history_file, "w") as f:
+            json.dump(h, f, indent=2)
+
     prev_regime_str = history.get("active_regime")
+    if not prev_regime_str:
+        _save({"active_regime": str(new_regime), "pending_regime": str(new_regime),
+               "pending_days": 0, "last_bar_date": as_of})
+        return new_regime
+
+    # Same bar already processed → idempotent, return the stored decision.
+    if as_of is not None and history.get("last_bar_date") == as_of:
+        return Regime(prev_regime_str)
+
+    prev_regime = Regime(prev_regime_str)
     pending_regime_str = history.get("pending_regime")
     pending_days = history.get("pending_days", 0)
 
-    if not prev_regime_str:
-        # First run: initialize
-        history = {
-            "active_regime": str(new_regime),
-            "pending_regime": str(new_regime),
-            "pending_days": 0
-        }
-        with open(history_file, "w") as f:
-            json.dump(history, f, indent=2)
-        return new_regime
-
-    prev_regime = Regime(prev_regime_str)
-
     if str(new_regime) == prev_regime_str:
-        # Regime matches active, reset pending
-        history["pending_regime"] = str(new_regime)
-        history["pending_days"] = 0
-        with open(history_file, "w") as f:
-            json.dump(history, f, indent=2)
-        return new_regime
-
-    # Different regime detected
-    if pending_regime_str == str(new_regime):
-        # We've seen this before, increment days
-        pending_days += 1
+        active_regime, pending_regime_str, pending_days = prev_regime, str(new_regime), 0
     else:
-        # New candidate regime
-        pending_regime_str = str(new_regime)
-        pending_days = 1
+        if pending_regime_str == str(new_regime):
+            pending_days += 1
+        else:
+            pending_regime_str, pending_days = str(new_regime), 1
 
-    if pending_days >= 2:
-        # Confirmed transition!
-        active_regime = new_regime
-        pending_days = 0
-        logger.info("Regime Transition Confirmed: %s -> %s", prev_regime, active_regime)
-    else:
-        # Stick to previous active regime for stability
-        active_regime = prev_regime
-        logger.info("Regime Transition Pending: candidate=%s, active stays=%s (pending %d/2 days)", new_regime, prev_regime, pending_days)
+        if pending_days >= 2:
+            active_regime, pending_days = new_regime, 0
+            logger.info("Regime Transition Confirmed: %s -> %s", prev_regime, active_regime)
+        else:
+            active_regime = prev_regime
+            logger.info("Regime Transition Pending: candidate=%s, active stays=%s (pending %d/2 days)",
+                        new_regime, prev_regime, pending_days)
 
-    history["active_regime"] = str(active_regime)
-    history["pending_regime"] = pending_regime_str
-    history["pending_days"] = pending_days
-    
-    with open(history_file, "w") as f:
-        json.dump(history, f, indent=2)
-
+    _save({"active_regime": str(active_regime), "pending_regime": pending_regime_str,
+           "pending_days": pending_days, "last_bar_date": as_of})
     return active_regime

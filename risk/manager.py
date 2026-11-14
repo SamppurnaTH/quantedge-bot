@@ -62,7 +62,7 @@ class RiskManager:
         TP multiplier is always 2× the SL multiplier to maintain 2:1 R:R.
         """
         sl_mult = regime.atr_sl_multiplier
-        tp_mult = sl_mult * 2   # 2:1 R:R regardless of regime
+        tp_mult = sl_mult * RISK_CONFIG["atr_tp_multiplier"] / RISK_CONFIG["atr_sl_multiplier"]
         if atr and atr > 0:
             tp = entry + (atr * tp_mult)
         else:
@@ -76,6 +76,27 @@ class RiskManager:
             return 0.0
         return round(reward / risk, 2)
 
+    # ── Edge-based sizing ─────────────────────────────────────────────────────
+
+    @staticmethod
+    def edge_multiplier(edge: dict = None) -> tuple:
+        """
+        Translate the learning journal's edge estimate into a size multiplier.
+
+          no evidence yet           → 0.5  (explore at half size)
+          expected R ≤ 0            → 0.0  (no edge — do not trade)
+          expected R > 0, not sig.  → 0.5
+          90% lower bound of R > 0  → 1.0  (statistically proven edge)
+        """
+        if not edge or edge.get("evidence", "none") == "none":
+            return 0.5, "no historical evidence yet — exploration size"
+        er, lo = edge.get("expected_r", 0.0), edge.get("lower_r", -99.0)
+        if er <= 0:
+            return 0.0, f"expected edge {er:+.2f}R ≤ 0"
+        if lo > 0:
+            return 1.0, f"proven edge {er:+.2f}R (90% lower bound {lo:+.2f}R)"
+        return 0.5, f"positive but unproven edge {er:+.2f}R (lower bound {lo:+.2f}R)"
+
     # ── Position sizing ───────────────────────────────────────────────────────
 
     def position_size(
@@ -84,51 +105,37 @@ class RiskManager:
         atr: float = None,
         regime: Regime = Regime.STRONG_TREND_UP,
         confidence_score: float = None,
+        edge: dict = None,
+        cash: float = None,
     ) -> int:
         """
-        Base shares = risk_amount / risk_per_share
-        Then scaled by regime.position_size_multiplier and confidence_score (Q-Score):
-          - Q-Score >= 90: 100% of regime size (multiplier ×1.0)
-          - Q-Score 75-89: 50% of regime size (multiplier ×0.5)
-          - Q-Score 60-74: 25% of regime size (multiplier ×0.25)
-          - Q-Score < 60:  0% of regime size (rejected)
-        Effective multiplier is the minimum of regime and confidence multipliers.
+        Fixed-fractional risk sizing on CURRENT EQUITY:
+
+            risk budget = equity × max_risk_pct × regime_mult × edge_mult
+            shares      = risk budget / (SL_mult × ATR)
+
+        then capped by capital_per_trade_pct of equity and by available cash.
+        Returns 0 when the budget buys less than one share (the old code
+        forced a minimum of 1 share, silently overriding the risk limit).
+        `confidence_score` is accepted for compatibility but no longer sizes
+        positions — it is a heuristic; sizing follows measured edge.
         """
         if entry <= 0:
             raise ValueError("Entry price must be positive.")
 
-        risk_amount = self.capital * (self.max_risk_pct / 100)
-        sl_mult     = regime.atr_sl_multiplier
+        edge_mult, _ = self.edge_multiplier(edge)
+        size_mult = regime.position_size_multiplier * edge_mult
+        if size_mult <= 0:
+            return 0
 
-        if atr and atr > 0:
-            risk_per_share = atr * sl_mult
-        else:
-            risk_per_share = entry * (self.fb_sl_pct / 100)
+        risk_amount = self.capital * (self.max_risk_pct / 100) * size_mult
+        risk_per_share = atr * regime.atr_sl_multiplier if (atr and atr > 0) else entry * (self.fb_sl_pct / 100)
+        shares = risk_amount / risk_per_share if risk_per_share > 0 else 0
 
-        base_shares = risk_amount / risk_per_share if risk_per_share > 0 else 0
-
-        # Cap by capital allocation per trade
-        alloc_value   = self.capital * (self.capital_per_pct / 100)
-        shares_by_cap = alloc_value / entry
-
-        base_shares = int(min(base_shares, shares_by_cap))
-
-        # Determine confidence-based sizing multiplier
-        if confidence_score is not None:
-            if confidence_score >= 90:
-                conf_mult = 1.0
-            elif confidence_score >= 75:
-                conf_mult = 0.5
-            elif confidence_score >= 60:
-                conf_mult = 0.25
-            else:
-                conf_mult = 0.0
-            size_mult = min(regime.position_size_multiplier, conf_mult)
-        else:
-            size_mult = regime.position_size_multiplier
-
-        shares = int(base_shares * size_mult)
-        return max(shares, 1) if size_mult > 0 else 0
+        shares = min(shares, self.capital * (self.capital_per_pct / 100) / entry)
+        if cash is not None:
+            shares = min(shares, max(cash, 0) / (entry * 1.005))
+        return int(shares)
 
     # ── Trade approval ────────────────────────────────────────────────────────
 
@@ -139,72 +146,43 @@ class RiskManager:
         atr: float = None,
         regime: Regime = Regime.STRONG_TREND_UP,
         confidence_score: float = None,
+        edge: dict = None,
+        cash: float = None,
     ) -> dict:
         """
-        Full trade validation with regime-aware and confidence-aware sizing.
+        Full trade validation: regime, measured edge, portfolio slots, cash.
 
         Args:
-            entry:  Current market price
+            entry:  Signal-bar close (the order fills at next open)
             signal: 'BUY' | 'SELL' | 'HOLD'
             atr:    Current ATR value
             regime: Effective regime for this symbol
-            confidence_score: Q-Score from confidence engine (0-100)
-
-        Returns:
-            dict with approved flag and complete risk parameters
+            confidence_score: heuristic Q-Score (reported only)
+            edge:   learning_engine.get_edge_estimate() result
+            cash:   free cash (defaults to capital)
         """
         if signal != "BUY":
             return {"approved": False, "reason": f"Signal is {signal}, not BUY."}
-
         if entry <= 0:
             return {"approved": False, "reason": "Invalid entry price."}
-
         if not regime.allows_buy:
-            return {
-                "approved": False,
-                "reason": f"Regime {regime} does not allow long entries.",
-            }
-
-        if confidence_score is not None and confidence_score < 60:
-            return {
-                "approved": False,
-                "reason": f"Confidence score ({confidence_score}) is below the minimum threshold of 60.",
-            }
-
+            return {"approved": False, "reason": f"Regime {regime} does not allow long entries."}
         if self.active_trades >= self.max_trades:
-            return {
-                "approved": False,
-                "reason": f"Max active trades reached ({self.max_trades}).",
-            }
+            return {"approved": False, "reason": f"Max active trades reached ({self.max_trades})."}
 
-        # Calculate sizing multiplier for report logging
-        if confidence_score is not None:
-            if confidence_score >= 90:
-                conf_mult = 1.0
-            elif confidence_score >= 75:
-                conf_mult = 0.5
-            elif confidence_score >= 60:
-                conf_mult = 0.25
-            else:
-                conf_mult = 0.0
-            size_mult = min(regime.position_size_multiplier, conf_mult)
-        else:
-            size_mult = regime.position_size_multiplier
+        edge_mult, edge_reason = self.edge_multiplier(edge)
+        if edge_mult <= 0:
+            return {"approved": False, "reason": f"Learning journal: {edge_reason}."}
 
+        size_mult = regime.position_size_multiplier * edge_mult
         sl     = self.stop_loss_price(entry, atr, regime)
         tp     = self.take_profit_price(entry, atr, regime)
-        shares = self.position_size(entry, atr, regime, confidence_score)
+        shares = self.position_size(entry, atr, regime, confidence_score, edge, cash)
         cost   = shares * entry
         rr     = self.risk_reward_ratio(entry, sl, tp)
 
-        if shares == 0:
-            return {"approved": False, "reason": f"Regime {regime} or Confidence {confidence_score} → position size = 0."}
-
-        if cost > self.capital:
-            return {
-                "approved": False,
-                "reason": f"Trade cost {cost:,.2f} exceeds capital {self.capital:,.2f}.",
-            }
+        if shares <= 0:
+            return {"approved": False, "reason": "Risk budget / cash buys < 1 share."}
 
         report = {
             "approved":            True,
@@ -215,7 +193,9 @@ class RiskManager:
             "take_profit":         tp,
             "atr_used":            round(atr, 2) if atr else None,
             "sl_multiplier":       regime.atr_sl_multiplier,
-            "size_multiplier":     size_mult,
+            "size_multiplier":     round(size_mult, 3),
+            "edge_multiplier":     edge_mult,
+            "edge_reason":         edge_reason,
             "confidence_score":    confidence_score,
             "max_loss":            round(shares * (entry - sl), 2),
             "max_gain":            round(shares * (tp - entry), 2),
@@ -225,11 +205,8 @@ class RiskManager:
             "sl_method":           "ATR" if (atr and atr > 0) else "Fixed%",
             "regime":              str(regime),
         }
-
         logger.info(
-            "Trade approved | entry=%.2f shares=%d SL=%.2f TP=%.2f "
-            "R:R=%.2f regime=%s sl_mult=×%.1f size_mult=×%.2f Q-Score=%s",
-            entry, shares, sl, tp, rr, regime,
-            regime.atr_sl_multiplier, size_mult, str(confidence_score),
+            "Trade approved | entry=%.2f shares=%d SL=%.2f TP=%.2f R:R=%.2f regime=%s size=×%.2f (%s)",
+            entry, shares, sl, tp, rr, regime, size_mult, edge_reason,
         )
         return report

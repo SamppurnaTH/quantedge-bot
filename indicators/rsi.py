@@ -30,7 +30,14 @@ def compute_rsi(close: pd.Series, period: int = INDICATOR_CONFIG["rsi_period"]) 
     avg_gain = gain.ewm(alpha=1 / period, min_periods=period, adjust=False).mean()
     avg_loss = loss.ewm(alpha=1 / period, min_periods=period, adjust=False).mean()
 
-    rs = avg_gain / avg_loss.replace(0, float("inf"))
+    # When avg_loss == 0 the stock has had no down days in the window: RSI is
+    # 100 (maximally overbought), NOT 0. The previous implementation replaced
+    # 0 with +inf in the denominator, which produced RS=0 -> RSI=0 and flagged
+    # straight-up stocks as "deeply oversold" buy candidates.
+    rs = avg_gain / avg_loss
     rsi = 100 - (100 / (1 + rs))
+    rsi = rsi.where(avg_loss != 0, 100.0)
+    rsi = rsi.where(~((avg_loss == 0) & (avg_gain == 0)), 50.0)   # flat price
+    rsi = rsi.where(avg_gain.notna())                             # keep warm-up NaNs
     rsi.name = f"RSI_{period}"
     return rsi

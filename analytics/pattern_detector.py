@@ -309,3 +309,72 @@ def get_pattern_snapshot(df: pd.DataFrame) -> dict:
         "pivot_high":         pivots["pivot_high"],
         "pivot_low":          pivots["pivot_low"],
     }
+
+
+# ── Vectorised learning features (single source of truth) ─────────────────────
+
+def compute_pattern_features(df: pd.DataFrame, lookback: int = 20) -> pd.DataFrame:
+    """
+    Point-in-time pattern features for EVERY bar, used to build learning keys.
+
+    Both the historical seeder and the live scan call this, so a live signal's
+    pattern key means exactly what it meant when the journal learned it.
+    (Previously live used swing-level support from find_support_resistance()
+    while history used "within 2% of the 10-bar low", so live keys looked up
+    statistics for a different condition.)
+
+    Columns: _channel (RISING/FALLING/SIDEWAYS), _vol_spike (bool),
+             _near_sup (bool), _candle (HAMMER/BULLISH_ENGULFING/DOJI/NOCNDLE)
+    """
+    out = pd.DataFrame(index=df.index)
+    closes = df["Close"].to_numpy(dtype=float)
+    n = len(closes)
+
+    # 1. 20-bar OLS slope of close, normalised by last price
+    ch = np.full(n, "SIDEWAYS", dtype=object)
+    if n >= lookback:
+        N = float(lookback)
+        sx = N * (N - 1) / 2.0
+        sx2 = N * (N - 1) * (2 * N - 1) / 6.0
+        denom = N * sx2 - sx ** 2
+        w = np.arange(N) * N - sx
+        raw = np.convolve(closes, w[::-1], mode="valid") / denom
+        last = closes[lookback - 1:]
+        norm = np.where(last > 0, raw / last, 0.0)
+        ch[lookback - 1:] = np.where(norm > 0.002, "RISING", np.where(norm < -0.002, "FALLING", "SIDEWAYS"))
+    out["_channel"] = ch
+
+    # 2. Volume spike: today > 2x the prior 20-bar average
+    prior_avg = df["Volume"].rolling(20).mean().shift(1)
+    out["_vol_spike"] = (df["Volume"] > 2.0 * prior_avg).fillna(False).astype(bool)
+
+    # 3. Near support: close within 2% of the 10-bar swing low
+    swing_low = df["Low"].rolling(10).min()
+    out["_near_sup"] = ((df["Close"] - swing_low).abs() / df["Close"].clip(lower=1e-6) <= 0.02).fillna(False)
+
+    # 4. Bullish reversal candle on the signal bar
+    op, hi, lo, cl = df["Open"], df["High"], df["Low"], df["Close"]
+    body = (cl - op).abs()
+    upper = hi - np.maximum(op, cl)
+    lower = np.minimum(op, cl) - lo
+    rng = (hi - lo).clip(lower=1e-9)
+    sb = body.clip(lower=1e-9)
+    hammer = (lower >= 2 * sb) & (upper <= 0.3 * sb) & (body / rng < 0.4)
+    # Real bullish engulfing: prior bar bearish, today bullish and body engulfs it
+    # (the old seeder required the PRIOR bar to be bullish, which is not an engulfing pattern).
+    bull_eng = (cl > op) & (cl.shift(1) < op.shift(1)) & (cl >= op.shift(1)) & (op <= cl.shift(1))
+    doji = body / rng < 0.1
+    out["_candle"] = np.select([hammer, bull_eng, doji], ["HAMMER", "BULLISH_ENGULFING", "DOJI"], default="NOCNDLE")
+    return out
+
+
+def latest_key_features(df: pd.DataFrame) -> dict:
+    """Features of the most recent bar, in the shape build_condition_key() expects."""
+    f = compute_pattern_features(df.tail(60)).iloc[-1]
+    cdl = str(f["_candle"])
+    return {
+        "channel": str(f["_channel"]),
+        "candles": [cdl] if cdl != "NOCNDLE" else [],
+        "near_support": bool(f["_near_sup"]),
+        "volume_spike": bool(f["_vol_spike"]),
+    }

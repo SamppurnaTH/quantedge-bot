@@ -241,54 +241,52 @@ def equity_curve_ascii(df: pd.DataFrame, width: int = 60, height: int = 12) -> s
 
 # ── Dynamic filter ────────────────────────────────────────────────────────────
 
-def build_dynamic_filter(df: pd.DataFrame, min_trades: int = 3) -> dict:
+def _significantly_negative(group: pd.DataFrame, z: float = 1.2816) -> bool:
+    """True when the mean R-multiple of a group is below zero with 90% one-sided confidence."""
+    col = "r_multiple" if "r_multiple" in group.columns and group["r_multiple"].notna().all() else None
+    if col is None:
+        return False                      # never filter on rupee P&L — not comparable across trades
+    r = group[col].astype(float)
+    n = len(r)
+    if n < 2:
+        return False
+    se = r.std(ddof=1) / (n ** 0.5)
+    return (r.mean() + z * se) < 0
+
+
+def build_dynamic_filter(df: pd.DataFrame, min_trades: int = 20) -> dict:
     """
-    Build a filter dict from journal data.
-    Conditions with negative expectancy and enough trades → SKIP.
+    Build a skip-filter from LIVE paper trades.
 
-    Args:
-        df:         Trades DataFrame
-        min_trades: Minimum trades needed before a condition is filtered
+    A regime / symbol is skipped only when it has ≥ `min_trades` trades AND
+    its mean R is significantly negative (90% one-sided). The old version
+    skipped any regime or symbol after 3 trades with negative rupee P&L —
+    pure noise-fitting that, with 4 trades, would have switched off the
+    SIDEWAYS regime entirely.
 
-    Returns:
-        dict with 'skip_regimes', 'skip_symbols', 'skip_score_below'
+    The minimum-score override is no longer produced: score thresholds are a
+    strategy parameter and are learned from the full journal, not from a
+    handful of live trades.
     """
     filter_rules = {
         "skip_regimes":    [],
         "skip_symbols":    [],
         "skip_score_below": 0,
-        "source":          "journal",
+        "source":          "live_paper_trades",
+        "min_trades":      min_trades,
         "generated_at":    datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
-
     if df.empty:
         return filter_rules
 
-    # Regimes with negative expectancy (enough data)
-    if "regime" in df.columns:
-        for regime, group in df.groupby("regime"):
-            if len(group) >= min_trades and _expectancy(group) < 0:
-                filter_rules["skip_regimes"].append(str(regime))
-                logger.info("Dynamic filter: skip regime %s (expectancy=%.2f)", regime, _expectancy(group))
-
-    # Symbols with negative total P&L (enough data)
-    if "symbol" in df.columns:
-        for symbol, group in df.groupby("symbol"):
-            if len(group) >= min_trades and group["pnl"].sum() < 0:
-                filter_rules["skip_symbols"].append(str(symbol))
-                logger.info("Dynamic filter: skip symbol %s (total_pnl=%.2f)", symbol, group["pnl"].sum())
-
-    # Minimum score: find lowest score with positive expectancy
-    if "score" in df.columns:
-        best_min_score = 0
-        # Check cumulative: if using score X and above gives positive expectancy
-        for score in sorted(df["score"].unique()):
-            group = df[df["score"] >= score]
-            if len(group) >= min_trades and _expectancy(group) > 0:
-                best_min_score = int(score)
-                break
-        filter_rules["skip_score_below"] = best_min_score
-
+    for col, out in (("regime", "skip_regimes"), ("symbol", "skip_symbols")):
+        if col not in df.columns:
+            continue
+        for name, group in df.groupby(col):
+            if len(group) >= min_trades and _significantly_negative(group):
+                filter_rules[out].append(str(name))
+                logger.info("Dynamic filter: skip %s %s (n=%d, mean R=%.2f)",
+                            col, name, len(group), group["r_multiple"].mean())
     return filter_rules
 
 

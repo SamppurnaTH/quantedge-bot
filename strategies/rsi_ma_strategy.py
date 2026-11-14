@@ -14,9 +14,16 @@ RSI thresholds by regime:
   VOLATILE          → RSI < 25   (very oversold only)
   TRENDING_DOWN     → no longs
 
-BUY threshold by regime:
-  STRONG_TREND_UP   → score ≥ 2
-  all others        → score = 3 (or blocked)
+MANDATORY setup (a BUY is impossible without BOTH):
+  price > SMA_200  AND  RSI < regime threshold
+  — the strategy is "buy an oversold pullback inside a long-term uptrend".
+  Previously score ≥ 2 in STRONG_TREND_UP could be met by "above SMA200 +
+  above-average volume" alone, i.e. buying any busy day with no dip at all,
+  and SIDEWAYS/VOLATILE could buy BELOW the 200-day average (falling knives).
+
+BUY threshold by regime (score includes the 2 mandatory points):
+  STRONG_TREND_UP   → score ≥ 2   (setup alone)
+  all others        → score ≥ 3   (setup + volume or pullback confirmation)
 
 SELL → RSI > 70 (overbought exit)
 HOLD → everything else
@@ -112,6 +119,13 @@ def compute_signal_score(df: pd.DataFrame, regime: Regime = Regime.STRONG_TREND_
     return score
 
 
+def setup_condition(df: pd.DataFrame, rsi_threshold) -> pd.Series:
+    """Mandatory setup: long-term uptrend AND oversold. `rsi_threshold` may be a scalar or Series."""
+    rsi_col = f"RSI_{INDICATOR_CONFIG['rsi_period']}"
+    ma_col  = f"SMA_{INDICATOR_CONFIG['ma_slow']}"
+    return (df["Close"] > df[ma_col]) & (df[rsi_col] < rsi_threshold)
+
+
 # ── Signal generation ─────────────────────────────────────────────────────────
 
 def generate_signals(
@@ -142,18 +156,96 @@ def generate_signals(
     df["Pullback"] = compute_pullback_depth(df)
     df["Score"]    = compute_signal_score(df, regime=regime)
 
-    min_score  = regime.min_score_to_buy
-    rsi_sell   = STRATEGY_CONFIG["rsi_sell_threshold"]
+    min_score   = regime.min_score_to_buy
+    rsi_sell    = STRATEGY_CONFIG["rsi_sell_threshold"]
     buy_allowed = regime.allows_buy and market_up
+    setup       = setup_condition(df, get_rsi_threshold(regime))
 
     conditions = [
-        (df["Score"] >= min_score) & buy_allowed,
+        setup & (df["Score"] >= min_score) & buy_allowed,
         df[rsi_col] > rsi_sell,
     ]
     choices = [Signal.BUY, Signal.SELL]
 
     df["Signal"] = np.select(conditions, choices, default=Signal.HOLD)
     return df
+
+
+def _confirm_regime(raw: pd.Series, days: int = 2) -> pd.Series:
+    """Vectorised equivalent of apply_regime_hysteresis (N-day confirmation)."""
+    vals = raw.values
+    out = np.empty(len(vals), dtype=object)
+    active, pending, count = None, None, 0
+    for i, r in enumerate(vals):
+        if active is None:
+            active = r
+        elif r == active:
+            pending, count = None, 0
+        else:
+            count = count + 1 if r == pending else 1
+            pending = r
+            if count >= days:
+                active, pending, count = r, None, 0
+        out[i] = active
+    return pd.Series(out, index=raw.index)
+
+
+def build_signal_frame(df: pd.DataFrame, index_df: pd.DataFrame = None) -> pd.DataFrame:
+    """
+    Point-in-time BUY/SELL signal for EVERY bar, using exactly the live rules.
+
+    For each bar t (only data ≤ t is used):
+      stock regime     = compute_regime_series(stock)
+      index regime     = compute_regime_series(NIFTY) with 2-day confirmation
+      effective regime = more conservative of the two (as in the live scan)
+      market_up        = NIFTY close > SMA_50 (as in fetch_market_trend)
+
+    Used by the learning-journal seeder and research tools so that history
+    is labelled with the same logic as today's live signal.
+    `df` and `index_df` must already have indicators attached.
+    """
+    from indicators.regime import compute_regime_series, more_conservative_series
+
+    rsi_col = f"RSI_{INDICATOR_CONFIG['rsi_period']}"
+    vol_col = f"Volume_MA_{INDICATOR_CONFIG['volume_ma_period']}"
+
+    out = df.copy()
+    out["stock_regime"] = compute_regime_series(out)
+
+    if index_df is not None and len(index_df) > 0:
+        idx_regime = _confirm_regime(compute_regime_series(index_df))
+        mkt_ma = f"SMA_{STRATEGY_CONFIG['market_trend_ma']}"
+        idx_up = (index_df["Close"] > index_df[mkt_ma]) if mkt_ma in index_df else pd.Series(True, index=index_df.index)
+        idx_regime = idx_regime.reindex(out.index, method="ffill")
+        idx_up = idx_up.reindex(out.index, method="ffill").fillna(False).astype(bool)
+        out["market_regime"] = idx_regime.fillna(Regime.SIDEWAYS.value)
+        out["market_up"] = idx_up
+        out["regime"] = more_conservative_series(out["stock_regime"], out["market_regime"])
+    else:
+        out["market_regime"] = out["stock_regime"]
+        out["market_up"] = True
+        out["regime"] = out["stock_regime"]
+
+    thresholds = STRATEGY_CONFIG["rsi_thresholds"]
+    rsi_thr   = out["regime"].map(lambda r: thresholds.get(str(r)) or 0)
+    min_score = out["regime"].map(lambda r: Regime(r).min_score_to_buy)
+    allows    = out["regime"].map(lambda r: Regime(r).allows_buy)
+
+    out["Pullback"] = compute_pullback_depth(out)
+    out["rsi_threshold"] = rsi_thr
+    out["Score"] = (
+        (out["Close"] > out[f"SMA_{INDICATOR_CONFIG['ma_slow']}"]).astype(int)
+        + (out[rsi_col] < rsi_thr).astype(int)
+        + (out["Volume"] > out[vol_col] * STRATEGY_CONFIG["volume_multiplier"]).astype(int)
+        + (out["Pullback"] >= STRATEGY_CONFIG["min_pullback_pct"]).astype(int)
+    )
+    buy = setup_condition(out, rsi_thr) & (out["Score"] >= min_score) & allows & out["market_up"]
+    out["Signal"] = np.select(
+        [buy, out[rsi_col] > STRATEGY_CONFIG["rsi_sell_threshold"]],
+        [Signal.BUY.value, Signal.SELL.value],
+        default=Signal.HOLD.value,
+    )
+    return out
 
 
 # ── Latest signal extraction ──────────────────────────────────────────────────

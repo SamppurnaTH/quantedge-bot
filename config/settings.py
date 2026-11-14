@@ -56,7 +56,7 @@ STRATEGY_CONFIG = {
 RISK_CONFIG = {
     "max_risk_per_trade_pct": 1.0,
     "atr_sl_multiplier": 2.0,
-    "atr_tp_multiplier": 4.0,
+    "atr_tp_multiplier": 4.0,       # TP/SL ratio (4/2 = 2R target) is applied to the regime's SL width
     "fallback_stop_loss_pct": 3.0,
     "fallback_take_profit_pct": 6.0,
     "max_position_pct": 10.0,
@@ -82,11 +82,34 @@ REGIME_CONFIG = {
 }
 
 # ── Trade Execution Controls ──────────────────────────────────────────────────
+# ONE source of truth for how a trade is executed and exited. The paper trader
+# AND the historical learning simulator both read these, so the learning
+# engine learns from exactly the trade the bot actually takes.
 EXECUTION_CONFIG = {
-    "slippage_pct": 0.001,
+    "slippage_pct": 0.001,          # 0.1% adverse fill on entry and exit
     "gap_threshold": 0.005,
-    "cooldown_days": 5,
-    "min_hold_bars": 3,
+    "cooldown_days": 5,             # bars before re-entering the same symbol after an exit
+    "min_hold_bars": 3,             # RSI-overbought exit ignored for the first N bars (SL/TP always active)
+    "max_hold_bars": 20,            # time stop — dead money is exited at the close
+    # Indian equity delivery costs (approx., discount broker):
+    #   buy : STT 0.1% + stamp 0.015% + exchange/SEBI/GST ≈ 0.12%
+    #   sell: STT 0.1% + exchange/SEBI/GST ≈ 0.11% + DP charge per scrip
+    "cost_buy_pct": 0.0012,
+    "cost_sell_pct": 0.0011,
+    "dp_charge_per_sell": 16.0,     # ₹ flat per scrip per sell day
+    # Entries are placed as next-session orders: signal on day T's close,
+    # filled at day T+1's open. Skip the fill if price gaps up too far
+    # (chasing) — measured in ATRs above the signal close.
+    "max_entry_gap_atr": 0.5,
+}
+
+# ── Learning Engine ───────────────────────────────────────────────────────────
+LEARNING_CONFIG = {
+    "journal_version": 2,           # bump → journal is rebuilt from history on next run
+    "half_life_days": 365,          # exponential time-decay of evidence
+    "shrinkage_trades": 30,         # Bayesian prior strength (pattern → archetype → global)
+    "min_trades_to_gate": 20,       # effective sample size before an edge estimate can block a trade
+    "z_one_sided": 1.2816,          # 90% one-sided bound for "significant" edge
 }
 
 # ── Telegram Alerts ───────────────────────────────────────────────────────────

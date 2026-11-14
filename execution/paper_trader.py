@@ -1,163 +1,389 @@
 """
-Paper Trader — Realistic execution simulation
+Paper Trader — realistic, bar-by-bar execution simulation.
 
-Execution realism upgrades:
-  1. Slippage simulation  — entry/exit price is nudged by a configurable %
-  2. Gap handling         — if price gaps below SL, exit at open (not SL)
-  3. Regime-aware sizing  — position size multiplied by regime.position_size_multiplier
-  4. Persistent state     — survives restarts via JSON
+How it works
+  Morning run  : process_signals() turns approved BUY signals into PENDING
+                 next-open orders (respecting slots, sector cap, cooldown, cash).
+  Any run      : update() replays every new daily bar for every pending order
+                 and open position using execution/trade_model.py:
+                   - pending orders fill at the first bar AFTER the signal bar
+                     (its open + slippage), or are cancelled (gap-up chase /
+                     opened through stop)
+                   - stops/targets are checked against the bar's LOW/HIGH, with
+                     gap-through handling at the open
+                   - RSI-overbought exit after the minimum hold, time stop
+                   - statutory costs + DP charges are charged to cash
+  Every closed trade records its R-multiple and feeds the learning journal.
 
-Tracks open positions, closed trades, equity curve, and full audit trail.
+Fixes vs the previous version
+  * Entries were filled at the PREVIOUS day's close at 8:30 AM — a price no
+    longer available. Now they fill at the next open.
+  * Exits only looked at the close, so intraday stop/target hits were missed;
+    open_price was never supplied so gap detection never ran.
+  * Exits were only checked for symbols in the scan list — a held stock that
+    left the list (ADANIPOWER) could never be stopped out.
+  * Regime size multiplier was applied twice (risk manager AND here), and a
+    minimum of 1 share was forced even when the risk budget said 0.
+  * No transaction costs; drawdown was never tracked (equity was never
+    marked between runs); missed runs silently skipped bars.
 """
 
 import os
 import json
 import logging
 from datetime import datetime
-from typing import List, Optional
+from typing import Callable, List, Optional
+
+import numpy as np
+import pandas as pd
+
+from config.settings import EXECUTION_CONFIG, PORTFOLIO_CONFIG, INDICATOR_CONFIG
+from execution import trade_model
 
 logger = logging.getLogger(__name__)
 
 PAPER_STATE_FILE = os.path.join("logs", "paper_portfolio.json")
+STATE_VERSION = 2
 
-# ── Execution realism constants ───────────────────────────────────────────────
-SLIPPAGE_PCT   = 0.001   # 0.1% slippage on every fill (buy higher, sell lower)
-GAP_THRESHOLD  = 0.005   # if price gaps > 0.5% below SL → gap exit at open price
+# Kept for backward compatibility with imports elsewhere
+SLIPPAGE_PCT  = EXECUTION_CONFIG["slippage_pct"]
+GAP_THRESHOLD = EXECUTION_CONFIG["gap_threshold"]
+
+
+def _default_loader(symbol: str) -> pd.DataFrame:
+    from data.fetcher import load_stock_data
+    return load_stock_data(symbol)
+
+
+def _sector_of(symbol: str) -> str:
+    try:
+        from analytics.intelligence_cycles import SYMBOL_SECTORS
+        return SYMBOL_SECTORS.get(symbol, "Others")
+    except Exception:
+        return "Others"
 
 
 class PaperTrader:
-    """
-    Simulates a brokerage account with realistic execution.
-    Tracks institutional metrics including Profit Factor, Max Drawdown, Exposure %.
-    """
+    """Simulated brokerage account with realistic next-open execution."""
 
-    def __init__(self, capital: float = 100_000.0):
+    def __init__(self, capital: float = 100_000.0, loader: Optional[Callable] = None):
         self.initial_capital = capital
         self.cash            = capital
         self.positions: dict = {}
+        self.pending_orders: dict = {}
         self.closed_trades: list = []
+        self.cancelled_orders: list = []
+        self.equity_curve: list = []
+        self.last_exit: dict = {}
         self.max_portfolio_value = capital
         self.max_drawdown = 0.0
+        self.loader = loader or _default_loader
         self._load_state()
 
-    # ── Public API ────────────────────────────────────────────────────────────
+    # ── Account values ────────────────────────────────────────────────────────
 
-    def process_signals(self, signals: List[dict]) -> None:
-        """
-        Process a list of signal dicts (output of scan_watchlist).
+    def equity(self) -> float:
+        return self.cash + sum(p["shares"] * p["current_price"] for p in self.positions.values())
 
-        Each signal dict may optionally include:
-          - 'open_price': today's open (for gap detection)
-          - 'regime':     current regime string (for position sizing)
+    def reserved_cash(self) -> float:
+        return sum(o["shares"] * o["signal_close"] * 1.01 for o in self.pending_orders.values())
+
+    def free_cash(self) -> float:
+        return self.cash - self.reserved_cash()
+
+    def slots_used(self) -> int:
+        return len(self.positions) + len(self.pending_orders)
+
+    # ── Order entry ───────────────────────────────────────────────────────────
+
+    def process_signals(self, signals: List[dict]) -> List[dict]:
         """
-        for s in signals:
-            if "error" in s:
+        Queue next-open BUY orders for approved signals, best expected R first.
+        Returns the list of orders placed. Exits are handled by update().
+        """
+        placed = []
+        buys = [s for s in signals
+                if "error" not in s and s.get("signal") == "BUY" and s.get("risk_report", {}).get("approved")]
+        buys.sort(key=lambda s: (s.get("expectancy_r", 0.0), s.get("confidence_score", 0)), reverse=True)
+
+        max_slots = PORTFOLIO_CONFIG["max_active_trades"]
+        sector_cap = PORTFOLIO_CONFIG["max_sector_exposure_pct"] / 100.0
+        eq = self.equity()
+
+        for s in buys:
+            sym = s["symbol"]
+            rr = s["risk_report"]
+            why = None
+            if sym in self.positions or sym in self.pending_orders:
+                why = "already held / pending"
+            elif self.slots_used() >= max_slots:
+                why = f"max active trades ({max_slots})"
+            elif self._in_cooldown(sym, s.get("date")):
+                why = f"cooldown ({EXECUTION_CONFIG['cooldown_days']} bars after last exit)"
+            else:
+                cost = rr["shares"] * s["close"]
+                sector = _sector_of(sym)
+                sec_val = sum(p["shares"] * p["current_price"] for p in self.positions.values()
+                              if _sector_of(p["symbol"]) == sector)
+                sec_val += sum(o["shares"] * o["signal_close"] for o in self.pending_orders.values()
+                               if _sector_of(o["symbol"]) == sector)
+                if (sec_val + cost) > sector_cap * eq:
+                    why = f"sector cap {sector} {sector_cap:.0%}"
+                elif cost * 1.01 > self.free_cash():
+                    why = "insufficient free cash"
+            if why:
+                logger.info("ORDER SKIP | %s | %s", sym, why)
                 continue
 
-            symbol     = s["symbol"]
-            signal     = s.get("signal", "HOLD")
-            close      = s.get("close", 0)
-            open_price = s.get("open_price", close)   # fallback to close if not provided
-            rr         = s.get("risk_report", {})
-            regime_str = s.get("regime", "TRENDING_UP")
-
-            # ── Check exits on existing positions first ────────────────────
-            if symbol in self.positions:
-                self._check_exit(symbol, close, open_price, signal)
-
-            # ── Check entry ────────────────────────────────────────────────
-            if signal == "BUY" and rr.get("approved") and symbol not in self.positions:
-                self._open_position(symbol, close, rr, s, regime_str)
-
+            order = {
+                "symbol": sym,
+                "signal_date": str(s.get("date"))[:10],
+                "signal_close": float(s["close"]),
+                "atr": float(rr.get("atr_used") or s.get("atr") or 0.0),
+                "sl_mult": float(rr.get("sl_multiplier", 2.0)),
+                "shares": int(rr["shares"]),
+                "regime": s.get("regime", "?"),
+                "score": s.get("score", 0),
+                "rsi": s.get("rsi", 50.0),
+                "confidence_score": s.get("confidence_score"),
+                "expected_r": s.get("expectancy_r"),
+                "pattern_key": s.get("pattern_key"),
+                "pattern_snapshot": s.get("pattern_snapshot", {}),
+                "placed_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            }
+            self.pending_orders[sym] = order
+            placed.append(order)
+            print(f"  📝 ORDER PLACED | {sym} | BUY {order['shares']} @ next open "
+                  f"(signal close {order['signal_close']:.2f}, ATR {order['atr']:.2f}, {order['regime']})")
         self._save_state()
+        return placed
+
+    def _in_cooldown(self, symbol: str, signal_date) -> bool:
+        last = self.last_exit.get(symbol)
+        if not last or not signal_date:
+            return False
+        try:
+            gap = np.busday_count(str(last)[:10], str(signal_date)[:10])
+        except Exception:
+            return False
+        return gap < EXECUTION_CONFIG["cooldown_days"]
+
+    # ── Bar-by-bar update ─────────────────────────────────────────────────────
+
+    def update(self) -> None:
+        """Fill pending orders and manage open positions over all new bars."""
+        symbols = sorted(set(self.positions) | set(self.pending_orders))
+        last_date = None
+        for sym in symbols:
+            try:
+                df = self._bars(sym)
+            except Exception as exc:
+                logger.error("UPDATE | %s | could not load bars: %s", sym, exc)
+                continue
+            if df.empty:
+                continue
+            last_date = max(last_date, df.index[-1]) if last_date is not None else df.index[-1]
+            if sym in self.pending_orders:
+                self._try_fill(sym, df)
+            if sym in self.positions:
+                self._manage(sym, df)
+        self._mark_equity(last_date)
+        self._save_state()
+
+    def _bars(self, sym: str) -> pd.DataFrame:
+        from indicators.rsi import compute_rsi
+        df = self.loader(sym)
+        df = df[["Open", "High", "Low", "Close"]].copy()
+        df.index = pd.to_datetime(df.index)
+        df["RSI"] = compute_rsi(df["Close"], INDICATOR_CONFIG["rsi_period"]) if len(df) > 15 else np.nan
+        return df
+
+    def _try_fill(self, sym: str, df: pd.DataFrame) -> None:
+        o = self.pending_orders[sym]
+        after = df[df.index > pd.Timestamp(o["signal_date"])]
+        if after.empty:
+            return                                           # next session not traded yet
+        bar = after.iloc[0]
+        plan = trade_model.plan_entry(o["signal_close"], float(bar["Open"]), o["atr"], o["sl_mult"])
+        del self.pending_orders[sym]
+        if plan is None:
+            reason = "gap-up beyond chase limit / opened below stop"
+            self.cancelled_orders.append({**o, "cancel_date": str(after.index[0].date()), "reason": reason})
+            del self.cancelled_orders[:-200]
+            print(f"  ✖ ORDER CANCELLED | {sym} | open {bar['Open']:.2f} | {reason}")
+            return
+        shares = o["shares"]
+        cost = plan["entry_price"] * shares * (1 + trade_model.COST_BUY)
+        if cost > self.cash:
+            shares = int(self.cash / (plan["entry_price"] * (1 + trade_model.COST_BUY)))
+            if shares <= 0:
+                print(f"  ✖ ORDER CANCELLED | {sym} | insufficient cash at fill")
+                return
+            cost = plan["entry_price"] * shares * (1 + trade_model.COST_BUY)
+        self.cash -= cost
+        entry_date = str(after.index[0].date())
+        self.positions[sym] = {
+            **{k: o[k] for k in ("symbol", "regime", "score", "rsi", "confidence_score",
+                                 "expected_r", "pattern_key", "pattern_snapshot", "atr")},
+            "shares": shares,
+            "entry_price": plan["entry_price"],
+            "quoted_price": plan["quoted_price"],
+            "current_price": float(bar["Close"]),
+            "stop_loss": round(plan["stop_loss"], 2),
+            "take_profit": round(plan["take_profit"], 2),
+            "initial_risk": plan["initial_risk"],
+            "entry_date": entry_date,
+            "signal_date": o["signal_date"],
+            "last_bar_date": None,                 # entry bar is processed by _manage
+            "bars_held": 0,
+            "entry_costs": round(cost - plan["entry_price"] * shares, 2),
+        }
+        print(f"  📥 FILLED  | {sym} | {shares} @ {plan['entry_price']:.2f} on {entry_date} "
+              f"| SL {plan['stop_loss']:.2f} | TP {plan['take_profit']:.2f}")
+
+    def _manage(self, sym: str, df: pd.DataFrame) -> None:
+        pos = self.positions[sym]
+        self._migrate_position(pos, df)
+        start = pd.Timestamp(pos["last_bar_date"]) if pos.get("last_bar_date") else pd.Timestamp(pos["entry_date"]) - pd.Timedelta(days=1)
+        new_bars = df[df.index > start]
+        for ts, bar in new_bars.iterrows():
+            pos["bars_held"] = pos.get("bars_held", 0) + 1
+            is_entry = str(ts.date()) == pos["entry_date"] and pos["bars_held"] == 1
+            rsi = None if pd.isna(bar["RSI"]) else float(bar["RSI"])
+            res = trade_model.step(pos, float(bar["Open"]), float(bar["High"]), float(bar["Low"]),
+                                   float(bar["Close"]), rsi, pos["bars_held"], is_entry_bar=is_entry)
+            pos["current_price"] = float(bar["Close"])
+            pos["last_bar_date"] = str(ts.date())
+            if res is not None:
+                self._close_position(sym, res[0], res[1], str(ts.date()))
+                return
+
+    @staticmethod
+    def _migrate_position(pos: dict, df: pd.DataFrame) -> None:
+        """Bring positions written by the old trader up to the v2 schema."""
+        if "initial_risk" in pos and "bars_held" in pos:
+            return
+        pos["initial_risk"] = max(pos["entry_price"] - pos["stop_loss"], 1e-6)
+        pos["signal_date"] = pos.get("signal_date", pos["entry_date"])
+        pos["bars_held"] = 0
+        pos["last_bar_date"] = None
+        # Replay every bar since entry, so a legacy position that was never
+        # checked (e.g. a symbol no longer in the scan list) gets its real exit.
+        held = df[df.index >= pd.Timestamp(pos["entry_date"])]
+        if not held.empty:
+            pos["entry_date"] = str(held.index[0].date())
+
+    def _close_position(self, symbol: str, raw_price: float, reason: str, exit_date: str) -> None:
+        pos = self.positions.pop(symbol)
+        xf = trade_model.exit_fill(raw_price)
+        shares = pos["shares"]
+        pnl = trade_model.net_pnl(pos["entry_price"], xf, shares, include_dp=True)
+        r = pnl / (pos["initial_risk"] * shares) if pos["initial_risk"] > 0 and shares > 0 else 0.0
+        self.cash += xf * shares * (1 - trade_model.COST_SELL) - trade_model.DP_CHARGE
+        self.last_exit[symbol] = exit_date
+
+        trade = {
+            "symbol": symbol, "shares": shares,
+            "entry_price": round(pos["entry_price"], 2), "exit_price": round(xf, 2),
+            "stop_loss": pos["stop_loss"], "take_profit": pos["take_profit"],
+            "entry_date": pos["entry_date"], "exit_date": exit_date,
+            "pnl": round(pnl, 2), "r_multiple": round(r, 3), "exit_reason": reason,
+            "bars_held": pos.get("bars_held", 0),
+            "score": pos.get("score", 0), "regime": pos.get("regime", "?"),
+            "confidence_score": pos.get("confidence_score"), "expected_r": pos.get("expected_r"),
+            "pattern_key": pos.get("pattern_key"),
+            "slippage_cost": round((pos["entry_price"] - pos.get("quoted_price", pos["entry_price"])) * shares
+                                   + (raw_price - xf) * shares, 2),
+        }
+        self.closed_trades.append(trade)
+        sign = "+" if pnl >= 0 else ""
+        logger.info("PAPER SELL | %s | %s | PnL %s%.2f | %+.2fR", symbol, reason, sign, pnl, r)
+        print(f"  📤 EXIT    | {symbol} | {reason} on {exit_date} | PnL {sign}{pnl:.2f} ({r:+.2f}R)")
+
+        try:
+            from analytics.learning_engine import record_live_trade
+            record_live_trade(
+                symbol=symbol,
+                signal_result={k: pos.get(k) for k in ("regime", "score", "rsi", "confidence_score",
+                                                       "pattern_key", "pattern_snapshot")},
+                won=pnl > 0, pnl=pnl, hold_time=pos.get("bars_held", 0), trade=trade,
+            )
+        except Exception as e:
+            logger.warning("Failed to record trade to learning journal: %s", e)
+
+    def _mark_equity(self, as_of) -> None:
+        eq = self.equity()
+        if as_of is None:                 # nothing held / no new bars → nothing to mark
+            return
+        date = str(pd.Timestamp(as_of).date())
+        if self.equity_curve and self.equity_curve[-1]["date"] == date:
+            self.equity_curve[-1]["equity"] = round(eq, 2)
+        else:
+            self.equity_curve.append({"date": date, "equity": round(eq, 2)})
+        self.max_portfolio_value = max(self.max_portfolio_value, eq)
+        dd = (self.max_portfolio_value - eq) / self.max_portfolio_value * 100 if self.max_portfolio_value > 0 else 0.0
+        self.max_drawdown = max(self.max_drawdown, dd)
+
+    # ── Reporting ─────────────────────────────────────────────────────────────
 
     def portfolio_summary(self) -> dict:
         open_value  = sum(p["shares"] * p["current_price"] for p in self.positions.values())
         total_value = self.cash + open_value
         total_pnl   = total_value - self.initial_capital
 
-        # Update peak and drawdown
-        self.max_portfolio_value = max(self.max_portfolio_value, total_value)
-        current_dd = ((self.max_portfolio_value - total_value) / self.max_portfolio_value) * 100 if self.max_portfolio_value > 0 else 0.0
-        self.max_drawdown = max(self.max_drawdown, current_dd)
+        ct = self.closed_trades
+        wins   = [t for t in ct if t["pnl"] > 0]
+        losses = [t for t in ct if t["pnl"] <= 0]
+        n = len(ct)
+        win_rate = len(wins) / n * 100 if n else 0.0
+        avg_win  = sum(t["pnl"] for t in wins) / len(wins) if wins else 0.0
+        avg_loss = sum(abs(t["pnl"]) for t in losses) / len(losses) if losses else 0.0
+        gp, gl = sum(t["pnl"] for t in wins), sum(abs(t["pnl"]) for t in losses)
+        rs = [t["r_multiple"] for t in ct if t.get("r_multiple") is not None]
 
-        wins         = sum(1 for t in self.closed_trades if t["pnl"] > 0)
-        losses       = sum(1 for t in self.closed_trades if t["pnl"] <= 0)
-        total_closed = len(self.closed_trades)
-        win_rate     = (wins / total_closed * 100) if total_closed else 0.0
-        closed_pnl   = sum(t["pnl"] for t in self.closed_trades)
+        streak = max_streak = 0
+        for t in ct:
+            streak = streak + 1 if t["pnl"] <= 0 else 0
+            max_streak = max(max_streak, streak)
 
-        # Expectancy = (win_rate × avg_win) - (loss_rate × avg_loss)
-        avg_win  = (sum(t["pnl"] for t in self.closed_trades if t["pnl"] > 0) / wins) if wins else 0
-        avg_loss = (sum(abs(t["pnl"]) for t in self.closed_trades if t["pnl"] <= 0) / losses) if losses else 0
-        win_rate_dec = win_rate / 100
-        expectancy   = (win_rate_dec * avg_win) - ((1 - win_rate_dec) * avg_loss)
-
-        # Exposure %
-        exposure_pct = (open_value / total_value * 100) if total_value > 0 else 0.0
-
-        # Profit Factor
-        gross_profit = sum(t["pnl"] for t in self.closed_trades if t["pnl"] > 0)
-        gross_loss   = sum(abs(t["pnl"]) for t in self.closed_trades if t["pnl"] <= 0)
-        profit_factor = (gross_profit / gross_loss) if gross_loss > 0 else (gross_profit if gross_profit > 0 else 1.0)
-
-        # Consecutive Losses (streak) (CRITICAL ISSUE #6)
-        max_consecutive_losses = 0
-        current_streak = 0
-        for t in self.closed_trades:
-            if t["pnl"] <= 0:
-                current_streak += 1
-                max_consecutive_losses = max(max_consecutive_losses, current_streak)
-            else:
-                current_streak = 0
-
-        # Time-in-market (average holding period in days) (CRITICAL ISSUE #6)
-        import numpy as np
-        holding_days_list = []
-        for t in self.closed_trades:
+        holds = []
+        for t in ct:
             try:
-                entry_dt = datetime.strptime(t["entry_date"], "%Y-%m-%d")
-                exit_dt = datetime.strptime(t["exit_date"], "%Y-%m-%d")
-                days = max((exit_dt - entry_dt).days, 1)
-                holding_days_list.append(days)
+                holds.append(max((datetime.strptime(t["exit_date"], "%Y-%m-%d")
+                                  - datetime.strptime(t["entry_date"], "%Y-%m-%d")).days, 1))
             except Exception:
-                continue
+                pass
 
-        avg_holding_days = float(np.mean(holding_days_list)) if holding_days_list else 0.0
-
-        # Regime Specific Performance
-        regime_performance = {}
-        for t in self.closed_trades:
-            reg = t.get("regime", "UNKNOWN")
-            regime_performance[reg] = round(regime_performance.get(reg, 0.0) + t["pnl"], 2)
+        regime_perf = {}
+        for t in ct:
+            regime_perf[t.get("regime", "UNKNOWN")] = round(regime_perf.get(t.get("regime", "UNKNOWN"), 0.0) + t["pnl"], 2)
 
         return {
-            "cash":                   round(self.cash, 2),
-            "open_value":             round(open_value, 2),
-            "total_value":            round(total_value, 2),
-            "total_pnl":              round(total_pnl, 2),
-            "total_pnl_pct":          round((total_pnl / self.initial_capital) * 100, 2),
-            "closed_pnl":             round(closed_pnl, 2),
-            "open_positions":         len(self.positions),
-            "closed_trades":          total_closed,
-            "wins":                   wins,
-            "losses":                 losses,
-            "win_rate_pct":           round(win_rate, 2),
-            "avg_win":                round(avg_win, 2),
-            "avg_loss":               round(avg_loss, 2),
-            "expectancy":             round(expectancy, 2),
-            "exposure_pct":           round(exposure_pct, 2),
-            "profit_factor":          round(profit_factor, 2),
-            "max_drawdown":           round(self.max_drawdown, 2),
-            "max_consecutive_losses": max_consecutive_losses,
-            "avg_holding_days":       round(avg_holding_days, 1),
-            "regime_performance":     regime_performance,
+            "cash": round(self.cash, 2),
+            "open_value": round(open_value, 2),
+            "total_value": round(total_value, 2),
+            "total_pnl": round(total_pnl, 2),
+            "total_pnl_pct": round(total_pnl / self.initial_capital * 100, 2),
+            "closed_pnl": round(sum(t["pnl"] for t in ct), 2),
+            "open_positions": len(self.positions),
+            "pending_orders": len(self.pending_orders),
+            "closed_trades": n,
+            "wins": len(wins), "losses": len(losses),
+            "win_rate_pct": round(win_rate, 2),
+            "avg_win": round(avg_win, 2), "avg_loss": round(avg_loss, 2),
+            "expectancy": round((win_rate / 100) * avg_win - (1 - win_rate / 100) * avg_loss, 2),
+            "expectancy_r": round(float(np.mean(rs)), 3) if rs else 0.0,
+            "exposure_pct": round(open_value / total_value * 100, 2) if total_value > 0 else 0.0,
+            "profit_factor": round(gp / gl, 2) if gl > 0 else (round(gp, 2) if gp > 0 else 1.0),
+            "max_drawdown": round(self.max_drawdown, 2),
+            "max_consecutive_losses": max_streak,
+            "avg_holding_days": round(float(np.mean(holds)), 1) if holds else 0.0,
+            "regime_performance": regime_perf,
         }
 
     def print_portfolio(self) -> None:
-        s    = self.portfolio_summary()
+        s = self.portfolio_summary()
         sign = "+" if s["total_pnl"] >= 0 else ""
-
         print("\n" + "=" * 65)
         print("  PAPER PORTFOLIO STATUS")
         print("=" * 65)
@@ -168,196 +394,50 @@ class PaperTrader:
         print(f"  Exposure       : {s['exposure_pct']:>11.1f}%     Max Drawdown: {s['max_drawdown']:.2f}%")
         print(f"  Profit Factor  : {s['profit_factor']:>12.2f}  Max Consecutive Losses: {s['max_consecutive_losses']}")
         print(f"  Closed Trades  : {s['closed_trades']}  (W:{s['wins']} / L:{s['losses']})  Win Rate: {s['win_rate_pct']:.1f}%")
-        print(f"  Expectancy/trade: {s['expectancy']:>+,.2f}  (avg win: {s['avg_win']:,.2f}  avg loss: {s['avg_loss']:,.2f})")
-        print(f"  Avg Hold Period: {s['avg_holding_days']} days")
+        print(f"  Expectancy     : {s['expectancy_r']:+.2f}R per trade  (₹{s['expectancy']:+,.2f})")
+        print(f"  Pending Orders : {s['pending_orders']}   Avg Hold: {s['avg_holding_days']} days")
 
+        if self.pending_orders:
+            print("\n  Pending next-open orders:")
+            for sym, o in self.pending_orders.items():
+                print(f"  {sym:<18} BUY {o['shares']:>5}  signal {o['signal_date']} close {o['signal_close']:.2f}")
         if self.positions:
-            print(f"\n  Open Positions:")
-            print(f"  {'Symbol':<18} {'Shares':>6} {'Entry':>9} {'Current':>9} {'SL':>9} {'TP':>9} {'Unreal P&L':>12} {'Regime'}")
+            print("\n  Open Positions:")
+            print(f"  {'Symbol':<18} {'Shares':>6} {'Entry':>9} {'Current':>9} {'SL':>9} {'TP':>9} {'Unreal P&L':>12} {'Bars':>4}")
             print("  " + "-" * 82)
             for sym, p in self.positions.items():
                 unreal = (p["current_price"] - p["entry_price"]) * p["shares"]
-                usign  = "+" if unreal >= 0 else ""
-                print(
-                    f"  {sym:<18} {p['shares']:>6} {p['entry_price']:>9.2f} "
-                    f"{p['current_price']:>9.2f} {p['stop_loss']:>9.2f} "
-                    f"{p['take_profit']:>9.2f} {usign}{unreal:>11,.2f}  {p.get('regime','?')}"
-                )
-
+                print(f"  {sym:<18} {p['shares']:>6} {p['entry_price']:>9.2f} {p['current_price']:>9.2f} "
+                      f"{p['stop_loss']:>9.2f} {p['take_profit']:>9.2f} {unreal:>+12,.2f} {p.get('bars_held', 0):>4}")
         if self.closed_trades:
-            print(f"\n  Recent Closed Trades (last 5):")
-            print(f"  {'Symbol':<18} {'Exit Date':<12} {'P&L':>10} {'Exit Reason':<16} {'Slippage'}")
-            print("  " + "-" * 68)
+            print("\n  Recent Closed Trades (last 5):")
             for t in self.closed_trades[-5:]:
-                tsign = "+" if t["pnl"] >= 0 else ""
-                slip  = f"{t.get('slippage_cost', 0):.2f}"
-                print(
-                    f"  {t['symbol']:<18} {t['exit_date']:<12} "
-                    f"{tsign}{t['pnl']:>9,.2f}  {t['exit_reason']:<16} -{slip}"
-                )
-
+                r = t.get("r_multiple")
+                r_txt = f"{r:+.2f}R" if r is not None else "  n/a"
+                print(f"  {t['symbol']:<18} {t['exit_date']:<12} {t['pnl']:>+10,.2f} {r_txt:>7}  {t['exit_reason']}")
         print("=" * 65 + "\n")
-
-    # ── Internal ──────────────────────────────────────────────────────────────
-
-    def _apply_slippage(self, price: float, is_buy: bool) -> float:
-        """
-        Nudge order price unfavourably to simulate trade execution slippage.
-        """
-        nudge = price * SLIPPAGE_PCT
-        return price + nudge if is_buy else price - nudge
-
-    def _open_position(self, symbol: str, price: float, rr: dict, signal_data: dict, regime_str: str) -> None:
-        # Apply position sizing multiplier based on regime
-        size_mult = signal_data.get("size_multiplier", 1.0)
-        shares = int(rr["shares"] * size_mult)
-        if shares <= 0:
-            shares = 1
-
-        fill_price = self._apply_slippage(price, is_buy=True)
-        trade_cost = fill_price * shares
-        if trade_cost > self.cash:
-            logger.warning("PAPER BUY SKIP | %s | Insufficient cash (needs %.2f, has %.2f)", symbol, trade_cost, self.cash)
-            return
-
-        slippage_cost = round((fill_price - price) * shares, 2)  # cost of entry slip
-        self.cash -= trade_cost
-
-        self.positions[symbol] = {
-            "symbol":        symbol,
-            "shares":        shares,
-            "entry_price":   fill_price,
-            "quoted_price":  price,
-            "current_price": fill_price,
-            "stop_loss":     rr["stop_loss"],
-            "take_profit":   rr["take_profit"],
-            "entry_date":    datetime.now().strftime("%Y-%m-%d"),
-            "score":         signal_data.get("score", 0),
-            "rsi":           signal_data.get("rsi", 50.0),
-            "confidence_score": signal_data.get("confidence_score", 50),
-            "regime":        regime_str,
-            "slippage_cost": slippage_cost,
-            "pattern_key":    signal_data.get("pattern_key"),
-            "pattern_snapshot": signal_data.get("pattern_snapshot", {}),
-        }
-
-        size_note = f" (×{size_mult} regime)" if size_mult < 1.0 else ""
-        logger.info(
-            "PAPER BUY | %s | %d shares @ %.2f (slip: %.2f) | SL: %.2f | TP: %.2f | %s",
-            symbol, shares, fill_price, slippage_cost, rr["stop_loss"], rr["take_profit"], regime_str,
-        )
-        print(
-            f"  📥 PAPER BUY  | {symbol} | {shares} shares @ {fill_price:.2f}"
-            f" (slip: -{slippage_cost:.2f}){size_note} | SL: {rr['stop_loss']:.2f} | TP: {rr['take_profit']:.2f}"
-        )
-
-    def _check_exit(
-        self,
-        symbol: str,
-        close: float,
-        open_price: float,
-        signal: str,
-    ) -> None:
-        pos = self.positions[symbol]
-        pos["current_price"] = close
-
-        sl = pos["stop_loss"]
-        tp = pos["take_profit"]
-
-        # Gap detection: if open gapped below SL, exit at open (not SL)
-        gap_below_sl = open_price < sl * (1 - GAP_THRESHOLD)
-
-        if gap_below_sl:
-            # Gapped down through stop — exit at open price (worse than SL)
-            self._close_position(symbol, open_price, "GAP-DOWN-SL")
-        elif close <= sl:
-            self._close_position(symbol, sl, "STOP-LOSS")
-        elif close >= tp:
-            self._close_position(symbol, tp, "TAKE-PROFIT")
-        elif signal == "SELL":
-            self._close_position(symbol, close, "SIGNAL-SELL")
-
-    def _close_position(self, symbol: str, price: float, reason: str) -> None:
-        pos        = self.positions.pop(symbol)
-        fill_price = self._apply_slippage(price, is_buy=False)
-
-        gross_pnl     = (fill_price - pos["entry_price"]) * pos["shares"]
-        slippage_cost = round((price - fill_price) * pos["shares"], 2)  # cost of exit slip
-        total_slip    = round(pos.get("slippage_cost", 0) + slippage_cost, 2)
-
-        self.cash += fill_price * pos["shares"]
-
-        trade = {
-            "symbol":        symbol,
-            "shares":        pos["shares"],
-            "entry_price":   pos["entry_price"],
-            "exit_price":    fill_price,
-            "entry_date":    pos["entry_date"],
-            "exit_date":     datetime.now().strftime("%Y-%m-%d"),
-            "pnl":           round(gross_pnl, 2),
-            "exit_reason":   reason,
-            "score":         pos.get("score", 0),
-            "regime":        pos.get("regime", "?"),
-            "confidence_score": pos.get("confidence_score", 50),
-            "pattern_key":    pos.get("pattern_key"),
-            "slippage_cost": total_slip,
-        }
-        self.closed_trades.append(trade)
-
-        sign = "+" if gross_pnl >= 0 else ""
-        logger.info("PAPER SELL | %s | %s | PnL: %s%.2f | Slip: -%.2f", symbol, reason, sign, gross_pnl, total_slip)
-        print(f"  📤 PAPER SELL | {symbol} | {reason} | PnL: {sign}{gross_pnl:.2f} | Slip: -{total_slip:.2f}")
-
-        # Record outcome in learning journal
-        try:
-            from analytics.learning_engine import record_live_trade
-            won = gross_pnl > 0
-            
-            # Reconstruct the signal result dictionary required by record_live_trade
-            signal_result = {
-                "regime": pos.get("regime", "?"),
-                "score": pos.get("score", 0),
-                "rsi": pos.get("rsi", 50.0),
-                "confidence_score": pos.get("confidence_score", 50),
-                "pattern_key": pos.get("pattern_key"),
-                "pattern_snapshot": pos.get("pattern_snapshot", {}),
-            }
-            df = None
-            if not signal_result["pattern_key"]:
-                from data.fetcher import load_stock_data
-                df = load_stock_data(symbol)
-
-            # Calculate hold time
-            entry_dt = datetime.strptime(pos["entry_date"], "%Y-%m-%d")
-            exit_dt = datetime.strptime(trade["exit_date"], "%Y-%m-%d")
-            hold_time = max((exit_dt - entry_dt).days, 1)
-            
-            record_live_trade(
-                symbol=symbol,
-                signal_result=signal_result,
-                won=won,
-                df=df,
-                pnl=gross_pnl,
-                hold_time=hold_time,
-                trade=trade
-            )
-        except Exception as e:
-            logger.warning("Failed to record trade to learning journal: %s", e)
 
     # ── Persistence ───────────────────────────────────────────────────────────
 
     def _save_state(self) -> None:
         os.makedirs(os.path.dirname(PAPER_STATE_FILE), exist_ok=True)
         state = {
-            "initial_capital":     self.initial_capital,
-            "cash":                self.cash,
-            "positions":           self.positions,
-            "closed_trades":       self.closed_trades,
+            "version": STATE_VERSION,
+            "initial_capital": self.initial_capital,
+            "cash": self.cash,
+            "positions": self.positions,
+            "pending_orders": self.pending_orders,
+            "closed_trades": self.closed_trades,
+            "cancelled_orders": self.cancelled_orders,
+            "equity_curve": self.equity_curve[-2000:],
+            "last_exit": self.last_exit,
             "max_portfolio_value": self.max_portfolio_value,
-            "max_drawdown":        self.max_drawdown,
+            "max_drawdown": self.max_drawdown,
         }
-        with open(PAPER_STATE_FILE, "w", encoding="utf-8") as f:
+        tmp = PAPER_STATE_FILE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
             json.dump(state, f, indent=2)
+        os.replace(tmp, PAPER_STATE_FILE)
 
     def _load_state(self) -> None:
         if not os.path.exists(PAPER_STATE_FILE):
@@ -365,15 +445,20 @@ class PaperTrader:
         try:
             with open(PAPER_STATE_FILE, "r", encoding="utf-8") as f:
                 state = json.load(f)
-            self.initial_capital = state.get("initial_capital", self.initial_capital)
-            self.cash            = state.get("cash", self.cash)
-            self.positions       = state.get("positions", {})
-            self.closed_trades   = state.get("closed_trades", [])
+            self.initial_capital  = state.get("initial_capital", self.initial_capital)
+            self.cash             = state.get("cash", self.cash)
+            self.positions        = state.get("positions", {})
+            self.pending_orders   = state.get("pending_orders", {})
+            self.closed_trades    = state.get("closed_trades", [])
+            self.cancelled_orders = state.get("cancelled_orders", [])
+            self.equity_curve     = state.get("equity_curve", [])
+            self.last_exit        = state.get("last_exit", {})
             self.max_portfolio_value = state.get("max_portfolio_value", self.initial_capital)
-            self.max_drawdown    = state.get("max_drawdown", 0.0)
-            logger.info(
-                "Paper portfolio loaded | Cash: %.2f | Open: %d | Closed: %d | Max Drawdown: %.2f%%",
-                self.cash, len(self.positions), len(self.closed_trades), self.max_drawdown,
-            )
+            self.max_drawdown     = state.get("max_drawdown", 0.0)
+            if not self.last_exit:
+                for t in self.closed_trades:
+                    self.last_exit[t["symbol"]] = t.get("exit_date")
+            logger.info("Paper portfolio loaded | Cash: %.2f | Open: %d | Pending: %d | Closed: %d",
+                        self.cash, len(self.positions), len(self.pending_orders), len(self.closed_trades))
         except Exception as exc:
             logger.warning("Could not load paper portfolio: %s", exc)

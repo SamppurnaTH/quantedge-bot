@@ -4,10 +4,17 @@ on:
   schedule:
     # ── Morning run: 8:30 AM IST = 3:00 AM UTC, Mon–Fri ──────────────────────
     - cron: '0 3 * * 1-5'
-    # ── EOD run: 3:30 PM IST = 10:00 AM UTC, Mon–Fri ─────────────────────────
-    - cron: '0 10 * * 1-5'
+    # ── EOD run: 4:30 PM IST = 11:00 AM UTC, Mon–Fri ─────────────────────────
+    # (after the 15:30 close so Yahoo's daily bar is final; the code also
+    #  refuses to use an unfinished bar before 16:00 IST)
+    - cron: '0 11 * * 1-5'
   # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
+
+# Never let two runs mutate/commit the portfolio state at the same time
+concurrency:
+  group: daily-trading-scan
+  cancel-in-progress: false
 
 jobs:
   scan:
@@ -24,9 +31,10 @@ jobs:
 
       # ── 2. Python setup ─────────────────────────────────────────────────────
       - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       # ── 3. Install dependencies ─────────────────────────────────────────────
       - name: Install dependencies
@@ -38,9 +46,14 @@ jobs:
         id: holiday_check
         run: |
           python - <<'PYEOF'
-          import datetime, sys, json, urllib.request
+          import datetime, os
+          # BUGFIX: the heredoc is quoted ('PYEOF'), so the shell never expanded
+          # "$GITHUB_OUTPUT" — the script wrote to a file literally named
+          # "$GITHUB_OUTPUT" and the holiday skip NEVER worked. Read it from env.
+          out_path = os.environ["GITHUB_OUTPUT"]
 
-          today = datetime.date.today()
+          # Use the IST date (runner clock is UTC)
+          today = (datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)).date()
 
           # NSE 2025–2026 holiday list (add new years as needed)
           NSE_HOLIDAYS = {
@@ -76,11 +89,11 @@ jobs:
 
           if today in NSE_HOLIDAYS:
               print(f"NSE_HOLIDAY=true")
-              with open("$GITHUB_OUTPUT", "a") as f:
+              with open(out_path, "a") as f:
                   f.write("skip=true\n")
               print(f"Today ({today}) is an NSE holiday — skipping run.")
           else:
-              with open("$GITHUB_OUTPUT", "a") as f:
+              with open(out_path, "a") as f:
                   f.write("skip=false\n")
               print(f"Today ({today}) is a trading day — proceeding.")
           PYEOF
@@ -96,7 +109,7 @@ jobs:
           [ -f state/backtest_results.csv ]   && cp state/backtest_results.csv   logs/backtest_results.csv   && echo "Restored backtest_results.csv"
           [ -f state/ab_test_results.json ]   && cp state/ab_test_results.json   logs/ab_test_results.json   && echo "Restored ab_test_results.json"
           # Intelligence & learning state
-          [ -f state/regime_history.json ]    && cp state/regime_history.json    state/regime_history.json   && echo "Restored regime_history.json"
+          [ -f state/regime_history.json ]    && echo "Regime history present."
           [ -f state/learning_journal.json ]  && echo "Learning journal present."
           [ -f state/pre_market_state.json ]  && echo "Pre-market state present."
           echo "State restore complete."
@@ -133,5 +146,8 @@ jobs:
             echo "No state changes to commit."
           else
             git commit -m "chore: update portfolio state $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push
+            for i in 1 2 3 4; do
+              git pull --rebase -X theirs origin "${GITHUB_REF_NAME}" && git push && break
+              echo "push failed (attempt $i) — retrying"; sleep $((i * 5))
+            done
           fi

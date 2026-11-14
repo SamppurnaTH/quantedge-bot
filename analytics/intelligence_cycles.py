@@ -87,7 +87,7 @@ GLOBAL_TICKERS = {
 
 # ── Pre-Market Cycle (8:30 AM IST) ─────────────────────────────────────────────
 
-def run_pre_market_cycle(symbols: List[str], capital: float, active_trades: int) -> dict:
+def run_pre_market_cycle(symbols: List[str], capital: float, active_trades: int, cash: float = None) -> dict:
     """
     Executes the morning 8:30 AM IST intelligence preparation routine.
     """
@@ -226,14 +226,16 @@ def run_pre_market_cycle(symbols: List[str], capital: float, active_trades: int)
     from signals.generator import generate_signal_for_symbol
     market_up = fetch_market_trend()
     
-    # Detailed 7-regime detection
-    try:
-        nifty_df = fetch_stock_data(DATA_CONFIG["market_index"], save=True)
-        regime_result = detect_regime_detailed(nifty_df)
-        market_regime = regime_result.regime
-    except Exception:
-        market_regime = Regime.SIDEWAYS
+    # Detailed regime detection (with indicators + date-keyed hysteresis).
+    # BUGFIX: this previously called detect_regime_detailed() on a raw OHLCV
+    # frame without indicators, which always raised and silently fell back to
+    # SIDEWAYS — the live bot never actually saw the market regime.
+    from signals.generator import fetch_index_regime
+    idx_up, market_regime, _ = fetch_index_regime()
+    market_up = market_up and idx_up
 
+    from analytics.learning_engine import load_journal
+    journal = load_journal()
     watchlist_scans = []
     for sym in symbols:
         try:
@@ -242,14 +244,19 @@ def run_pre_market_cycle(symbols: List[str], capital: float, active_trades: int)
                 capital=capital,
                 active_trades=active_trades,
                 market_up=market_up,
-                market_regime=market_regime
+                market_regime=market_regime,
+                cash=cash,
+                journal=journal,
             )
             watchlist_scans.append(res)
         except Exception as e:
             logger.warning("Watchlist scan failed for %s: %s", sym, e)
 
-    # Sort watchlist by Quality Score
-    watchlist_scans.sort(key=lambda x: x.get("confidence_score", 0), reverse=True)
+    from signals.generator import apply_dynamic_filter
+    watchlist_scans = apply_dynamic_filter(watchlist_scans)
+
+    # Sort watchlist by measured edge (expected R), then heuristic quality score
+    watchlist_scans.sort(key=lambda x: (x.get("signal") == "BUY", x.get("expectancy_r", 0), x.get("confidence_score", 0)), reverse=True)
 
     # 4. Do Not Trade Warnings
     warnings = []
@@ -392,10 +399,8 @@ def run_eod_cycle(symbols: List[str], pre_market_predictions: Optional[dict] = N
 
     # Load persistent market regime (CRITICAL ISSUE #5)
     try:
-        nifty_df = fetch_stock_data(DATA_CONFIG["market_index"], save=False)
-        regime_result = detect_regime_detailed(nifty_df)
-        from indicators.regime import apply_regime_hysteresis
-        market_regime = apply_regime_hysteresis(regime_result.regime)
+        from signals.generator import fetch_index_regime
+        _, market_regime, _ = fetch_index_regime()
     except Exception:
         market_regime = Regime.SIDEWAYS
 

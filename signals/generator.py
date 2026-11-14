@@ -44,23 +44,17 @@ def fetch_index_regime() -> tuple:
     """
     index = DATA_CONFIG["market_index"]
     try:
-        ticker = yf.Ticker(index)
-        df     = ticker.history(period=DATA_CONFIG["period"], interval="1d", auto_adjust=True)
+        df = fetch_stock_data(index, save=True)
         if df.empty or len(df) < 210:
-            logger.warning("Insufficient index data — defaulting to STRONG_TREND_UP")
-            dummy = RegimeResult(Regime.STRONG_TREND_UP, 0.0, 1.0, 0.0, 0.0, 0.0)
-            return True, Regime.STRONG_TREND_UP, dummy
-
-        df = df[["Open", "High", "Low", "Close", "Volume"]].copy()
-        df.index = df.index.tz_localize(None) if df.index.tz else df.index
+            raise ValueError(f"insufficient index data ({len(df)} rows)")
         df = compute_all_indicators(df)
 
-        result    = detect_regime_detailed(df)
-        raw_regime    = result.regime
-        
-        # Apply regime hysteresis to prevent rapid index regime flips (CRITICAL ISSUE #5)
+        result     = detect_regime_detailed(df)
+        raw_regime = result.regime
+
+        # Hysteresis keyed on the bar date so it advances once per trading day.
         from indicators.regime import apply_regime_hysteresis
-        regime = apply_regime_hysteresis(raw_regime)
+        regime = apply_regime_hysteresis(raw_regime, as_of=df.index[-1])
         
         # Keep result object and allows_buy check in sync
         result.regime = regime
@@ -68,13 +62,15 @@ def fetch_index_regime() -> tuple:
 
         logger.info(
             "INDEX REGIME | %s | slope=%+.5f atr_ratio=%.2f | allows_buy=%s",
-            result, market_up, result.slope, result.atr_ratio,
+            result, result.slope, result.atr_ratio, market_up,
         )
         return market_up, regime, result
     except Exception as exc:
-        logger.warning("Could not detect index regime: %s — defaulting STRONG_TREND_UP", exc)
-        dummy = RegimeResult(Regime.STRONG_TREND_UP, 0.0, 1.0, 0.0, 0.0, 0.0)
-        return True, Regime.STRONG_TREND_UP, dummy
+        # Fail SAFE: when we cannot see the market we do not open new longs.
+        # (Previously this defaulted to STRONG_TREND_UP = maximum aggression.)
+        logger.error("Could not detect index regime: %s — blocking new longs (STRONG_TREND_DOWN)", exc)
+        dummy = RegimeResult(Regime.STRONG_TREND_DOWN, 0.0, 1.0, 0.0, 0.0, 0.0)
+        return False, Regime.STRONG_TREND_DOWN, dummy
 
 
 # ── Per-symbol pipeline ───────────────────────────────────────────────────────
@@ -85,10 +81,13 @@ def generate_signal_for_symbol(
     active_trades: int = 0,
     market_up: bool = True,
     market_regime: Regime = Regime.STRONG_TREND_UP,
+    cash: float = None,
+    journal: dict = None,
 ) -> dict:
     """
     Full pipeline for a single symbol.
-    Regime flows through strategy (score threshold) and risk (SL width, size).
+    Regime flows through strategy (score threshold) and risk (SL width, size);
+    the learning journal's edge estimate gates and sizes the trade.
     """
     df = fetch_stock_data(symbol, save=True)
     df = compute_all_indicators(df)
@@ -115,36 +114,41 @@ def generate_signal_for_symbol(
         rsi_threshold=get_rsi_threshold(effective_regime),
     )
 
-    # Calculate high-resolution confidence score and pros/cons explanation
-    from analytics.learning_engine import build_condition_key, load_journal, rsi_to_bucket
-    from analytics.pattern_detector import get_pattern_snapshot
-    from analytics.confidence import calculate_confidence_and_pros_cons, calibrate_score_to_probability
-    
-    journal = load_journal()
+    # Learning-journal edge for this exact setup (same features as the seeder)
+    from analytics.learning_engine import build_condition_key, load_journal, rsi_to_bucket, get_edge_estimate
+    from analytics.pattern_detector import get_pattern_snapshot, latest_key_features
+    from analytics.confidence import calculate_confidence_and_pros_cons
+
+    journal = journal if journal is not None else load_journal()
     try:
-        snap = get_pattern_snapshot(df)
+        snap = get_pattern_snapshot(df)          # rich snapshot for display only
     except Exception:
         snap = {}
     pattern_key = build_condition_key(
         regime=str(effective_regime),
         rsi_bucket=rsi_to_bucket(latest["rsi"]),
         score=latest.get("score", 0),
-        channel=snap.get("trend_channel", "SIDEWAYS"),
-        candles=snap.get("candlestick", []),
-        near_support=snap.get("near_support") is not None,
-        volume_spike=snap.get("volume_spike", False),
+        **latest_key_features(df),
     )
-        
+    edge = get_edge_estimate(journal, pattern_key)
+    learning_state = edge["state"]
+
     conf_score, pros, cons = calculate_confidence_and_pros_cons(
         symbol=symbol,
-        signal_result=latest,
+        signal_result={**latest, "regime": str(effective_regime)},
         market_regime=market_regime,
         df=df,
         journal=journal,
-        snap=snap
+        snap=snap,
+        edge=edge,
+        pattern_key=pattern_key,
     )
 
-    # Risk: regime controls SL multiplier and position size
+    # A pattern the journal has proven to lose money is not traded.
+    if latest["signal"] == "BUY" and learning_state == "UNRELIABLE":
+        latest = {**latest, "signal": "HOLD"}
+        cons.append("✗ Blocked: this exact setup is statistically UNRELIABLE in the learning journal")
+
     rm = RiskManager(
         capital=capital if capital else 100_000,
         active_trades=active_trades,
@@ -155,16 +159,15 @@ def generate_signal_for_symbol(
         atr=latest.get("atr"),
         regime=effective_regime,
         confidence_score=conf_score,
+        edge=edge,
+        cash=cash,
     )
 
-    rr_val   = risk_report.get("risk_reward", 2.0) if risk_report.get("approved") else 2.0
-    # Composite rank key puts confidence score as a core metric!
-    rank_key = (latest.get("score", 0) * 10) + conf_score + rr_val
-
-    # Calibrate confidence score to observed win probability
-    cal_prob, lower_ci, upper_ci, n_cal, cal_desc = calibrate_score_to_probability(conf_score, journal)
-    # Expectancy in R-multiples: expectancy_r = (win_rate * RR) - (1 - win_rate)
-    expectancy_r = (cal_prob * rr_val - (100.0 - cal_prob)) / 100.0
+    # Probability and expectancy come straight from the journal (net of costs,
+    # with the real exit mix) — not from a hand-written score→probability table.
+    cal_prob     = edge["win_prob"] * 100.0
+    expectancy_r = edge["expected_r"]
+    rank_key     = expectancy_r * 100.0 + conf_score / 10.0
 
     return {
         "symbol":          symbol,
@@ -194,13 +197,34 @@ def generate_signal_for_symbol(
         "rank_key":        rank_key,
         "confidence_score": conf_score,
         "calibrated_prob":  round(cal_prob, 1),
-        "expectancy_r":     round(expectancy_r, 2),
+        "expectancy_r":     round(expectancy_r, 3),
+        "expectancy_lower_r": edge["lower_r"],
+        "edge_evidence":    edge["evidence"],
+        "edge_n":           edge["n"],
         "pros":            pros,
         "cons":            cons,
         "pattern_key":      pattern_key,
         "pattern_snapshot": snap,
-        "learning_state":   journal.get("patterns", {}).get(pattern_key, {}).get("state", "NEW"),
+        "learning_state":   learning_state,
     }
+
+
+def apply_dynamic_filter(results: List[dict], dyn_filter: dict = None) -> List[dict]:
+    """Demote BUYs blocked by the live-trade dynamic filter (used by every scan path)."""
+    dyn_filter = dyn_filter if dyn_filter is not None else load_dynamic_filter()
+    skip_regimes = set(dyn_filter.get("skip_regimes", []))
+    skip_symbols = set(dyn_filter.get("skip_symbols", []))
+    out = []
+    for r in results:
+        if r.get("signal") == "BUY":
+            if r.get("regime") in skip_regimes:
+                r = {**r, "signal": "HOLD", "_filtered": f"regime {r.get('regime')} significantly negative in live trades"}
+            elif r.get("symbol") in skip_symbols:
+                r = {**r, "signal": "HOLD", "_filtered": f"{r.get('symbol')} significantly negative in live trades"}
+            if r.get("_filtered"):
+                r["risk_report"] = {"approved": False, "reason": r["_filtered"]}
+        out.append(r)
+    return out
 
 
 def scan_watchlist(
@@ -230,6 +254,8 @@ def scan_watchlist(
             skip_regimes, skip_symbols, skip_score,
         )
 
+    from analytics.learning_engine import load_journal
+    journal = load_journal()
     results = []
     for symbol in symbols:
         try:
@@ -239,6 +265,7 @@ def scan_watchlist(
                 active_trades=active_trades,
                 market_up=market_up,
                 market_regime=market_regime,
+                journal=journal,
             )
 
             # Apply dynamic filter — demote to HOLD if journal says skip

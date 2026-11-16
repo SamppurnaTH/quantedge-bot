@@ -1,16 +1,16 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-11-09 20:19_
+_Generated: 2026-11-16 20:46_
 
 ---
 
 ## 🌍 Section 1 — Market Opening Status
 | Metric | Value |
 | :--- | :--- |
-| **Index Regime** | ↔️  SIDEWAYS  (Range-bound — score = 3 only, half size) |
-| **Risk Level** | LOW |
-| **Opening Bias** | BULLISH (100% confidence) |
-| **Gap Outlook** | High Gap Up Probability |
-| **Interpretation** | *Positive global cues support an upside open — watch for early continuation setups.* |
+| **Index Regime** | 📈 WEAK_TREND_UP  (Weak uptrend — score ≥ 3, half size) |
+| **Risk Level** | HIGH |
+| **Opening Bias** | BEARISH (100% confidence) |
+| **Gap Outlook** | High Gap Down Probability |
+| **Interpretation** | *Risk-off global cues — protect open positions, avoid chasing early momentum.* |
 
 ---
 
@@ -33,10 +33,10 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7570.55 | +2.63% | BULLISH — bullish support |
-| US (Nasdaq) | 25323.84 | +3.03% | BULLISH — bullish support |
-| VIX (Volatility) | 19.81 | -22.74% | NEUTRAL — No major impact |
-| Bond Yields (10Y) | 4.86 | +0.1% | NEUTRAL — No major impact |
+| US (S&P 500) | 7408.97 | -2.02% | BEARISH — bearish pressure |
+| US (Nasdaq) | 24500.78 | -2.53% | BEARISH — bearish pressure |
+| VIX (Volatility) | 23.68 | +22.69% | BEARISH — volatility expansion |
+| Bond Yields (10Y) | 5.12 | -0.64% | NEUTRAL — No major impact |
 
 ---
 
@@ -52,14 +52,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Banking | +8.98% | STRONG |
-| Auto | +8.32% | STRONG |
-| NBFC | +8.28% | STRONG |
-| Consumer | +7.65% | STRONG |
-| Pharma | +5.87% | STRONG |
-| FMCG | +5.36% | STRONG |
-| Agro | +4.92% | STRONG |
-| Telecom | +4.13% | STRONG |
-| Metals | +4.13% | STRONG |
-| Energy/Infra | +2.76% | STRONG |
-| IT | +0.22% | NEUTRAL |
+| Agro | +6.25% | STRONG |
+| Banking | +4.6% | STRONG |
+| NBFC | +4.53% | STRONG |
+| Pharma | +3.52% | STRONG |
+| Telecom | +2.39% | STRONG |
+| Auto | +1.17% | STRONG |
+| Metals | +0.87% | STRONG |
+| Energy/Infra | +0.44% | NEUTRAL |
+| FMCG | -0.08% | NEUTRAL |
+| Consumer | -1.49% | WEAK |
+| IT | -2.91% | WEAK |

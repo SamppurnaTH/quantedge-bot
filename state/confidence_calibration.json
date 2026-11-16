@@ -5,9 +5,9 @@
     "win_rate": 0.0
   },
   "70_89": {
-    "trades": 2,
-    "wins": 0,
-    "win_rate": 0.0
+    "trades": 3,
+    "wins": 1,
+    "win_rate": 0.33
   },
   "50_69": {
     "trades": 2,

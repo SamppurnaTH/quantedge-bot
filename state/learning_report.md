@@ -1,16 +1,16 @@
 # 📚 QuantEdge Bot — Intelligence Learning Report
-_Generated: 09 Nov 2026  20:19_
+_Generated: 16 Nov 2026  20:45_
 
 ---
 
 ## Knowledge Summary
-- **Total pattern conditions tracked**: 556
-- **Total signal outcome observations analyzed**: 23998
-- **Historical seed observations**: 23996
-- **Live/paper trade observations**: 2
+- **Total pattern conditions tracked**: 17
+- **Total signal outcome observations analyzed**: 37
+- **Historical seed observations**: 37
+- **Live/paper trade observations**: 0
 - **Proven Elite Edges (PROVEN)**: 0
 - **Validated Patterns (VALIDATED)**: 0
-- **Patterns in Training (LEARNING)**: 32
+- **Patterns in Training (LEARNING)**: 0
 - **Monitoring Patterns (WATCHING)**: 10
 - **Unreliable Patterns (AVOID)**: 0
 
@@ -22,8 +22,10 @@ _Generated: 09 Nov 2026  20:19_
 
 | Archetype State | Observations (n) | Decayed Win Rate | Profit Factor | Expectancy (R) | Avg Hold Period |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Range-Bound / Support Plays** | 2 | 57.0% | 1.52 | +30.957R | 55.3 bars |
-| **Noise / Unclassified** | 2 | 0.0% | 0.00 | -107.468R | 33.9 bars |
+| **Volatility Breakout** | 1 | 100.0% | 99.00 | +1.961R | 10.0 bars |
+| **Trend Breakout / Continuation** | 3 | 74.4% | 2.67 | +0.445R | 19.2 bars |
+| **Mean-Reversion / Pullback** | 12 | 42.4% | 2.47 | +0.252R | 18.1 bars |
+| **Range-Bound / Support Plays** | 3 | 34.5% | 0.42 | -0.291R | 17.6 bars |
 
 ---
 
@@ -48,26 +50,7 @@ _Generated: 09 Nov 2026  20:19_
 ## 🔄 What I Am Currently Learning
 > These patterns are in the active data-gathering phase (20–49 trades) to establish reliable profit factors.
 
-  • **WEAK_TREND_UP Setup** | Win: 53% | 38.05 trades | (need 11.950000000000003 trades to validate)
-    _When the market is slowly but steadily climbing, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal right at a historical floor (Support)._
-  • **SIDEWAYS Setup** | Win: 52% | 37.73 trades | (need 12.270000000000003 trades to validate)
-    _When the market is stuck moving sideways, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal right at a historical floor (Support)._
-  • **SIDEWAYS Setup** | Win: 51% | 35.39 trades | (need 14.61 trades to validate)
-    _When the market is stuck moving sideways, and the stock is starting to look like a bargain while sliding down a falling channel, I spotted a S3 signal right at a historical floor (Support)._
-  • **SIDEWAYS Setup** | Win: 69% | 34.14 trades | (need 15.86 trades to validate)
-    _When the market is stuck moving sideways, and the stock is entering a minor pullback while trading in a flat range, I spotted a S3 signal right at a historical floor (Support)._
-  • **STRONG_TREND_UP Setup** | Win: 59% | 34.12 trades | (need 15.880000000000003 trades to validate)
-    _When the overall market is in a powerful surge, and the stock is at normal levels while trading in a flat range, I spotted a S2 signal right at a historical floor (Support)._
-  • **SIDEWAYS Setup** | Win: 44% | 33.34 trades | (need 16.659999999999997 trades to validate)
-    _When the market is stuck moving sideways, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal._
-  • **STRONG_TREND_UP Setup** | Win: 50% | 31.07 trades | (need 18.93 trades to validate)
-    _When the overall market is in a powerful surge, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal right at a historical floor (Support)._
-  • **SIDEWAYS Setup** | Win: 48% | 30.99 trades | (need 19.01 trades to validate)
-    _When the market is stuck moving sideways, and the stock is trading at a fair price while sliding down a falling channel, I spotted a S3 signal._
-  • **STRONG_TREND_UP Setup** | Win: 53% | 29.45 trades | (need 20.55 trades to validate)
-    _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S3 signal right at a historical floor (Support)._
-  • **SIDEWAYS Setup** | Win: 59% | 29.4 trades | (need 20.6 trades to validate)
-    _When the market is stuck moving sideways, and the stock is entering a minor pullback while sliding down a falling channel, I spotted a S3 signal right at a historical floor (Support)._
+  _No patterns under active learning yet._
 
 
 ---
@@ -75,16 +58,16 @@ _Generated: 09 Nov 2026  20:19_
 ## 🎯 What I Plan to Learn Next
 > These patterns have been detected (<20 trades) but lack sufficient history to analyze. 
 
-  • _When the overall market is in a powerful surge, and the stock is trading at a fair price while climbing a steady uptrend channel, I spotted a S2 signal._
-  • _When the overall market is in a powerful surge, and the stock is trading at a fair price while trading in a flat range, I spotted a S3 signal._
-  • _When the overall market is in a powerful surge, and the stock is trading at a fair price while sliding down a falling channel, I spotted a S2 signal triggered by a 'DOJI' pattern._
-  • _When the overall market is in a powerful surge, and the stock is at normal levels while climbing a steady uptrend channel, I spotted a S2 signal right at a historical floor (Support)._
-  • _When the overall market is in a powerful surge, and the stock is starting to look like a bargain while trading in a flat range, I spotted a S4 signal._
-  • _When the overall market is in a powerful surge, and the stock becomes very cheap while sliding down a falling channel, I spotted a S4 signal._
-  • _When the overall market is in a powerful surge, and the stock is deeply oversold while sliding down a falling channel, I spotted a S4 signal triggered by a 'DOJI' pattern._
-  • _When the market is slowly but steadily climbing, and the stock becomes very cheap while sliding down a falling channel, I spotted a S3 signal._
-  • _When the market is stuck moving sideways, and the stock becomes very cheap while sliding down a falling channel, I spotted a S3 signal triggered by a 'BULLISH_ENGULFING' pattern on a sudden burst of high volume._
-  • _When the market is stuck moving sideways, and the stock becomes very cheap while sliding down a falling channel, I spotted a S3 signal._
+  • _When the market is stuck moving sideways, and the stock is deeply oversold while sliding down a falling channel, I spotted a S4 signal right at a historical floor (Support)._
+  • _When the market is slowly but steadily climbing, and the stock becomes very cheap while trading in a flat range, I spotted a S4 signal right at a historical floor (Support) on a sudden burst of high volume._
+  • _When the overall market is in a powerful surge, and the stock is starting to look like a bargain while climbing a steady uptrend channel, I spotted a S4 signal._
+  • _When the market is slowly but steadily climbing, and the stock becomes very cheap while sliding down a falling channel, I spotted a S3 signal right at a historical floor (Support)._
+  • _When the market is slowly but steadily climbing, and the stock becomes very cheap while sliding down a falling channel, I spotted a S4 signal right at a historical floor (Support)._
+  • _When the overall market is in a powerful surge, and the stock is starting to look like a bargain while sliding down a falling channel, I spotted a S4 signal right at a historical floor (Support)._
+  • _When the market is slowly but steadily climbing, and the stock becomes very cheap while sliding down a falling channel, I spotted a S4 signal on a sudden burst of high volume._
+  • _When the overall market is in a powerful surge, and the stock is starting to look like a bargain while trading in a flat range, I spotted a S4 signal right at a historical floor (Support) on a sudden burst of high volume._
+  • _When the overall market is in a powerful surge, and the stock is starting to look like a bargain while trading in a flat range, I spotted a S4 signal right at a historical floor (Support)._
+  • _When the overall market is in a powerful surge, and the stock is starting to look like a bargain while sliding down a falling channel, I spotted a S4 signal right at a historical floor (Support) on a sudden burst of high volume._
 
 
 ---

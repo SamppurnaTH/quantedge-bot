@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-13",
-  "market_regime": "SIDEWAYS",
+  "date": "2026-11-16",
+  "market_regime": "WEAK_TREND_DOWN",
   "risk_level": "MEDIUM",
-  "breadth_score": 22,
+  "breadth_score": 62,
   "volatility_state": "NORMAL",
   "sector_leaders": [
     "Agro",
     "Banking"
   ],
   "sector_laggards": [
-    "Consumer",
+    "Metals",
     "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.42,
-    "sideways": 0.31,
-    "bullish": 0.27
+    "bearish": 0.34,
+    "sideways": 0.23,
+    "bullish": 0.43
   }
 }

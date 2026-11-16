@@ -1,36 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-08-17",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 37,
-        "consensus_pct": 35,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-08-18"
-    },
-    {
-      "date": "2026-08-17",
-      "type": "WEAK_BREADTH",
-      "label": "Narrow Market Breadth",
-      "severity": "WARNING",
-      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
-      "value": {
-        "breadth": 37,
-        "consensus_pct": 35,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-08-20"
-    },
-    {
       "date": "2026-08-18",
       "type": "WEAK_BREADTH",
       "label": "Narrow Market Breadth",
@@ -1257,8 +1227,8 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-11-16"
     },
     {
       "date": "2026-11-13",
@@ -1287,9 +1257,39 @@
         "volatility": "NORMAL",
         "regime": "SIDEWAYS"
       },
+      "resolved": true,
+      "resolved_date": "2026-11-16"
+    },
+    {
+      "date": "2026-11-16",
+      "type": "CONSENSUS_SPLIT",
+      "label": "Model Consensus Split",
+      "severity": "CRITICAL",
+      "action": "Reduce active position sizing by 50% immediately.",
+      "value": {
+        "breadth": 62,
+        "consensus_pct": 43,
+        "volatility": "NORMAL",
+        "regime": "WEAK_TREND_DOWN"
+      },
+      "resolved": false,
+      "resolved_date": null
+    },
+    {
+      "date": "2026-11-16",
+      "type": "REGIME_DOWNTREND",
+      "label": "Macro Index in Downtrend",
+      "severity": "CRITICAL",
+      "action": "Long lock active \u2014 no new BUY signals until regime recovers.",
+      "value": {
+        "breadth": 62,
+        "consensus_pct": 43,
+        "volatility": "NORMAL",
+        "regime": "WEAK_TREND_DOWN"
+      },
       "resolved": false,
       "resolved_date": null
     }
   ],
-  "last_updated": "2026-11-13"
+  "last_updated": "2026-11-16"
 }

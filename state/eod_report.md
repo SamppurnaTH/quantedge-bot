@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-13 17:27_
+_Generated: 2026-11-16 10:51_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-11-13 17:27_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.61% | -0.35% | RANGE-BOUND |
-| **Bank Nifty** | -0.79% | — | — |
+| **Nifty 50** | +0.58% | +0.25% | RANGE-BOUND |
+| **Bank Nifty** | +0.89% | — | — |
 
 - **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 11 symbols  |  **Declines:** 37 symbols  |  **A/D Ratio:** 0.30
+- **Advances:** 30 symbols  |  **Declines:** 18 symbols  |  **A/D Ratio:** 1.67
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BULLISH, Market closed BEARISH (Nifty -0.61%)
-- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-DOWN (-0.35%)
+- ✓ Directional Bias: Predicted BULLISH, Market closed BULLISH (Nifty +0.58%)
+- ✗ Opening Gap: Predicted High Gap Up Probability, Actual open was GAP-UP (+0.25%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
 - Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.61%
+- Today's Actual Nifty Change: +0.58%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
 - **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 11/37 with an A/D Ratio of 0.30.
-- **Smart Money:** Unusual volume detected in GRASIM.NS.
-- **Weakness:** Breakout failures occurred in none.
+- **Breadth:** Advances/Declines stood at 30/18 with an A/D Ratio of 1.67.
+- **Smart Money:** Unusual volume detected in COALINDIA.NS, EICHERMOT.NS, ITC.NS.
+- **Weakness:** Breakout failures occurred in EICHERMOT.NS.
 
 ---
 
@@ -39,45 +39,40 @@ _Generated: 2026-11-13 17:27_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **KOTAKBANK.NS** | SELL | ₹479.50 | ₹488.55 | +1.89% | +0.00R |
-| **M&M.NS** | SELL | ₹3290.60 | ₹3333.00 | +1.29% | +0.00R |
-| **HDFCBANK.NS** | SELL | ₹798.15 | ₹804.00 | +0.73% | +0.00R |
-| **ICICIBANK.NS** | SELL | ₹1589.00 | ₹1583.60 | -0.34% | +0.00R |
-| **DRREDDY.NS** | SELL | ₹1385.00 | ₹1380.00 | -0.36% | +0.00R |
-| **TATACONSUM.NS** | SELL | ₹1083.90 | ₹1079.00 | -0.45% | +0.00R |
-| **MARUTI.NS** | SELL | ₹12928.00 | ₹12854.00 | -0.57% | +0.00R |
-| **LT.NS** | SELL | ₹4185.00 | ₹4143.80 | -0.98% | +0.00R |
-| **DIVISLAB.NS** | SELL | ₹11565.50 | ₹11442.00 | -1.07% | +0.00R |
-| **SUNPHARMA.NS** | SELL | ₹1904.50 | ₹1880.00 | -1.29% | +0.00R |
-| **ULTRACEMCO.NS** | SELL | ₹12275.00 | ₹12100.00 | -1.43% | +0.00R |
-| **TITAN.NS** | SELL | ₹5005.00 | ₹4844.90 | -3.20% | +0.00R |
+| **TATACONSUM.NS** | SELL | ₹1083.90 | ₹1117.50 | +3.10% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹479.50 | ₹494.20 | +3.07% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹798.15 | ₹816.50 | +2.30% | +0.00R |
+| **M&M.NS** | SELL | ₹3290.60 | ₹3339.00 | +1.47% | +0.00R |
+| **ULTRACEMCO.NS** | SELL | ₹12275.00 | ₹12270.00 | -0.04% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1589.00 | ₹1585.00 | -0.25% | +0.00R |
+| **DRREDDY.NS** | SELL | ₹1385.00 | ₹1377.90 | -0.51% | +0.00R |
+| **LT.NS** | SELL | ₹4185.00 | ₹4140.00 | -1.08% | +0.00R |
+| **TITAN.NS** | SELL | ₹5005.00 | ₹4910.00 | -1.90% | +0.00R |
+| **SUNPHARMA.NS** | SELL | ₹1904.50 | ₹1867.50 | -1.94% | +0.00R |
+| **MARUTI.NS** | SELL | ₹12928.00 | ₹12571.00 | -2.76% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹11565.50 | ₹11080.00 | -4.20% | +0.00R |
 
 ---
 
 ## 🔬 Section 5 — Learning Engine Update
 - **Closed Trades Processed Today:** 0
-- **Dataset Size:** 23998 historical signal evaluations analyzed.
+- **Dataset Size:** 0 historical signal evaluations analyzed.
 
 ### Archetype Expectancy Performance
 | Archetype State | Observations (n) | Decayed Win Rate | Profit Factor | Expectancy (R) | Avg Hold Period |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Panic Exhaustion** | 33 | 63.5% | 1.74 | +0.270R | 5.8 bars |
-| **Liquidity Vacuum** | 29 | 58.9% | 1.43 | +0.177R | 5.1 bars |
-| **Rotational Strength** | 23 | 56.9% | 1.32 | +0.137R | 4.6 bars |
-| **Failed Breakout** | 22 | 52.1% | 1.09 | +0.042R | 4.7 bars |
-| **Volatility Compression** | 31 | 46.4% | 0.87 | -0.072R | 5.6 bars |
-| **Forced Momentum** | 36 | 39.3% | 0.65 | -0.215R | 4.9 bars |
+
 
 ---
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Neutral to Bullish Reversal Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **27.2%** |
-| 🟡 Sideways / Range-Bound | **31.0%** |
-| 🔴 Bearish Continuation | **41.8%** |
+| 🟢 Bullish Continuation | **42.6%** |
+| 🟡 Sideways / Range-Bound | **23.5%** |
+| 🔴 Bearish Continuation | **33.9%** |

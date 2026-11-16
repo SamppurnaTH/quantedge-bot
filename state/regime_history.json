@@ -1,5 +1,6 @@
 {
   "active_regime": "WEAK_TREND_DOWN",
-  "pending_regime": "WEAK_TREND_DOWN",
-  "pending_days": 0
+  "pending_regime": "WEAK_TREND_UP",
+  "pending_days": 1,
+  "last_bar_date": "2026-11-16"
 }

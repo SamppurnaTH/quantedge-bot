@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-11-16 20:46_
+_Generated: 2026-11-17 19:31_
 
 ---
 
@@ -15,7 +15,7 @@ _Generated: 2026-11-16 20:46_
 ---
 
 ## 🚫 Section 2 — Capital Protection Alerts
-_No critical risk warnings detected for this session._
+- ⚠️ ⚠️ Extreme Volatility: VIX is 25.5 (reduce capital exposure & position sizes immediately)
 
 ---
 
@@ -33,10 +33,12 @@ _No critical risk warnings detected for this session._
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7408.97 | -2.02% | BEARISH — bearish pressure |
-| US (Nasdaq) | 24500.78 | -2.53% | BEARISH — bearish pressure |
-| VIX (Volatility) | 23.68 | +22.69% | BEARISH — volatility expansion |
-| Bond Yields (10Y) | 5.12 | -0.64% | NEUTRAL — No major impact |
+| US (S&P 500) | 7328.8 | -1.18% | BEARISH — bearish pressure |
+| US (Nasdaq) | 24245.87 | -1.08% | BEARISH — bearish pressure |
+| VIX (Volatility) | 25.53 | +11.44% | BEARISH — volatility expansion |
+| Crude Oil | 86.13 | +0.48% | NEUTRAL — No major impact |
+| Dollar Index | 103.46 | -0.09% | BEARISH — pressure on emerging markets |
+| Bond Yields (10Y) | 5.11 | -0.27% | NEUTRAL — No major impact |
 
 ---
 
@@ -52,14 +54,14 @@ _No critical risk warnings detected for this session._
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Agro | +6.25% | STRONG |
-| Banking | +4.6% | STRONG |
-| NBFC | +4.53% | STRONG |
-| Pharma | +3.52% | STRONG |
-| Telecom | +2.39% | STRONG |
-| Auto | +1.17% | STRONG |
-| Metals | +0.87% | STRONG |
-| Energy/Infra | +0.44% | NEUTRAL |
-| FMCG | -0.08% | NEUTRAL |
-| Consumer | -1.49% | WEAK |
-| IT | -2.91% | WEAK |
+| Agro | +5.34% | STRONG |
+| Banking | +2.74% | STRONG |
+| NBFC | +2.64% | STRONG |
+| Telecom | +2.2% | STRONG |
+| Pharma | +2.16% | STRONG |
+| FMCG | +1.73% | STRONG |
+| Energy/Infra | -0.73% | WEAK |
+| Auto | -1.01% | WEAK |
+| Consumer | -1.65% | WEAK |
+| Metals | -2.5% | WEAK |
+| IT | -3.18% | WEAK |

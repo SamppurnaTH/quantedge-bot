@@ -1,20 +1,20 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "market_regime": "WEAK_TREND_UP",
-  "risk_level": "HIGH",
-  "breadth_score": 31,
-  "volatility_state": "HIGH_VOLATILITY",
+  "risk_level": "MEDIUM",
+  "breadth_score": 83,
+  "volatility_state": "NORMAL",
   "sector_leaders": [
-    "Banking",
-    "Telecom"
+    "FMCG",
+    "Auto"
   ],
   "sector_laggards": [
-    "IT",
-    "Metals"
+    "Metals",
+    "IT"
   ],
   "tomorrow_outlook": {
-    "bearish": 0.43,
-    "sideways": 0.26,
-    "bullish": 0.3
+    "bearish": 0.2,
+    "sideways": 0.23,
+    "bullish": 0.57
   }
 }

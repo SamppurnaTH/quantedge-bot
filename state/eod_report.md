@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-18 11:23_
+_Generated: 2026-11-19 11:21_
 
 ---
 
@@ -7,30 +7,30 @@ _Generated: 2026-11-18 11:23_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | -0.63% | -0.25% | RANGE-BOUND |
-| **Bank Nifty** | -0.38% | — | — |
+| **Nifty 50** | +1.14% | -0.16% | STRONG CLOSE |
+| **Bank Nifty** | +1.65% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 15 symbols  |  **Declines:** 33 symbols  |  **A/D Ratio:** 0.45
+- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
+- **Advances:** 40 symbols  |  **Declines:** 8 symbols  |  **A/D Ratio:** 5.00
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -0.63%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.25%)
+- ✗ Directional Bias: Predicted WEAK BEARISH, Market closed BULLISH (Nifty +1.14%)
+- ✗ Opening Gap: Predicted Mild Gap Down / Flat, Actual open was GAP-DOWN (-0.16%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
-- Today's Actual Nifty Change: -0.63%
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
+- Today's Actual Nifty Change: +1.14%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 15/33 with an A/D Ratio of 0.45.
-- **Smart Money:** Unusual volume detected in SBIN.NS.
+- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
+- **Breadth:** Advances/Declines stood at 40/8 with an A/D Ratio of 5.00.
+- **Smart Money:** Unusual volume detected in HEROMOTOCO.NS, MARUTI.NS.
 - **Weakness:** Breakout failures occurred in none.
 
 ---
@@ -39,16 +39,20 @@ _Generated: 2026-11-18 11:23_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **SBIN.NS** | SELL | ₹1090.50 | ₹1135.00 | +4.08% | +0.00R |
-| **DRREDDY.NS** | SELL | ₹1377.90 | ₹1398.20 | +1.47% | +0.00R |
-| **RELIANCE.NS** | SELL | ₹1344.80 | ₹1363.00 | +1.35% | +0.00R |
-| **TATACONSUM.NS** | SELL | ₹1117.50 | ₹1130.90 | +1.20% | +0.00R |
-| **ICICIBANK.NS** | SELL | ₹1585.00 | ₹1601.30 | +1.03% | +0.00R |
-| **ITC.NS** | SELL | ₹295.10 | ₹296.60 | +0.51% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹494.20 | ₹494.85 | +0.13% | +0.00R |
-| **BHARTIARTL.NS** | SELL | ₹2153.50 | ₹2132.00 | -1.00% | +0.00R |
-| **HDFCBANK.NS** | SELL | ₹816.50 | ₹808.15 | -1.02% | +0.00R |
-| **HDFCLIFE.NS** | SELL | ₹604.50 | ₹575.50 | -4.80% | +0.00R |
+| **SBIN.NS** | SELL | ₹1108.60 | ₹1156.00 | +4.28% | +0.00R |
+| **M&M.NS** | SELL | ₹3399.00 | ₹3509.00 | +3.24% | +0.00R |
+| **TATACONSUM.NS** | SELL | ₹1112.40 | ₹1144.00 | +2.84% | +0.00R |
+| **ITC.NS** | SELL | ₹293.30 | ₹301.00 | +2.63% | +0.00R |
+| **LT.NS** | SELL | ₹4155.50 | ₹4211.00 | +1.34% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹497.25 | ₹503.00 | +1.16% | +0.00R |
+| **DRREDDY.NS** | SELL | ₹1388.00 | ₹1400.90 | +0.93% | +0.00R |
+| **AXISBANK.NS** | SELL | ₹1369.00 | ₹1380.80 | +0.86% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹814.95 | ₹821.80 | +0.84% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1598.70 | ₹1608.90 | +0.64% | +0.00R |
+| **RELIANCE.NS** | SELL | ₹1367.00 | ₹1375.60 | +0.63% | +0.00R |
+| **BHARTIARTL.NS** | SELL | ₹2138.30 | ₹2144.00 | +0.27% | +0.00R |
+| **ASIANPAINT.NS** | SELL | ₹2625.00 | ₹2595.00 | -1.14% | +0.00R |
+| **BAJFINANCE.NS** | SELL | ₹1121.10 | ₹1092.85 | -2.52% | +0.00R |
 
 ---
 
@@ -66,12 +70,12 @@ _Generated: 2026-11-18 11:23_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Bearish to Neutral Distribution Bias**
+> **Bullish Continuation Likelihood Elevated**
 
-*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
+*Technical metrics indicate positive upward momentum has a high probability of follow-through, though opening prints remain subject to global indices.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **30.4%** |
-| 🟡 Sideways / Range-Bound | **26.5%** |
-| 🔴 Bearish Continuation | **43.1%** |
+| 🟢 Bullish Continuation | **56.8%** |
+| 🟡 Sideways / Range-Bound | **23.2%** |
+| 🔴 Bearish Continuation | **20.0%** |

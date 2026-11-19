@@ -1,20 +1,5 @@
 [
   {
-    "date": "2026-07-02",
-    "forecast": "Range-Bound Consolidation Likelihood Elevated",
-    "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
-    "probs": {
-      "BULLISH": 39.5,
-      "RANGE": 33.2,
-      "BEARISH": 27.3
-    },
-    "actual_change": 0.76,
-    "result": "FAILED",
-    "gap_match": false,
-    "breadth_match": false,
-    "scored_at": "2026-07-03 06:36"
-  },
-  {
     "date": "2026-07-03",
     "forecast": "Range-Bound Consolidation Likelihood Elevated",
     "narrative": "Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.",
@@ -1492,6 +1477,21 @@
       "BULLISH": 30.4,
       "RANGE": 26.5,
       "BEARISH": 43.1
+    },
+    "actual_change": 1.14,
+    "result": "FAILED",
+    "gap_match": false,
+    "breadth_match": false,
+    "scored_at": "2026-11-19 11:21"
+  },
+  {
+    "date": "2026-11-19",
+    "forecast": "Bullish Continuation Likelihood Elevated",
+    "narrative": "Technical metrics indicate positive upward momentum has a high probability of follow-through, though opening prints remain subject to global indices.",
+    "probs": {
+      "BULLISH": 56.8,
+      "RANGE": 23.2,
+      "BEARISH": 20.0
     }
   }
 ]

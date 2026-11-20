@@ -1,21 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-08-21",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 47,
-        "consensus_pct": 35,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-08-25"
-    },
-    {
       "date": "2026-08-24",
       "type": "CONSENSUS_SPLIT",
       "label": "Model Consensus Split",
@@ -1319,7 +1304,22 @@
       },
       "resolved": true,
       "resolved_date": "2026-11-19"
+    },
+    {
+      "date": "2026-11-20",
+      "type": "HIGH_VOLATILITY",
+      "label": "Volatility Expansion Detected",
+      "severity": "WARNING",
+      "action": "Tighten hard stops on open positions; expect gap risk.",
+      "value": {
+        "breadth": 68,
+        "consensus_pct": 54,
+        "volatility": "HIGH_VOLATILITY",
+        "regime": "WEAK_TREND_UP"
+      },
+      "resolved": false,
+      "resolved_date": null
     }
   ],
-  "last_updated": "2026-11-19"
+  "last_updated": "2026-11-20"
 }

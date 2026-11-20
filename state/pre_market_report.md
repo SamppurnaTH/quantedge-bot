@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-11-19 19:17_
+_Generated: 2026-11-20 18:56_
 
 ---
 
@@ -15,7 +15,7 @@ _Generated: 2026-11-19 19:17_
 ---
 
 ## 🚫 Section 2 — Capital Protection Alerts
-- ⚠️ ⚠️ Extreme Volatility: VIX is 27.5 (reduce capital exposure & position sizes immediately)
+- ⚠️ ⚠️ Extreme Volatility: VIX is 31.5 (reduce capital exposure & position sizes immediately)
 
 ---
 
@@ -33,12 +33,12 @@ _Generated: 2026-11-19 19:17_
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7205.08 | -1.62% | BEARISH — bearish pressure |
-| US (Nasdaq) | 24009.88 | -1.72% | BEARISH — bearish pressure |
-| VIX (Volatility) | 27.5 | +11.97% | BEARISH — volatility expansion |
-| Crude Oil | 83.05 | -0.25% | NEUTRAL — No major impact |
-| Dollar Index | 103.89 | +0.03% | BEARISH — pressure on emerging markets |
-| Bond Yields (10Y) | 5.05 | -0.24% | NEUTRAL — No major impact |
+| US (S&P 500) | 7047.45 | -1.79% | BEARISH — bearish pressure |
+| US (Nasdaq) | 23144.83 | -3.08% | BEARISH — bearish pressure |
+| VIX (Volatility) | 31.46 | +10.62% | BEARISH — volatility expansion |
+| Crude Oil | 82.98 | -0.28% | NEUTRAL — No major impact |
+| Dollar Index | 103.88 | -0.02% | BEARISH — pressure on emerging markets |
+| Bond Yields (10Y) | 4.95 | -2.1% | NEUTRAL — No major impact |
 
 ---
 
@@ -54,14 +54,14 @@ _Generated: 2026-11-19 19:17_
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Banking | +2.26% | STRONG |
-| Telecom | +1.09% | STRONG |
-| NBFC | +0.88% | STRONG |
-| FMCG | +0.7% | STRONG |
-| Pharma | -0.11% | NEUTRAL |
-| Agro | -0.49% | NEUTRAL |
-| Energy/Infra | -1.41% | WEAK |
-| Consumer | -1.94% | WEAK |
-| Auto | -2.36% | WEAK |
-| IT | -4.0% | WEAK |
-| Metals | -4.89% | WEAK |
+| FMCG | +4.26% | STRONG |
+| Auto | +3.43% | STRONG |
+| Agro | +2.49% | STRONG |
+| Telecom | +2.29% | STRONG |
+| Banking | +2.22% | STRONG |
+| Pharma | +0.5% | NEUTRAL |
+| Energy/Infra | +0.02% | NEUTRAL |
+| Consumer | -0.13% | NEUTRAL |
+| NBFC | -1.6% | WEAK |
+| Metals | -3.51% | WEAK |
+| IT | -4.37% | WEAK |

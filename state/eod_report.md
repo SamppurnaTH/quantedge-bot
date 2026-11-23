@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-20 11:09_
+_Generated: 2026-11-23 12:03_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-11-20 11:09_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.12% | -0.57% | STRONG CLOSE |
-| **Bank Nifty** | +2.49% | — | — |
+| **Nifty 50** | -1.75% | +0.50% | WEAK CLOSE |
+| **Bank Nifty** | -3.17% | — | — |
 
-- **Structural Summary:** *Institutional buying likely continued aggressively into the market close.*
-- **Advances:** 33 symbols  |  **Declines:** 15 symbols  |  **A/D Ratio:** 2.20
+- **Structural Summary:** *Heavy institutional distribution occurred, pulling the index to daily lows.*
+- **Advances:** 11 symbols  |  **Declines:** 37 symbols  |  **A/D Ratio:** 0.30
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +1.12%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.57%)
+- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -1.75%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.50%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bullish Continuation Likelihood Elevated*
-- Today's Actual Nifty Change: +1.12%
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: -1.75%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a STRONG CLOSE. Institutional buying likely continued aggressively into the market close.
-- **Breadth:** Advances/Declines stood at 33/15 with an A/D Ratio of 2.20.
-- **Smart Money:** Unusual volume detected in APOLLOHOSP.NS, AXISBANK.NS, INDUSINDBK.NS, MARUTI.NS.
-- **Weakness:** Breakout failures occurred in BAJAJ-AUTO.NS.
+- **Price Action:** Market closed with a WEAK CLOSE. Heavy institutional distribution occurred, pulling the index to daily lows.
+- **Breadth:** Advances/Declines stood at 11/37 with an A/D Ratio of 0.30.
+- **Smart Money:** Unusual volume detected in TATASTEEL.NS, TCS.NS.
+- **Weakness:** Breakout failures occurred in MARUTI.NS.
 
 ---
 
@@ -39,15 +39,21 @@ _Generated: 2026-11-20 11:09_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **HDFCBANK.NS** | SELL | ₹808.15 | ₹846.00 | +4.68% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹494.85 | ₹515.80 | +4.23% | +0.00R |
-| **SBIN.NS** | SELL | ₹1135.00 | ₹1165.10 | +2.65% | +0.00R |
-| **ICICIBANK.NS** | SELL | ₹1601.30 | ₹1640.00 | +2.42% | +0.00R |
-| **TATACONSUM.NS** | SELL | ₹1130.90 | ₹1155.90 | +2.21% | +0.00R |
-| **LT.NS** | SELL | ₹4159.00 | ₹4209.10 | +1.20% | +0.00R |
-| **RELIANCE.NS** | SELL | ₹1363.00 | ₹1377.50 | +1.06% | +0.00R |
-| **ITC.NS** | SELL | ₹296.60 | ₹299.10 | +0.84% | +0.00R |
-| **DRREDDY.NS** | SELL | ₹1398.20 | ₹1390.20 | -0.57% | +0.00R |
+| **MARUTI.NS** | SELL | ₹13589.00 | ₹14010.00 | +3.10% | +0.00R |
+| **ULTRACEMCO.NS** | SELL | ₹12560.00 | ₹12650.00 | +0.72% | +0.00R |
+| **AXISBANK.NS** | SELL | ₹1380.80 | ₹1388.60 | +0.56% | +0.00R |
+| **ITC.NS** | SELL | ₹301.00 | ₹301.00 | +0.00% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹503.00 | ₹502.85 | -0.03% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹821.80 | ₹817.80 | -0.49% | +0.00R |
+| **M&M.NS** | SELL | ₹3509.00 | ₹3487.40 | -0.62% | +0.00R |
+| **BHARTIARTL.NS** | SELL | ₹2144.00 | ₹2128.50 | -0.72% | +0.00R |
+| **TATACONSUM.NS** | SELL | ₹1144.00 | ₹1133.00 | -0.96% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1608.90 | ₹1585.50 | -1.45% | +0.00R |
+| **DRREDDY.NS** | SELL | ₹1400.90 | ₹1380.10 | -1.48% | +0.00R |
+| **RELIANCE.NS** | SELL | ₹1375.60 | ₹1351.00 | -1.79% | +0.00R |
+| **SBIN.NS** | SELL | ₹1156.00 | ₹1132.65 | -2.02% | +0.00R |
+| **LT.NS** | SELL | ₹4211.00 | ₹4099.90 | -2.64% | +0.00R |
+| **HINDUNILVR.NS** | SELL | ₹2074.20 | ₹2019.10 | -2.66% | +0.00R |
 
 ---
 
@@ -65,12 +71,12 @@ _Generated: 2026-11-20 11:09_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Bearish to Neutral Distribution Bias**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **53.9%** |
+| 🟢 Bullish Continuation | **26.0%** |
 | 🟡 Sideways / Range-Bound | **23.2%** |
-| 🔴 Bearish Continuation | **22.9%** |
+| 🔴 Bearish Continuation | **50.8%** |

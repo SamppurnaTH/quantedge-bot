@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-23 12:03_
+_Generated: 2026-11-24 13:27_
 
 ---
 
@@ -17,11 +17,11 @@ _Generated: 2026-11-23 12:03_
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -1.75%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.50%)
+- ✓ Directional Bias: Predicted WEAK BEARISH, Market closed BEARISH (Nifty -1.75%)
+- ✗ Opening Gap: Predicted Mild Gap Down / Flat, Actual open was GAP-UP (+0.50%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
 - Today's Actual Nifty Change: -1.75%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
@@ -39,21 +39,21 @@ _Generated: 2026-11-23 12:03_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **MARUTI.NS** | SELL | ₹13589.00 | ₹14010.00 | +3.10% | +0.00R |
-| **ULTRACEMCO.NS** | SELL | ₹12560.00 | ₹12650.00 | +0.72% | +0.00R |
-| **AXISBANK.NS** | SELL | ₹1380.80 | ₹1388.60 | +0.56% | +0.00R |
-| **ITC.NS** | SELL | ₹301.00 | ₹301.00 | +0.00% | +0.00R |
-| **KOTAKBANK.NS** | SELL | ₹503.00 | ₹502.85 | -0.03% | +0.00R |
-| **HDFCBANK.NS** | SELL | ₹821.80 | ₹817.80 | -0.49% | +0.00R |
-| **M&M.NS** | SELL | ₹3509.00 | ₹3487.40 | -0.62% | +0.00R |
-| **BHARTIARTL.NS** | SELL | ₹2144.00 | ₹2128.50 | -0.72% | +0.00R |
-| **TATACONSUM.NS** | SELL | ₹1144.00 | ₹1133.00 | -0.96% | +0.00R |
-| **ICICIBANK.NS** | SELL | ₹1608.90 | ₹1585.50 | -1.45% | +0.00R |
-| **DRREDDY.NS** | SELL | ₹1400.90 | ₹1380.10 | -1.48% | +0.00R |
-| **RELIANCE.NS** | SELL | ₹1375.60 | ₹1351.00 | -1.79% | +0.00R |
-| **SBIN.NS** | SELL | ₹1156.00 | ₹1132.65 | -2.02% | +0.00R |
-| **LT.NS** | SELL | ₹4211.00 | ₹4099.90 | -2.64% | +0.00R |
-| **HINDUNILVR.NS** | SELL | ₹2074.20 | ₹2019.10 | -2.66% | +0.00R |
+| **EICHERMOT.NS** | SELL | ₹8113.00 | ₹8172.50 | +0.73% | +0.00R |
+| **ITC.NS** | SELL | ₹299.10 | ₹301.00 | +0.64% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹9200.00 | ₹9257.00 | +0.62% | +0.00R |
+| **MARUTI.NS** | SELL | ₹14011.00 | ₹14010.00 | -0.01% | +0.00R |
+| **BHARTIARTL.NS** | SELL | ₹2161.70 | ₹2128.50 | -1.54% | +0.00R |
+| **M&M.NS** | SELL | ₹3545.00 | ₹3487.40 | -1.62% | +0.00R |
+| **RELIANCE.NS** | SELL | ₹1377.50 | ₹1351.00 | -1.92% | +0.00R |
+| **TATACONSUM.NS** | SELL | ₹1155.90 | ₹1133.00 | -1.98% | +0.00R |
+| **ULTRACEMCO.NS** | SELL | ₹12939.00 | ₹12650.00 | -2.23% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹515.80 | ₹502.85 | -2.51% | +0.00R |
+| **LT.NS** | SELL | ₹4209.10 | ₹4099.90 | -2.59% | +0.00R |
+| **SBIN.NS** | SELL | ₹1165.10 | ₹1132.65 | -2.79% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1640.00 | ₹1585.50 | -3.32% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹846.00 | ₹817.80 | -3.33% | +0.00R |
+| **AXISBANK.NS** | SELL | ₹1446.00 | ₹1388.60 | -3.97% | +0.00R |
 
 ---
 

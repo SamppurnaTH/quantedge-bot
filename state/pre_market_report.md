@@ -1,5 +1,5 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-11-24 20:57_
+_Generated: 2026-11-25 20:20_
 
 ---
 
@@ -15,7 +15,7 @@ _Generated: 2026-11-24 20:57_
 ---
 
 ## 🚫 Section 2 — Capital Protection Alerts
-- ⚠️ ⚠️ Extreme Volatility: VIX is 27.0 (reduce capital exposure & position sizes immediately)
+- ⚠️ ⚠️ Extreme Volatility: VIX is 27.8 (reduce capital exposure & position sizes immediately)
 
 ---
 
@@ -33,12 +33,12 @@ _Generated: 2026-11-24 20:57_
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7201.78 | -0.49% | NEUTRAL — No major impact |
-| US (Nasdaq) | 23740.76 | -1.45% | BEARISH — bearish pressure |
-| VIX (Volatility) | 26.96 | +1.28% | BEARISH — volatility expansion |
-| Crude Oil | 81.39 | +1.52% | NEUTRAL — No major impact |
-| Dollar Index | 103.82 | -0.48% | BEARISH — pressure on emerging markets |
-| Bond Yields (10Y) | 4.9 | -0.28% | NEUTRAL — No major impact |
+| US (S&P 500) | 7175.95 | -0.35% | NEUTRAL — No major impact |
+| US (Nasdaq) | 23533.97 | -0.84% | BEARISH — bearish pressure |
+| VIX (Volatility) | 27.79 | +5.42% | BEARISH — volatility expansion |
+| Crude Oil | 83.85 | +2.19% | BEARISH — crude oil surge / inflation risk |
+| Dollar Index | 103.67 | -0.14% | BEARISH — pressure on emerging markets |
+| Bond Yields (10Y) | 4.85 | -1.14% | NEUTRAL — No major impact |
 
 ---
 

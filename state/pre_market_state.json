@@ -1,52 +1,52 @@
 {
   "cycle": "PRE-MARKET",
-  "timestamp": "2026-11-24 20:57",
+  "timestamp": "2026-11-25 20:20",
   "global_snapshot": [
     {
       "name": "US (S&P 500)",
       "ticker": "^GSPC",
-      "value": 7201.78,
-      "change": -0.49,
+      "value": 7175.95,
+      "change": -0.35,
       "impact": "NEUTRAL",
       "impact_text": "No major impact"
     },
     {
       "name": "US (Nasdaq)",
       "ticker": "^IXIC",
-      "value": 23740.76,
-      "change": -1.45,
+      "value": 23533.97,
+      "change": -0.84,
       "impact": "BEARISH",
       "impact_text": "bearish pressure"
     },
     {
       "name": "VIX (Volatility)",
       "ticker": "^VIX",
-      "value": 26.96,
-      "change": 1.28,
+      "value": 27.79,
+      "change": 5.42,
       "impact": "BEARISH",
       "impact_text": "volatility expansion"
     },
     {
       "name": "Crude Oil",
       "ticker": "CL=F",
-      "value": 81.39,
-      "change": 1.52,
-      "impact": "NEUTRAL",
-      "impact_text": "No major impact"
+      "value": 83.85,
+      "change": 2.19,
+      "impact": "BEARISH",
+      "impact_text": "crude oil surge / inflation risk"
     },
     {
       "name": "Dollar Index",
       "ticker": "DX-Y.NYB",
-      "value": 103.82,
-      "change": -0.48,
+      "value": 103.67,
+      "change": -0.14,
       "impact": "BEARISH",
       "impact_text": "pressure on emerging markets"
     },
     {
       "name": "Bond Yields (10Y)",
       "ticker": "^TNX",
-      "value": 4.9,
-      "change": -0.28,
+      "value": 4.85,
+      "change": -1.14,
       "impact": "NEUTRAL",
       "impact_text": "No major impact"
     }
@@ -3929,6 +3929,6 @@
     }
   ],
   "warnings": [
-    "\u26a0\ufe0f Extreme Volatility: VIX is 27.0 (reduce capital exposure & position sizes immediately)"
+    "\u26a0\ufe0f Extreme Volatility: VIX is 27.8 (reduce capital exposure & position sizes immediately)"
   ]
 }

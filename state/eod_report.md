@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-25 12:24_
+_Generated: 2026-11-26 12:06_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-11-25 12:24_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +1.85% | +1.22% | RANGE-BOUND |
-| **Bank Nifty** | +1.79% | — | — |
+| **Nifty 50** | +0.25% | +0.21% | ACCUMULATION |
+| **Bank Nifty** | -0.26% | — | — |
 
-- **Structural Summary:** *Price trading in a narrow range.*
-- **Advances:** 41 symbols  |  **Declines:** 7 symbols  |  **A/D Ratio:** 5.86
+- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
+- **Advances:** 22 symbols  |  **Declines:** 26 symbols  |  **A/D Ratio:** 0.85
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +1.85%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+1.22%)
+- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.25%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.21%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Bearish to Neutral Distribution Bias*
-- Today's Actual Nifty Change: +1.85%
+- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
+- Today's Actual Nifty Change: +0.25%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
-- **Breadth:** Advances/Declines stood at 41/7 with an A/D Ratio of 5.86.
-- **Smart Money:** Unusual volume detected in BAJAJFINSV.NS, HDFCLIFE.NS, HINDUNILVR.NS, TATASTEEL.NS.
-- **Weakness:** Breakout failures occurred in ADANIENT.NS.
+- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
+- **Breadth:** Advances/Declines stood at 22/26 with an A/D Ratio of 0.85.
+- **Smart Money:** Unusual volume detected in BRITANNIA.NS.
+- **Weakness:** Breakout failures occurred in HINDUNILVR.NS.
 
 ---
 
@@ -39,11 +39,11 @@ _Generated: 2026-11-25 12:24_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ITC.NS** | SELL | ₹301.00 | ₹309.25 | +2.74% | +0.00R |
-| **EICHERMOT.NS** | SELL | ₹8172.50 | ₹8336.00 | +2.00% | +0.00R |
-| **MARUTI.NS** | SELL | ₹14010.00 | ₹14200.00 | +1.36% | +0.00R |
-| **SBIN.NS** | SELL | ₹1132.65 | ₹1138.15 | +0.49% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹9257.00 | ₹9300.00 | +0.46% | +0.00R |
+| **ITC.NS** | SELL | ₹301.00 | ₹307.00 | +1.99% | +0.00R |
+| **SBIN.NS** | SELL | ₹1132.65 | ₹1136.65 | +0.35% | +0.00R |
+| **EICHERMOT.NS** | SELL | ₹8172.50 | ₹8180.00 | +0.09% | +0.00R |
+| **MARUTI.NS** | SELL | ₹14010.00 | ₹14015.00 | +0.04% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹9257.00 | ₹9222.50 | -0.37% | +0.00R |
 
 ---
 
@@ -61,12 +61,12 @@ _Generated: 2026-11-25 12:24_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Neutral to Bullish Reversal Bias**
+> **Range-Bound Consolidation Likelihood Elevated**
 
-*Subtle buyer absorption suggests a mild upward bias, though overall directional commitment is relatively low.*
+*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **44.5%** |
+| 🟢 Bullish Continuation | **36.6%** |
 | 🟡 Sideways / Range-Bound | **28.0%** |
-| 🔴 Bearish Continuation | **27.6%** |
+| 🔴 Bearish Continuation | **35.5%** |

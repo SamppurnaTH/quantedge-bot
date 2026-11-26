@@ -1,12 +1,12 @@
 # 🌅 QuantEdge Intelligence Cockpit — Pre-Market Briefing
-_Generated: 2026-11-25 20:20_
+_Generated: 2026-11-26 19:56_
 
 ---
 
 ## 🌍 Section 1 — Market Opening Status
 | Metric | Value |
 | :--- | :--- |
-| **Index Regime** | 📈 WEAK_TREND_UP  (Weak uptrend — score ≥ 3, half size) |
+| **Index Regime** | 🚀 STRONG_TREND_UP  (Strong uptrend — score ≥ 2, full size) |
 | **Risk Level** | HIGH |
 | **Opening Bias** | BEARISH (100% confidence) |
 | **Gap Outlook** | High Gap Down Probability |
@@ -15,7 +15,7 @@ _Generated: 2026-11-25 20:20_
 ---
 
 ## 🚫 Section 2 — Capital Protection Alerts
-- ⚠️ ⚠️ Extreme Volatility: VIX is 27.8 (reduce capital exposure & position sizes immediately)
+- ⚠️ ⚠️ Extreme Volatility: VIX is 26.8 (reduce capital exposure & position sizes immediately)
 
 ---
 
@@ -33,35 +33,35 @@ _Generated: 2026-11-25 20:20_
 ## 📊 Section 5 — Market Internals (Global Snapshot)
 | Asset | Value | Change | Impact |
 | :--- | :--- | :--- | :--- |
-| US (S&P 500) | 7175.95 | -0.35% | NEUTRAL — No major impact |
-| US (Nasdaq) | 23533.97 | -0.84% | BEARISH — bearish pressure |
-| VIX (Volatility) | 27.79 | +5.42% | BEARISH — volatility expansion |
-| Crude Oil | 83.85 | +2.19% | BEARISH — crude oil surge / inflation risk |
-| Dollar Index | 103.67 | -0.14% | BEARISH — pressure on emerging markets |
+| US (S&P 500) | 7182.78 | -0.25% | NEUTRAL — No major impact |
+| US (Nasdaq) | 23585.8 | -0.62% | BEARISH — bearish pressure |
+| VIX (Volatility) | 26.8 | -5.27% | BEARISH — volatility expansion |
+| Crude Oil | 84.91 | +1.47% | NEUTRAL — No major impact |
+| Dollar Index | 103.78 | +0.1% | BEARISH — pressure on emerging markets |
 | Bond Yields (10Y) | 4.85 | -1.14% | NEUTRAL — No major impact |
 
 ---
 
 ## 🚦 Section 6 — Today's Execution Mode
-- **Mode:** ⚠️ REDUCED EXPOSURE — HALF SIZE (×0.5)
-- **Operational Guideline:** High-uncertainty or range-bound environment — sizing throttled by 50% to prevent churn.
-- **Minimum Signal Quality Score:** 3/3
+- **Mode:** 🚀 FULL EXPOSURE (×1.0 size)
+- **Operational Guideline:** Optimal trending environment — capital sizing is maximised for standard portfolio weights.
+- **Minimum Signal Quality Score:** 2/3
 - **Stop Loss Width:** 2.0× ATR
-- **Position Size:** 50% of standard weight
+- **Position Size:** 100% of standard weight
 
 ---
 
 ## ⚡ Sector Strength Rankings
 | Sector | 5D Avg Return | Status |
 | :--- | :--- | :--- |
-| Auto | +5.17% | STRONG |
-| Banking | +2.42% | STRONG |
-| Pharma | +1.36% | STRONG |
-| FMCG | +1.33% | STRONG |
-| Consumer | -0.4% | NEUTRAL |
-| Energy/Infra | -0.55% | WEAK |
-| Agro | -1.02% | WEAK |
-| Telecom | -1.16% | WEAK |
-| IT | -1.2% | WEAK |
-| NBFC | -1.43% | WEAK |
-| Metals | -4.91% | WEAK |
+| FMCG | +6.31% | STRONG |
+| Auto | +6.21% | STRONG |
+| Pharma | +3.49% | STRONG |
+| Banking | +3.27% | STRONG |
+| IT | +1.63% | STRONG |
+| NBFC | +1.34% | STRONG |
+| Consumer | +0.75% | STRONG |
+| Agro | +0.5% | NEUTRAL |
+| Energy/Infra | -0.06% | NEUTRAL |
+| Telecom | -0.97% | WEAK |
+| Metals | -6.18% | WEAK |

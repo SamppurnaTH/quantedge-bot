@@ -1,21 +1,6 @@
 {
   "alerts": [
     {
-      "date": "2026-08-28",
-      "type": "CONSENSUS_SPLIT",
-      "label": "Model Consensus Split",
-      "severity": "CRITICAL",
-      "action": "Reduce active position sizing by 50% immediately.",
-      "value": {
-        "breadth": 60,
-        "consensus_pct": 37,
-        "volatility": "NORMAL",
-        "regime": "SIDEWAYS"
-      },
-      "resolved": true,
-      "resolved_date": "2026-09-03"
-    },
-    {
       "date": "2026-08-31",
       "type": "WEAK_BREADTH",
       "label": "Narrow Market Breadth",
@@ -1347,8 +1332,8 @@
         "volatility": "HIGH_VOLATILITY",
         "regime": "WEAK_TREND_UP"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-11-27"
     },
     {
       "date": "2026-11-26",
@@ -1362,8 +1347,8 @@
         "volatility": "HIGH_VOLATILITY",
         "regime": "WEAK_TREND_UP"
       },
-      "resolved": false,
-      "resolved_date": null
+      "resolved": true,
+      "resolved_date": "2026-11-27"
     },
     {
       "date": "2026-11-26",
@@ -1379,7 +1364,37 @@
       },
       "resolved": false,
       "resolved_date": null
+    },
+    {
+      "date": "2026-11-27",
+      "type": "HIGH_VOLATILITY",
+      "label": "Volatility Expansion Detected",
+      "severity": "WARNING",
+      "action": "Tighten hard stops on open positions; expect gap risk.",
+      "value": {
+        "breadth": 16,
+        "consensus_pct": 45,
+        "volatility": "HIGH_VOLATILITY",
+        "regime": "STRONG_TREND_UP"
+      },
+      "resolved": false,
+      "resolved_date": null
+    },
+    {
+      "date": "2026-11-27",
+      "type": "WEAK_BREADTH",
+      "label": "Narrow Market Breadth",
+      "severity": "WARNING",
+      "action": "Avoid index-momentum longs; focus on defensive leaders only.",
+      "value": {
+        "breadth": 16,
+        "consensus_pct": 45,
+        "volatility": "HIGH_VOLATILITY",
+        "regime": "STRONG_TREND_UP"
+      },
+      "resolved": false,
+      "resolved_date": null
     }
   ],
-  "last_updated": "2026-11-26"
+  "last_updated": "2026-11-27"
 }

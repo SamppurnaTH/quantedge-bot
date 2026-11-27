@@ -1,5 +1,5 @@
 # 🌇 QuantEdge Intelligence Audit — End-of-Day Analysis
-_Generated: 2026-11-26 12:06_
+_Generated: 2026-11-27 11:56_
 
 ---
 
@@ -7,31 +7,31 @@ _Generated: 2026-11-26 12:06_
 
 | Index | Session Change | Opening Gap | Structure |
 | :--- | :--- | :--- | :--- |
-| **Nifty 50** | +0.25% | +0.21% | ACCUMULATION |
-| **Bank Nifty** | -0.26% | — | — |
+| **Nifty 50** | -1.07% | -0.17% | RANGE-BOUND |
+| **Bank Nifty** | -0.78% | — | — |
 
-- **Structural Summary:** *Strong intra-day rebound; buyers absorbed panic selling at lows.*
-- **Advances:** 22 symbols  |  **Declines:** 26 symbols  |  **A/D Ratio:** 0.85
+- **Structural Summary:** *Price trading in a narrow range.*
+- **Advances:** 8 symbols  |  **Declines:** 40 symbols  |  **A/D Ratio:** 0.20
 
 ---
 
 ## 🎯 Section 2 — Pre-Market Prediction Audit
 
-- ✗ Directional Bias: Predicted BEARISH, Market closed BULLISH (Nifty +0.25%)
-- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-UP (+0.21%)
+- ✓ Directional Bias: Predicted BEARISH, Market closed BEARISH (Nifty -1.07%)
+- ✗ Opening Gap: Predicted High Gap Down Probability, Actual open was GAP-DOWN (-0.17%)
 
 **Yesterday's EOD Prediction Score:** ❌ FAILED
-- Yesterday's Forecast: *Neutral to Bullish Reversal Bias*
-- Today's Actual Nifty Change: +0.25%
+- Yesterday's Forecast: *Range-Bound Consolidation Likelihood Elevated*
+- Today's Actual Nifty Change: -1.07%
 - **Cumulative Model Accuracy: 0.0%** (0/100 scored predictions)
 
 ---
 
 ## 🧠 Section 3 — What the Market Actually Did
-- **Price Action:** Market closed with a ACCUMULATION. Strong intra-day rebound; buyers absorbed panic selling at lows.
-- **Breadth:** Advances/Declines stood at 22/26 with an A/D Ratio of 0.85.
-- **Smart Money:** Unusual volume detected in BRITANNIA.NS.
-- **Weakness:** Breakout failures occurred in HINDUNILVR.NS.
+- **Price Action:** Market closed with a RANGE-BOUND. Price trading in a narrow range.
+- **Breadth:** Advances/Declines stood at 8/40 with an A/D Ratio of 0.20.
+- **Smart Money:** Unusual volume detected in ADANIPORTS.NS.
+- **Weakness:** Breakout failures occurred in none.
 
 ---
 
@@ -39,11 +39,17 @@ _Generated: 2026-11-26 12:06_
 
 | Symbol | Signal | Morning Close | EOD Close | Change % | R-Multiple |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ITC.NS** | SELL | ₹301.00 | ₹307.00 | +1.99% | +0.00R |
-| **SBIN.NS** | SELL | ₹1132.65 | ₹1136.65 | +0.35% | +0.00R |
-| **EICHERMOT.NS** | SELL | ₹8172.50 | ₹8180.00 | +0.09% | +0.00R |
-| **MARUTI.NS** | SELL | ₹14010.00 | ₹14015.00 | +0.04% | +0.00R |
-| **APOLLOHOSP.NS** | SELL | ₹9257.00 | ₹9222.50 | -0.37% | +0.00R |
+| **HDFCBANK.NS** | SELL | ₹846.20 | ₹857.25 | +1.31% | +0.00R |
+| **HINDUNILVR.NS** | SELL | ₹2141.80 | ₹2117.20 | -1.15% | +0.00R |
+| **SBIN.NS** | SELL | ₹1138.15 | ₹1123.90 | -1.25% | +0.00R |
+| **DIVISLAB.NS** | SELL | ₹11716.50 | ₹11560.00 | -1.34% | +0.00R |
+| **ITC.NS** | SELL | ₹309.25 | ₹304.70 | -1.47% | +0.00R |
+| **KOTAKBANK.NS** | SELL | ₹509.00 | ₹500.00 | -1.77% | +0.00R |
+| **APOLLOHOSP.NS** | SELL | ₹9300.00 | ₹9128.00 | -1.85% | +0.00R |
+| **TATACONSUM.NS** | SELL | ₹1185.80 | ₹1155.00 | -2.60% | +0.00R |
+| **ICICIBANK.NS** | SELL | ₹1640.00 | ₹1593.40 | -2.84% | +0.00R |
+| **MARUTI.NS** | SELL | ₹14200.00 | ₹13765.00 | -3.06% | +0.00R |
+| **EICHERMOT.NS** | SELL | ₹8336.00 | ₹8003.50 | -3.99% | +0.00R |
 
 ---
 
@@ -61,12 +67,12 @@ _Generated: 2026-11-26 12:06_
 
 ## 🔮 Section 6 — Tomorrow's Early Probability Map
 
-> **Range-Bound Consolidation Likelihood Elevated**
+> **Bearish to Neutral Distribution Bias**
 
-*Equally balanced internal breadth vectors suggest higher probability of a standard range-bound consolidation day.*
+*Mild selling pressure indicates a softer tone, likely consolidating unless new institutional support materializes.*
 
 | Scenario | Model Probability |
 | :--- | :--- |
-| 🟢 Bullish Continuation | **36.6%** |
-| 🟡 Sideways / Range-Bound | **28.0%** |
-| 🔴 Bearish Continuation | **35.5%** |
+| 🟢 Bullish Continuation | **28.2%** |
+| 🟡 Sideways / Range-Bound | **26.7%** |
+| 🔴 Bearish Continuation | **45.1%** |
